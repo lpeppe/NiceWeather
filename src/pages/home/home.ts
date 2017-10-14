@@ -56,7 +56,7 @@ export class HomePage {
           .then(location => {
             let lat = location.latLng.lat;
             let lng = location.latLng.lng;
-            let position: CameraPosition = {
+            let position: CameraPosition<any> = {
               target: {
                 lat: lat,
                 lng: lng
