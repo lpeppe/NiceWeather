@@ -25606,15 +25606,21 @@ ion-auto-complete ul li:hover {
   background: #f1f1f1;
 }
 
-.ios page-home #map, .md page-home #map {
+.ios page-home div.content, .md page-home div.content {
   position: relative;
   height: 100%;
-  margin-bottom: 5px;
 }
 
-.ios page-home p, .md page-home p {
+.ios page-home #map, .md page-home #map {
+  height: 100%;
+  width: 100%;
+}
+
+.ios page-home ion-auto-complete, .md page-home ion-auto-complete {
   position: absolute;
-  top: 0;
+  top: 10px;
   right: 0;
+  left: 0;
   margin: auto;
+  z-index: 10;
 }

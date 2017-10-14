@@ -81,7 +81,7 @@ var HomePage = (function () {
 }());
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/luca/Desktop/NiceWeather/src/pages/home/home.html"*/'<ion-content padding>\n  <ion-auto-complete></ion-auto-complete>\n  <div #map id="map"></div>\n</ion-content>'/*ion-inline-end:"/Users/luca/Desktop/NiceWeather/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/Users/luca/Desktop/NiceWeather/src/pages/home/home.html"*/'<ion-content padding>\n  <div class="content">\n    <ion-auto-complete></ion-auto-complete>\n    <div #map id="map"></div>\n\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/luca/Desktop/NiceWeather/src/pages/home/home.html"*/
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_google_maps__["b" /* GoogleMaps */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_google_maps__["b" /* GoogleMaps */]) === "function" && _b || Object])
 ], HomePage);

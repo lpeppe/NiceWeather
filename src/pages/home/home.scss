@@ -1,15 +1,25 @@
 .ios, .md {
     page-home {
-        #map {
+
+        div.content {
             position: relative;
             height: 100%;
-            margin-bottom: 5px;
         }
-        p {
+
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+
+        ion-auto-complete {
             position: absolute;
-            top: 0;
+            top: 10px;
             right: 0;
+            left: 0;
             margin: auto;
-        }    
+            z-index: 10;
+            // border: 1px solid #000000;
+        }   
+
     }
 }
