@@ -9,6 +9,7 @@ import {
   MarkerOptions,
   Marker
  } from '@ionic-native/google-maps';
+import { AutoCompleteModule } from 'ionic2-auto-complete';
 
 @Component({
   selector: 'page-home',
@@ -40,6 +41,7 @@ export class HomePage {
           }
         };
     
-        this.map = this.googleMaps.create(this.mapElement, mapOptions);
+        // this.map = this.googleMaps.create(this.mapElement, mapOptions);
+        this.map = new GoogleMap(this.mapElement, mapOptions);
    }
 }
