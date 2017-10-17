@@ -17,6 +17,7 @@ import {
  } from '@ionic-native/google-maps';
  import { AutoCompleteModule } from 'ionic2-auto-complete';
 import { AutocompleteProvider } from '../providers/autocomplete/autocomplete';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AutocompleteProvider } from '../providers/autocomplete/autocomplete';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AutoCompleteModule
+    AutoCompleteModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

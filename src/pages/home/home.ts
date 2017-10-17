@@ -1,3 +1,4 @@
+import { AutocompleteProvider } from './../../providers/autocomplete/autocomplete';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {
@@ -21,7 +22,8 @@ export class HomePage {
   map: GoogleMap;
   mapElement: HTMLElement;
 
-  constructor(public navCtrl: NavController, private googleMaps: GoogleMaps, public platform: Platform) {
+  constructor(public navCtrl: NavController, private googleMaps: GoogleMaps, 
+    public platform: Platform, public autoComplete: AutocompleteProvider) {
   }
 
   // ionViewDidLoad() {
@@ -52,6 +54,7 @@ export class HomePage {
         this.map = new GoogleMap(this.mapElement, mapOptions);
         this.map.one(GoogleMapsEvent.MAP_READY)
         .then(_ => {
+          this.map.setCompassEnabled(false);
           this.map.getMyLocation()
           .then(location => {
             let lat = location.latLng.lat;
