@@ -29,7 +29,7 @@ export class HomePage {
   //  }
 
    ngAfterViewInit() {
-    this.platform.ready().then(() => {
+    this.platform.ready().then(_ => {
       this.loadMap();
     });
   }

@@ -16,6 +16,7 @@ import {
   Marker
  } from '@ionic-native/google-maps';
  import { AutoCompleteModule } from 'ionic2-auto-complete';
+import { AutocompleteProvider } from '../providers/autocomplete/autocomplete';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    GoogleMaps
+    GoogleMaps,
+    AutocompleteProvider
   ]
 })
 export class AppModule {}
