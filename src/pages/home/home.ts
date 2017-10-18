@@ -48,8 +48,8 @@ export class HomePage {
           // }
         };
     
-        // this.map = this.googleMaps.create(this.mapElement, mapOptions);
-        this.map = new GoogleMap(this.mapElement, mapOptions);
+        this.map = this.googleMaps.create(this.mapElement, mapOptions);
+        // this.map = new GoogleMap(this.mapElement, mapOptions);
         this.map.one(GoogleMapsEvent.MAP_READY)
         .then(_ => {
           this.map.getMyLocation()
@@ -65,6 +65,16 @@ export class HomePage {
               tilt: 30
             };
             this.map.moveCamera(position);
+          })
+          .catch(err => console.log("GPS disattivato"))
+          this.map.addMarker({
+            title: 'Ionic',
+            // icon: 'assets/icon/sun.png',
+            animation: 'DROP',
+            position: {
+              lat: 40.9222253,
+              lng: 14.7601242
+            }
           })
         })
    }
