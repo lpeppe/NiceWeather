@@ -1,0 +1,3887 @@
+{
+  "avellino": {
+    "comuni": [{
+        "nome": "Aiello del Sabato",
+        "coordinate": {
+          "lat": 40.8874462,
+          "lng": 14.8177335
+        }
+      },
+      {
+        "nome": "Altavilla Irpina",
+        "coordinate": {
+          "lat": 41.0049692,
+          "lng": 14.7791176
+        }
+      },
+      {
+        "nome": "Andretta",
+        "coordinate": {
+          "lat": 40.9400441,
+          "lng": 15.3248269
+        }
+      },
+      {
+        "nome": "Aquilonia",
+        "coordinate": {
+          "lat": 40.9865495,
+          "lng": 15.481995
+        }
+      },
+      {
+        "nome": "Ariano Irpino",
+        "coordinate": {
+          "lat": 41.1548934,
+          "lng": 15.0922763
+        }
+      },
+      {
+        "nome": "Atripalda",
+        "coordinate": {
+          "lat": 40.9169098,
+          "lng": 14.8307735
+        }
+      },
+      {
+        "nome": "Avella",
+        "coordinate": {
+          "lat": 40.2750705,
+          "lng": -80.4606225
+        }
+      },
+      {
+        "nome": "Avellino",
+        "coordinate": {
+          "lat": 40.914388,
+          "lng": 14.7906121
+        }
+      },
+      {
+        "nome": "Bagnoli Irpino",
+        "coordinate": {
+          "lat": 40.8320479,
+          "lng": 15.0696704
+        }
+      },
+      {
+        "nome": "Baiano",
+        "coordinate": {
+          "lat": 40.9516927,
+          "lng": 14.6190866
+        }
+      },
+      {
+        "nome": "Bisaccia",
+        "coordinate": {
+          "lat": 41.0153354,
+          "lng": 15.3758878
+        }
+      },
+      {
+        "nome": "Bonito",
+        "coordinate": {
+          "lat": -21.1265489,
+          "lng": -56.48407839999999
+        }
+      },
+      {
+        "nome": "Cairano",
+        "coordinate": {
+          "lat": 40.8957712,
+          "lng": 15.3681304
+        }
+      },
+      {
+        "nome": "Calabritto",
+        "coordinate": {
+          "lat": 40.7820954,
+          "lng": 15.2154642
+        }
+      },
+      {
+        "nome": "Calitri",
+        "coordinate": {
+          "lat": 40.9008925,
+          "lng": 15.4380075
+        }
+      },
+      {
+        "nome": "Candida",
+        "coordinate": {
+          "lat": 40.9400078,
+          "lng": 14.871089
+        }
+      },
+      {
+        "nome": "Caposele",
+        "coordinate": {
+          "lat": 40.8170759,
+          "lng": 15.2217291
+        }
+      },
+      {
+        "nome": "Capriglia Irpina",
+        "coordinate": {
+          "lat": 40.9580902,
+          "lng": 14.7812654
+        }
+      },
+      {
+        "nome": "Carife",
+        "coordinate": {
+          "lat": 41.0283321,
+          "lng": 15.2090632
+        }
+      },
+      {
+        "nome": "Casalbore",
+        "coordinate": {
+          "lat": 41.2329537,
+          "lng": 15.0061328
+        }
+      },
+      {
+        "nome": "Cassano Irpino",
+        "coordinate": {
+          "lat": 40.8719795,
+          "lng": 15.0271277
+        }
+      },
+      {
+        "nome": "Castel Baronia",
+        "coordinate": {
+          "lat": 41.0472636,
+          "lng": 15.1880115
+        }
+      },
+      {
+        "nome": "Castelfranci",
+        "coordinate": {
+          "lat": 40.9289315,
+          "lng": 15.0429648
+        }
+      },
+      {
+        "nome": "Castelvetere sul Calore",
+        "coordinate": {
+          "lat": 40.92925700000001,
+          "lng": 14.9863479
+        }
+      },
+      {
+        "nome": "Cervinara",
+        "coordinate": {
+          "lat": 41.02091009999999,
+          "lng": 14.6208904
+        }
+      },
+      {
+        "nome": "Cesinali",
+        "coordinate": {
+          "lat": 40.89625300000001,
+          "lng": 14.8270016
+        }
+      },
+      {
+        "nome": "Chianche",
+        "coordinate": {
+          "lat": 41.04425560000001,
+          "lng": 14.7904234
+        }
+      },
+      {
+        "nome": "Chiusano di San Domenico",
+        "coordinate": {
+          "lat": 40.931181,
+          "lng": 14.9169915
+        }
+      },
+      {
+        "nome": "Contrada",
+        "coordinate": {
+          "lat": 37.79743739999999,
+          "lng": -122.4345038
+        }
+      },
+      {
+        "nome": "Conza della Campania",
+        "coordinate": {
+          "lat": 40.8585855,
+          "lng": 15.3360664
+        }
+      },
+      {
+        "nome": "Domicella",
+        "coordinate": {
+          "lat": 40.882036,
+          "lng": 14.5893937
+        }
+      },
+      {
+        "nome": "Flumeri",
+        "coordinate": {
+          "lat": 41.0760492,
+          "lng": 15.1519998
+        }
+      },
+      {
+        "nome": "Fontanarosa",
+        "coordinate": {
+          "lat": 41.0165199,
+          "lng": 15.0202291
+        }
+      },
+      {
+        "nome": "Forino",
+        "coordinate": {
+          "lat": 40.3137741,
+          "lng": -76.05221809999999
+        }
+      },
+      {
+        "nome": "Frigento",
+        "coordinate": {
+          "lat": 41.0117523,
+          "lng": 15.1007581
+        }
+      },
+      {
+        "nome": "Gesualdo",
+        "coordinate": {
+          "lat": 41.0066847,
+          "lng": 15.0693969
+        }
+      },
+      {
+        "nome": "Greci",
+        "coordinate": {
+          "lat": 41.25302279999999,
+          "lng": 15.1693633
+        }
+      },
+      {
+        "nome": "Grottaminarda",
+        "coordinate": {
+          "lat": 41.07268709999999,
+          "lng": 15.0623317
+        }
+      },
+      {
+        "nome": "Grottolella",
+        "coordinate": {
+          "lat": 40.9715205,
+          "lng": 14.7878362
+        }
+      },
+      {
+        "nome": "Guardia Lombardi",
+        "coordinate": {
+          "lat": 40.95053310000001,
+          "lng": 15.2081489
+        }
+      },
+      {
+        "nome": "Lacedonia",
+        "coordinate": {
+          "lat": 41.0499933,
+          "lng": 15.4210652
+        }
+      },
+      {
+        "nome": "Lapio",
+        "coordinate": {
+          "lat": 37.79176639999999,
+          "lng": -122.3935997
+        }
+      },
+      {
+        "nome": "Lauro",
+        "coordinate": {
+          "lat": 26.1414641,
+          "lng": -80.13660569999999
+        }
+      },
+      {
+        "nome": "Lioni",
+        "coordinate": {
+          "lat": 40.8747668,
+          "lng": 15.1888145
+        }
+      },
+      {
+        "nome": "Luogosano",
+        "coordinate": {
+          "lat": 40.9827573,
+          "lng": 14.9960248
+        }
+      },
+      {
+        "nome": "Manocalzati",
+        "coordinate": {
+          "lat": 40.9400573,
+          "lng": 14.84639
+        }
+      },
+      {
+        "nome": "Marzano di Nola",
+        "coordinate": {
+          "lat": 40.90284389999999,
+          "lng": 14.583578
+        }
+      },
+      {
+        "nome": "Melito Irpino",
+        "coordinate": {
+          "lat": 41.1049222,
+          "lng": 15.0505293
+        }
+      },
+      {
+        "nome": "Mercogliano",
+        "coordinate": {
+          "lat": 40.9205755,
+          "lng": 14.7393524
+        }
+      },
+      {
+        "nome": "Mirabella Eclano",
+        "coordinate": {
+          "lat": 41.0432362,
+          "lng": 14.9967425
+        }
+      },
+      {
+        "nome": "Montaguto",
+        "coordinate": {
+          "lat": 41.2496359,
+          "lng": 15.2481372
+        }
+      },
+      {
+        "nome": "Montecalvo Irpino",
+        "coordinate": {
+          "lat": 41.193591,
+          "lng": 15.0306675
+        }
+      },
+      {
+        "nome": "Montefalcione",
+        "coordinate": {
+          "lat": 40.9609473,
+          "lng": 14.88188040000001
+        }
+      },
+      {
+        "nome": "Monteforte Irpino",
+        "coordinate": {
+          "lat": 40.8872453,
+          "lng": 14.7142443
+        }
+      },
+      {
+        "nome": "Montefredane",
+        "coordinate": {
+          "lat": 40.96271,
+          "lng": 14.8115095
+        }
+      },
+      {
+        "nome": "Montefusco",
+        "coordinate": {
+          "lat": 41.0352668,
+          "lng": 14.8527694
+        }
+      },
+      {
+        "nome": "Montella",
+        "coordinate": {
+          "lat": 40.8402258,
+          "lng": 15.0263014
+        }
+      },
+      {
+        "nome": "Montemarano",
+        "coordinate": {
+          "lat": 40.914539,
+          "lng": 14.9988961
+        }
+      },
+      {
+        "nome": "Montemiletto",
+        "coordinate": {
+          "lat": 41.0105847,
+          "lng": 14.9090177
+        }
+      },
+      {
+        "nome": "Monteverde",
+        "coordinate": {
+          "lat": 41.8819188,
+          "lng": -87.6529673
+        }
+      },
+      {
+        "nome": "Montoro",
+        "coordinate": {
+          "lat": 38.02265269999999,
+          "lng": -4.3834962
+        }
+      },
+      {
+        "nome": "Morra De Sanctis",
+        "coordinate": {
+          "lat": 40.93272839999999,
+          "lng": 15.2425333
+        }
+      },
+      {
+        "nome": "Moschiano",
+        "coordinate": {
+          "lat": 40.8728372,
+          "lng": 14.6762738
+        }
+      },
+      {
+        "nome": "Mugnano del Cardinale",
+        "coordinate": {
+          "lat": 40.94404349999999,
+          "lng": 14.6339257
+        }
+      },
+      {
+        "nome": "Nusco",
+        "coordinate": {
+          "lat": 40.8882652,
+          "lng": 15.0898218
+        }
+      },
+      {
+        "nome": "Ospedaletto d'Alpinolo",
+        "coordinate": {
+          "lat": 40.9403449,
+          "lng": 14.7428438
+        }
+      },
+      {
+        "nome": "Pago del Vallo di Lauro",
+        "coordinate": {
+          "lat": 40.8982823,
+          "lng": 14.6071082
+        }
+      },
+      {
+        "nome": "Parolise",
+        "coordinate": {
+          "lat": 40.9315787,
+          "lng": 14.8892473
+        }
+      },
+      {
+        "nome": "Paternopoli",
+        "coordinate": {
+          "lat": 40.9723669,
+          "lng": 15.0291803
+        }
+      },
+      {
+        "nome": "Petruro Irpino",
+        "coordinate": {
+          "lat": 41.0312016,
+          "lng": 14.7964283
+        }
+      },
+      {
+        "nome": "Pietradefusi",
+        "coordinate": {
+          "lat": 41.0430515,
+          "lng": 14.88376
+        }
+      },
+      {
+        "nome": "Pietrastornina",
+        "coordinate": {
+          "lat": 40.99246099999999,
+          "lng": 14.7247299
+        }
+      },
+      {
+        "nome": "Prata di Principato Ultra",
+        "coordinate": {
+          "lat": 40.9914972,
+          "lng": 14.8279512
+        }
+      },
+      {
+        "nome": "Pratola Serra",
+        "coordinate": {
+          "lat": 40.9873693,
+          "lng": 14.8517851
+        }
+      },
+      {
+        "nome": "Quadrelle",
+        "coordinate": {
+          "lat": 40.9492685,
+          "lng": 14.6371541
+        }
+      },
+      {
+        "nome": "Quindici",
+        "coordinate": {
+          "lat": 40.851855,
+          "lng": 14.6471221
+        }
+      },
+      {
+        "nome": "Rocca San Felice",
+        "coordinate": {
+          "lat": 40.9493337,
+          "lng": 15.1654922
+        }
+      },
+      {
+        "nome": "Roccabascerana",
+        "coordinate": {
+          "lat": 41.0171739,
+          "lng": 14.7183544
+        }
+      },
+      {
+        "nome": "Rotondi",
+        "coordinate": {
+          "lat": 41.0306925,
+          "lng": 14.5964761
+        }
+      },
+      {
+        "nome": "Salza Irpina",
+        "coordinate": {
+          "lat": 40.9206994,
+          "lng": 14.8880622
+        }
+      },
+      {
+        "nome": "San Mango sul Calore",
+        "coordinate": {
+          "lat": 40.96523320000001,
+          "lng": 14.9744869
+        }
+      },
+      {
+        "nome": "San Martino Valle Caudina",
+        "coordinate": {
+          "lat": 41.0261792,
+          "lng": 14.6628607
+        }
+      },
+      {
+        "nome": "San Michele di Serino",
+        "coordinate": {
+          "lat": 40.8783792,
+          "lng": 14.8425433
+        }
+      },
+      {
+        "nome": "San Nicola Baronia",
+        "coordinate": {
+          "lat": 41.05755200000001,
+          "lng": 15.2025993
+        }
+      },
+      {
+        "nome": "San Potito Ultra",
+        "coordinate": {
+          "lat": 40.92853660000001,
+          "lng": 14.8714141
+        }
+      },
+      {
+        "nome": "San Sossio Baronia",
+        "coordinate": {
+          "lat": 41.06992169999999,
+          "lng": 15.2006383
+        }
+      },
+      {
+        "nome": "Santa Lucia di Serino",
+        "coordinate": {
+          "lat": 40.8694046,
+          "lng": 14.8770513
+        }
+      },
+      {
+        "nome": "Santa Paolina",
+        "coordinate": {
+          "lat": 41.02617549999999,
+          "lng": 14.8471059
+        }
+      },
+      {
+        "nome": "Sant'Andrea di Conza",
+        "coordinate": {
+          "lat": 40.84425900000001,
+          "lng": 15.3696345
+        }
+      },
+      {
+        "nome": "Sant'Angelo a Scala",
+        "coordinate": {
+          "lat": 40.97166079999999,
+          "lng": 14.7415482
+        }
+      },
+      {
+        "nome": "Sant'Angelo all'Esca",
+        "coordinate": {
+          "lat": 41.00982279999999,
+          "lng": 14.992263
+        }
+      },
+      {
+        "nome": "Sant'Angelo dei Lombardi",
+        "coordinate": {
+          "lat": 40.9277972,
+          "lng": 15.1777683
+        }
+      },
+      {
+        "nome": "Santo Stefano del Sole",
+        "coordinate": {
+          "lat": 40.8942632,
+          "lng": 14.8679097
+        }
+      },
+      {
+        "nome": "Savignano Irpino",
+        "coordinate": {
+          "lat": 41.22837699999999,
+          "lng": 15.1814179
+        }
+      },
+      {
+        "nome": "Scampitella",
+        "coordinate": {
+          "lat": 41.0911341,
+          "lng": 15.2998521
+        }
+      },
+      {
+        "nome": "Senerchia",
+        "coordinate": {
+          "lat": 40.7398701,
+          "lng": 15.2048481
+        }
+      },
+      {
+        "nome": "Serino",
+        "coordinate": {
+          "lat": 40.8381588,
+          "lng": 14.9038451
+        }
+      },
+      {
+        "nome": "Sirignano",
+        "coordinate": {
+          "lat": 40.9496588,
+          "lng": 14.6272613
+        }
+      },
+      {
+        "nome": "Solofra",
+        "coordinate": {
+          "lat": 40.832547,
+          "lng": 14.8456309
+        }
+      },
+      {
+        "nome": "Sorbo Serpico",
+        "coordinate": {
+          "lat": 40.9154786,
+          "lng": 14.8879906
+        }
+      },
+      {
+        "nome": "Sperone",
+        "coordinate": {
+          "lat": 40.9545859,
+          "lng": 14.6026042
+        }
+      },
+      {
+        "nome": "Sturno",
+        "coordinate": {
+          "lat": 41.021776,
+          "lng": 15.1094593
+        }
+      },
+      {
+        "nome": "Summonte",
+        "coordinate": {
+          "lat": 40.94966579999999,
+          "lng": 14.7448369
+        }
+      },
+      {
+        "nome": "Taurano",
+        "coordinate": {
+          "lat": 40.8835167,
+          "lng": 14.6361435
+        }
+      },
+      {
+        "nome": "Taurasi",
+        "coordinate": {
+          "lat": 41.0077969,
+          "lng": 14.9589703
+        }
+      },
+      {
+        "nome": "Teora",
+        "coordinate": {
+          "lat": 40.8526675,
+          "lng": 15.2575688
+        }
+      },
+      {
+        "nome": "Torella dei Lombardi",
+        "coordinate": {
+          "lat": 40.9397228,
+          "lng": 15.1161202
+        }
+      },
+      {
+        "nome": "Torre Le Nocelle",
+        "coordinate": {
+          "lat": 41.0227186,
+          "lng": 14.9094612
+        }
+      },
+      {
+        "nome": "Torrioni",
+        "coordinate": {
+          "lat": 41.0337924,
+          "lng": 14.8139178
+        }
+      },
+      {
+        "nome": "Trevico",
+        "coordinate": {
+          "lat": 41.04510820000001,
+          "lng": 15.2326776
+        }
+      },
+      {
+        "nome": "Tufo",
+        "coordinate": {
+          "lat": 49.199037,
+          "lng": 17.535773
+        }
+      },
+      {
+        "nome": "Vallata",
+        "coordinate": {
+          "lat": 64.92800989999999,
+          "lng": -147.8653396
+        }
+      },
+      {
+        "nome": "Vallesaccarda",
+        "coordinate": {
+          "lat": 41.06504489999999,
+          "lng": 15.2549367
+        }
+      },
+      {
+        "nome": "Venticano",
+        "coordinate": {
+          "lat": 41.0581568,
+          "lng": 14.9213643
+        }
+      },
+      {
+        "nome": "Villamaina",
+        "coordinate": {
+          "lat": 40.9743248,
+          "lng": 15.0928866
+        }
+      },
+      {
+        "nome": "Villanova del Battista",
+        "coordinate": {
+          "lat": 41.1131959,
+          "lng": 15.1603192
+        }
+      },
+      {
+        "nome": "Volturara Irpina",
+        "coordinate": {
+          "lat": 40.8802445,
+          "lng": 14.9180629
+        }
+      },
+      {
+        "nome": "Zungoli",
+        "coordinate": {
+          "lat": 41.1246089,
+          "lng": 15.2013894
+        }
+      }
+    ],
+    "coordinate": {
+      "lat": 40.914388,
+      "lng": 14.7906121
+    }
+  },
+  "benevento": {
+    "comuni": [{
+        "nome": "Airola",
+        "coordinate": {
+          "lat": 41.0655176,
+          "lng": 14.5577239
+        }
+      },
+      {
+        "nome": "Amorosi",
+        "coordinate": {
+          "lat": 41.20227319999999,
+          "lng": 14.4621265
+        }
+      },
+      {
+        "nome": "Apice",
+        "coordinate": {
+          "lat": 41.1282077,
+          "lng": 14.9505671
+        }
+      },
+      {
+        "nome": "Apollosa",
+        "coordinate": {
+          "lat": 41.0928862,
+          "lng": 14.6985942
+        }
+      },
+      {
+        "nome": "Arpaia",
+        "coordinate": {
+          "lat": 41.0384238,
+          "lng": 14.5531893
+        }
+      },
+      {
+        "nome": "Arpaise",
+        "coordinate": {
+          "lat": 41.0299305,
+          "lng": 14.7453089
+        }
+      },
+      {
+        "nome": "Baselice",
+        "coordinate": {
+          "lat": 41.3920535,
+          "lng": 14.9732297
+        }
+      },
+      {
+        "nome": "Benevento",
+        "coordinate": {
+          "lat": 41.1297613,
+          "lng": 14.7826208
+        }
+      },
+      {
+        "nome": "Bonea",
+        "coordinate": {
+          "lat": 41.0752031,
+          "lng": 14.6191771
+        }
+      },
+      {
+        "nome": "Bucciano",
+        "coordinate": {
+          "lat": 41.0825585,
+          "lng": 14.5830082
+        }
+      },
+      {
+        "nome": "Buonalbergo",
+        "coordinate": {
+          "lat": 41.222203,
+          "lng": 14.9793068
+        }
+      },
+      {
+        "nome": "Calvi",
+        "coordinate": {
+          "lat": 42.567651,
+          "lng": 8.757221999999999
+        }
+      },
+      {
+        "nome": "Campolattaro",
+        "coordinate": {
+          "lat": 41.2876603,
+          "lng": 14.7354961
+        }
+      },
+      {
+        "nome": "Campoli del Monte Taburno",
+        "coordinate": {
+          "lat": 41.1308729,
+          "lng": 14.6472491
+        }
+      },
+      {
+        "nome": "Casalduni",
+        "coordinate": {
+          "lat": 41.2608789,
+          "lng": 14.6962151
+        }
+      },
+      {
+        "nome": "Castelfranco in Miscano",
+        "coordinate": {
+          "lat": 41.2993991,
+          "lng": 15.0852503
+        }
+      },
+      {
+        "nome": "Castelpagano",
+        "coordinate": {
+          "lat": 41.40028619999999,
+          "lng": 14.8076325
+        }
+      },
+      {
+        "nome": "Castelpoto",
+        "coordinate": {
+          "lat": 41.1451073,
+          "lng": 14.7039375
+        }
+      },
+      {
+        "nome": "Castelvenere",
+        "coordinate": {
+          "lat": 41.2345331,
+          "lng": 14.5451327
+        }
+      },
+      {
+        "nome": "Castelvetere in Val Fortore",
+        "coordinate": {
+          "lat": 41.4428264,
+          "lng": 14.935975
+        }
+      },
+      {
+        "nome": "Cautano",
+        "coordinate": {
+          "lat": 41.1499583,
+          "lng": 14.6437471
+        }
+      },
+      {
+        "nome": "Ceppaloni",
+        "coordinate": {
+          "lat": 41.0452003,
+          "lng": 14.7612551
+        }
+      },
+      {
+        "nome": "Cerreto Sannita",
+        "coordinate": {
+          "lat": 41.2848325,
+          "lng": 14.5605999
+        }
+      },
+      {
+        "nome": "Circello",
+        "coordinate": {
+          "lat": 41.3543832,
+          "lng": 14.811152
+        }
+      },
+      {
+        "nome": "Colle Sannita",
+        "coordinate": {
+          "lat": 41.36469,
+          "lng": 14.833057
+        }
+      },
+      {
+        "nome": "Cusano Mutri",
+        "coordinate": {
+          "lat": 41.33885300000001,
+          "lng": 14.5071734
+        }
+      },
+      {
+        "nome": "Dugenta",
+        "coordinate": {
+          "lat": 41.13135390000001,
+          "lng": 14.4527896
+        }
+      },
+      {
+        "nome": "Durazzano",
+        "coordinate": {
+          "lat": 41.0595139,
+          "lng": 14.4548621
+        }
+      },
+      {
+        "nome": "Faicchio",
+        "coordinate": {
+          "lat": 41.27865289999999,
+          "lng": 14.4805823
+        }
+      },
+      {
+        "nome": "Foglianise",
+        "coordinate": {
+          "lat": 41.166939,
+          "lng": 14.66508550000001
+        }
+      },
+      {
+        "nome": "Foiano di Val Fortore",
+        "coordinate": {
+          "lat": 41.35316830000001,
+          "lng": 14.9809775
+        }
+      },
+      {
+        "nome": "Forchia",
+        "coordinate": {
+          "lat": 41.0406947,
+          "lng": 14.5247463
+        }
+      },
+      {
+        "nome": "Fragneto L'Abate",
+        "coordinate": {
+          "lat": 41.25965599999999,
+          "lng": 14.7851665
+        }
+      },
+      {
+        "nome": "Fragneto Monforte",
+        "coordinate": {
+          "lat": 41.24491200000001,
+          "lng": 14.7616165
+        }
+      },
+      {
+        "nome": "Frasso Telesino",
+        "coordinate": {
+          "lat": 41.157054,
+          "lng": 14.5279645
+        }
+      },
+      {
+        "nome": "Ginestra degli Schiavoni",
+        "coordinate": {
+          "lat": 41.27727300000001,
+          "lng": 15.0498966
+        }
+      },
+      {
+        "nome": "Guardia Sanframondi",
+        "coordinate": {
+          "lat": 41.25637649999999,
+          "lng": 14.5993847
+        }
+      },
+      {
+        "nome": "Limatola",
+        "coordinate": {
+          "lat": 41.1360107,
+          "lng": 14.3966503
+        }
+      },
+      {
+        "nome": "Melizzano",
+        "coordinate": {
+          "lat": 41.160924,
+          "lng": 14.5053116
+        }
+      },
+      {
+        "nome": "Moiano",
+        "coordinate": {
+          "lat": 41.0814221,
+          "lng": 14.5428746
+        }
+      },
+      {
+        "nome": "Molinara",
+        "coordinate": {
+          "lat": 41.2909087,
+          "lng": 14.9103156
+        }
+      },
+      {
+        "nome": "Montefalcone di Val Fortore",
+        "coordinate": {
+          "lat": 41.3240758,
+          "lng": 15.0088677
+        }
+      },
+      {
+        "nome": "Montesarchio",
+        "coordinate": {
+          "lat": 41.0632282,
+          "lng": 14.638047
+        }
+      },
+      {
+        "nome": "Morcone",
+        "coordinate": {
+          "lat": 41.33977019999999,
+          "lng": 14.6654553
+        }
+      },
+      {
+        "nome": "Paduli",
+        "coordinate": {
+          "lat": 41.1737587,
+          "lng": 14.9038451
+        }
+      },
+      {
+        "nome": "Pago Veiano",
+        "coordinate": {
+          "lat": 41.2442895,
+          "lng": 14.8663744
+        }
+      },
+      {
+        "nome": "Pannarano",
+        "coordinate": {
+          "lat": 41.0114038,
+          "lng": 14.703228
+        }
+      },
+      {
+        "nome": "Paolisi",
+        "coordinate": {
+          "lat": 41.0371352,
+          "lng": 14.5790447
+        }
+      },
+      {
+        "nome": "Paupisi",
+        "coordinate": {
+          "lat": 41.2044773,
+          "lng": 14.6500371
+        }
+      },
+      {
+        "nome": "Pesco Sannita",
+        "coordinate": {
+          "lat": 41.2347817,
+          "lng": 14.8104186
+        }
+      },
+      {
+        "nome": "Pietraroja",
+        "coordinate": {
+          "lat": 41.3463421,
+          "lng": 14.5503464
+        }
+      },
+      {
+        "nome": "Pietrelcina",
+        "coordinate": {
+          "lat": 41.2026567,
+          "lng": 14.8337879
+        }
+      },
+      {
+        "nome": "Ponte",
+        "coordinate": {
+          "lat": 33.5366626,
+          "lng": -117.0505835
+        }
+      },
+      {
+        "nome": "Pontelandolfo",
+        "coordinate": {
+          "lat": 41.2869176,
+          "lng": 14.6950301
+        }
+      },
+      {
+        "nome": "Puglianello",
+        "coordinate": {
+          "lat": 41.2231557,
+          "lng": 14.4495034
+        }
+      },
+      {
+        "nome": "Reino",
+        "coordinate": {
+          "lat": 41.29299699999999,
+          "lng": 14.8241665
+        }
+      },
+      {
+        "nome": "San Bartolomeo in Galdo",
+        "coordinate": {
+          "lat": 41.41164320000001,
+          "lng": 15.0142925
+        }
+      },
+      {
+        "nome": "San Giorgio del Sannio",
+        "coordinate": {
+          "lat": 41.06121650000001,
+          "lng": 14.8511356
+        }
+      },
+      {
+        "nome": "San Giorgio La Molara",
+        "coordinate": {
+          "lat": 41.27096359999999,
+          "lng": 14.92018910000001
+        }
+      },
+      {
+        "nome": "San Leucio del Sannio",
+        "coordinate": {
+          "lat": 41.0763345,
+          "lng": 14.7580187
+        }
+      },
+      {
+        "nome": "San Lorenzello",
+        "coordinate": {
+          "lat": 41.2773973,
+          "lng": 14.5417872
+        }
+      },
+      {
+        "nome": "San Lorenzo Maggiore",
+        "coordinate": {
+          "lat": 40.85081090000001,
+          "lng": 14.2577836
+        }
+      },
+      {
+        "nome": "San Lupo",
+        "coordinate": {
+          "lat": 41.2599956,
+          "lng": 14.6352445
+        }
+      },
+      {
+        "nome": "San Marco dei Cavoti",
+        "coordinate": {
+          "lat": 41.3091933,
+          "lng": 14.8790915
+        }
+      },
+      {
+        "nome": "San Martino Sannita",
+        "coordinate": {
+          "lat": 41.0667491,
+          "lng": 14.8368748
+        }
+      },
+      {
+        "nome": "San Nazzaro",
+        "coordinate": {
+          "lat": 41.0532356,
+          "lng": 14.8570673
+        }
+      },
+      {
+        "nome": "San Nicola Manfredi",
+        "coordinate": {
+          "lat": 41.0719915,
+          "lng": 14.8232452
+        }
+      },
+      {
+        "nome": "San Salvatore Telesino",
+        "coordinate": {
+          "lat": 41.234931,
+          "lng": 14.4962395
+        }
+      },
+      {
+        "nome": "Santa Croce del Sannio",
+        "coordinate": {
+          "lat": 41.3868126,
+          "lng": 14.7329865
+        }
+      },
+      {
+        "nome": "Sant'Agata De' Goti",
+        "coordinate": {
+          "lat": 41.0895812,
+          "lng": 14.4998955
+        }
+      },
+      {
+        "nome": "Sant'Angelo a Cupolo",
+        "coordinate": {
+          "lat": 41.0706103,
+          "lng": 14.804475
+        }
+      },
+      {
+        "nome": "Sant'Arcangelo Trimonte",
+        "coordinate": {
+          "lat": 41.16640179999999,
+          "lng": 14.9386289
+        }
+      },
+      {
+        "nome": "Sassinoro",
+        "coordinate": {
+          "lat": 41.3746094,
+          "lng": 14.6632444
+        }
+      },
+      {
+        "nome": "Solopaca",
+        "coordinate": {
+          "lat": 41.192725,
+          "lng": 14.548419
+        }
+      },
+      {
+        "nome": "Telese Terme",
+        "coordinate": {
+          "lat": 41.2167594,
+          "lng": 14.5262026
+        }
+      },
+      {
+        "nome": "Tocco Caudio",
+        "coordinate": {
+          "lat": 41.12739730000001,
+          "lng": 14.6299213
+        }
+      },
+      {
+        "nome": "Torrecuso",
+        "coordinate": {
+          "lat": 41.188674,
+          "lng": 14.6781247
+        }
+      },
+      {
+        "nome": "Vitulano",
+        "coordinate": {
+          "lat": 41.1765628,
+          "lng": 14.6483575
+        }
+      }
+    ],
+    "coordinate": {
+      "lat": 41.1297613,
+      "lng": 14.7826208
+    }
+  },
+  "caserta": {
+    "comuni": [{
+        "nome": "Ailano",
+        "coordinate": {
+          "lat": 41.3913721,
+          "lng": 14.207422
+        }
+      },
+      {
+        "nome": "Alife",
+        "coordinate": {
+          "lat": 40.719302,
+          "lng": -73.9852932
+        }
+      },
+      {
+        "nome": "Alvignano",
+        "coordinate": {
+          "lat": 41.2495421,
+          "lng": 14.3323696
+        }
+      },
+      {
+        "nome": "Arienzo",
+        "coordinate": {
+          "lat": 40.6258671,
+          "lng": 14.4976259
+        }
+      },
+      {
+        "nome": "Aversa",
+        "coordinate": {
+          "lat": 40.9731743,
+          "lng": 14.2076688
+        }
+      },
+      {
+        "nome": "Baia e Latina",
+        "coordinate": {
+          "lat": 41.3001203,
+          "lng": 14.2551467
+        }
+      },
+      {
+        "nome": "Bellona",
+        "coordinate": {
+          "lat": 42.757013,
+          "lng": -77.0146893
+        }
+      },
+      {
+        "nome": "Caianello",
+        "coordinate": {
+          "lat": 41.2979366,
+          "lng": 14.088517
+        }
+      },
+      {
+        "nome": "Caiazzo",
+        "coordinate": {
+          "lat": 41.17840830000001,
+          "lng": 14.3646988
+        }
+      },
+      {
+        "nome": "Calvi Risorta",
+        "coordinate": {
+          "lat": 41.2216895,
+          "lng": 14.1428361
+        }
+      },
+      {
+        "nome": "Camigliano",
+        "coordinate": {
+          "lat": 43.0072333,
+          "lng": 11.3992037
+        }
+      },
+      {
+        "nome": "Cancello ed Arnone",
+        "coordinate": {
+          "lat": 41.0698498,
+          "lng": 14.0188436
+        }
+      },
+      {
+        "nome": "Capodrise",
+        "coordinate": {
+          "lat": 41.0436123,
+          "lng": 14.2995108
+        }
+      },
+      {
+        "nome": "Capriati a Volturno",
+        "coordinate": {
+          "lat": 41.4683793,
+          "lng": 14.1478287
+        }
+      },
+      {
+        "nome": "Capua",
+        "coordinate": {
+          "lat": 41.10612580000001,
+          "lng": 14.2130486
+        }
+      },
+      {
+        "nome": "Carinaro",
+        "coordinate": {
+          "lat": 40.9971888,
+          "lng": 14.2250605
+        }
+      },
+      {
+        "nome": "Carinola",
+        "coordinate": {
+          "lat": 41.1888063,
+          "lng": 13.9767435
+        }
+      },
+      {
+        "nome": "Casagiove",
+        "coordinate": {
+          "lat": 41.0851633,
+          "lng": 14.3108319
+        }
+      },
+      {
+        "nome": "Casal di Principe",
+        "coordinate": {
+          "lat": 41.0187714,
+          "lng": 14.1117492
+        }
+      },
+      {
+        "nome": "Casaluce",
+        "coordinate": {
+          "lat": 41.0000022,
+          "lng": 14.1975556
+        }
+      },
+      {
+        "nome": "Casapesenna",
+        "coordinate": {
+          "lat": 40.9916031,
+          "lng": 14.1426801
+        }
+      },
+      {
+        "nome": "Casapulla",
+        "coordinate": {
+          "lat": 41.0745379,
+          "lng": 14.2863273
+        }
+      },
+      {
+        "nome": "Caserta",
+        "coordinate": {
+          "lat": 41.0854362,
+          "lng": 14.367553
+        }
+      },
+      {
+        "nome": "Castel Campagnano",
+        "coordinate": {
+          "lat": 41.1825025,
+          "lng": 14.4507847
+        }
+      },
+      {
+        "nome": "Castel di Sasso",
+        "coordinate": {
+          "lat": 41.1887186,
+          "lng": 14.2919273
+        }
+      },
+      {
+        "nome": "Castel Morrone",
+        "coordinate": {
+          "lat": 41.1278625,
+          "lng": 14.3442794
+        }
+      },
+      {
+        "nome": "Castel Volturno",
+        "coordinate": {
+          "lat": 41.0360286,
+          "lng": 13.9724141
+        }
+      },
+      {
+        "nome": "Castello del Matese",
+        "coordinate": {
+          "lat": 41.36827379999999,
+          "lng": 14.3768569
+        }
+      },
+      {
+        "nome": "Cellole",
+        "coordinate": {
+          "lat": 41.2031216,
+          "lng": 13.8534286
+        }
+      },
+      {
+        "nome": "Cervino",
+        "coordinate": {
+          "lat": 45.976575,
+          "lng": 7.6584519
+        }
+      },
+      {
+        "nome": "Cesa",
+        "coordinate": {
+          "lat": 40.96413949999999,
+          "lng": 14.2306816
+        }
+      },
+      {
+        "nome": "Ciorlano",
+        "coordinate": {
+          "lat": 41.44998779999999,
+          "lng": 14.1596149
+        }
+      },
+      {
+        "nome": "Conca della Campania",
+        "coordinate": {
+          "lat": 41.33373979999999,
+          "lng": 13.9906078
+        }
+      },
+      {
+        "nome": "Curti",
+        "coordinate": {
+          "lat": 41.0753542,
+          "lng": 14.2715733
+        }
+      },
+      {
+        "nome": "Dragoni",
+        "coordinate": {
+          "lat": 41.2717009,
+          "lng": 14.2977433
+        }
+      },
+      {
+        "nome": "Falciano del Massico",
+        "coordinate": {
+          "lat": 41.161186,
+          "lng": 13.9465659
+        }
+      },
+      {
+        "nome": "Fontegreca",
+        "coordinate": {
+          "lat": 41.45819879999999,
+          "lng": 14.1886101
+        }
+      },
+      {
+        "nome": "Formicola",
+        "coordinate": {
+          "lat": 41.21042119999999,
+          "lng": 14.2327428
+        }
+      },
+      {
+        "nome": "Francolise",
+        "coordinate": {
+          "lat": 41.1851217,
+          "lng": 14.0544364
+        }
+      },
+      {
+        "nome": "Frignano",
+        "coordinate": {
+          "lat": 40.9955887,
+          "lng": 14.1821388
+        }
+      },
+      {
+        "nome": "Gallo Matese",
+        "coordinate": {
+          "lat": 41.4769922,
+          "lng": 14.2279672
+        }
+      },
+      {
+        "nome": "Galluccio",
+        "coordinate": {
+          "lat": 41.35352019999999,
+          "lng": 13.9550503
+        }
+      },
+      {
+        "nome": "Giano Vetusto",
+        "coordinate": {
+          "lat": 41.20042309999999,
+          "lng": 14.1989038
+        }
+      },
+      {
+        "nome": "Gioia Sannitica",
+        "coordinate": {
+          "lat": 41.299736,
+          "lng": 14.4445658
+        }
+      },
+      {
+        "nome": "Grazzanise",
+        "coordinate": {
+          "lat": 41.0907477,
+          "lng": 14.1027526
+        }
+      },
+      {
+        "nome": "Gricignano di Aversa",
+        "coordinate": {
+          "lat": 40.9971057,
+          "lng": 14.245408
+        }
+      },
+      {
+        "nome": "Letino",
+        "coordinate": {
+          "lat": 41.4530456,
+          "lng": 14.2537107
+        }
+      },
+      {
+        "nome": "Liberi",
+        "coordinate": {
+          "lat": 41.22959840000001,
+          "lng": 14.2802961
+        }
+      },
+      {
+        "nome": "Lusciano",
+        "coordinate": {
+          "lat": 40.96481840000001,
+          "lng": 14.1872801
+        }
+      },
+      {
+        "nome": "Macerata Campania",
+        "coordinate": {
+          "lat": 41.05632989999999,
+          "lng": 14.2657584
+        }
+      },
+      {
+        "nome": "Maddaloni",
+        "coordinate": {
+          "lat": 41.0367027,
+          "lng": 14.3812391
+        }
+      },
+      {
+        "nome": "Marcianise",
+        "coordinate": {
+          "lat": 41.0152357,
+          "lng": 14.2977433
+        }
+      },
+      {
+        "nome": "Marzano Appio",
+        "coordinate": {
+          "lat": 41.3177499,
+          "lng": 14.04787
+        }
+      },
+      {
+        "nome": "Mignano Monte Lungo",
+        "coordinate": {
+          "lat": 41.4046226,
+          "lng": 13.9831579
+        }
+      },
+      {
+        "nome": "Mondragone",
+        "coordinate": {
+          "lat": 41.1147986,
+          "lng": 13.8934931
+        }
+      },
+      {
+        "nome": "Orta di Atella",
+        "coordinate": {
+          "lat": 40.96444379999999,
+          "lng": 14.2691656
+        }
+      },
+      {
+        "nome": "Parete",
+        "coordinate": {
+          "lat": 40.95753250000001,
+          "lng": 14.1661357
+        }
+      },
+      {
+        "nome": "Pastorano",
+        "coordinate": {
+          "lat": 41.1825865,
+          "lng": 14.2001802
+        }
+      },
+      {
+        "nome": "Piana di Monte Verna",
+        "coordinate": {
+          "lat": 41.1899711,
+          "lng": 14.3210095
+        }
+      },
+      {
+        "nome": "Piedimonte Matese",
+        "coordinate": {
+          "lat": 41.3623965,
+          "lng": 14.3966503
+        }
+      },
+      {
+        "nome": "Pietramelara",
+        "coordinate": {
+          "lat": 41.2725844,
+          "lng": 14.1872554
+        }
+      },
+      {
+        "nome": "Pietravairano",
+        "coordinate": {
+          "lat": 41.326452,
+          "lng": 14.1683372
+        }
+      },
+      {
+        "nome": "Pignataro Maggiore",
+        "coordinate": {
+          "lat": 41.1909453,
+          "lng": 14.1735756
+        }
+      },
+      {
+        "nome": "Pontelatone",
+        "coordinate": {
+          "lat": 41.1943226,
+          "lng": 14.2497361
+        }
+      },
+      {
+        "nome": "Portico di Caserta",
+        "coordinate": {
+          "lat": 41.0524321,
+          "lng": 14.2826388
+        }
+      },
+      {
+        "nome": "Prata Sannita",
+        "coordinate": {
+          "lat": 41.4210378,
+          "lng": 14.204716
+        }
+      },
+      {
+        "nome": "Pratella",
+        "coordinate": {
+          "lat": 41.404798,
+          "lng": 14.1784841
+        }
+      },
+      {
+        "nome": "Presenzano",
+        "coordinate": {
+          "lat": 41.375996,
+          "lng": 14.0779726
+        }
+      },
+      {
+        "nome": "Raviscanina",
+        "coordinate": {
+          "lat": 41.3708305,
+          "lng": 14.2421184
+        }
+      },
+      {
+        "nome": "Recale",
+        "coordinate": {
+          "lat": 41.0500573,
+          "lng": 14.2994128
+        }
+      },
+      {
+        "nome": "Riardo",
+        "coordinate": {
+          "lat": 41.2632923,
+          "lng": 14.1511822
+        }
+      },
+      {
+        "nome": "Rocca D'Evandro",
+        "coordinate": {
+          "lat": 41.3889205,
+          "lng": 13.9073072
+        }
+      },
+      {
+        "nome": "Roccamonfina",
+        "coordinate": {
+          "lat": 41.2928103,
+          "lng": 13.9851231
+        }
+      },
+      {
+        "nome": "Roccaromana",
+        "coordinate": {
+          "lat": 41.2751756,
+          "lng": 14.222345
+        }
+      },
+      {
+        "nome": "Rocchetta e Croce",
+        "coordinate": {
+          "lat": 41.2358067,
+          "lng": 14.1524147
+        }
+      },
+      {
+        "nome": "Ruviano",
+        "coordinate": {
+          "lat": 41.21337510000001,
+          "lng": 14.4082908
+        }
+      },
+      {
+        "nome": "San Cipriano d'Aversa",
+        "coordinate": {
+          "lat": 40.9988562,
+          "lng": 14.1320793
+        }
+      },
+      {
+        "nome": "San Felice a Cancello",
+        "coordinate": {
+          "lat": 40.9945518,
+          "lng": 14.4606845
+        }
+      },
+      {
+        "nome": "San Gregorio Matese",
+        "coordinate": {
+          "lat": 41.3854011,
+          "lng": 14.3735941
+        }
+      },
+      {
+        "nome": "San Marcellino",
+        "coordinate": {
+          "lat": 40.9875181,
+          "lng": 14.1640355
+        }
+      },
+      {
+        "nome": "San Marco Evangelista",
+        "coordinate": {
+          "lat": 41.0373786,
+          "lng": 14.340989
+        }
+      },
+      {
+        "nome": "San Nicola la Strada",
+        "coordinate": {
+          "lat": 41.0526007,
+          "lng": 14.3353063
+        }
+      },
+      {
+        "nome": "San Pietro Infine",
+        "coordinate": {
+          "lat": 41.4454758,
+          "lng": 13.9636174
+        }
+      },
+      {
+        "nome": "San Potito Sannitico",
+        "coordinate": {
+          "lat": 41.3368394,
+          "lng": 14.3930075
+        }
+      },
+      {
+        "nome": "San Prisco",
+        "coordinate": {
+          "lat": 41.0833643,
+          "lng": 14.2723855
+        }
+      },
+      {
+        "nome": "San Tammaro",
+        "coordinate": {
+          "lat": 41.0664698,
+          "lng": 14.204716
+        }
+      },
+      {
+        "nome": "Santa Maria a Vico",
+        "coordinate": {
+          "lat": 41.0283963,
+          "lng": 14.4665072
+        }
+      },
+      {
+        "nome": "Santa Maria Capua Vetere",
+        "coordinate": {
+          "lat": 41.0820867,
+          "lng": 14.2541872
+        }
+      },
+      {
+        "nome": "Santa Maria La Fossa",
+        "coordinate": {
+          "lat": 41.0923932,
+          "lng": 14.1291902
+        }
+      },
+      {
+        "nome": "Sant'Angelo d'Alife",
+        "coordinate": {
+          "lat": 41.3626906,
+          "lng": 14.2597562
+        }
+      },
+      {
+        "nome": "Sant'Arpino",
+        "coordinate": {
+          "lat": 40.9578977,
+          "lng": 14.2529557
+        }
+      },
+      {
+        "nome": "Sessa Aurunca",
+        "coordinate": {
+          "lat": 41.2383257,
+          "lng": 13.9325868
+        }
+      },
+      {
+        "nome": "Sparanise",
+        "coordinate": {
+          "lat": 41.1933964,
+          "lng": 14.099336
+        }
+      },
+      {
+        "nome": "Succivo",
+        "coordinate": {
+          "lat": 40.9659454,
+          "lng": 14.2537648
+        }
+      },
+      {
+        "nome": "Teano",
+        "coordinate": {
+          "lat": 41.2492784,
+          "lng": 14.0682377
+        }
+      },
+      {
+        "nome": "Teverola",
+        "coordinate": {
+          "lat": 41.0085381,
+          "lng": 14.2134347
+        }
+      },
+      {
+        "nome": "Tora e Piccilli",
+        "coordinate": {
+          "lat": 41.3403065,
+          "lng": 14.0246484
+        }
+      },
+      {
+        "nome": "Trentola-Ducenta",
+        "coordinate": {
+          "lat": 40.9768807,
+          "lng": 14.1757323
+        }
+      },
+      {
+        "nome": "Vairano Patenora",
+        "coordinate": {
+          "lat": 41.3360469,
+          "lng": 14.1268779
+        }
+      },
+      {
+        "nome": "Valle Agricola",
+        "coordinate": {
+          "lat": 41.4253579,
+          "lng": 14.2561563
+        }
+      },
+      {
+        "nome": "Valle di Maddaloni",
+        "coordinate": {
+          "lat": 41.0792509,
+          "lng": 14.413974
+        }
+      },
+      {
+        "nome": "Villa di Briano",
+        "coordinate": {
+          "lat": 41.0015672,
+          "lng": 14.1517679
+        }
+      },
+      {
+        "nome": "Villa Literno",
+        "coordinate": {
+          "lat": 41.0128532,
+          "lng": 14.0764833
+        }
+      },
+      {
+        "nome": "Vitulazio",
+        "coordinate": {
+          "lat": 41.1640284,
+          "lng": 14.2161284
+        }
+      }
+    ],
+    "coordinate": {
+      "lat": 41.0876374,
+      "lng": 14.3211764
+    }
+  },
+  "napoli": {
+    "comuni": [{
+        "nome": "Acerra",
+        "coordinate": {
+          "lat": 40.9441091,
+          "lng": 14.371438
+        }
+      },
+      {
+        "nome": "Afragola",
+        "coordinate": {
+          "lat": 40.9230386,
+          "lng": 14.309304
+        }
+      },
+      {
+        "nome": "Agerola",
+        "coordinate": {
+          "lat": 40.6380474,
+          "lng": 14.5452164
+        }
+      },
+      {
+        "nome": "Anacapri",
+        "coordinate": {
+          "lat": 40.5546558,
+          "lng": 14.2105284
+        }
+      },
+      {
+        "nome": "Arzano",
+        "coordinate": {
+          "lat": 40.9149986,
+          "lng": 14.2686658
+        }
+      },
+      {
+        "nome": "Bacoli",
+        "coordinate": {
+          "lat": 40.7948004,
+          "lng": 14.0685261
+        }
+      },
+      {
+        "nome": "Barano d'Ischia",
+        "coordinate": {
+          "lat": 40.709077,
+          "lng": 13.9140481
+        }
+      },
+      {
+        "nome": "Boscoreale",
+        "coordinate": {
+          "lat": 40.7727586,
+          "lng": 14.4814105
+        }
+      },
+      {
+        "nome": "Boscotrecase",
+        "coordinate": {
+          "lat": 40.7744684,
+          "lng": 14.4611697
+        }
+      },
+      {
+        "nome": "Brusciano",
+        "coordinate": {
+          "lat": 40.92084380000001,
+          "lng": 14.4237102
+        }
+      },
+      {
+        "nome": "Caivano",
+        "coordinate": {
+          "lat": 40.956764,
+          "lng": 14.3046087
+        }
+      },
+      {
+        "nome": "Calvizzano",
+        "coordinate": {
+          "lat": 40.90683070000001,
+          "lng": 14.1883471
+        }
+      },
+      {
+        "nome": "Camposano",
+        "coordinate": {
+          "lat": 40.9556716,
+          "lng": 14.5311202
+        }
+      },
+      {
+        "nome": "Capri",
+        "coordinate": {
+          "lat": 40.5532009,
+          "lng": 14.222154
+        }
+      },
+      {
+        "nome": "Carbonara di Nola",
+        "coordinate": {
+          "lat": 40.87279789999999,
+          "lng": 14.5786797
+        }
+      },
+      {
+        "nome": "Cardito",
+        "coordinate": {
+          "lat": 40.94639779999999,
+          "lng": 14.2994213
+        }
+      },
+      {
+        "nome": "Casalnuovo di Napoli",
+        "coordinate": {
+          "lat": 40.9092206,
+          "lng": 14.339994
+        }
+      },
+      {
+        "nome": "Casamarciano",
+        "coordinate": {
+          "lat": 40.9373657,
+          "lng": 14.5597007
+        }
+      },
+      {
+        "nome": "Casamicciola Terme",
+        "coordinate": {
+          "lat": 40.7480596,
+          "lng": 13.9045238
+        }
+      },
+      {
+        "nome": "Casandrino",
+        "coordinate": {
+          "lat": 40.9352203,
+          "lng": 14.2459303
+        }
+      },
+      {
+        "nome": "Casavatore",
+        "coordinate": {
+          "lat": 40.9002546,
+          "lng": 14.2772749
+        }
+      },
+      {
+        "nome": "Casola di Napoli",
+        "coordinate": {
+          "lat": 40.6949505,
+          "lng": 14.5301355
+        }
+      },
+      {
+        "nome": "Casoria",
+        "coordinate": {
+          "lat": 40.9075976,
+          "lng": 14.2928248
+        }
+      },
+      {
+        "nome": "Castellammare di Stabia",
+        "coordinate": {
+          "lat": 40.69847659999999,
+          "lng": 14.4898001
+        }
+      },
+      {
+        "nome": "Castello di Cisterna",
+        "coordinate": {
+          "lat": 40.91924420000001,
+          "lng": 14.4112011
+        }
+      },
+      {
+        "nome": "Cercola",
+        "coordinate": {
+          "lat": 40.8575784,
+          "lng": 14.3537878
+        }
+      },
+      {
+        "nome": "Cicciano",
+        "coordinate": {
+          "lat": 40.96236059999999,
+          "lng": 14.5379397
+        }
+      },
+      {
+        "nome": "Cimitile",
+        "coordinate": {
+          "lat": 40.9454471,
+          "lng": 14.516009
+        }
+      },
+      {
+        "nome": "Comiziano",
+        "coordinate": {
+          "lat": 40.95222100000001,
+          "lng": 14.553671
+        }
+      },
+      {
+        "nome": "Crispano",
+        "coordinate": {
+          "lat": 40.9543088,
+          "lng": 14.2860802
+        }
+      },
+      {
+        "nome": "Ercolano",
+        "coordinate": {
+          "lat": 40.8079195,
+          "lng": 14.3481628
+        }
+      },
+      {
+        "nome": "Forio",
+        "coordinate": {
+          "lat": 40.7382914,
+          "lng": 13.8605512
+        }
+      },
+      {
+        "nome": "Frattamaggiore",
+        "coordinate": {
+          "lat": 40.93618099999999,
+          "lng": 14.2773884
+        }
+      },
+      {
+        "nome": "Frattaminore",
+        "coordinate": {
+          "lat": 40.9537906,
+          "lng": 14.2717791
+        }
+      },
+      {
+        "nome": "Giugliano in Campania",
+        "coordinate": {
+          "lat": 40.9285635,
+          "lng": 14.2032077
+        }
+      },
+      {
+        "nome": "Gragnano",
+        "coordinate": {
+          "lat": 40.68257759999999,
+          "lng": 14.5363969
+        }
+      },
+      {
+        "nome": "Grumo Nevano",
+        "coordinate": {
+          "lat": 40.937512,
+          "lng": 14.2601093
+        }
+      },
+      {
+        "nome": "Ischia",
+        "coordinate": {
+          "lat": 40.7270164,
+          "lng": 13.9028656
+        }
+      },
+      {
+        "nome": "Lacco Ameno",
+        "coordinate": {
+          "lat": 40.7502875,
+          "lng": 13.8903541
+        }
+      },
+      {
+        "nome": "Lettere",
+        "coordinate": {
+          "lat": 40.69945789999999,
+          "lng": 14.5597007
+        }
+      },
+      {
+        "nome": "Liveri",
+        "coordinate": {
+          "lat": 40.9055681,
+          "lng": 14.5661995
+        }
+      },
+      {
+        "nome": "Marano di Napoli",
+        "coordinate": {
+          "lat": 40.8899594,
+          "lng": 14.1916736
+        }
+      },
+      {
+        "nome": "Mariglianella",
+        "coordinate": {
+          "lat": 40.9303108,
+          "lng": 14.4386847
+        }
+      },
+      {
+        "nome": "Marigliano",
+        "coordinate": {
+          "lat": 40.9249099,
+          "lng": 14.4562455
+        }
+      },
+      {
+        "nome": "Massa di Somma",
+        "coordinate": {
+          "lat": 40.84752080000001,
+          "lng": 14.37332
+        }
+      },
+      {
+        "nome": "Massa Lubrense",
+        "coordinate": {
+          "lat": 40.6088754,
+          "lng": 14.3413852
+        }
+      },
+      {
+        "nome": "Melito di Napoli",
+        "coordinate": {
+          "lat": 40.918679,
+          "lng": 14.2330496
+        }
+      },
+      {
+        "nome": "Meta",
+        "coordinate": {
+          "lat": 40.6428867,
+          "lng": 14.4173398
+        }
+      },
+      {
+        "nome": "Monte di Procida",
+        "coordinate": {
+          "lat": 40.795911,
+          "lng": 14.050773
+        }
+      },
+      {
+        "nome": "Mugnano di Napoli",
+        "coordinate": {
+          "lat": 40.9093349,
+          "lng": 14.2066452
+        }
+      },
+      {
+        "nome": "Napoli",
+        "coordinate": {
+          "lat": 40.8517746,
+          "lng": 14.2681244
+        }
+      },
+      {
+        "nome": "Nola",
+        "coordinate": {
+          "lat": 40.9270884,
+          "lng": 14.528886
+        }
+      },
+      {
+        "nome": "Ottaviano",
+        "coordinate": {
+          "lat": 40.8388939,
+          "lng": 14.4781532
+        }
+      },
+      {
+        "nome": "Palma Campania",
+        "coordinate": {
+          "lat": 40.8707193,
+          "lng": 14.5578401
+        }
+      },
+      {
+        "nome": "Piano di Sorrento",
+        "coordinate": {
+          "lat": 40.6278396,
+          "lng": 14.4199322
+        }
+      },
+      {
+        "nome": "Pimonte",
+        "coordinate": {
+          "lat": 40.6734027,
+          "lng": 14.5120589
+        }
+      },
+      {
+        "nome": "Poggiomarino",
+        "coordinate": {
+          "lat": 40.810117,
+          "lng": 14.5480484
+        }
+      },
+      {
+        "nome": "Pollena Trocchia",
+        "coordinate": {
+          "lat": 40.8592895,
+          "lng": 14.3891492
+        }
+      },
+      {
+        "nome": "Pomigliano d'Arco",
+        "coordinate": {
+          "lat": 40.9101303,
+          "lng": 14.3829123
+        }
+      },
+      {
+        "nome": "Pompei",
+        "coordinate": {
+          "lat": 40.7461572,
+          "lng": 14.4989344
+        }
+      },
+      {
+        "nome": "Portici",
+        "coordinate": {
+          "lat": 40.8141218,
+          "lng": 14.339067
+        }
+      },
+      {
+        "nome": "Pozzuoli",
+        "coordinate": {
+          "lat": 40.8459469,
+          "lng": 14.0932861
+        }
+      },
+      {
+        "nome": "Procida",
+        "coordinate": {
+          "lat": 40.7578412,
+          "lng": 14.0150996
+        }
+      },
+      {
+        "nome": "Qualiano",
+        "coordinate": {
+          "lat": 40.9189811,
+          "lng": 14.1534894
+        }
+      },
+      {
+        "nome": "Quarto",
+        "coordinate": {
+          "lat": 40.882919,
+          "lng": 14.1291758
+        }
+      },
+      {
+        "nome": "Roccarainola",
+        "coordinate": {
+          "lat": 40.9705886,
+          "lng": 14.5606896
+        }
+      },
+      {
+        "nome": "San Gennaro Vesuviano",
+        "coordinate": {
+          "lat": 40.8605593,
+          "lng": 14.52807
+        }
+      },
+      {
+        "nome": "San Giorgio a Cremano",
+        "coordinate": {
+          "lat": 40.8344827,
+          "lng": 14.3447444
+        }
+      },
+      {
+        "nome": "San Giuseppe Vesuviano",
+        "coordinate": {
+          "lat": 40.8260033,
+          "lng": 14.5014479
+        }
+      },
+      {
+        "nome": "San Paolo Bel Sito",
+        "coordinate": {
+          "lat": 40.91537289999999,
+          "lng": 14.5454972
+        }
+      },
+      {
+        "nome": "San Sebastiano al Vesuvio",
+        "coordinate": {
+          "lat": 40.8396304,
+          "lng": 14.3648209
+        }
+      },
+      {
+        "nome": "San Vitaliano",
+        "coordinate": {
+          "lat": 40.9250981,
+          "lng": 14.4820945
+        }
+      },
+      {
+        "nome": "Santa Maria la Carità",
+        "coordinate": {
+          "lat": 40.7182204,
+          "lng": 14.5101844
+        }
+      },
+      {
+        "nome": "Sant'Agnello",
+        "coordinate": {
+          "lat": 40.6222251,
+          "lng": 14.4053806
+        }
+      },
+      {
+        "nome": "Sant'Anastasia",
+        "coordinate": {
+          "lat": 40.8690963,
+          "lng": 14.3966503
+        }
+      },
+      {
+        "nome": "Sant'Antimo",
+        "coordinate": {
+          "lat": 40.9420301,
+          "lng": 14.2308738
+        }
+      },
+      {
+        "nome": "Sant'Antonio Abate",
+        "coordinate": {
+          "lat": 40.72189030000001,
+          "lng": 14.5432308
+        }
+      },
+      {
+        "nome": "Saviano",
+        "coordinate": {
+          "lat": 40.8953541,
+          "lng": 14.5014479
+        }
+      },
+      {
+        "nome": "Scisciano",
+        "coordinate": {
+          "lat": 40.9053867,
+          "lng": 14.4810648
+        }
+      },
+      {
+        "nome": "Serrara Fontana",
+        "coordinate": {
+          "lat": 40.7096824,
+          "lng": 13.8923231
+        }
+      },
+      {
+        "nome": "Somma Vesuviana",
+        "coordinate": {
+          "lat": 40.8787742,
+          "lng": 14.4373961
+        }
+      },
+      {
+        "nome": "Sorrento",
+        "coordinate": {
+          "lat": 40.6262925,
+          "lng": 14.37579850000001
+        }
+      },
+      {
+        "nome": "Striano",
+        "coordinate": {
+          "lat": 40.8156893,
+          "lng": 14.5751101
+        }
+      },
+      {
+        "nome": "Terzigno",
+        "coordinate": {
+          "lat": 40.7935303,
+          "lng": 14.4839765
+        }
+      },
+      {
+        "nome": "Torre Annunziata",
+        "coordinate": {
+          "lat": 40.7540553,
+          "lng": 14.4509125
+        }
+      },
+      {
+        "nome": "Torre del Greco",
+        "coordinate": {
+          "lat": 40.7894429,
+          "lng": 14.367461
+        }
+      },
+      {
+        "nome": "Trecase",
+        "coordinate": {
+          "lat": 40.7719483,
+          "lng": 14.4336808
+        }
+      },
+      {
+        "nome": "Tufino",
+        "coordinate": {
+          "lat": 40.9555095,
+          "lng": 14.5643198
+        }
+      },
+      {
+        "nome": "Vico Equense",
+        "coordinate": {
+          "lat": 40.6614983,
+          "lng": 14.4275013
+        }
+      },
+      {
+        "nome": "Villaricca",
+        "coordinate": {
+          "lat": 40.9195998,
+          "lng": 14.1727518
+        }
+      },
+      {
+        "nome": "Visciano",
+        "coordinate": {
+          "lat": 40.92146949999999,
+          "lng": 14.6063192
+        }
+      },
+      {
+        "nome": "Volla",
+        "coordinate": {
+          "lat": 40.87670239999999,
+          "lng": 14.3411568
+        }
+      }
+    ],
+    "coordinate": {
+      "lat": 40.8517746,
+      "lng": 14.2681244
+    }
+  },
+  "salerno": {
+    "comuni": [{
+        "nome": "Acerno",
+        "coordinate": {
+          "lat": 40.7371658,
+          "lng": 15.060466
+        }
+      },
+      {
+        "nome": "Agropoli",
+        "coordinate": {
+          "lat": 40.3486827,
+          "lng": 14.9912195
+        }
+      },
+      {
+        "nome": "Albanella",
+        "coordinate": {
+          "lat": 40.4781626,
+          "lng": 15.1143324
+        }
+      },
+      {
+        "nome": "Alfano",
+        "coordinate": {
+          "lat": 35.248832,
+          "lng": -120.6810654
+        }
+      },
+      {
+        "nome": "Altavilla Silentina",
+        "coordinate": {
+          "lat": 40.53197280000001,
+          "lng": 15.1291027
+        }
+      },
+      {
+        "nome": "Amalfi",
+        "coordinate": {
+          "lat": 40.63400259999999,
+          "lng": 14.6026805
+        }
+      },
+      {
+        "nome": "Angri",
+        "coordinate": {
+          "lat": 40.7381073,
+          "lng": 14.5712076
+        }
+      },
+      {
+        "nome": "Aquara",
+        "coordinate": {
+          "lat": 40.4448385,
+          "lng": 15.2511699
+        }
+      },
+      {
+        "nome": "Ascea",
+        "coordinate": {
+          "lat": 40.1400536,
+          "lng": 15.1857642
+        }
+      },
+      {
+        "nome": "Atena Lucana",
+        "coordinate": {
+          "lat": 40.4544587,
+          "lng": 15.5522181
+        }
+      },
+      {
+        "nome": "Atrani",
+        "coordinate": {
+          "lat": 40.6357929,
+          "lng": 14.6086202
+        }
+      },
+      {
+        "nome": "Auletta",
+        "coordinate": {
+          "lat": 40.5576404,
+          "lng": 15.42693
+        }
+      },
+      {
+        "nome": "Baronissi",
+        "coordinate": {
+          "lat": 40.7462408,
+          "lng": 14.7704471
+        }
+      },
+      {
+        "nome": "Battipaglia",
+        "coordinate": {
+          "lat": 40.593928,
+          "lng": 14.9505671
+        }
+      },
+      {
+        "nome": "Bellizzi",
+        "coordinate": {
+          "lat": 40.620022,
+          "lng": 14.9478622
+        }
+      },
+      {
+        "nome": "Bellosguardo",
+        "coordinate": {
+          "lat": 40.4244692,
+          "lng": 15.3145301
+        }
+      },
+      {
+        "nome": "Bracigliano",
+        "coordinate": {
+          "lat": 40.8231903,
+          "lng": 14.7084684
+        }
+      },
+      {
+        "nome": "Buccino",
+        "coordinate": {
+          "lat": 40.6328548,
+          "lng": 15.3812792
+        }
+      },
+      {
+        "nome": "Buonabitacolo",
+        "coordinate": {
+          "lat": 40.2702788,
+          "lng": 15.618957
+        }
+      },
+      {
+        "nome": "Caggiano",
+        "coordinate": {
+          "lat": 40.85518399999999,
+          "lng": -74.42652509999999
+        }
+      },
+      {
+        "nome": "Calvanico",
+        "coordinate": {
+          "lat": 40.7743206,
+          "lng": 14.8259184
+        }
+      },
+      {
+        "nome": "Camerota",
+        "coordinate": {
+          "lat": 40.0318695,
+          "lng": 15.3751388
+        }
+      },
+      {
+        "nome": "Campagna",
+        "coordinate": {
+          "lat": 40.66708869999999,
+          "lng": 15.1068113
+        }
+      },
+      {
+        "nome": "Campora",
+        "coordinate": {
+          "lat": 37.33378269999999,
+          "lng": -119.6600064
+        }
+      },
+      {
+        "nome": "Cannalonga",
+        "coordinate": {
+          "lat": 40.2441918,
+          "lng": 15.2970668
+        }
+      },
+      {
+        "nome": "Capaccio",
+        "coordinate": {
+          "lat": 40.4248153,
+          "lng": 15.0769699
+        }
+      },
+      {
+        "nome": "Casal Velino",
+        "coordinate": {
+          "lat": 40.1907845,
+          "lng": 15.1110081
+        }
+      },
+      {
+        "nome": "Casalbuono",
+        "coordinate": {
+          "lat": 40.214871,
+          "lng": 15.6857921
+        }
+      },
+      {
+        "nome": "Casaletto Spartano",
+        "coordinate": {
+          "lat": 40.1532801,
+          "lng": 15.6211479
+        }
+      },
+      {
+        "nome": "Caselle in Pittari",
+        "coordinate": {
+          "lat": 40.1704275,
+          "lng": 15.5428477
+        }
+      },
+      {
+        "nome": "Castel San Giorgio",
+        "coordinate": {
+          "lat": 40.7802306,
+          "lng": 14.7010686
+        }
+      },
+      {
+        "nome": "Castel San Lorenzo",
+        "coordinate": {
+          "lat": 40.41658899999999,
+          "lng": 15.2316751
+        }
+      },
+      {
+        "nome": "Castelcivita",
+        "coordinate": {
+          "lat": 40.5136296,
+          "lng": 15.2545888
+        }
+      },
+      {
+        "nome": "Castellabate",
+        "coordinate": {
+          "lat": 40.2820876,
+          "lng": 14.9574151
+        }
+      },
+      {
+        "nome": "Castelnuovo Cilento",
+        "coordinate": {
+          "lat": 40.2180125,
+          "lng": 15.1770542
+        }
+      },
+      {
+        "nome": "Castelnuovo di Conza",
+        "coordinate": {
+          "lat": 40.8190909,
+          "lng": 15.3197044
+        }
+      },
+      {
+        "nome": "Castiglione del Genovesi",
+        "coordinate": {
+          "lat": 40.7241814,
+          "lng": 14.84879
+        }
+      },
+      {
+        "nome": "Cava de' Tirreni",
+        "coordinate": {
+          "lat": 40.70698660000001,
+          "lng": 14.6937674
+        }
+      },
+      {
+        "nome": "Celle di Bulgheria",
+        "coordinate": {
+          "lat": 40.0957269,
+          "lng": 15.4005517
+        }
+      },
+      {
+        "nome": "Centola",
+        "coordinate": {
+          "lat": 40.065477,
+          "lng": 15.3120171
+        }
+      },
+      {
+        "nome": "Ceraso",
+        "coordinate": {
+          "lat": 40.1745536,
+          "lng": 15.2545888
+        }
+      },
+      {
+        "nome": "Cetara",
+        "coordinate": {
+          "lat": 40.6497907,
+          "lng": 14.6999858
+        }
+      },
+      {
+        "nome": "Cicerale",
+        "coordinate": {
+          "lat": 40.3439081,
+          "lng": 15.1303433
+        }
+      },
+      {
+        "nome": "Colliano",
+        "coordinate": {
+          "lat": 40.7241652,
+          "lng": 15.2943175
+        }
+      },
+      {
+        "nome": "Conca dei Marini",
+        "coordinate": {
+          "lat": 40.61632359999999,
+          "lng": 14.5753912
+        }
+      },
+      {
+        "nome": "Controne",
+        "coordinate": {
+          "lat": 40.5088026,
+          "lng": 15.2073269
+        }
+      },
+      {
+        "nome": "Contursi Terme",
+        "coordinate": {
+          "lat": 40.6526856,
+          "lng": 15.2545888
+        }
+      },
+      {
+        "nome": "Corbara",
+        "coordinate": {
+          "lat": 40.7211823,
+          "lng": 14.5973742
+        }
+      },
+      {
+        "nome": "Corleto Monforte",
+        "coordinate": {
+          "lat": 40.4392587,
+          "lng": 15.3785028
+        }
+      },
+      {
+        "nome": "Cuccaro Vetere",
+        "coordinate": {
+          "lat": 40.1608788,
+          "lng": 15.3081893
+        }
+      },
+      {
+        "nome": "Eboli",
+        "coordinate": {
+          "lat": 40.6179234,
+          "lng": 15.0564332
+        }
+      },
+      {
+        "nome": "Felitto",
+        "coordinate": {
+          "lat": 40.37465639999999,
+          "lng": 15.2417865
+        }
+      },
+      {
+        "nome": "Fisciano",
+        "coordinate": {
+          "lat": 40.7731935,
+          "lng": 14.7965608
+        }
+      },
+      {
+        "nome": "Furore",
+        "coordinate": {
+          "lat": 40.61857260000001,
+          "lng": 14.5509614
+        }
+      },
+      {
+        "nome": "Futani",
+        "coordinate": {
+          "lat": 40.1524075,
+          "lng": 15.3219495
+        }
+      },
+      {
+        "nome": "Giffoni Sei Casali",
+        "coordinate": {
+          "lat": 40.7619799,
+          "lng": 14.8804893
+        }
+      },
+      {
+        "nome": "Giffoni Valle Piana",
+        "coordinate": {
+          "lat": 40.7160385,
+          "lng": 14.9413282
+        }
+      },
+      {
+        "nome": "Gioi",
+        "coordinate": {
+          "lat": 40.28883039999999,
+          "lng": 15.2174052
+        }
+      },
+      {
+        "nome": "Giungano",
+        "coordinate": {
+          "lat": 40.3904003,
+          "lng": 15.096661
+        }
+      },
+      {
+        "nome": "Ispani",
+        "coordinate": {
+          "lat": 40.0871967,
+          "lng": 15.557296
+        }
+      },
+      {
+        "nome": "Laureana Cilento",
+        "coordinate": {
+          "lat": 40.300545,
+          "lng": 15.0415566
+        }
+      },
+      {
+        "nome": "Laurino",
+        "coordinate": {
+          "lat": 40.3362096,
+          "lng": 15.3356982
+        }
+      },
+      {
+        "nome": "Laurito",
+        "coordinate": {
+          "lat": 40.1680023,
+          "lng": 15.4070353
+        }
+      },
+      {
+        "nome": "Laviano",
+        "coordinate": {
+          "lat": 40.78529499999999,
+          "lng": 15.30560989999999
+        }
+      },
+      {
+        "nome": "Lustra",
+        "coordinate": {
+          "lat": 40.2888884,
+          "lng": 15.0666605
+        }
+      },
+      {
+        "nome": "Magliano Vetere",
+        "coordinate": {
+          "lat": 40.34752950000001,
+          "lng": 15.2363659
+        }
+      },
+      {
+        "nome": "Maiori",
+        "coordinate": {
+          "lat": 40.6512305,
+          "lng": 14.6433648
+        }
+      },
+      {
+        "nome": "Mercato San Severino",
+        "coordinate": {
+          "lat": 40.7815673,
+          "lng": 14.7527759
+        }
+      },
+      {
+        "nome": "Minori",
+        "coordinate": {
+          "lat": 40.6493713,
+          "lng": 14.6271881
+        }
+      },
+      {
+        "nome": "Moio della Civitella",
+        "coordinate": {
+          "lat": 40.257141,
+          "lng": 15.2721456
+        }
+      },
+      {
+        "nome": "Montano Antilia",
+        "coordinate": {
+          "lat": 40.16192999999999,
+          "lng": 15.3660352
+        }
+      },
+      {
+        "nome": "Monte San Giacomo",
+        "coordinate": {
+          "lat": 40.3474454,
+          "lng": 15.549153
+        }
+      },
+      {
+        "nome": "Montecorice",
+        "coordinate": {
+          "lat": 40.23457519999999,
+          "lng": 14.9832925
+        }
+      },
+      {
+        "nome": "Montecorvino Pugliano",
+        "coordinate": {
+          "lat": 40.6790637,
+          "lng": 14.9446776
+        }
+      },
+      {
+        "nome": "Montecorvino Rovella",
+        "coordinate": {
+          "lat": 40.6971992,
+          "lng": 14.9740293
+        }
+      },
+      {
+        "nome": "Monteforte Cilento",
+        "coordinate": {
+          "lat": 40.3645363,
+          "lng": 15.1955799
+        }
+      },
+      {
+        "nome": "Montesano sulla Marcellana",
+        "coordinate": {
+          "lat": 40.2762751,
+          "lng": 15.7028745
+        }
+      },
+      {
+        "nome": "Morigerati",
+        "coordinate": {
+          "lat": 40.1397354,
+          "lng": 15.5540727
+        }
+      },
+      {
+        "nome": "Nocera Inferiore",
+        "coordinate": {
+          "lat": 40.7460596,
+          "lng": 14.6474887
+        }
+      },
+      {
+        "nome": "Nocera Superiore",
+        "coordinate": {
+          "lat": 40.75043850000001,
+          "lng": 14.6815063
+        }
+      },
+      {
+        "nome": "Novi Velia",
+        "coordinate": {
+          "lat": 40.22470390000001,
+          "lng": 15.2866301
+        }
+      },
+      {
+        "nome": "Ogliastro Cilento",
+        "coordinate": {
+          "lat": 40.35173379999999,
+          "lng": 15.0456013
+        }
+      },
+      {
+        "nome": "Olevano sul Tusciano",
+        "coordinate": {
+          "lat": 40.6683036,
+          "lng": 15.0265195
+        }
+      },
+      {
+        "nome": "Oliveto Citra",
+        "coordinate": {
+          "lat": 40.6955084,
+          "lng": 15.2311827
+        }
+      },
+      {
+        "nome": "Omignano",
+        "coordinate": {
+          "lat": 40.248874,
+          "lng": 15.0878276
+        }
+      },
+      {
+        "nome": "Orria",
+        "coordinate": {
+          "lat": 40.300273,
+          "lng": 15.1716355
+        }
+      },
+      {
+        "nome": "Ottati",
+        "coordinate": {
+          "lat": 40.46460099999999,
+          "lng": 15.3085456
+        }
+      },
+      {
+        "nome": "Padula",
+        "coordinate": {
+          "lat": 40.34057599999999,
+          "lng": 15.6598207
+        }
+      },
+      {
+        "nome": "Pagani",
+        "coordinate": {
+          "lat": 40.7419397,
+          "lng": 14.6145949
+        }
+      },
+      {
+        "nome": "Palomonte",
+        "coordinate": {
+          "lat": 40.6638753,
+          "lng": 15.293826
+        }
+      },
+      {
+        "nome": "Pellezzano",
+        "coordinate": {
+          "lat": 40.7253114,
+          "lng": 14.7570629
+        }
+      },
+      {
+        "nome": "Perdifumo",
+        "coordinate": {
+          "lat": 40.2663087,
+          "lng": 15.0175657
+        }
+      },
+      {
+        "nome": "Perito",
+        "coordinate": {
+          "lat": 40.2975088,
+          "lng": 15.1475712
+        }
+      },
+      {
+        "nome": "Pertosa",
+        "coordinate": {
+          "lat": 40.54434390000001,
+          "lng": 15.4519924
+        }
+      },
+      {
+        "nome": "Petina",
+        "coordinate": {
+          "lat": 40.5335876,
+          "lng": 15.3734184
+        }
+      },
+      {
+        "nome": "Piaggine",
+        "coordinate": {
+          "lat": 40.3455049,
+          "lng": 15.3785448
+        }
+      },
+      {
+        "nome": "Pisciotta",
+        "coordinate": {
+          "lat": 40.10752419999999,
+          "lng": 15.2343527
+        }
+      },
+      {
+        "nome": "Polla",
+        "coordinate": {
+          "lat": 40.5148399,
+          "lng": 15.4948137
+        }
+      },
+      {
+        "nome": "Pollica",
+        "coordinate": {
+          "lat": 40.1910281,
+          "lng": 15.0545933
+        }
+      },
+      {
+        "nome": "Pontecagnano Faiano",
+        "coordinate": {
+          "lat": 40.6230286,
+          "lng": 14.8804893
+        }
+      },
+      {
+        "nome": "Positano",
+        "coordinate": {
+          "lat": 40.6280528,
+          "lng": 14.4849812
+        }
+      },
+      {
+        "nome": "Postiglione",
+        "coordinate": {
+          "lat": 40.5577306,
+          "lng": 15.2315627
+        }
+      },
+      {
+        "nome": "Praiano",
+        "coordinate": {
+          "lat": 40.6117319,
+          "lng": 14.5335099
+        }
+      },
+      {
+        "nome": "Prignano Cilento",
+        "coordinate": {
+          "lat": 40.32872,
+          "lng": 15.0742332
+        }
+      },
+      {
+        "nome": "Ravello",
+        "coordinate": {
+          "lat": 40.6491886,
+          "lng": 14.6117112
+        }
+      },
+      {
+        "nome": "Ricigliano",
+        "coordinate": {
+          "lat": 40.6675197,
+          "lng": 15.479528
+        }
+      },
+      {
+        "nome": "Roccadaspide",
+        "coordinate": {
+          "lat": 40.42540049999999,
+          "lng": 15.1892013
+        }
+      },
+      {
+        "nome": "Roccagloriosa",
+        "coordinate": {
+          "lat": 40.1086222,
+          "lng": 15.4312451
+        }
+      },
+      {
+        "nome": "Roccapiemonte",
+        "coordinate": {
+          "lat": 40.76059009999999,
+          "lng": 14.6934866
+        }
+      },
+      {
+        "nome": "Rofrano",
+        "coordinate": {
+          "lat": 40.21246789999999,
+          "lng": 15.4265876
+        }
+      },
+      {
+        "nome": "Romagnano al Monte",
+        "coordinate": {
+          "lat": 40.6231089,
+          "lng": 15.4360963
+        }
+      },
+      {
+        "nome": "Roscigno",
+        "coordinate": {
+          "lat": 40.3993384,
+          "lng": 15.3459122
+        }
+      },
+      {
+        "nome": "Rutino",
+        "coordinate": {
+          "lat": 40.2996259,
+          "lng": 15.0749646
+        }
+      },
+      {
+        "nome": "Sacco",
+        "coordinate": {
+          "lat": 29.74549720000001,
+          "lng": -95.3712714
+        }
+      },
+      {
+        "nome": "Sala Consilina",
+        "coordinate": {
+          "lat": 40.4019157,
+          "lng": 15.5908015
+        }
+      },
+      {
+        "nome": "Salento",
+        "coordinate": {
+          "lat": 4.637376,
+          "lng": -75.570777
+        }
+      },
+      {
+        "nome": "Salerno",
+        "coordinate": {
+          "lat": 40.68244079999999,
+          "lng": 14.7680961
+        }
+      },
+      {
+        "nome": "Salvitelle",
+        "coordinate": {
+          "lat": 40.5904073,
+          "lng": 15.4575131
+        }
+      },
+      {
+        "nome": "San Cipriano Picentino",
+        "coordinate": {
+          "lat": 40.6982748,
+          "lng": 14.8746508
+        }
+      },
+      {
+        "nome": "San Giovanni a Piro",
+        "coordinate": {
+          "lat": 40.05074560000001,
+          "lng": 15.4482126
+        }
+      },
+      {
+        "nome": "San Gregorio Magno",
+        "coordinate": {
+          "lat": 40.65947859999999,
+          "lng": 15.4031252
+        }
+      },
+      {
+        "nome": "San Mango Piemonte",
+        "coordinate": {
+          "lat": 40.70319569999999,
+          "lng": 14.8326212
+        }
+      },
+      {
+        "nome": "San Marzano sul Sarno",
+        "coordinate": {
+          "lat": 40.7749423,
+          "lng": 14.5900015
+        }
+      },
+      {
+        "nome": "San Mauro Cilento",
+        "coordinate": {
+          "lat": 40.2246039,
+          "lng": 15.047736
+        }
+      },
+      {
+        "nome": "San Mauro La Bruca",
+        "coordinate": {
+          "lat": 40.1238817,
+          "lng": 15.2903262
+        }
+      },
+      {
+        "nome": "San Pietro al Tanagro",
+        "coordinate": {
+          "lat": 40.4585812,
+          "lng": 15.4799582
+        }
+      },
+      {
+        "nome": "San Rufo",
+        "coordinate": {
+          "lat": 40.4342221,
+          "lng": 15.4637182
+        }
+      },
+      {
+        "nome": "San Valentino Torio",
+        "coordinate": {
+          "lat": 40.79123939999999,
+          "lng": 14.6016922
+        }
+      },
+      {
+        "nome": "Santa Marina",
+        "coordinate": {
+          "lat": 37.418269,
+          "lng": 25.3261947
+        }
+      },
+      {
+        "nome": "Sant'Angelo a Fasanella",
+        "coordinate": {
+          "lat": 40.4574306,
+          "lng": 15.343966
+        }
+      },
+      {
+        "nome": "Sant'Arsenio",
+        "coordinate": {
+          "lat": 40.47226029999999,
+          "lng": 15.4826913
+        }
+      },
+      {
+        "nome": "Sant'Egidio del Monte Albino",
+        "coordinate": {
+          "lat": 40.7321795,
+          "lng": 14.6024428
+        }
+      },
+      {
+        "nome": "Santomenna",
+        "coordinate": {
+          "lat": 40.8074781,
+          "lng": 15.32025399999999
+        }
+      },
+      {
+        "nome": "Sanza",
+        "coordinate": {
+          "lat": 51.6499654,
+          "lng": -0.0256978
+        }
+      },
+      {
+        "nome": "Sapri",
+        "coordinate": {
+          "lat": 40.07324689999999,
+          "lng": 15.6290106
+        }
+      },
+      {
+        "nome": "Sarno",
+        "coordinate": {
+          "lat": 40.81010089999999,
+          "lng": 14.6215811
+        }
+      },
+      {
+        "nome": "Sassano",
+        "coordinate": {
+          "lat": 40.3296046,
+          "lng": 15.5826123
+        }
+      },
+      {
+        "nome": "Scafati",
+        "coordinate": {
+          "lat": 40.7602114,
+          "lng": 14.5377595
+        }
+      },
+      {
+        "nome": "Scala",
+        "coordinate": {
+          "lat": 48.8742925,
+          "lng": 2.3356088
+        }
+      },
+      {
+        "nome": "Serramezzana",
+        "coordinate": {
+          "lat": 40.2458923,
+          "lng": 15.0334276
+        }
+      },
+      {
+        "nome": "Serre",
+        "coordinate": {
+          "lat": -20.1215224,
+          "lng": -40.3077898
+        }
+      },
+      {
+        "nome": "Sessa Cilento",
+        "coordinate": {
+          "lat": 40.2572877,
+          "lng": 15.0748248
+        }
+      },
+      {
+        "nome": "Siano",
+        "coordinate": {
+          "lat": 40.8036154,
+          "lng": 14.6867562
+        }
+      },
+      {
+        "nome": "Sicignano degli Alburni",
+        "coordinate": {
+          "lat": 40.5543997,
+          "lng": 15.3103642
+        }
+      },
+      {
+        "nome": "Stella Cilento",
+        "coordinate": {
+          "lat": 40.229276,
+          "lng": 15.0916455
+        }
+      },
+      {
+        "nome": "Stio",
+        "coordinate": {
+          "lat": 43.5301,
+          "lng": -110.843
+        }
+      },
+      {
+        "nome": "Teggiano",
+        "coordinate": {
+          "lat": 40.378506,
+          "lng": 15.5393774
+        }
+      },
+      {
+        "nome": "Torchiara",
+        "coordinate": {
+          "lat": 40.3194908,
+          "lng": 15.0558703
+        }
+      },
+      {
+        "nome": "Torraca",
+        "coordinate": {
+          "lat": 40.111222,
+          "lng": 15.6349996
+        }
+      },
+      {
+        "nome": "Torre Orsaia",
+        "coordinate": {
+          "lat": 40.13164829999999,
+          "lng": 15.4720328
+        }
+      },
+      {
+        "nome": "Tortorella",
+        "coordinate": {
+          "lat": 40.14166090000001,
+          "lng": 15.6048595
+        }
+      },
+      {
+        "nome": "Tramonti",
+        "coordinate": {
+          "lat": 26.4617693,
+          "lng": -80.0715736
+        }
+      },
+      {
+        "nome": "Trentinara",
+        "coordinate": {
+          "lat": 40.4010037,
+          "lng": 15.1151393
+        }
+      },
+      {
+        "nome": "Valle dell'Angelo",
+        "coordinate": {
+          "lat": 40.3451578,
+          "lng": 15.3682268
+        }
+      },
+      {
+        "nome": "Vallo della Lucania",
+        "coordinate": {
+          "lat": 40.2305213,
+          "lng": 15.2652465
+        }
+      },
+      {
+        "nome": "Valva",
+        "coordinate": {
+          "lat": 40.7394114,
+          "lng": 15.2690494
+        }
+      },
+      {
+        "nome": "Vibonati",
+        "coordinate": {
+          "lat": 40.099976,
+          "lng": 15.5817861
+        }
+      },
+      {
+        "nome": "Vietri sul Mare",
+        "coordinate": {
+          "lat": 40.66794489999999,
+          "lng": 14.7278743
+        }
+      }
+    ],
+    "coordinate": {
+      "lat": 40.68244079999999,
+      "lng": 14.7680961
+    }
+  }
+}
