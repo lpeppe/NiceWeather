@@ -1,3 +1,4 @@
+import { ForecastProvider } from './../../providers/forecast/forecast';
 import { AutocompleteProvider } from './../../providers/autocomplete/autocomplete';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
@@ -23,7 +24,8 @@ export class HomePage {
   mapElement: HTMLElement;
 
   constructor(public navCtrl: NavController, private googleMaps: GoogleMaps, 
-    public platform: Platform, public autoComplete: AutocompleteProvider) {
+    public platform: Platform, public autoComplete: AutocompleteProvider, 
+    public forecast: ForecastProvider) {
   }
 
   // ionViewDidLoad() {
@@ -54,6 +56,10 @@ export class HomePage {
         // this.map = new GoogleMap(this.mapElement, mapOptions);
         this.map.one(GoogleMapsEvent.MAP_READY)
         .then(_ => {
+          this.forecast.getForecast()
+          .subscribe(data => {
+            console.log(data)
+          })
           this.map.setCompassEnabled(false);
           this.map.getMyLocation()
           .then(location => {
