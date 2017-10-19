@@ -69,12 +69,15 @@ export class HomePage {
           .catch(err => console.log("GPS disattivato"))
           this.map.addMarker({
             title: 'Ionic',
-            // icon: 'assets/icon/sun.png',
+            icon: 'assets/icon/sun.png',
             animation: 'DROP',
             position: {
               lat: 40.9222253,
               lng: 14.7601242
             }
+          }).then(marker => {
+            // icon anchor set to the center of the icon
+            marker.setIconAnchor(42, 37)
           })
         })
    }
