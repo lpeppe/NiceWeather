@@ -1,7 +1,14 @@
 <ion-content>
   <div class="content">
-    <ion-auto-complete [dataProvider]="autoComplete"></ion-auto-complete>
+    <!-- <ion-auto-complete [dataProvider]="autoComplete"></ion-auto-complete> -->
+    <div class="autocomplete">
+      <ion-searchbar (ionInput)="searchPlaces($event)"></ion-searchbar>
+      <ion-list >
+        <ion-item *ngFor="let suggestion of suggestions">
+          {{ suggestion }}
+        </ion-item>
+      </ion-list>
+    </div>
     <div #map id="map"></div>
   </div>
-  <p> testo </p>
 </ion-content>

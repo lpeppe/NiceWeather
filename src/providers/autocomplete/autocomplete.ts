@@ -19,7 +19,8 @@ export class AutocompleteProvider implements AutoCompleteService {
   }
 
   getResults(keyword: string) {
-    return this.http.get("http://192.168.1.107:8082?keyword=" + keyword)
+    console.log(keyword)
+    return this.http.get("http://172.19.44.35:8082?keyword=" + keyword)
       .map(result => { return result.json() });
   }
 }
