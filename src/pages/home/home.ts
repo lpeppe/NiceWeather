@@ -59,6 +59,10 @@ export class HomePage {
           this.forecast.getForecast()
           .subscribe(data => {
             console.log(data)
+            for(var i in data.citta) {
+              if(data.citta[i].forecast == 'Clear')
+                this.addMarker(data.citta[i].coordinate.lat, data.citta[i].coordinate.lng);
+            }
           })
           this.map.setCompassEnabled(false);
           this.map.getMyLocation()
@@ -76,18 +80,19 @@ export class HomePage {
             this.map.moveCamera(position);
           })
           .catch(err => console.log("GPS disattivato"))
-          this.map.addMarker({
-            title: 'Ionic',
+        })
+   }
+
+   addMarker(lat: number, lng: number) {
+      this.map.addMarker({
             icon: 'assets/icon/sun.png',
-            animation: 'DROP',
             position: {
-              lat: 40.9222253,
-              lng: 14.7601242
+              lat: lat,
+              lng: lng
             }
           }).then(marker => {
             // icon anchor set to the center of the icon
             marker.setIconAnchor(42, 37)
           })
-        })
    }
 }

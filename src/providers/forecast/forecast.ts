@@ -16,7 +16,7 @@ export class ForecastProvider {
   }
 
   getForecast() {
-    return this.http.get("http://172.19.59.240:4000/weather").map(result => { return result.json() });
+    return this.http.get("http://172.19.44.194:4000/weather").map(result => { return result.json() });
   }
 
 }
