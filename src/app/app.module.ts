@@ -18,6 +18,7 @@ import {
  import { AutoCompleteModule } from 'ionic2-auto-complete';
 import { AutocompleteProvider } from '../providers/autocomplete/autocomplete';
 import { HttpModule } from '@angular/http';
+import { ForecastProvider } from '../providers/forecast/forecast';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { HttpModule } from '@angular/http';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     GoogleMaps,
-    AutocompleteProvider
+    AutocompleteProvider,
+    ForecastProvider
   ]
 })
 export class AppModule {}

@@ -1,3 +1,4 @@
+import { ForecastProvider } from './../../providers/forecast/forecast';
 import { AutocompleteProvider } from './../../providers/autocomplete/autocomplete';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
@@ -23,7 +24,8 @@ export class HomePage {
   mapElement: HTMLElement;
 
   constructor(public navCtrl: NavController, private googleMaps: GoogleMaps, 
-    public platform: Platform, public autoComplete: AutocompleteProvider) {
+    public platform: Platform, public autoComplete: AutocompleteProvider, 
+    public forecast: ForecastProvider) {
   }
 
   // ionViewDidLoad() {
@@ -54,6 +56,14 @@ export class HomePage {
         // this.map = new GoogleMap(this.mapElement, mapOptions);
         this.map.one(GoogleMapsEvent.MAP_READY)
         .then(_ => {
+          this.forecast.getForecast()
+          .subscribe(data => {
+            console.log(data)
+            for(var i in data.citta) {
+              if(data.citta[i].forecast == 'Clear')
+                this.addMarker(data.citta[i].coordinate.lat, data.citta[i].coordinate.lng);
+            }
+          })
           this.map.setCompassEnabled(false);
           this.map.getMyLocation()
           .then(location => {
@@ -70,18 +80,19 @@ export class HomePage {
             this.map.moveCamera(position);
           })
           .catch(err => console.log("GPS disattivato"))
-          this.map.addMarker({
-            title: 'Ionic',
+        })
+   }
+
+   addMarker(lat: number, lng: number) {
+      this.map.addMarker({
             icon: 'assets/icon/sun.png',
-            animation: 'DROP',
             position: {
-              lat: 40.9222253,
-              lng: 14.7601242
+              lat: lat,
+              lng: lng
             }
           }).then(marker => {
             // icon anchor set to the center of the icon
             marker.setIconAnchor(42, 37)
           })
-        })
    }
 }
