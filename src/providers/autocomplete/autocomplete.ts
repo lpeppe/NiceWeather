@@ -20,7 +20,7 @@ export class AutocompleteProvider implements AutoCompleteService {
 
   getResults(keyword: string) {
     console.log(keyword)
-    return this.http.get("http://172.19.44.35:8082?keyword=" + keyword)
+    return this.http.get("https://us-central1-niceweather-182807.cloudfunctions.net/autocomplete?keyword=" + keyword)
       .map(result => { return result.json() });
   }
 }
