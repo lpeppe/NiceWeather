@@ -19,6 +19,9 @@ import {
 import { AutocompleteProvider } from '../providers/autocomplete/autocomplete';
 import { HttpModule } from '@angular/http';
 import { ForecastProvider } from '../providers/forecast/forecast';
+import { AngularFireModule } from 'angularfire2';
+import { firebaseConfig } from '../environment';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,9 @@ import { ForecastProvider } from '../providers/forecast/forecast';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AutoCompleteModule,
-    HttpModule
+    HttpModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
