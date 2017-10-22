@@ -38,10 +38,7 @@ export class HomePage {
   ngAfterViewInit() {
     this.platform.ready().then(_ => {
       this.loadMap();
-      var data = this.afs.collection("forecast").ref.get()
-      .then(data => {
-        data.forEach(doc => console.log(doc.data()))
-      })
+      this.getForecast();
     });
   }
 
@@ -59,8 +56,8 @@ export class HomePage {
       // }
     };
 
-    // this.map = this.googleMaps.create(this.mapElement, mapOptions);
-    this.map = new GoogleMap(this.mapElement, mapOptions);
+    this.map = this.googleMaps.create(this.mapElement, mapOptions);
+    // this.map = new GoogleMap(this.mapElement, mapOptions);
     this.map.one(GoogleMapsEvent.MAP_READY)
       .then(_ => {
         this.forecast.getForecast()
@@ -114,5 +111,15 @@ export class HomePage {
         for (var i in data)
           this.suggestions.push(data[i].description);
       })
+  }
+
+  getForecast() {
+    this.afs.collection("forecast").ref.get()
+    .then(data => {
+      data.forEach(doc => {
+        console.log(doc.data().coord.latitude)
+        this.addMarker(doc.data().coord.latitude, doc.data().coord.longitude)
+      })
+    })
   }
 }
