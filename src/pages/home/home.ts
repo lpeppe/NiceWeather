@@ -13,6 +13,7 @@ import {
 } from '@ionic-native/google-maps';
 import { AutoCompleteModule } from 'ionic2-auto-complete';
 import { Platform } from 'ionic-angular';
+import { AngularFirestore } from 'angularfire2/firestore';
 
 @Component({
   selector: 'page-home',
@@ -26,7 +27,7 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, private googleMaps: GoogleMaps,
     public platform: Platform, public autoComplete: AutocompleteProvider,
-    public forecast: ForecastProvider) {
+    public forecast: ForecastProvider, public afs: AngularFirestore) {
     this.suggestions = [];
   }
 
@@ -37,6 +38,10 @@ export class HomePage {
   ngAfterViewInit() {
     this.platform.ready().then(_ => {
       this.loadMap();
+      var data = this.afs.collection("forecast").ref.get()
+      .then(data => {
+        data.forEach(doc => console.log(doc.data()))
+      })
     });
   }
 
@@ -54,8 +59,8 @@ export class HomePage {
       // }
     };
 
-    this.map = this.googleMaps.create(this.mapElement, mapOptions);
-    // this.map = new GoogleMap(this.mapElement, mapOptions);
+    // this.map = this.googleMaps.create(this.mapElement, mapOptions);
+    this.map = new GoogleMap(this.mapElement, mapOptions);
     this.map.one(GoogleMapsEvent.MAP_READY)
       .then(_ => {
         this.forecast.getForecast()
