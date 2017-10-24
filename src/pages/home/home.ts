@@ -9,11 +9,15 @@ import {
   GoogleMapOptions,
   CameraPosition,
   MarkerOptions,
-  Marker
+  Marker,
+  MarkerClusterOptions
 } from '@ionic-native/google-maps';
 import { AutoCompleteModule } from 'ionic2-auto-complete';
 import { Platform } from 'ionic-angular';
-import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFireDatabase } from 'angularfire2/database';
+// import { AngularFirestore } from 'angularfire2/firestore';
+import * as GeoFire from 'geofire';
+import * as GeoLib from 'geolib';
 
 @Component({
   selector: 'page-home',
@@ -24,10 +28,13 @@ export class HomePage {
   map: GoogleMap;
   mapElement: HTMLElement;
   suggestions: string[];
+  geoFire: any;
+  geoQuery: any;
+  markers: {};
 
   constructor(public navCtrl: NavController, private googleMaps: GoogleMaps,
     public platform: Platform, public autoComplete: AutocompleteProvider,
-    public forecast: ForecastProvider, public afs: AngularFirestore) {
+    public forecast: ForecastProvider, public db: AngularFireDatabase) {
     this.suggestions = [];
   }
 
@@ -37,57 +44,52 @@ export class HomePage {
 
   ngAfterViewInit() {
     this.platform.ready().then(_ => {
-      this.loadMap();
-      this.getForecast();
+      this.loadMap()
+        .then(_ => {
+          this.map.setCompassEnabled(false);
+          this.map.on(GoogleMapsEvent.CAMERA_MOVE_END)
+            .subscribe(_ => {
+              this.updateQuery();
+            })
+          this.initQueries();
+          return this.map.getMyLocation();
+        })
+        .then(location => {
+          let lat = location.latLng.lat;
+          let lng = location.latLng.lng;
+          let position: CameraPosition<any> = {
+            target: {
+              lat: lat,
+              lng: lng
+            },
+            zoom: 18,
+            tilt: 30
+          };
+          this.map.moveCamera(position);
+        })
+        .catch(err => console.log("GPS disattivato"))
     });
   }
 
   loadMap() {
     this.mapElement = document.getElementById('map');
-
     let mapOptions: GoogleMapOptions = {
-      // camera: {
-      //   target: {
-      //     lat: 43.0741904,
-      //     lng: -89.3809802
-      //   },
-      //   zoom: 18,
-      //   tilt: 30
-      // }
+      camera: {
+        target: {
+          lat: 40.9221968,
+          lng: 14.7907662
+        },
+        zoom: 16,
+        tilt: 30
+      }
     };
 
     this.map = this.googleMaps.create(this.mapElement, mapOptions);
     // this.map = new GoogleMap(this.mapElement, mapOptions);
-    this.map.one(GoogleMapsEvent.MAP_READY)
-      .then(_ => {
-        this.forecast.getForecast()
-          .subscribe(data => {
-            console.log(data)
-            for (var i in data.citta) {
-              if (data.citta[i].forecast == 'Clear')
-                this.addMarker(data.citta[i].coordinate.lat, data.citta[i].coordinate.lng);
-            }
-          })
-        this.map.setCompassEnabled(false);
-        this.map.getMyLocation()
-          .then(location => {
-            let lat = location.latLng.lat;
-            let lng = location.latLng.lng;
-            let position: CameraPosition<any> = {
-              target: {
-                lat: lat,
-                lng: lng
-              },
-              zoom: 18,
-              tilt: 30
-            };
-            this.map.moveCamera(position);
-          })
-          .catch(err => console.log("GPS disattivato"))
-      })
+    return this.map.one(GoogleMapsEvent.MAP_READY)
   }
 
-  addMarker(lat: number, lng: number) {
+  addMarker(lat: number, lng: number, key: string) {
     this.map.addMarker({
       icon: 'assets/icon/sun.png',
       position: {
@@ -97,6 +99,10 @@ export class HomePage {
     }).then(marker => {
       // icon anchor set to the center of the icon
       marker.setIconAnchor(42, 37)
+      if (this.markers == undefined)
+        this.markers = {}
+      this.markers[key] = marker;
+      console.log(this.markers)
     })
   }
 
@@ -113,13 +119,58 @@ export class HomePage {
       })
   }
 
-  getForecast() {
-    this.afs.collection("forecast").ref.get()
-    .then(data => {
-      data.forEach(doc => {
-        console.log(doc.data().coord.latitude)
-        this.addMarker(doc.data().coord.latitude, doc.data().coord.longitude)
-      })
+  initQueries() {
+    this.geoFire = new GeoFire(this.db.database.ref("/province"));
+    var distance = GeoLib.getDistance(
+      { latitude: 40.9221968, longitude: 14.7907662 },
+      { latitude: this.map.getVisibleRegion().northeast.lat, longitude: this.map.getVisibleRegion().northeast.lng }
+    ) / 1000;
+    this.geoQuery = this.geoFire.query({
+      center: [this.map.getCameraTarget().lat, this.map.getCameraTarget().lng],
+      radius: distance
+    })
+    this.geoQuery.on("key_entered", (key, location, distance) => this.addMarker(location[0], location[1], key));
+    this.geoQuery.on("key_exited", (key, location, distance) => {
+      try {
+        this.markers[key].remove()
+      }
+      catch(e) {
+        console.log(e);
+      }
+    });
+  }
+
+  updateQuery() {
+    var distance = GeoLib.getDistance(
+      { latitude: this.map.getCameraTarget().lat, longitude: this.map.getCameraTarget().lng },
+      { latitude: this.map.getVisibleRegion().northeast.lat, longitude: this.map.getVisibleRegion().northeast.lng }
+    ) / 1000;
+    this.geoQuery.updateCriteria({
+      center: [this.map.getCameraTarget().lat, this.map.getCameraTarget().lng],
+      radius: distance
     })
   }
+  // getForecast() {
+  //   this.afs.collection("forecast").ref.get()
+  //     .then(data => {
+  //       var markersOptions: MarkerOptions[] = [];
+  //       data.forEach(doc => {
+  //         console.log(doc.data().coord.latitude)
+  //         // this.addMarker(doc.data().coord.latitude, doc.data().coord.longitude)
+  //         markersOptions.push({
+  //           icon: 'assets/icon/sun.png',
+  //           position: {
+  //             lat: doc.data().coord.latitude,
+  //             lng: doc.data().coord.longitude
+  //           }
+  //         })
+  //       })
+  //       this.map.addMarkerCluster({
+  //         markers: markersOptions,
+  //         icons: [
+  //           { min: 2, max: 100, url: "assets/icon/sun.png", anchor: { x: 42, y: 37 } }
+  //         ]
+  //       })
+  //     })
+  // }
 }

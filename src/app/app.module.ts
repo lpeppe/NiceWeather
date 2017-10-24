@@ -22,6 +22,7 @@ import { ForecastProvider } from '../providers/forecast/forecast';
 import { AngularFireModule } from 'angularfire2';
 import { firebaseConfig } from '../environment';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
     AutoCompleteModule,
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFirestoreModule
+    // AngularFirestoreModule
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
