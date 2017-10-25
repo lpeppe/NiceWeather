@@ -20,6 +20,8 @@ import * as GeoFire from 'geofire';
 import * as GeoLib from 'geolib';
 const maxzoom = 14;
 const minzoom = 5.5;
+const hcThreshold = 7;
+const provinceThreshold = 13;
 const enum ZoomLevels {
   comuni,
   province,
@@ -79,7 +81,7 @@ export class HomePage {
                 if (this.geoQueries[newZoomLevel] == undefined)
                   this.initQuery(newZoomLevel);
                 this.map.clear();
-                this.markers = {}
+                this.markers = {};
                 this.zoomLevel = newZoomLevel;
               }
               this.updateQuery(this.geoQueries[newZoomLevel]);
@@ -173,8 +175,10 @@ export class HomePage {
     toReturn.on("key_entered", (key, location, distance) => this.addMarker(location[0], location[1], key));
     toReturn.on("key_exited", (key, location, distance) => {
       try {
-        this.markers[key].remove()
-        delete this.markers[key];
+        if(this.markers[key] != undefined) {
+          this.markers[key].remove()
+          delete this.markers[key];
+        }
       }
       catch (e) {
         console.log(e);
@@ -218,9 +222,9 @@ export class HomePage {
   }
 
   getZoomLevel(zoom: number): ZoomLevels {
-    if (zoom <= 6)
+    if (zoom <= hcThreshold)
       return ZoomLevels.hardCoded;
-    else if (zoom <= 13)
+    else if (zoom <= provinceThreshold)
       return ZoomLevels.province;
     return ZoomLevels.comuni;
   }
