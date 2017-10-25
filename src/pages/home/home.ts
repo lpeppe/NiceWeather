@@ -41,16 +41,12 @@ export class HomePage {
   //   province: any,
   //   comuni: any
   // };
-  geoQueries = {};
+  geoQueries: {};
   // geoQueryP: any;
   // geoQueryHC: any;
   // geoQueryC: any;
   markers: {};
-  geoFireInstances: {
-    "hc": any,
-    "province": any,
-    "comuni": any
-  }
+  geoFireInstances: {}
   // geoFireP: any;
   // geoFireC: any;
   // geoFireHC: any;
@@ -62,6 +58,7 @@ export class HomePage {
     this.suggestions = [];
     this.markers = {};
     this.geoQueries = {};
+    this.geoFireInstances = {};
   }
 
   // ionViewDidLoad() {
@@ -82,6 +79,7 @@ export class HomePage {
                 if (this.geoQueries[newZoomLevel] == undefined)
                   this.initQuery(newZoomLevel);
                 this.map.clear();
+                this.markers = {}
                 this.zoomLevel = newZoomLevel;
               }
               this.updateQuery(this.geoQueries[newZoomLevel]);
@@ -96,10 +94,11 @@ export class HomePage {
               lat: lat,
               lng: lng
             },
-            zoom: 18,
+            zoom: minzoom,
             tilt: 30
           };
           this.map.moveCamera(position);
+          this.zoomLevel = minzoom;
         })
         .catch(err => console.log("GPS disattivato"))
     });
@@ -125,6 +124,7 @@ export class HomePage {
     };
 
     this.map = this.googleMaps.create(this.mapElement, mapOptions);
+    this.zoomLevel = maxzoom;
     // this.map = new GoogleMap(this.mapElement, mapOptions);
     return this.map.one(GoogleMapsEvent.MAP_READY)
   }
@@ -174,6 +174,7 @@ export class HomePage {
     toReturn.on("key_exited", (key, location, distance) => {
       try {
         this.markers[key].remove()
+        delete this.markers[key];
       }
       catch (e) {
         console.log(e);
@@ -206,15 +207,17 @@ export class HomePage {
   }
 
   initGeoFire() {
-    this.geoFireInstances = {
-      province: new GeoFire(this.db.database.ref("/province")),
-      comuni: new GeoFire(this.db.database.ref("/comuni")),
-      hc: new GeoFire(this.db.database.ref("/hc"))
-    }
+    // this.geoFireInstances = {
+    //   ZoomLevels.province: new GeoFire(this.db.database.ref("/province")),
+    //   comuni: new GeoFire(this.db.database.ref("/comuni")),
+    //   hc: new GeoFire(this.db.database.ref("/hc"))
+    // }
+    this.geoFireInstances[ZoomLevels.province] = new GeoFire(this.db.database.ref("/province"));
+    this.geoFireInstances[ZoomLevels.comuni] = new GeoFire(this.db.database.ref("/comuni"));
+    this.geoFireInstances[ZoomLevels.hardCoded] = new GeoFire(this.db.database.ref("/hc"));
   }
 
   getZoomLevel(zoom: number): ZoomLevels {
-    console.log(ZoomLevels.hardCoded)
     if (zoom <= 6)
       return ZoomLevels.hardCoded;
     else if (zoom <= 13)
