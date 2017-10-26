@@ -38,20 +38,10 @@ export class HomePage {
   map: GoogleMap;
   mapElement: HTMLElement;
   suggestions: string[];
-  // geoQueries: {
-  //   hc: any,
-  //   province: any,
-  //   comuni: any
-  // };
-  geoQueries: {};
-  // geoQueryP: any;
-  // geoQueryHC: any;
-  // geoQueryC: any;
   markers: {};
+  geoFireConnections: {};
+  geoQuery: any;
   geoFireInstances: {}
-  // geoFireP: any;
-  // geoFireC: any;
-  // geoFireHC: any;
   zoomLevel: ZoomLevels;
 
   constructor(public navCtrl: NavController, private googleMaps: GoogleMaps,
@@ -59,8 +49,8 @@ export class HomePage {
     public forecast: ForecastProvider, public db: AngularFireDatabase) {
     this.suggestions = [];
     this.markers = {};
-    this.geoQueries = {};
-    this.geoFireInstances = {};
+    // this.geoQueries = {};
+    // this.geoFireInstances = {};
   }
 
   // ionViewDidLoad() {
@@ -77,10 +67,9 @@ export class HomePage {
           this.map.on(GoogleMapsEvent.CAMERA_MOVE_END)
             .subscribe(_ => {
               var newZoomLevel = this.getZoomLevel(this.map.getCameraPosition().zoom);
-              console.log(newZoomLevel)
               if (this.zoomLevel != newZoomLevel) {
-                if (this.geoQueries[newZoomLevel] == undefined)
-                  this.initQuery(newZoomLevel);
+                this.geoQuery.cancel();
+                
                 this.map.clear();
                 this.markers = {};
                 this.zoomLevel = newZoomLevel;
@@ -165,7 +154,7 @@ export class HomePage {
       { latitude: cameraTarget[0], longitude: cameraTarget[1] },
       { latitude: this.map.getVisibleRegion().northeast.lat, longitude: this.map.getVisibleRegion().northeast.lng }
     ) / 1000;
-    this.geoQueries[zoomLevel] = this.createQuery(this.geoFireInstances[zoomLevel], cameraTarget, distance * 2);
+    this.geoQuery = this.createQuery(this.geoFireInstances[zoomLevel], cameraTarget, distance * 2);
   }
 
   createQuery(geoFire: any, center: number[], distance: number) {
@@ -176,7 +165,7 @@ export class HomePage {
     toReturn.on("key_entered", (key, location, distance) => this.addMarker(location[0], location[1], key));
     toReturn.on("key_exited", (key, location, distance) => {
       try {
-        if(this.markers[key] != undefined) {
+        if (this.markers[key] != undefined) {
           this.markers[key].remove()
           delete this.markers[key];
         }
