@@ -20,7 +20,7 @@ import * as GeoFire from 'geofire';
 import * as GeoLib from 'geolib';
 const maxzoom = 14;
 const minzoom = 5.5;
-const hcThreshold = 7;
+const hcThreshold = 7.5;
 const provinceThreshold = 13;
 const enum ZoomLevels {
   comuni,
@@ -77,6 +77,7 @@ export class HomePage {
           this.map.on(GoogleMapsEvent.CAMERA_MOVE_END)
             .subscribe(_ => {
               var newZoomLevel = this.getZoomLevel(this.map.getCameraPosition().zoom);
+              console.log(newZoomLevel)
               if (this.zoomLevel != newZoomLevel) {
                 if (this.geoQueries[newZoomLevel] == undefined)
                   this.initQuery(newZoomLevel);
@@ -126,7 +127,7 @@ export class HomePage {
     };
 
     this.map = this.googleMaps.create(this.mapElement, mapOptions);
-    this.zoomLevel = maxzoom;
+    this.zoomLevel = this.getZoomLevel(maxzoom);
     // this.map = new GoogleMap(this.mapElement, mapOptions);
     return this.map.one(GoogleMapsEvent.MAP_READY)
   }
@@ -164,7 +165,7 @@ export class HomePage {
       { latitude: cameraTarget[0], longitude: cameraTarget[1] },
       { latitude: this.map.getVisibleRegion().northeast.lat, longitude: this.map.getVisibleRegion().northeast.lng }
     ) / 1000;
-    this.geoQueries[zoomLevel] = this.createQuery(this.geoFireInstances[zoomLevel], cameraTarget, distance);
+    this.geoQueries[zoomLevel] = this.createQuery(this.geoFireInstances[zoomLevel], cameraTarget, distance * 2);
   }
 
   createQuery(geoFire: any, center: number[], distance: number) {
@@ -192,30 +193,13 @@ export class HomePage {
       { latitude: this.map.getCameraTarget().lat, longitude: this.map.getCameraTarget().lng },
       { latitude: this.map.getVisibleRegion().northeast.lat, longitude: this.map.getVisibleRegion().northeast.lng }
     ) / 1000;
-    // this.geoQueryP.updateCriteria({
-    //   center: [this.map.getCameraTarget().lat, this.map.getCameraTarget().lng],
-    //   radius: distance
-    // })
-    // this.geoQueryHC.updateCriteria({
-    //   center: [this.map.getCameraTarget().lat, this.map.getCameraTarget().lng],
-    //   radius: distance
-    // })
-    // this.geoQueryC.updateCriteria({
-    //   center: [this.map.getCameraTarget().lat, this.map.getCameraTarget().lng],
-    //   radius: distance
-    // })
     query.updateCriteria({
       center: [this.map.getCameraTarget().lat, this.map.getCameraTarget().lng],
-      radius: distance
+      radius: distance * 2
     })
   }
 
   initGeoFire() {
-    // this.geoFireInstances = {
-    //   ZoomLevels.province: new GeoFire(this.db.database.ref("/province")),
-    //   comuni: new GeoFire(this.db.database.ref("/comuni")),
-    //   hc: new GeoFire(this.db.database.ref("/hc"))
-    // }
     this.geoFireInstances[ZoomLevels.province] = new GeoFire(this.db.database.ref("/province"));
     this.geoFireInstances[ZoomLevels.comuni] = new GeoFire(this.db.database.ref("/comuni"));
     this.geoFireInstances[ZoomLevels.hardCoded] = new GeoFire(this.db.database.ref("/hc"));
