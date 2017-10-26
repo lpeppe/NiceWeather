@@ -39,7 +39,6 @@ export class HomePage {
   mapElement: HTMLElement;
   suggestions: string[];
   markers: {};
-  geoFireConnections: {};
   geoQuery: any;
   geoFireInstances: {}
   zoomLevel: ZoomLevels;
@@ -49,8 +48,7 @@ export class HomePage {
     public forecast: ForecastProvider, public db: AngularFireDatabase) {
     this.suggestions = [];
     this.markers = {};
-    // this.geoQueries = {};
-    // this.geoFireInstances = {};
+    this.geoFireInstances = {};
   }
 
   // ionViewDidLoad() {
@@ -69,12 +67,12 @@ export class HomePage {
               var newZoomLevel = this.getZoomLevel(this.map.getCameraPosition().zoom);
               if (this.zoomLevel != newZoomLevel) {
                 this.geoQuery.cancel();
-                
+                this.initQuery(newZoomLevel);
                 this.map.clear();
                 this.markers = {};
                 this.zoomLevel = newZoomLevel;
               }
-              this.updateQuery(this.geoQueries[newZoomLevel]);
+              this.updateQuery(this.geoQuery);
             })
           return this.map.getMyLocation();
         })
