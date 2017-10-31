@@ -3,12 +3,31 @@
     <!-- <ion-auto-complete [dataProvider]="autoComplete"></ion-auto-complete> -->
     <div class="autocomplete">
       <ion-searchbar (ionInput)="searchPlaces($event)"></ion-searchbar>
-      <ion-list >
+      <ion-list>
         <ion-item *ngFor="let suggestion of suggestions">
           {{ suggestion }}
         </ion-item>
       </ion-list>
     </div>
+    <ion-fab right bottom>
+      <button ion-fab color="dark">
+        <ion-icon name="arrow-dropup"></ion-icon>
+      </button>
+      <ion-fab-list side="top">
+        <button ion-fab>
+          <ion-icon name="logo-facebook"></ion-icon>
+        </button>
+        <button ion-fab>
+          <ion-icon name="logo-twitter"></ion-icon>
+        </button>
+        <button ion-fab>
+          <ion-icon name="logo-vimeo"></ion-icon>
+        </button>
+        <button ion-fab>
+          <ion-icon name="logo-googleplus"></ion-icon>
+        </button>
+      </ion-fab-list>
+    </ion-fab>
     <div #map id="map"></div>
   </div>
 </ion-content>
