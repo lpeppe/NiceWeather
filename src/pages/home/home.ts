@@ -208,7 +208,8 @@ export class HomePage {
         target: {
           lat: data.lat,
           lng: data.lng
-        }
+        },
+        zoom: maxzoom
       };
       this.map.animateCamera(position);
     })
