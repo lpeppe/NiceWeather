@@ -142,7 +142,7 @@ export class HomePage {
       .subscribe(data => {
         this.suggestions.splice(0, this.suggestions.length);
         for (var i in data)
-          this.suggestions.push(data[i].description);
+          this.suggestions.push(data[i]);
       })
   }
 
@@ -198,6 +198,20 @@ export class HomePage {
     else if (zoom <= provinceThreshold)
       return ZoomLevels.province;
     return ZoomLevels.comuni;
+  }
+
+  suggestionListener(elem: any) {
+    this.suggestions.splice(0, this.suggestions.length)
+    this.autoComplete.getCoord(elem.place_id)
+    .subscribe(data => {
+      let position: CameraPosition<any> = {
+        target: {
+          lat: data.lat,
+          lng: data.lng
+        }
+      };
+      this.map.animateCamera(position);
+    })
   }
   // getForecast() {
   //   this.afs.collection("forecast").ref.get()

@@ -4,8 +4,8 @@
     <div class="autocomplete">
       <ion-searchbar (ionInput)="searchPlaces($event)"></ion-searchbar>
       <ion-list>
-        <ion-item *ngFor="let suggestion of suggestions">
-          {{ suggestion }}
+        <ion-item *ngFor="let suggestion of suggestions" (click)="suggestionListener(suggestion)">
+          {{ suggestion.description }}
         </ion-item>
       </ion-list>
     </div>
