@@ -20,7 +20,7 @@ import * as GeoFire from 'geofire';
 import * as GeoLib from 'geolib';
 const maxzoom = 14;
 const minzoom = 5.5;
-const hcThreshold = 7.5;
+const hcThreshold = 8.5;
 const provinceThreshold = 13;
 const enum ZoomLevels {
   comuni,
@@ -84,11 +84,11 @@ export class HomePage {
               lat: lat,
               lng: lng
             },
-            zoom: minzoom,
+            zoom: maxzoom,
             tilt: 30
           };
           this.map.moveCamera(position);
-          this.zoomLevel = minzoom;
+          this.zoomLevel = this.getZoomLevel(this.map.getCameraPosition().zoom);
         })
         .catch(err => console.log("GPS disattivato"))
     });
