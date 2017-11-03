@@ -55,40 +55,28 @@ export class HomePage {
   //   this.loadMap();
   //  }
 
-  ngAfterViewInit() {
-    this.platform.ready().then(_ => {
-      this.loadMap()
-        .then(_ => {
-          this.initGeoFire();
-          this.initQuery(this.getZoomLevel(this.map.getCameraPosition().zoom));
-          this.map.setCompassEnabled(false);
-          this.map.on(GoogleMapsEvent.CAMERA_MOVE_END)
-            .subscribe(_ => {
-              var newZoomLevel = this.getZoomLevel(this.map.getCameraPosition().zoom);
-              if (this.zoomLevel != newZoomLevel) {
-                this.geoQuery.cancel();
-                this.initQuery(newZoomLevel);
-                this.map.clear();
-                this.markers = {};
-                this.zoomLevel = newZoomLevel;
-              }
-              this.updateQuery(this.geoQuery);
-            })
-          return this.map.getMyLocation();
-        })
-        .then(location => {
-          let lat = location.latLng.lat;
-          let lng = location.latLng.lng;
-          let position: CameraPosition<any> = {
-            target: { lat, lng },
-            zoom: maxzoom,
-            tilt: 30
-          };
-          this.map.moveCamera(position);
-          this.zoomLevel = this.getZoomLevel(this.map.getCameraPosition().zoom);
-        })
-        .catch(err => console.log("GPS disattivato"))
-    });
+  async ngAfterViewInit() {
+    await this.platform.ready()
+    await this.loadMap()
+    this.initGeoFire();
+    this.initQuery(this.getZoomLevel(this.map.getCameraPosition().zoom));
+    this.map.setCompassEnabled(false);
+    this.map.on(GoogleMapsEvent.CAMERA_MOVE_END).subscribe(_ => this.cameraMoved())
+    try {
+      var location = await this.map.getMyLocation();
+      let lat = location.latLng.lat;
+      let lng = location.latLng.lng;
+      let position: CameraPosition<any> = {
+        target: { lat, lng },
+        zoom: maxzoom,
+        tilt: 30
+      };
+      this.map.moveCamera(position);
+      this.zoomLevel = this.getZoomLevel(this.map.getCameraPosition().zoom);
+    }
+    catch (err) {
+      console.log(err)
+    }
   }
 
   loadMap() {
@@ -207,6 +195,18 @@ export class HomePage {
         };
         this.map.animateCamera(position);
       })
+  }
+
+  cameraMoved() {
+    var newZoomLevel = this.getZoomLevel(this.map.getCameraPosition().zoom);
+    if (this.zoomLevel != newZoomLevel) {
+      this.geoQuery.cancel();
+      this.initQuery(newZoomLevel);
+      this.map.clear();
+      this.markers = {};
+      this.zoomLevel = newZoomLevel;
+    }
+    this.updateQuery(this.geoQuery);
   }
   // getForecast() {
   //   this.afs.collection("forecast").ref.get()
