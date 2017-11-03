@@ -61,18 +61,7 @@ export class HomePage {
     this.initGeoFire();
     this.initQuery(this.getZoomLevel(this.map.getCameraPosition().zoom));
     this.map.setCompassEnabled(false);
-    this.map.on(GoogleMapsEvent.CAMERA_MOVE_END)
-      .subscribe(_ => {
-        var newZoomLevel = this.getZoomLevel(this.map.getCameraPosition().zoom);
-        if (this.zoomLevel != newZoomLevel) {
-          this.geoQuery.cancel();
-          this.initQuery(newZoomLevel);
-          this.map.clear();
-          this.markers = {};
-          this.zoomLevel = newZoomLevel;
-        }
-        this.updateQuery(this.geoQuery);
-      })
+    this.map.on(GoogleMapsEvent.CAMERA_MOVE_END).subscribe(_ => this.cameraMoved())
     try {
       var location = await this.map.getMyLocation();
       let lat = location.latLng.lat;
@@ -206,6 +195,18 @@ export class HomePage {
         };
         this.map.animateCamera(position);
       })
+  }
+
+  cameraMoved() {
+    var newZoomLevel = this.getZoomLevel(this.map.getCameraPosition().zoom);
+    if (this.zoomLevel != newZoomLevel) {
+      this.geoQuery.cancel();
+      this.initQuery(newZoomLevel);
+      this.map.clear();
+      this.markers = {};
+      this.zoomLevel = newZoomLevel;
+    }
+    this.updateQuery(this.geoQuery);
   }
   // getForecast() {
   //   this.afs.collection("forecast").ref.get()
