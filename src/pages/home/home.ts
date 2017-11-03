@@ -80,10 +80,7 @@ export class HomePage {
           let lat = location.latLng.lat;
           let lng = location.latLng.lng;
           let position: CameraPosition<any> = {
-            target: {
-              lat: lat,
-              lng: lng
-            },
+            target: { lat, lng },
             zoom: maxzoom,
             tilt: 30
           };
@@ -122,10 +119,7 @@ export class HomePage {
   addMarker(lat: number, lng: number, key: string) {
     this.map.addMarker({
       icon: 'assets/icon/sun.png',
-      position: {
-        lat: lat,
-        lng: lng
-      }
+      position: { lat, lng }
     }).then(marker => {
       // icon anchor set to the center of the icon
       marker.setIconAnchor(42, 37);
@@ -203,16 +197,16 @@ export class HomePage {
   suggestionListener(elem: any) {
     this.suggestions.splice(0, this.suggestions.length)
     this.autoComplete.getCoord(elem.place_id)
-    .subscribe(data => {
-      let position: CameraPosition<any> = {
-        target: {
-          lat: data.lat,
-          lng: data.lng
-        },
-        zoom: maxzoom
-      };
-      this.map.animateCamera(position);
-    })
+      .subscribe(data => {
+        let position: CameraPosition<any> = {
+          target: {
+            lat: data.lat,
+            lng: data.lng
+          },
+          zoom: maxzoom
+        };
+        this.map.animateCamera(position);
+      })
   }
   // getForecast() {
   //   this.afs.collection("forecast").ref.get()
