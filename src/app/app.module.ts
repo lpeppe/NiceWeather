@@ -6,16 +6,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import {
-  GoogleMaps,
-  GoogleMap,
-  GoogleMapsEvent,
-  GoogleMapOptions,
-  CameraPosition,
-  MarkerOptions,
-  Marker
- } from '@ionic-native/google-maps';
- import { AutoCompleteModule } from 'ionic2-auto-complete';
 import { AutocompleteProvider } from '../providers/autocomplete/autocomplete';
 import { HttpModule } from '@angular/http';
 import { ForecastProvider } from '../providers/forecast/forecast';
@@ -32,7 +22,6 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AutoCompleteModule,
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig),
     // AngularFirestoreModule
@@ -47,7 +36,6 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    GoogleMaps,
     AutocompleteProvider,
     ForecastProvider
   ]
