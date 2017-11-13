@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { Geolocation } from '@ionic-native/geolocation';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -11,7 +12,7 @@ import { HttpModule } from '@angular/http';
 import { ForecastProvider } from '../providers/forecast/forecast';
 import { AngularFireModule } from 'angularfire2';
 import { firebaseConfig } from '../environment';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
+// import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 @NgModule({
@@ -37,7 +38,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AutocompleteProvider,
-    ForecastProvider
+    ForecastProvider,
+    Geolocation
   ]
 })
 export class AppModule {}

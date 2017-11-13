@@ -4,6 +4,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { Geolocation } from '@ionic-native/geolocation';
 // import { AngularFirestore } from 'angularfire2/firestore';
 declare var google;
 
@@ -17,9 +18,10 @@ export class HomePage {
   map: any;
   suggestions: string[];
   @ViewChild('map') mapDiv: ElementRef;
+  @ViewChild('inputBar') inputBar: ElementRef;
 
   constructor(public navCtrl: NavController, public platform: Platform, public autoComplete: AutocompleteProvider,
-    public forecast: ForecastProvider, public db: AngularFireDatabase) {
+    public forecast: ForecastProvider, public db: AngularFireDatabase, private geolocation: Geolocation) {
     this.suggestions = [];
   }
 
@@ -29,7 +31,13 @@ export class HomePage {
 
   async ngAfterViewInit() {
     await this.platform.ready()
-    this.loadMap()
+    this.loadMap();
+    this.geolocation.getCurrentPosition().then((resp) => {
+      this.map.panTo({lat: resp.coords.latitude, lng: resp.coords.longitude})
+      this.map.setZoom(14);
+     }).catch((error) => {
+       console.log('Error getting location', error);
+     });
   }
 
   loadMap() {
@@ -41,11 +49,11 @@ export class HomePage {
   }
 
   searchPlaces(event: any) {
-    if (event.data == null) {
+    if (event.srcElement.value == null) {
       this.suggestions.splice(0, this.suggestions.length);
       return;
     }
-    this.autoComplete.getResults(event.data)
+    this.autoComplete.getResults(event.srcElement.value)
       .subscribe(data => {
         this.suggestions.splice(0, this.suggestions.length);
         for (var i in data)
@@ -57,7 +65,9 @@ export class HomePage {
     this.suggestions.splice(0, this.suggestions.length)
     this.autoComplete.getCoord(elem.place_id)
       .subscribe(data => {
-      })
+        this.map.panTo({lat: data.lat, lng: data.lng})
+        this.map.setZoom(14);
+      }, err => console.log(err))
   }
 }
 
