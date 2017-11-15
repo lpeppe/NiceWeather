@@ -3,7 +3,7 @@
     <name>MyApp</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://192.168.1.107:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -81,13 +81,12 @@
     <allow-navigation href="http://172.19.55.181:8100" />
     <engine name="android" spec="^6.2.3" />
     <plugin name="cordova-plugin-device" spec="^1.1.4" />
-    <plugin name="cordova-plugin-googlemaps" spec="^2.0.11">
-        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyCgplyujvUsiaWSGStwt6y5gw6BjlCsoWU" />
-        <variable name="API_KEY_FOR_IOS" value="AIzaSyCdMOSIU5ChLHQRiCe-sOTdaItro41ZfL8" />
-    </plugin>
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.15" />
     <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
     <plugin name="cordova-plugin-statusbar" spec="git+https://github.com/apache/cordova-plugin-statusbar.git" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.1" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
+    <plugin name="cordova-plugin-geolocation" spec="^2.4.3">
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To locate you" />
+    </plugin>
 </widget>

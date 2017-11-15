@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { AutoCompleteService } from 'ionic2-auto-complete';
 import 'rxjs/add/operator/map';
 
 /*
@@ -10,7 +9,7 @@ import 'rxjs/add/operator/map';
   and Angular DI.
 */
 @Injectable()
-export class AutocompleteProvider implements AutoCompleteService {
+export class AutocompleteProvider {
 
   labelAttribute = "description";
 

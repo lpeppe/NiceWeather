@@ -1,32 +1,12 @@
 import { ForecastProvider } from './../../providers/forecast/forecast';
 import { AutocompleteProvider } from './../../providers/autocomplete/autocomplete';
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import {
-  GoogleMaps,
-  GoogleMap,
-  GoogleMapsEvent,
-  GoogleMapOptions,
-  CameraPosition,
-  MarkerOptions,
-  Marker,
-  MarkerClusterOptions
-} from '@ionic-native/google-maps';
-import { AutoCompleteModule } from 'ionic2-auto-complete';
 import { Platform } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { Geolocation } from '@ionic-native/geolocation';
 // import { AngularFirestore } from 'angularfire2/firestore';
-import * as GeoFire from 'geofire';
-import * as GeoLib from 'geolib';
-const maxzoom = 14;
-const minzoom = 5.5;
-const hcThreshold = 8.5;
-const provinceThreshold = 13;
-const enum ZoomLevels {
-  comuni,
-  province,
-  hardCoded
-}
+declare var google;
 
 @Component({
   selector: 'page-home',
@@ -35,20 +15,14 @@ const enum ZoomLevels {
 
 export class HomePage {
 
-  map: GoogleMap;
-  mapElement: HTMLElement;
+  map: any;
   suggestions: string[];
-  markers: {};
-  geoQuery: any;
-  geoFireInstances: {}
-  zoomLevel: ZoomLevels;
+  @ViewChild('map') mapDiv: ElementRef;
+  @ViewChild('inputBar') inputBar: ElementRef;
 
-  constructor(public navCtrl: NavController, private googleMaps: GoogleMaps,
-    public platform: Platform, public autoComplete: AutocompleteProvider,
-    public forecast: ForecastProvider, public db: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public platform: Platform, public autoComplete: AutocompleteProvider,
+    public forecast: ForecastProvider, public db: AngularFireDatabase, private geolocation: Geolocation) {
     this.suggestions = [];
-    this.markers = {};
-    this.geoFireInstances = {};
   }
 
   // ionViewDidLoad() {
@@ -57,70 +31,29 @@ export class HomePage {
 
   async ngAfterViewInit() {
     await this.platform.ready()
-    await this.loadMap()
-    this.initGeoFire();
-    this.initQuery(this.getZoomLevel(this.map.getCameraPosition().zoom));
-    this.map.setCompassEnabled(false);
-    this.map.on(GoogleMapsEvent.CAMERA_MOVE_END).subscribe(_ => this.cameraMoved())
-    try {
-      var location = await this.map.getMyLocation();
-      let lat = location.latLng.lat;
-      let lng = location.latLng.lng;
-      let position: CameraPosition<any> = {
-        target: { lat, lng },
-        zoom: maxzoom,
-        tilt: 30
-      };
-      this.map.moveCamera(position);
-      this.zoomLevel = this.getZoomLevel(this.map.getCameraPosition().zoom);
-    }
-    catch (err) {
-      console.log(err)
-    }
+    this.loadMap();
+    this.geolocation.getCurrentPosition().then((resp) => {
+      this.map.panTo({lat: resp.coords.latitude, lng: resp.coords.longitude})
+      this.map.setZoom(14);
+     }).catch((error) => {
+       console.log('Error getting location', error);
+     });
   }
 
   loadMap() {
-    this.mapElement = document.getElementById('map');
-    let mapOptions: GoogleMapOptions = {
-      camera: {
-        target: {
-          lat: 40.9221968,
-          lng: 14.7907662
-        },
-        zoom: maxzoom,
-        tilt: 30
-      },
-      preferences: {
-        zoom: {
-          minZoom: minzoom,
-          maxZoom: maxzoom
-        }
-      }
-    };
-
-    this.map = this.googleMaps.create(this.mapElement, mapOptions);
-    this.zoomLevel = this.getZoomLevel(maxzoom);
-    // this.map = new GoogleMap(this.mapElement, mapOptions);
-    return this.map.one(GoogleMapsEvent.MAP_READY)
-  }
-
-  addMarker(lat: number, lng: number, key: string) {
-    this.map.addMarker({
-      icon: 'assets/icon/sun.png',
-      position: { lat, lng }
-    }).then(marker => {
-      // icon anchor set to the center of the icon
-      marker.setIconAnchor(42, 37);
-      this.markers[key] = marker;
-    })
+    this.map = new google.maps.Map(this.mapDiv.nativeElement, {
+      center: { lat: 40.9221968, lng: 14.7776341 },
+      zoom: 12,
+      disableDefaultUI: true
+    });
   }
 
   searchPlaces(event: any) {
-    if (event.data == null) {
+    if (event.srcElement.value == null) {
       this.suggestions.splice(0, this.suggestions.length);
       return;
     }
-    this.autoComplete.getResults(event.data)
+    this.autoComplete.getResults(event.srcElement.value)
       .subscribe(data => {
         this.suggestions.splice(0, this.suggestions.length);
         for (var i in data)
@@ -128,108 +61,13 @@ export class HomePage {
       })
   }
 
-  initQuery(zoomLevel: ZoomLevels) {
-    var cameraTarget = [this.map.getCameraTarget().lat, this.map.getCameraTarget().lng];
-    var distance = GeoLib.getDistance(
-      { latitude: cameraTarget[0], longitude: cameraTarget[1] },
-      { latitude: this.map.getVisibleRegion().northeast.lat, longitude: this.map.getVisibleRegion().northeast.lng }
-    ) / 1000;
-    this.geoQuery = this.createQuery(this.geoFireInstances[zoomLevel], cameraTarget, distance * 2);
-  }
-
-  createQuery(geoFire: any, center: number[], distance: number) {
-    var toReturn = geoFire.query({
-      center: [center[0], center[1]],
-      radius: distance
-    })
-    toReturn.on("key_entered", (key, location, distance) => this.addMarker(location[0], location[1], key));
-    toReturn.on("key_exited", (key, location, distance) => {
-      try {
-        if (this.markers[key] != undefined) {
-          this.markers[key].remove()
-          delete this.markers[key];
-        }
-      }
-      catch (e) {
-        console.log(e);
-      }
-    });
-    return toReturn;
-  }
-
-  updateQuery(query: any) {
-    var distance = GeoLib.getDistance(
-      { latitude: this.map.getCameraTarget().lat, longitude: this.map.getCameraTarget().lng },
-      { latitude: this.map.getVisibleRegion().northeast.lat, longitude: this.map.getVisibleRegion().northeast.lng }
-    ) / 1000;
-    query.updateCriteria({
-      center: [this.map.getCameraTarget().lat, this.map.getCameraTarget().lng],
-      radius: distance * 2
-    })
-  }
-
-  initGeoFire() {
-    this.geoFireInstances[ZoomLevels.province] = new GeoFire(this.db.database.ref("/province"));
-    this.geoFireInstances[ZoomLevels.comuni] = new GeoFire(this.db.database.ref("/comuni"));
-    this.geoFireInstances[ZoomLevels.hardCoded] = new GeoFire(this.db.database.ref("/hc"));
-  }
-
-  getZoomLevel(zoom: number): ZoomLevels {
-    if (zoom <= hcThreshold)
-      return ZoomLevels.hardCoded;
-    else if (zoom <= provinceThreshold)
-      return ZoomLevels.province;
-    return ZoomLevels.comuni;
-  }
-
   suggestionListener(elem: any) {
     this.suggestions.splice(0, this.suggestions.length)
     this.autoComplete.getCoord(elem.place_id)
       .subscribe(data => {
-        let position: CameraPosition<any> = {
-          target: {
-            lat: data.lat,
-            lng: data.lng
-          },
-          zoom: maxzoom
-        };
-        this.map.animateCamera(position);
-      })
+        this.map.panTo({lat: data.lat, lng: data.lng})
+        this.map.setZoom(14);
+      }, err => console.log(err))
   }
-
-  cameraMoved() {
-    var newZoomLevel = this.getZoomLevel(this.map.getCameraPosition().zoom);
-    if (this.zoomLevel != newZoomLevel) {
-      this.geoQuery.cancel();
-      this.initQuery(newZoomLevel);
-      this.map.clear();
-      this.markers = {};
-      this.zoomLevel = newZoomLevel;
-    }
-    this.updateQuery(this.geoQuery);
-  }
-  // getForecast() {
-  //   this.afs.collection("forecast").ref.get()
-  //     .then(data => {
-  //       var markersOptions: MarkerOptions[] = [];
-  //       data.forEach(doc => {
-  //         console.log(doc.data().coord.latitude)
-  //         // this.addMarker(doc.data().coord.latitude, doc.data().coord.longitude)
-  //         markersOptions.push({
-  //           icon: 'assets/icon/sun.png',
-  //           position: {
-  //             lat: doc.data().coord.latitude,
-  //             lng: doc.data().coord.longitude
-  //           }
-  //         })
-  //       })
-  //       this.map.addMarkerCluster({
-  //         markers: markersOptions,
-  //         icons: [
-  //           { min: 2, max: 100, url: "assets/icon/sun.png", anchor: { x: 42, y: 37 } }
-  //         ]
-  //       })
-  //     })
-  // }
 }
 
