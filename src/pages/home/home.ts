@@ -19,6 +19,7 @@ declare var MarkerClusterer;
 export class HomePage {
 
   map: any;
+  markerClusterer: any;
   suggestions: string[];
   @ViewChild('map') mapDiv: ElementRef;
   @ViewChild('inputBar') inputBar: ElementRef;
@@ -62,12 +63,13 @@ export class HomePage {
             icon: 'assets/images/sun.png'
           }))
         }
-        var markerClusterer = new MarkerClusterer(this.map, markers, { 
+        this.markerClusterer = new MarkerClusterer(this.map, markers, { 
           styles: clusterStyle,
           zoomOnClick: false,
-          averageCenter: true
+          averageCenter: true,
+          gridSize: 150
         });
-        markerClusterer.setCalculator(customCalculator);
+        this.markerClusterer.setCalculator(customCalculator);
         // this.map.data.loadGeoJson(data)
         // this.map.data.addGeoJson(data, null, features => {
         //       var markers = features.map(feature => {
@@ -80,6 +82,16 @@ export class HomePage {
         //   });
       });
 
+  }
+
+  increaseZoom() {
+    this.map.setZoom(this.map.getZoom() + 1);
+    this.markerClusterer.gridSize_ += 20;
+  }
+  
+  decreaseZoom() {
+    this.map.setZoom(this.map.getZoom() -1);
+    this.markerClusterer.gridSize_ -= 20;
   }
 
   searchPlaces(event: any) {

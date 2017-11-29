@@ -13,12 +13,8 @@ export const clusterStyle = [
 ];
 
 export const customCalculator = (markers) => {
-    let invisibleMarkers = 0;
-    for (let marker of markers)
-        if (!marker.visible)
-            invisibleMarkers++;
     return {
         text: '',
-        index: invisibleMarkers > markers.length / 2 ? 1 : 2
+        index: markers.filter(x => { return !x.visible }).length > markers.length / 2 ? 1 : 2
     }
 };
