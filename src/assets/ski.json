@@ -1,0 +1,2790 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Monte Sirino",
+                "snow": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    40.14810319999999,
+                    15.8391218
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Abetone"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.1446894,
+                    10.6636579
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Ala di Stura"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.3113703,
+                    7.293252600000001
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Alagna Valsesia - Monterosa Ski",
+                "snow": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.8581326,
+                    7.8119562
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Alba - Ciampac"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.4578817,
+                    11.7888509
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Alpe Devero"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.3160014,
+                    8.2603887
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Alpe Giumello"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.0450324,
+                    9.3653485
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Alpe di Mera",
+                "snow": true
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.7463714,
+                    8.0877635
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Alpe di Siusi / Seiser Alm"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.5340746,
+                    11.7603178
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Alpette"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.4106335,
+                    7.580299800000001
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Alta Badia - Corvara - La Villa - S. Cassiano"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.583431,
+                    11.90477
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Andalo - Fai della Paganella"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.16327099999999,
+                    11.002759
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Antagnod"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.8167197,
+                    7.691189299999999
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Aprica"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.1539586,
+                    10.1523763
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Arabba Marmolada"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.4345444,
+                    11.8499377
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Argentera"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.385817,
+                    6.953122500000001
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Artesina - Mondolè ski"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.25411,
+                    7.780246000000001
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Asiago"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.8758852,
+                    11.50962
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Auronzo di Cadore"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.5520131,
+                    12.435464
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Bagolino - Gaver"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.9220908,
+                    10.4564645
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Bardonecchia"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.07428609999999,
+                    6.6960506
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Belpiano"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.4354215,
+                    9.3586372
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Bielmonte"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.6624943,
+                    8.089237899999999
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Bolbeno"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.0343372,
+                    10.7494858
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Bolognola"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    42.9975931,
+                    13.2174272
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Bormio"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.4663571,
+                    10.3704671
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Borno"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.94631709999999,
+                    10.1991177
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Brusson"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.758063,
+                    7.729559499999999
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Camigliatello Silano"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.339829,
+                    16.4466783
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Campigna Monte Falco"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    43.9569205,
+                    11.7352543
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Campitello Matese"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.46302809999999,
+                    14.3915579
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Campitello di Fassa - Col Rodella - Sellajoch"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.4954439,
+                    11.7479138
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Campo Felice - Rocca di Cambio"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    42.2120617,
+                    13.4630875
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Campo Imperatore"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    42.4258981,
+                    13.5288931
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Campo Staffi"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.9259817,
+                    13.3340449
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Campo Stella - Leonessa"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    42.5182546,
+                    12.9803353
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Campo di Giove - Maiella"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    42.0069695,
+                    14.0347624
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Canazei - Belvedere"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.481787,
+                    11.805067
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Canosio - Pra La Grangia"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.4561831,
+                    7.0831868
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Cappadocia - Campo Rotondo"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.98193659999999,
+                    13.2757272
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Careggine"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.1208385,
+                    10.3236606
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Carezza Ski"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.407637,
+                    11.591153
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Casone di Profecchia"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.2116729,
+                    10.4456867
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Caspoggio - Valmalenco"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.2638195,
+                    9.864507000000001
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Cavalese - Alpe Cermis"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.242222,
+                    11.5025
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Cerreto Laghi"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.2980613,
+                    10.2442407
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Cervinia - Breuil"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.93356680000001,
+                    7.6292065
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Chamois"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.8370883,
+                    7.622671599999999
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Champoluc - Monterosa Ski"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.83664900000001,
+                    7.731544
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Champorcher"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.6243173,
+                    7.621894100000001
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Chiesa Valmalenco"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.3061313,
+                    9.8215363
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Cimone"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.1938129,
+                    10.7014529
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Claviere - Vialattea"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.93942,
+                    6.7516026
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Cogne"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.6076215,
+                    7.359093000000001
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Colere"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.9742604,
+                    10.0850681
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Colle di Joux"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.7511628,
+                    7.650731299999999
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Comprensorio Ski Civetta"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.3777936,
+                    12.0474023
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Corno alle Scale"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.1231061,
+                    10.8306581
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Corno del Renon"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.61499999999999,
+                    11.460833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Cortina d'Ampezzo"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.5404711,
+                    12.1356524
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Courmayeur"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.7969221,
+                    6.968962599999999
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Crissolo - Monviso Ski"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.69792989999999,
+                    7.157979999999998
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Cutigliano"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.1014499,
+                    10.7543315
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Domobianca"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.0935698,
+                    8.2343793
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Entracque"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.2439659,
+                    7.3964073
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Etna Nord"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    37.798759,
+                    15.035794
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Etna Sud - Nicolosi"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    37.6161038,
+                    15.0215082
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Febbio"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.304535,
+                    10.4333344
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Fiumalbo / Doccia"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.1778953,
+                    10.6495356
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Folgaria"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.9096785,
+                    11.1845902
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Folgàrida - Marilléva"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.30340200000001,
+                    10.858908
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Foppolo - Carona - Brembo Ski"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.0440815,
+                    9.754472
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Forni di Sopra"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.42173349999999,
+                    12.5824373
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Frabosa Soprana - Mondolè Ski"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.25411,
+                    7.780246000000001
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Fumaiolo"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    43.7833333,
+                    12.0666667
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Fun. Speikboden   Berg. Speikboden"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.93287899999999,
+                    11.9379321
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Gambarie"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    38.1676018,
+                    15.8355523
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Garessio 2000"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.216417,
+                    7.944145000000001
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Ghiacciaio Presena - Adamello Ski"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.2571421,
+                    10.5070389
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Gitschberg Maranza - Jochtal/Valles"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.8506711,
+                    11.6213547
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Gressoney-La-Trinite - Monterosa Ski"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.8581326,
+                    7.8119562
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Gressoney-Saint-Jean - Monterosa Ski"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.7617194,
+                    7.8348521
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "La Magdeleine"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.81572449999999,
+                    7.634029199999999
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "La Thuile"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.70466390000001,
+                    6.910813399999999
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Laceno"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    40.8021173,
+                    15.114932
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Ladurns - Colle Isarco"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.95138379999999,
+                    11.3881973
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Lavarone - Rivetta"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.9595951,
+                    11.3129408
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Lessinia - Malga San Giorgio"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.68574679999999,
+                    11.0853311
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Limone Piemonte"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.2049744,
+                    7.5750549
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Livigno"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.538636,
+                    10.1357319
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Lizzola"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.02404689999999,
+                    10.0144382
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Lurisia"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.30028000000001,
+                    7.706971500000001
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Macugnaga"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.9508953,
+                    7.963405800000001
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Madesimo"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.4366898,
+                    9.358030800000002
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Madonna di Campiglio"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.2302584,
+                    10.826401
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Maniva Ski"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.824652,
+                    10.410545
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Merano 2000"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.6778074,
+                    11.2535093
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Misurina"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.57783269999999,
+                    12.2469397
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Moena-Alpe Lusia-Bellamonte"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.368045,
+                    11.687521
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Monesi di Triora"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.0750435,
+                    7.746083900000001
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Montagna Grande di Viggiano"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    40.3821556,
+                    15.8685261
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Monte Amiata"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    42.88769,
+                    11.6239051
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Monte Avena"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.014157,
+                    11.894958
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Monte Baldo"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.766184,
+                    10.813288
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Monte Bondone"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.988056,
+                    11.030833
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Monte Livata"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.93139999999999,
+                    13.1481
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Monte San Primo"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.916667,
+                    9.208888999999997
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Montecampione"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.826735,
+                    10.188215
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Mottarone"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.8827118,
+                    8.456868199999999
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Nevegal"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.0926432,
+                    12.2810988
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Obereggen - Pampeago - Predazzo"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.372888,
+                    11.5331827
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Ollomont"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.8489376,
+                    7.3108232
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Oropa - Mucrone"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.627232,
+                    7.980556000000001
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Ovindoli"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    42.1389723,
+                    13.51743
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Padola Val Comelico"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.6046754,
+                    12.4765511
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Panarotta 2002"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.05048659999999,
+                    11.316947
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Passo Brocon-Marande (Funivie Lagorai)"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.1156885,
+                    11.6610252
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Passo Fedaia - Marmolada"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.45350000000001,
+                    11.889
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Passo Lanciano - Majelletta"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    42.1786433,
+                    14.1141959
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Passo Lavaze -  Oclini"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.35,
+                    11.4833333
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Passo Mendola - Prati di Golf"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.4166667,
+                    11.2
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Passo Penice"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.8,
+                    9.316666699999999
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Passo Rolle"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.2966251,
+                    11.7867757
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Passo Stelvio"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.52871589999999,
+                    10.4528821
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Passo delle Radici"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.2001676,
+                    10.4834131
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Pejo"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.38371619999999,
+                    10.6793795
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Pescasseroli"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.80785089999999,
+                    13.7887872
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Pescegallo - Valgerola"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.03803799999999,
+                    9.571955999999998
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Pescocostanzo"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.8902102,
+                    14.0655955
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Pian Mune - Paesana"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.6437348,
+                    7.2426349
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Pian Neiretto"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.03169210000001,
+                    7.225443600000001
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Pian del Frais di Chiomonte"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.10234379999999,
+                    6.994374000000001
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Piancavallo"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.1076697,
+                    12.5194955
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Piandelagotti   Frassinoro"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.2279356,
+                    10.5169616
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Piane di Mocogno"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.2877347,
+                    10.6676585
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Piani di Bobbio e  Valtorta"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.961534,
+                    9.488502
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Piano Battaglia - Madonie"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    37.8773813,
+                    14.0239866
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Piazzatorre"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.9930999,
+                    9.6910707
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Pila"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.7319772,
+                    7.319216000000001
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Pinzolo"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.1597701,
+                    10.7650269
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Plan Val Passiria   Pfelders"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.81666670000001,
+                    11.25
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Plan de Corones"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.7386315,
+                    11.9576188
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Plose - Bressanone"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.6995055,
+                    11.6466589
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Polsa - San Valentino"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.7826827,
+                    10.9079371
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Pontechianale"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.6531852,
+                    7.0283383
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Pontedilegno Tonale - Adamello Ski"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.2571421,
+                    10.5070389
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Pozza di Fassa - Aloch - Buffaure"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.4279097,
+                    11.6982895
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Pragelato"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.9858525,
+                    6.9356143
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Prali"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.87586799999999,
+                    7.051047099999999
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Prati di Tivo"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    42.4995707,
+                    13.5596485
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Pratizzano"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.3762903,
+                    10.2490237
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Prato Nevoso - Mondole Ski"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.25411,
+                    7.780246000000001
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Pratospilla"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.3610793,
+                    10.1105512
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Predaia"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.2565315,
+                    11.0419466
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Presolana   Monte Pora"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.91384000000001,
+                    10.0722919
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Racines Giovo"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.8815497,
+                    11.4081018
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Ravascletto   Zoncolan"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.4996935,
+                    12.9192317
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Recoaro Mille"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.68323729999999,
+                    11.2246584
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Rhemes - Notre Dame"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.5487306,
+                    7.1298748
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Roccaraso - Rivisondoli"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.868438,
+                    14.070217
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Rucas di Bagnolo"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.7575755,
+                    7.218490799999999
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Ruffre"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.42602709999999,
+                    11.1974425
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Saint Rhemy - Crevacol"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.8204593,
+                    7.148762899999999
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Sampeyre"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.5794459,
+                    7.1856201
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "San Colombano"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.18277070000001,
+                    9.4889194
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "San Domenico di Varzo"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.2484477,
+                    8.193391799999999
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "San Martino di Castrozza - Passo Rolle"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.263155,
+                    11.80367
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "San Pellegrino - Falcade"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.393388,
+                    11.781549
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "San Simone - Brembo Ski"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.0440815,
+                    9.754472
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "San Valentino alla Muta"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.7636848,
+                    10.5337801
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "San Vigilio di Marebbe"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.6988422,
+                    11.9310373
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "San Vito di Cadore"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.4592116,
+                    12.2068564
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Sangiacomo di Roburent"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.2934699,
+                    7.875561399999999
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Sansicario - Cesana"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.9585391,
+                    6.806602799999999
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Sant'Annapelago (Pievepelago)"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.19196350000001,
+                    10.5524946
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Santa Caterina Valfurva"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.4141235,
+                    10.4900948
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Sappada"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.566344,
+                    12.689456
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Sarnano"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    43.0253761,
+                    13.2778918
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Sauris"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.47493799999999,
+                    12.716836
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Sauze d'Oulx"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.0268822,
+                    6.858390299999999
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Scanno - Monte Rotondo"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.8999105,
+                    13.8772468
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Scanno - Passo Godi"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    41.83641890000001,
+                    13.9305773
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Schia Monte Caio"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.4759616,
+                    10.178951
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Sella Nevea - Kanin"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.3888398,
+                    13.4740445
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Sestriere"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.9578505,
+                    6.879086099999999
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Solda   Sulden"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.5180911,
+                    10.596046
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Spiazzi di Gromo"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.971646,
+                    9.965141399999998
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "St. Gréé di Viola"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.2772033,
+                    7.957243099999999
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Tambre - Pian Cansiglio"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.1180428,
+                    12.4262693
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Tarvisio"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.4654751,
+                    13.5534595
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Teglio"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.171494,
+                    10.0609586
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Temu - Adamello Ski"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.2571421,
+                    10.5070389
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Terminillo"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    42.4666667,
+                    13
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Tesero"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.2895689,
+                    11.5079659
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Tonezza - Alt.Fiorentini"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.8935645,
+                    11.2727466
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Torgnon"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.8339003,
+                    7.576191399999998
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Trafoi"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.5504094,
+                    10.5081459
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Tre Cime Dolomiti"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.6186777,
+                    12.3027679
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Usseglio"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.2322859,
+                    7.2171703
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Ussita - Frontignano"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    42.91901189999999,
+                    13.155292
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Val Gardena - Selva - Ortisei - Santa Cristina"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.55674860000001,
+                    11.725427
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Val Sarentino"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.6412136,
+                    11.3541082
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Val Senales"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.7575468,
+                    10.7827723
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Val d'Ultimo   Schwemmalm"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.5279025,
+                    10.9555147
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Valgrisenche"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.630219,
+                    7.0645059
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Valle Vigezzo"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.1166667,
+                    8.5
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Vallelunga   Maseben"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.8297026,
+                    10.6502996
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Valtournenche"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    45.8973519,
+                    7.627371699999999
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Ventasso Laghi"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.2980613,
+                    10.2442407
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Vigo di Fassa - Pera - Ciampedie"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.43417100000001,
+                    11.6646027
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Villaggio Palumbo - Sila"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    39.19488,
+                    16.651051
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Vipiteno - Monte Cavallo - Rosskopf"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.91499999999999,
+                    11.383167
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Watles"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    46.724722,
+                    10.4875
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Zum Zeri Passo Due Santi"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    44.3893411,
+                    9.7524038
+                ]
+            }
+        }
+    ]
+}
