@@ -18,3 +18,8 @@ export const customCalculator = (markers) => {
         index: markers.filter(x => { return !x.visible }).length > markers.length / 2 ? 1 : 2
     }
 };
+
+export const computeGridSize = (zoomLevel) => {
+    let offset = Math.round(zoomLevel) - 12;
+    return 150 + offset * 20;
+}
