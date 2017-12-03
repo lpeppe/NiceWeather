@@ -1,4 +1,3 @@
-import { ForecastProvider } from './../../providers/forecast/forecast';
 import { AutocompleteProvider } from './../../providers/autocomplete/autocomplete';
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
@@ -8,8 +7,10 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { importType } from '@angular/compiler/src/output/output_ast';
 import { Http } from '@angular/http';
 import { clusterStyle, customCalculator, computeGridSize } from '../../app/cluster-settings';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 // import { AngularFirestore } from 'angularfire2/firestore';
-declare var google;
+// declare var google;
 declare var MarkerClusterer;
 @Component({
   selector: 'page-home',
@@ -21,13 +22,27 @@ export class HomePage {
   map: any;
   markerClusterer: any;
   suggestions: string[];
+  forecastPromise: Promise<any>;
+  pointsPromise: Promise<any>;
   @ViewChild('map') mapDiv: ElementRef;
   @ViewChild('inputBar') inputBar: ElementRef;
 
-  constructor(public navCtrl: NavController, public platform: Platform, public autoComplete: AutocompleteProvider,
-    public forecast: ForecastProvider, public db: AngularFireDatabase, private geolocation: Geolocation,
+  constructor(
+    public navCtrl: NavController,
+    public platform: Platform,
+    public autoComplete: AutocompleteProvider,
+    public db: AngularFireDatabase,
+    private geolocation: Geolocation,
     public http: Http) {
     this.suggestions = [];
+
+    this.forecastPromise = new Promise((resolve, reject) => {
+      db.object('forecast').valueChanges().subscribe(data => resolve(data), err => reject(err))
+    })
+
+    this.pointsPromise = new Promise((resolve, reject) => {
+      db.object('points').valueChanges().subscribe(data => resolve(data), err => reject(err))
+    })
   }
 
   // ionViewDidLoad() {
@@ -37,6 +52,8 @@ export class HomePage {
   async ngAfterViewInit() {
     await this.platform.ready()
     this.loadMap();
+    this.createMarkerClusterer(await this.loadMarkersData());
+
     // this.geolocation.getCurrentPosition().then((resp) => {
     //   this.map.panTo({ lat: resp.coords.latitude, lng: resp.coords.longitude })
     //   this.map.setZoom(14);
@@ -51,38 +68,39 @@ export class HomePage {
       zoom: 7,
       disableDefaultUI: true
     });
-    this.http.get('assets/centerPoints.json')
-      .map(x => { return x.json() })
-      .subscribe(data => {
-        var markers = [];
-        for (let point of data.features) {
+  }
+
+  async loadMarkersData() {
+    return new Promise(async (resolve, reject) => {
+      try {
+        let values = await Promise.all([this.pointsPromise, this.forecastPromise]);
+        let markers = [];
+        for (let id in values[0]) {
+          let latlng = values[0][id];
           markers.push(new google.maps.Marker({
-            position: new google.maps.LatLng(point.geometry.coordinates[1], point.geometry.coordinates[0]),
+            position: new google.maps.LatLng(latlng.lat, latlng.lng),
             map: this.map,
-            visible: point.properties.sunny,
+            visible: values[1][id].sunny,
             icon: 'assets/images/sun.png'
           }))
         }
-        this.markerClusterer = new MarkerClusterer(this.map, markers, { 
-          styles: clusterStyle,
-          zoomOnClick: false,
-          averageCenter: true,
-          gridSize: computeGridSize(this.map.getZoom())
-        });
-        this.markerClusterer.setCalculator(customCalculator);
-        this.map.addListener('zoom_changed', _ => this.markerClusterer.gridSize_ = computeGridSize(this.map.getZoom()))
-        // this.map.data.loadGeoJson(data)
-        // this.map.data.addGeoJson(data, null, features => {
-        //       var markers = features.map(feature => {
-        //           var g = feature.getGeometry();
-        //           var marker = new google.maps.Marker({ 'position': g.get(0) });
-        //           return marker;
-        //       });
+        resolve(markers);
+      }
+      catch (err) {
+        console.log(err)
+      }
+    })
+  }
 
-        //       var markerCluster = new MarkerClusterer(this.map, markers);
-        //   });
-      });
-
+  createMarkerClusterer(markers) {
+    this.markerClusterer = new MarkerClusterer(this.map, markers, {
+      styles: clusterStyle,
+      zoomOnClick: false,
+      averageCenter: true,
+      gridSize: computeGridSize(this.map.getZoom())
+    });
+    this.markerClusterer.setCalculator(customCalculator);
+    this.map.addListener('zoom_changed', _ => this.markerClusterer.gridSize_ = computeGridSize(this.map.getZoom()))
   }
 
   changeZoom(step: number) {
