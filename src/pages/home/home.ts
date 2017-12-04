@@ -73,14 +73,14 @@ export class HomePage {
   async loadMarkersData() {
     return new Promise(async (resolve, reject) => {
       try {
-        let values = await Promise.all([this.pointsPromise, this.forecastPromise]);
+        let [points, forecast] = await Promise.all([this.pointsPromise, this.forecastPromise]);
         let markers = [];
-        for (let id in values[0]) {
-          let latlng = values[0][id];
+        for (let id in points) {
+          let latlng = points[id];
           markers.push(new google.maps.Marker({
             position: new google.maps.LatLng(latlng.lat, latlng.lng),
             map: this.map,
-            visible: values[1][id].sunny,
+            visible: forecast[id].sunny,
             icon: 'assets/images/sun.png'
           }))
         }
