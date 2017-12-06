@@ -1,3 +1,4 @@
+import { DataProvider } from './../../providers/data/data';
 import { AutocompleteProvider } from './../../providers/autocomplete/autocomplete';
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
@@ -19,11 +20,9 @@ declare var MarkerClusterer;
 
 export class HomePage {
 
-  map: any;
+  map: google.maps.Map;
   markerClusterer: any;
   suggestions: string[];
-  forecastPromise: Promise<any>;
-  pointsPromise: Promise<any>;
   @ViewChild('map') mapDiv: ElementRef;
   @ViewChild('inputBar') inputBar: ElementRef;
 
@@ -33,21 +32,9 @@ export class HomePage {
     public autoComplete: AutocompleteProvider,
     public db: AngularFireDatabase,
     private geolocation: Geolocation,
-    public http: Http) {
+    public dataProvider: DataProvider) {
     this.suggestions = [];
-
-    this.forecastPromise = new Promise((resolve, reject) => {
-      db.object('forecast').valueChanges().subscribe(data => resolve(data), err => reject(err))
-    })
-
-    this.pointsPromise = new Promise((resolve, reject) => {
-      db.object('points').valueChanges().subscribe(data => resolve(data), err => reject(err))
-    })
   }
-
-  // ionViewDidLoad() {
-  //   this.loadMap();
-  //  }
 
   async ngAfterViewInit() {
     await this.platform.ready()
@@ -64,16 +51,18 @@ export class HomePage {
 
   loadMap() {
     this.map = new google.maps.Map(this.mapDiv.nativeElement, {
-      center: { lat: 40.9221968, lng: 14.7776341 },
-      zoom: 7,
-      disableDefaultUI: true
+      center: { lat: 43.0221968, lng: 13.2776341 },
+      zoom: 6,
+      disableDefaultUI: true,
+      minZoom: 6,
+      maxZoom: 11
     });
   }
 
   async loadMarkersData() {
     return new Promise(async (resolve, reject) => {
       try {
-        let [points, forecast] = await Promise.all([this.pointsPromise, this.forecastPromise]);
+        let [points, forecast] = await this.dataProvider.getSunData();
         let markers = [];
         for (let id in points) {
           let latlng = points[id];

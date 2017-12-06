@@ -14,6 +14,8 @@ import { AngularFireModule } from 'angularfire2';
 import { firebaseConfig } from '../environment';
 // import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { DataProvider } from '../providers/data/data';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig),
     // AngularFirestoreModule
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -39,7 +42,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AutocompleteProvider,
     ForecastProvider,
-    Geolocation
+    Geolocation,
+    DataProvider
   ]
 })
 export class AppModule {}

@@ -21,5 +21,9 @@ export const customCalculator = (markers) => {
 
 export const computeGridSize = (zoomLevel) => {
     let offset = Math.round(zoomLevel) - 12;
-    return 150 + offset * 20;
+    if(zoomLevel <= 9) {
+        return 150 + offset * 20;
+    }
+    else
+        return 150 - offset * 20;
 }
