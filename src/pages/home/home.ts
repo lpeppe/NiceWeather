@@ -55,7 +55,7 @@ export class HomePage {
       zoom: 6,
       disableDefaultUI: true,
       minZoom: 6,
-      maxZoom: 11
+      maxZoom: 10
     });
   }
 
