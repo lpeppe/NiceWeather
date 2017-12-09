@@ -10,6 +10,7 @@ import { Http } from '@angular/http';
 import { clusterStyle, customCalculator, computeGridSize } from '../../app/cluster-settings';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import * as L from 'leaflet';
 // import { AngularFirestore } from 'angularfire2/firestore';
 // declare var google;
 declare var MarkerClusterer;
@@ -39,7 +40,7 @@ export class HomePage {
   async ngAfterViewInit() {
     await this.platform.ready()
     this.loadMap();
-    this.createMarkerClusterer(await this.loadMarkersData());
+    // this.createMarkerClusterer(await this.loadMarkersData());
 
     // this.geolocation.getCurrentPosition().then((resp) => {
     //   this.map.panTo({ lat: resp.coords.latitude, lng: resp.coords.longitude })
@@ -49,14 +50,29 @@ export class HomePage {
     // });
   }
 
-  loadMap() {
-    this.map = new google.maps.Map(this.mapDiv.nativeElement, {
-      center: { lat: 43.0221968, lng: 13.2776341 },
-      zoom: 6,
-      disableDefaultUI: true,
-      minZoom: 6,
-      maxZoom: 10
-    });
+  async loadMap() {
+    var map = L.map('map').setView([15.9529285, 10.4328809], 6);
+    
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    
+    L.marker([51.5, -0.09]).addTo(map)
+        .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+        .openPopup();
+    var markers = L.markerClusterGroup();
+    try {
+      var points = (await this.dataProvider.getSunData())[0]
+      for(let id in points) {
+        if(points[id].lat)
+          markers.addLayer(L.marker([points[id].lat, points[id].lng]))
+      }
+      map.addLayer(markers);  
+
+    }
+    catch(err) {
+      console.log(err)
+    }
   }
 
   async loadMarkersData() {
