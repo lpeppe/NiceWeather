@@ -10,8 +10,8 @@
       </ion-list>
     </div>
 
-    <ion-fab right bottom #fab (click)="onFabClick()">
-      <button ion-fab>
+    <ion-fab right bottom #fab>
+      <button ion-fab (click)="onFabClick()">
         <ion-icon name="arrow-dropup"></ion-icon>
       </button>
       <ion-fab-list side="top">
@@ -24,7 +24,7 @@
             <ion-item no-lines>
               <!--<input type="range" min="1" max="100" value="50" name="range">
                 <output for="range"></output>-->
-              <ion-range [(ngModel)]="value" pin="true" min="50" max="200"></ion-range>
+              <ion-range [(ngModel)]="value" pin="true" min="50" max="200" (ionChange)="onRangeChanged($event)" (ionBlur)="onRangeBlur($event)"></ion-range>
             </ion-item>
           </ion-fab-list>
         </ion-fab>

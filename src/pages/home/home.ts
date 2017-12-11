@@ -27,7 +27,7 @@ export class HomePage {
   markers: any;
   markerClusterer: any;
   suggestions: string[];
-  searchLayer: any;
+  searchCircle: any;
   @ViewChild('map') mapDiv: ElementRef;
   @ViewChild('inputBar') inputBar: ElementRef;
 
@@ -39,15 +39,16 @@ export class HomePage {
     private geolocation: Geolocation,
     public dataProvider: DataProvider) {
     this.suggestions = [];
-    this.searchLayer = L.layerGroup([]);
   }
-
+  
   async ngAfterViewInit() {
     await this.platform.ready()
     await this.loadMap();
+    this.searchCircle = new L.Circle(this.map.getCenter(), { radius: 50000 })
     this.map.on('move', _ => {
-      this.searchLayer.clearLayers();
-      this.searchLayer.addLayer(L.circle(this.map.getCenter(), {radius: 10000}));
+      this.searchCircle.setLatLng(this.map.getCenter())
+      // this.searchLayer.clearLayers();
+      // this.searchLayer.addLayer(L.circle(this.map.getCenter(), {radius: 10000}));
     })
 
     // this.geolocation.getCurrentPosition().then((resp) => {
@@ -121,12 +122,20 @@ export class HomePage {
   onFabClick() {
     if(this.map.hasLayer(this.markers)) {
       this.map.removeLayer(this.markers)
-      this.map.addLayer(this.searchLayer)
+      this.map.addLayer(this.searchCircle);
     }
     else {
-      this.map.removeLayer(this.searchLayer)
+      this.map.removeLayer(this.searchCircle)
       this.map.addLayer(this.markers)
     }  
+  }
+
+  onRangeChanged(event: any) {
+    this.searchCircle.setRadius(event._value * 1000)
+  }
+
+  onRangeBlur(event: any) {
+    console.log(event)
   }
 }
 
