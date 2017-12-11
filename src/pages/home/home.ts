@@ -15,7 +15,6 @@ import * as L from 'leaflet';
 import 'leaflet.markercluster';
 // import { AngularFirestore } from 'angularfire2/firestore';
 // declare var google;
-declare var MarkerClusterer;
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -23,11 +22,10 @@ declare var MarkerClusterer;
 
 export class HomePage {
 
-  map: any;
-  markers: any;
-  markerClusterer: any;
-  suggestions: string[];
-  searchCircle: any;
+  map: L.Map;
+  markers: L.LayerGroup;
+  suggestions: string[] = [];
+  searchCircle: L.Circle;
   @ViewChild('map') mapDiv: ElementRef;
   @ViewChild('inputBar') inputBar: ElementRef;
 
@@ -37,9 +35,7 @@ export class HomePage {
     public autoComplete: AutocompleteProvider,
     public db: AngularFireDatabase,
     private geolocation: Geolocation,
-    public dataProvider: DataProvider) {
-    this.suggestions = [];
-  }
+    public dataProvider: DataProvider) {}
   
   async ngAfterViewInit() {
     await this.platform.ready()
@@ -59,7 +55,7 @@ export class HomePage {
     // });
   }
 
-  async loadMap() {
+  async loadMap(): Promise<any> {
     return new Promise(async (resolve, reject) => {
       this.map = L.map('map', {
         zoomControl: false
@@ -69,7 +65,8 @@ export class HomePage {
       }).addTo(this.map);
       this.markers = L.markerClusterGroup(clusterOptions);
       try {
-        this.map.addLayer(await this.loadMarkersData());
+        await this.loadMarkersData();
+        this.map.addLayer(this.markers)
         resolve();
       }
       catch (err) {
@@ -79,7 +76,7 @@ export class HomePage {
     })
   }
 
-  async loadMarkersData() {
+  async loadMarkersData(): Promise<any> {
     return new Promise(async (resolve, reject) => {
       try {
         let [points, forecast] = await this.dataProvider.getSunData();
@@ -89,7 +86,7 @@ export class HomePage {
               icon: forecast[id].sunny ? visibleIcon : invisibleIcon
             }))
         }
-        resolve(this.markers);
+        resolve();
       }
       catch (err) {
         console.log(err)
@@ -98,7 +95,7 @@ export class HomePage {
     })
   }
 
-  searchPlaces(event: any) {
+  searchPlaces(event: any): void {
     if (event.srcElement.value == null) {
       this.suggestions.splice(0, this.suggestions.length);
       return;
@@ -111,7 +108,7 @@ export class HomePage {
       })
   }
 
-  suggestionListener(elem: any) {
+  suggestionListener(elem: any): void {
     this.suggestions.splice(0, this.suggestions.length)
     this.autoComplete.getCoord(elem.place_id)
       .subscribe(data => {
@@ -119,7 +116,7 @@ export class HomePage {
       }, err => console.log(err))
   }
 
-  onFabClick() {
+  onFabClick(): void {
     if(this.map.hasLayer(this.markers)) {
       this.map.removeLayer(this.markers)
       this.map.addLayer(this.searchCircle);
@@ -130,11 +127,11 @@ export class HomePage {
     }  
   }
 
-  onRangeChanged(event: any) {
+  onRangeChanged(event: any): void {
     this.searchCircle.setRadius(event._value * 1000)
   }
 
-  onRangeBlur(event: any) {
+  onRangeBlur(event: any): void {
     console.log(event)
   }
 }
