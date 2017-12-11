@@ -3,4 +3,5 @@ platforms/
 plugins/
 www/
 config.xml
-.sourcemaps/main.js.map
+.sourcemaps/
+.vscode/

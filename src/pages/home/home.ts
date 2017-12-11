@@ -7,9 +7,12 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { Geolocation } from '@ionic-native/geolocation';
 import { importType } from '@angular/compiler/src/output/output_ast';
 import { Http } from '@angular/http';
-import { clusterStyle, customCalculator, computeGridSize } from '../../app/cluster-settings';
+import { clusterOptions, invisibleIcon, visibleIcon } from '../../app/cluster-settings';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+// import * as L from 'leaflet';
+import * as L from 'leaflet';
+import 'leaflet.markercluster';
 // import { AngularFirestore } from 'angularfire2/firestore';
 // declare var google;
 declare var MarkerClusterer;
@@ -20,9 +23,11 @@ declare var MarkerClusterer;
 
 export class HomePage {
 
-  map: google.maps.Map;
+  map: any;
+  markers: any;
   markerClusterer: any;
   suggestions: string[];
+  searchLayer: any;
   @ViewChild('map') mapDiv: ElementRef;
   @ViewChild('inputBar') inputBar: ElementRef;
 
@@ -34,12 +39,16 @@ export class HomePage {
     private geolocation: Geolocation,
     public dataProvider: DataProvider) {
     this.suggestions = [];
+    this.searchLayer = L.layerGroup([]);
   }
 
   async ngAfterViewInit() {
     await this.platform.ready()
-    this.loadMap();
-    this.createMarkerClusterer(await this.loadMarkersData());
+    await this.loadMap();
+    this.map.on('move', _ => {
+      this.searchLayer.clearLayers();
+      this.searchLayer.addLayer(L.circle(this.map.getCenter(), {radius: 10000}));
+    })
 
     // this.geolocation.getCurrentPosition().then((resp) => {
     //   this.map.panTo({ lat: resp.coords.latitude, lng: resp.coords.longitude })
@@ -49,51 +58,43 @@ export class HomePage {
     // });
   }
 
-  loadMap() {
-    this.map = new google.maps.Map(this.mapDiv.nativeElement, {
-      center: { lat: 43.0221968, lng: 13.2776341 },
-      zoom: 6,
-      disableDefaultUI: true,
-      minZoom: 6,
-      maxZoom: 10
-    });
+  async loadMap() {
+    return new Promise(async (resolve, reject) => {
+      this.map = L.map('map', {
+        zoomControl: false
+      }).setView([41.9102415, 12.3959139], 6);
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        // attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(this.map);
+      this.markers = L.markerClusterGroup(clusterOptions);
+      try {
+        this.map.addLayer(await this.loadMarkersData());
+        resolve();
+      }
+      catch (err) {
+        console.log(err)
+        reject(err);
+      }
+    })
   }
 
   async loadMarkersData() {
     return new Promise(async (resolve, reject) => {
       try {
         let [points, forecast] = await this.dataProvider.getSunData();
-        let markers = [];
         for (let id in points) {
-          let latlng = points[id];
-          markers.push(new google.maps.Marker({
-            position: new google.maps.LatLng(latlng.lat, latlng.lng),
-            map: this.map,
-            visible: forecast[id].sunny,
-            icon: 'assets/images/sun.png'
-          }))
+          if (points[id].lat)
+            this.markers.addLayer(L.marker([points[id].lat, points[id].lng], {
+              icon: forecast[id].sunny ? visibleIcon : invisibleIcon
+            }))
         }
-        resolve(markers);
+        resolve(this.markers);
       }
       catch (err) {
         console.log(err)
+        reject(err)
       }
     })
-  }
-
-  createMarkerClusterer(markers) {
-    this.markerClusterer = new MarkerClusterer(this.map, markers, {
-      styles: clusterStyle,
-      zoomOnClick: false,
-      averageCenter: true,
-      gridSize: computeGridSize(this.map.getZoom())
-    });
-    this.markerClusterer.setCalculator(customCalculator);
-    this.map.addListener('zoom_changed', _ => this.markerClusterer.gridSize_ = computeGridSize(this.map.getZoom()))
-  }
-
-  changeZoom(step: number) {
-    this.map.setZoom(this.map.getZoom() + step);
   }
 
   searchPlaces(event: any) {
@@ -113,9 +114,19 @@ export class HomePage {
     this.suggestions.splice(0, this.suggestions.length)
     this.autoComplete.getCoord(elem.place_id)
       .subscribe(data => {
-        this.map.panTo({ lat: data.lat, lng: data.lng })
-        this.map.setZoom(14);
+        this.map.flyTo([data.lat, data.lng], 11)
       }, err => console.log(err))
+  }
+
+  onFabClick() {
+    if(this.map.hasLayer(this.markers)) {
+      this.map.removeLayer(this.markers)
+      this.map.addLayer(this.searchLayer)
+    }
+    else {
+      this.map.removeLayer(this.searchLayer)
+      this.map.addLayer(this.markers)
+    }  
   }
 }
 
