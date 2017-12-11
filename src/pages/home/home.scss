@@ -28,8 +28,10 @@
             z-index: 10;
         }
 
-        ion-list {
-            width: 100%;
+        ion-item {
+            margin-top: -22px;
+            margin-right: -10px;
+            background: white;
         }
 
         ion-searchbar {
@@ -38,6 +40,16 @@
             padding-left: 0px;
             padding-right: 0px;
         }
+
+        ion-range {
+            width: 100px;
+            //background: white;
+        }
+
+        ion-fab-list {
+            background: white;
+        }
+        
         // ion-searchbar {
         //     position: absolute;
         //     top: 10px;
