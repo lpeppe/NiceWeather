@@ -9,22 +9,46 @@
         </ion-item>
       </ion-list>
     </div>
+<<<<<<< HEAD
     <ion-fab right bottom #fab (click)="onFabClick()">
       <button ion-fab color="dark">
+=======
+
+    <ion-fab bottom left>
+      <button ion-fab mini (click)="changeZoom(-1)">
+        <ion-icon name="remove"></ion-icon>
+      </button>
+    </ion-fab>
+    <ion-fab bottom left style="margin-bottom: 60px">
+      <button ion-fab mini (click)="changeZoom(1)">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-fab>
+
+    <ion-fab right bottom #fab>
+      <button ion-fab>
+>>>>>>> feature/slider
         <ion-icon name="arrow-dropup"></ion-icon>
       </button>
-      <ion-fab-list side="top" >
-        <button ion-fab>
-          <ion-icon name="snow"></ion-icon>
+      <ion-fab-list side="top">
+        <!-- NEVE -->
+        <ion-fab ion-fixed>
+          <button ion-fab mini>
+            <ion-icon name="snow"></ion-icon>
+          </button>
+          <ion-fab-list side="left">
+            <ion-item no-lines>
+                <!--<input type="range" min="1" max="100" value="50" name="range">
+                <output for="range"></output>-->
+              <ion-range [(ngModel)]="value" pin="true" min="50" max="200"></ion-range>
+            </ion-item>
+          </ion-fab-list>
+        </ion-fab>
+        <button ion-fab mini>
         </button>
-        <button ion-fab>
-          <!--<ion-icon name="logo-twitter"></ion-icon>-->
+        <button ion-fab mini>
         </button>
-        <button ion-fab>
-          <!--<ion-icon name="logo-vimeo"></ion-icon>-->
-        </button>
-        <button ion-fab>
-          <!--<ion-icon name="logo-googleplus"></ion-icon>-->
+        <button ion-fab mini>
         </button>
       </ion-fab-list>
     </ion-fab>
