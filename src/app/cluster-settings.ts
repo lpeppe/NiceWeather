@@ -10,6 +10,11 @@ export const visibleIcon: L.Icon = L.icon({
     iconSize: L.point(32, 32)
 })
 
+export const skiIcon: L.Icon = L.icon({
+    iconUrl: 'assets/images/ski.png',
+    iconSize: L.point(32, 32)
+})
+
 export const clusterOptions = {
     showCoverageOnHover: false,
     iconCreateFunction: (cluster) => {

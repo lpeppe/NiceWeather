@@ -6,8 +6,7 @@ import { Platform } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Geolocation } from '@ionic-native/geolocation';
 import { importType } from '@angular/compiler/src/output/output_ast';
-import { Http } from '@angular/http';
-import { clusterOptions, invisibleIcon, visibleIcon } from '../../app/cluster-settings';
+import { clusterOptions, invisibleIcon, visibleIcon, skiIcon } from '../../app/cluster-settings';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 // import * as L from 'leaflet';
@@ -24,6 +23,7 @@ export class HomePage {
 
   map: L.Map;
   markers: L.LayerGroup;
+  activityMarkers: L.LayerGroup;
   suggestions: string[] = [];
   searchCircle: L.Circle;
   @ViewChild('map') mapDiv: ElementRef;
@@ -35,7 +35,9 @@ export class HomePage {
     public autoComplete: AutocompleteProvider,
     public db: AngularFireDatabase,
     private geolocation: Geolocation,
-    public dataProvider: DataProvider) {}
+    public dataProvider: DataProvider) {
+      this.activityMarkers = new L.LayerGroup();
+    }
   
   async ngAfterViewInit() {
     await this.platform.ready()
@@ -132,7 +134,14 @@ export class HomePage {
   }
 
   onRangeBlur(event: any): void {
-    console.log(event)
+    this.dataProvider.getSkiStations(this.map.getCenter(), event._value)
+    .subscribe(data => {
+      console.log(data)
+      this.activityMarkers.clearLayers();
+      for(let point of data)
+        this.activityMarkers.addLayer(new L.Marker((point), {icon: skiIcon}))
+      this.map.addLayer(this.activityMarkers)  
+    })
   }
 }
 
