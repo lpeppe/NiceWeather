@@ -1,12 +1,17 @@
 import * as L from 'leaflet';
 
-export const invisibleIcon = L.icon({
+export const invisibleIcon: L.Icon = L.icon({
     iconUrl: 'assets/images/sun.png',
     iconSize: L.point(0, 0)
 })
 
-export const visibleIcon = L.icon({
+export const visibleIcon: L.Icon = L.icon({
     iconUrl: 'assets/images/sun.png',
+    iconSize: L.point(32, 32)
+})
+
+export const skiIcon: L.Icon = L.icon({
+    iconUrl: 'assets/images/ski.png',
     iconSize: L.point(32, 32)
 })
 

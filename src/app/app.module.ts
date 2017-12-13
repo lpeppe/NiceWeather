@@ -8,7 +8,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AutocompleteProvider } from '../providers/autocomplete/autocomplete';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { ForecastProvider } from '../providers/forecast/forecast';
 import { AngularFireModule } from 'angularfire2';
 import { firebaseConfig } from '../environment';
@@ -25,7 +25,7 @@ import { IonicStorageModule } from '@ionic/storage';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(firebaseConfig),
     // AngularFirestoreModule
     AngularFireDatabaseModule,
