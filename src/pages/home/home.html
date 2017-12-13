@@ -1,14 +1,7 @@
 <ion-content>
   <div class="content">
-    <!-- <ion-auto-complete [dataProvider]="autoComplete"></ion-auto-complete> -->
-    <div class="autocomplete">
-      <ion-searchbar (ionInput)="searchPlaces($event)" #inputBar></ion-searchbar>
-      <ion-list>
-        <ion-item *ngFor="let suggestion of suggestions" (click)="suggestionListener(suggestion)">
-          {{ suggestion.description }}
-        </ion-item>
-      </ion-list>
-    </div>
+
+    <autocomplete (placeSelected) = "setMapCenter($event)"></autocomplete>
 
     <ion-fab right bottom #fab>
       <button ion-fab (click)="onFabClick()">

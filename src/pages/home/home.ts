@@ -7,11 +7,9 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { Geolocation } from '@ionic-native/geolocation';
 import { importType } from '@angular/compiler/src/output/output_ast';
 import { clusterOptions, invisibleIcon, visibleIcon, skiIcon } from '../../app/cluster-settings';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-// import * as L from 'leaflet';
 import * as L from 'leaflet';
 import 'leaflet.markercluster';
+import { LatLng } from './../../app/interfaces';
 // import { AngularFirestore } from 'angularfire2/firestore';
 // declare var google;
 @Component({
@@ -43,11 +41,7 @@ export class HomePage {
     await this.platform.ready()
     await this.loadMap();
     this.searchCircle = new L.Circle(this.map.getCenter(), { radius: 50000 })
-    this.map.on('move', _ => {
-      this.searchCircle.setLatLng(this.map.getCenter())
-      // this.searchLayer.clearLayers();
-      // this.searchLayer.addLayer(L.circle(this.map.getCenter(), {radius: 10000}));
-    })
+    this.map.on('move', _ => this.searchCircle.setLatLng(this.map.getCenter()))
 
     // this.geolocation.getCurrentPosition().then((resp) => {
     //   this.map.panTo({ lat: resp.coords.latitude, lng: resp.coords.longitude })
@@ -97,25 +91,8 @@ export class HomePage {
     })
   }
 
-  searchPlaces(event: any): void {
-    if (event.srcElement.value == null) {
-      this.suggestions.splice(0, this.suggestions.length);
-      return;
-    }
-    this.autoComplete.getResults(event.srcElement.value)
-      .subscribe(data => {
-        this.suggestions.splice(0, this.suggestions.length);
-        for (var i in data)
-          this.suggestions.push(data[i]);
-      })
-  }
-
-  suggestionListener(elem: any): void {
-    this.suggestions.splice(0, this.suggestions.length)
-    this.autoComplete.getCoord(elem.place_id)
-      .subscribe(data => {
-        this.map.flyTo([data.lat, data.lng], 11)
-      }, err => console.log(err))
+  setMapCenter(event: LatLng) {
+    this.map.flyTo(event, 11)
   }
 
   onFabClick(): void {

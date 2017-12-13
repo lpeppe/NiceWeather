@@ -16,11 +16,13 @@ import { firebaseConfig } from '../environment';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { DataProvider } from '../providers/data/data';
 import { IonicStorageModule } from '@ionic/storage';
+import { AutocompleteComponent } from './../components/autocomplete/autocomplete';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    AutocompleteComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +32,7 @@ import { IonicStorageModule } from '@ionic/storage';
     // AngularFirestoreModule
     AngularFireDatabaseModule,
     IonicStorageModule.forRoot()
+    // ComponentsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
