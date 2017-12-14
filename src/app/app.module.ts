@@ -17,12 +17,15 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { DataProvider } from '../providers/data/data';
 import { IonicStorageModule } from '@ionic/storage';
 import { AutocompleteComponent } from './../components/autocomplete/autocomplete';
+import { MapComponent } from './../components/map/map';
+import { StatusProvider } from '../providers/status/status';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    AutocompleteComponent
+    AutocompleteComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { AutocompleteComponent } from './../components/autocomplete/autocomplete
     AutocompleteProvider,
     ForecastProvider,
     Geolocation,
-    DataProvider
+    DataProvider,
+    StatusProvider
   ]
 })
 export class AppModule {}

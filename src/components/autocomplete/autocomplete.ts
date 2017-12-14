@@ -1,4 +1,5 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { StatusProvider } from './../../providers/status/status';
+import { Component } from '@angular/core';
 import { AutocompleteProvider } from './../../providers/autocomplete/autocomplete';
 import { LatLng } from './../../app/interfaces';
 
@@ -8,10 +9,9 @@ import { LatLng } from './../../app/interfaces';
 })
 export class AutocompleteComponent {
 
-  @Output() placeSelected = new EventEmitter<LatLng>();
   suggestions: string[] = [];
 
-  constructor(public autoComplete: AutocompleteProvider) {}
+  constructor(public autoComplete: AutocompleteProvider, public statusProvider: StatusProvider) {}
 
   searchPlaces(event: any): void {
     if (event.srcElement.value == null) {
@@ -30,7 +30,7 @@ export class AutocompleteComponent {
     this.suggestions.splice(0, this.suggestions.length)
     this.autoComplete.getCoord(elem.place_id)
       .subscribe(data => {
-        this.placeSelected.emit(data)
+        this.statusProvider.placeSelected.emit(data);
       }, err => console.log(err))
   }
 }
