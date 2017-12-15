@@ -12,5 +12,8 @@ import { Subject } from 'rxjs/Subject';
 export class StatusProvider {
 
   placeSelected = new Subject<LatLng>();
+  activityMenuOpened = new Subject<boolean>();
+  rangeChanged = new Subject<number>();
+  activitySearched = new Subject<void>();
 
 }

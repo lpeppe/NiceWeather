@@ -1,6 +1,7 @@
 .ios, .md {
     page-home {
-        div.content {
+
+        ion-content {
             height: 100%;
             width: 100%;
         }
@@ -17,21 +18,6 @@
 
         map {
             z-index: 5;
-        }
-        
-        ion-fab {
-            ion-item {
-                margin-top: -22px;
-                margin-right: -10px;
-                background: white;
-            }
-            ion-range {
-                width: 100px;
-                //background: white;
-            }
-            ion-fab-list {
-                background: white;
-            }
         }
     }
 }

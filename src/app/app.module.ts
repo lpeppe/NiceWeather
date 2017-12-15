@@ -19,13 +19,15 @@ import { IonicStorageModule } from '@ionic/storage';
 import { AutocompleteComponent } from './../components/autocomplete/autocomplete';
 import { MapComponent } from './../components/map/map';
 import { StatusProvider } from '../providers/status/status';
+import { ActivityFabComponent } from '../components/activity-fab/activity-fab';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     AutocompleteComponent,
-    MapComponent
+    MapComponent,
+    ActivityFabComponent
   ],
   imports: [
     BrowserModule,

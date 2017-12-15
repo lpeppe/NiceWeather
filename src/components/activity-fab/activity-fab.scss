@@ -1,0 +1,18 @@
+.ios, .md {
+    activity-fab {
+        ion-fab {
+            ion-item {
+                margin-top: -22px;
+                margin-right: -10px;
+                background: white;
+            }
+            ion-range {
+                width: 100px;
+                //background: white;
+            }
+            ion-fab-list {
+                background: white;
+            }
+        }
+    }
+}

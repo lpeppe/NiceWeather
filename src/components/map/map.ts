@@ -9,6 +9,8 @@ import * as L from 'leaflet';
 import 'leaflet.markercluster';
 import { Platform } from 'ionic-angular';
 
+const maxZoom = 11;
+const minZoom = 6;
 @Component({
   selector: 'map',
   templateUrl: 'map.html'
@@ -29,13 +31,13 @@ export class MapComponent {
     await this.loadMap();
     this.searchCircle = new L.Circle(this.map.getCenter(), { radius: 50000 })
     this.map.on('move', _ => this.searchCircle.setLatLng(this.map.getCenter()))
-    this.statusProvider.placeSelected.subscribe(data => this.map.flyTo(data, 11))
+    this.setObservables();
   }
 
   async loadMap(): Promise<any> {
     return new Promise(async (resolve, reject) => {
       this.map = L.map('mapDiv', {
-        zoomControl: false
+        zoomControl: false, maxZoom, minZoom
       }).setView([41.9102415, 12.3959139], 6);
       L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         // attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -69,6 +71,36 @@ export class MapComponent {
         console.log(err)
         reject(err)
       }
+    })
+  }
+
+  setObservables() {
+    this.statusProvider.placeSelected.subscribe((latLng: LatLng) => this.map.flyTo(latLng, maxZoom))
+    
+    this.statusProvider.activityMenuOpened.subscribe((isOpened: boolean) => {
+      if(isOpened) {
+        this.map.removeLayer(this.markers);
+        this.map.addLayer(this.searchCircle);
+      }
+      else {
+        this.map.removeLayer(this.searchCircle);
+        this.map.removeLayer(this.activityMarkers);
+        this.map.addLayer(this.markers);
+      }
+    })
+
+    this.statusProvider.rangeChanged.subscribe((range: number) => {
+      this.searchCircle.setRadius(range * 1000);
+    })
+
+    this.statusProvider.activitySearched.subscribe(_ => {
+      this.activityMarkers.clearLayers();
+      this.dataProvider.getSkiStations(this.map.getCenter(), this.searchCircle.getRadius() / 1000)
+      .subscribe(data => {
+        for(let coord of data)
+          this.activityMarkers.addLayer(new L.Marker((coord), {icon: skiIcon}))
+        this.map.addLayer(this.activityMarkers);  
+      })
     })
   }
 
