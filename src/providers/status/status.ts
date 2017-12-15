@@ -1,5 +1,6 @@
 import { LatLng } from './../../app/interfaces';
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 
 /*
   Generated class for the StatusProvider provider.
@@ -10,6 +11,6 @@ import { Injectable, EventEmitter } from '@angular/core';
 @Injectable()
 export class StatusProvider {
 
-  placeSelected = new EventEmitter<LatLng>();
+  placeSelected = new Subject<LatLng>();
 
 }
