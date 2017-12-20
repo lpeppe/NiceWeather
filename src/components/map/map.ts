@@ -106,7 +106,8 @@ export class MapComponent {
           for (let coord of data)
             this.activityMarkers.addLayer(new L.Marker((coord), { icon: skiIcon }))
           this.map.addLayer(this.activityMarkers);
-        })
+          this.statusProvider.activityFound.next();
+        }, _ => this.statusProvider.activityFound.next())
     })
   }
 

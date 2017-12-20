@@ -30,7 +30,7 @@ export class AutocompleteComponent {
     this.suggestions.splice(0, this.suggestions.length)
     this.autoComplete.getCoord(elem.place_id)
       .subscribe(
-      data => this.statusProvider.placeSelected.next(data),
+      (data: LatLng) => this.statusProvider.placeSelected.next(data),
       err => {
         this.statusProvider.placeSelected.error(err)
       })

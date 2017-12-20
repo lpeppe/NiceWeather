@@ -3,8 +3,9 @@
     <ion-icon name="arrow-dropup"></ion-icon>
   </button>
   <ion-fab-list side="top">
-    <button ion-fab mini (click)="onSearch($event)">
-      <ion-icon name="snow"></ion-icon>
+    <button ion-fab mini (click)="onSearch($event)" [ngSwitch]="isSearching">
+      <ion-icon name="snow" *ngSwitchCase="false"></ion-icon>
+      <ion-spinner name="circles" *ngSwitchCase="true"></ion-spinner>
     </button>
     <button ion-fab mini>
     </button>

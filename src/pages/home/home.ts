@@ -34,31 +34,5 @@ export class HomePage {
     //   console.log('Error getting location', error);
     // });
   }
-
-  // onFabClick(): void {
-  //   if(this.map.hasLayer(this.markers)) {
-  //     this.map.removeLayer(this.markers)
-  //     this.map.addLayer(this.searchCircle);
-  //   }
-  //   else {
-  //     this.map.removeLayer(this.searchCircle)
-  //     this.map.addLayer(this.markers)
-  //   }  
-  // }
-
-  // onRangeChanged(event: any): void {
-  //   this.searchCircle.setRadius(event._value * 1000)
-  // }
-
-  // onRangeBlur(event: any): void {
-  //   this.dataProvider.getSkiStations(this.map.getCenter(), event._value)
-  //   .subscribe(data => {
-  //     console.log(data)
-  //     this.activityMarkers.clearLayers();
-  //     for(let point of data)
-  //       this.activityMarkers.addLayer(new L.Marker((point), {icon: skiIcon}))
-  //     this.map.addLayer(this.activityMarkers)  
-  //   })
-  // }
 }
 

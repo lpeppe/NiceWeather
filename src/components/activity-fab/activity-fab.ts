@@ -8,8 +8,11 @@ import { StatusProvider } from '../../providers/status/status';
 export class ActivityFabComponent {
 
   isOpened = false;
+  isSearching = false;
 
-  constructor(public statusProvider: StatusProvider) {}
+  constructor(public statusProvider: StatusProvider) {
+    this.statusProvider.activityFound.subscribe(_ => this.isSearching = false)
+  }
 
   onRangeChanged(event: any) {
     this.statusProvider.rangeChanged.next(<number>event._value);
@@ -17,6 +20,7 @@ export class ActivityFabComponent {
 
   onSearch(event: any) {
     this.statusProvider.activitySearched.next();
+    this.isSearching = true;
   }
 
   onFabClicked(event: MouseEvent) {
