@@ -1,0 +1,9 @@
+<ion-fab left bottom>
+  <button ion-fab>
+    <ion-icon name="clock"></ion-icon>
+  </button>
+  <ion-fab-list side="top">
+    <button ion-fab mini (click)="statusProvider.selectedDay = 1" [color]="statusProvider.selectedDay == 1 ? 'primary': 'light'">48H</button>
+    <button ion-fab mini (click)="statusProvider.selectedDay = 0" [color]="statusProvider.selectedDay == 0 ? 'primary': 'light'">24H</button>
+  </ion-fab-list>
+</ion-fab>
