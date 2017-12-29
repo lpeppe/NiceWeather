@@ -2,7 +2,7 @@ import { DataProvider } from './../../providers/data/data';
 import { StatusProvider } from './../../providers/status/status';
 
 import { Component } from '@angular/core';
-import { LatLng } from './../../app/interfaces';
+import { LatLng } from './../../models/interfaces.model';
 import { clusterOptions, invisibleIcon, visibleIcon, skiIcon } from '../../app/cluster-settings';
 
 import * as L from 'leaflet';
@@ -77,7 +77,7 @@ export class MapComponent {
   setObservables() {
     this.statusProvider.placeSelected.subscribe((latLng: LatLng) => this.map.flyTo(latLng, maxZoom))
     
-    this.statusProvider.activityMenuOpened.subscribe((isOpened: boolean) => {
+    this.statusProvider.activitySliderOpened.subscribe((isOpened: boolean) => {
       if(isOpened) {
         this.map.removeLayer(this.markers);
         this.map.addLayer(this.searchCircle);

@@ -20,7 +20,6 @@ import { AutocompleteComponent } from './../components/autocomplete/autocomplete
 import { MapComponent } from './../components/map/map';
 import { StatusProvider } from '../providers/status/status';
 import { ActivityFabComponent } from '../components/activity-fab/activity-fab';
-import { DaySelectorComponent } from './../components/day-selector/day-selector';
 
 @NgModule({
   declarations: [
@@ -28,8 +27,7 @@ import { DaySelectorComponent } from './../components/day-selector/day-selector'
     HomePage,
     AutocompleteComponent,
     MapComponent,
-    ActivityFabComponent,
-    DaySelectorComponent
+    ActivityFabComponent
   ],
   imports: [
     BrowserModule,

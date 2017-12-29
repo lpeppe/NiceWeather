@@ -7,7 +7,8 @@ import { StatusProvider } from '../../providers/status/status';
 })
 export class ActivityFabComponent {
 
-  isOpened = false;
+  isActivitySliderOpened = false;
+  isMenuOpened = false;
 
   constructor(public statusProvider: StatusProvider) {}
 
@@ -20,8 +21,12 @@ export class ActivityFabComponent {
   }
 
   onFabClicked(event: MouseEvent) {
-    this.isOpened = !this.isOpened;
-    this.statusProvider.activityMenuOpened.next(this.isOpened);
+    this.isActivitySliderOpened = !this.isActivitySliderOpened;
+    this.statusProvider.activitySliderOpened.next(this.isActivitySliderOpened);
+  }
+
+  onMenuClick(event: MouseEvent) {
+    this.isMenuOpened = !this.isMenuOpened;
   }
 
 }
