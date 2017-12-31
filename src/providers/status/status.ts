@@ -1,17 +1,17 @@
-import { LatLng } from './../../models/interfaces.model';
+import { LatLng } from './../../models/interfaces';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { SelectedDay, SelectedActivity } from './../../models/enums.model';
+import { SelectedDay, SelectedActivity } from './../../models/enums';
 
 
 @Injectable()
 export class StatusProvider {
 
-  selectedDay = new BehaviorSubject<SelectedDay>(0);
-  selectedActivity = new BehaviorSubject<SelectedActivity>(0);
+  selectedDay = new BehaviorSubject<SelectedDay>(SelectedDay.today);
+  selectedActivity = new BehaviorSubject<SelectedActivity>(SelectedActivity.sun);
   placeSelected = new Subject<LatLng>();
-  activitySliderOpened = new Subject<boolean>();
+  activityPressed = new Subject<void>();
   rangeChanged = new Subject<number>();
   activitySearched = new Subject<void>();
 
