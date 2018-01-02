@@ -1,7 +1,7 @@
+import { LatLng } from './../../models/interfaces';
 import { StatusProvider } from './../../providers/status/status';
 import { Component } from '@angular/core';
 import { AutocompleteProvider } from './../../providers/autocomplete/autocomplete';
-import { LatLng } from './../../app/interfaces';
 
 @Component({
   selector: 'autocomplete',

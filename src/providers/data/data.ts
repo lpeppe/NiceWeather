@@ -1,9 +1,9 @@
-import { LatLng } from './../../app/interfaces';
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { LatLng } from './../../models/interfaces';
 
 @Injectable()
 export class DataProvider {

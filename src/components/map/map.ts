@@ -2,11 +2,14 @@ import { DataProvider } from './../../providers/data/data';
 import { StatusProvider } from './../../providers/status/status';
 
 import { Component } from '@angular/core';
-import { LatLng } from './../../app/interfaces';
+import { LatLng } from './../../models/interfaces';
+import { SelectedActivity } from './../../models/enums';
 import { clusterOptions, invisibleIcon, visibleIcon, skiIcon } from '../../app/cluster-settings';
 
 import * as L from 'leaflet';
+import { LatLngExpression } from 'leaflet';
 import 'leaflet.markercluster';
+import 'leaflet-draw';
 import { Platform } from 'ionic-angular';
 
 const maxZoom = 11;
@@ -20,17 +23,18 @@ export class MapComponent {
   map: L.Map;
   markers: L.LayerGroup;
   activityMarkers: L.LayerGroup;
-  searchCircle: L.Circle;
+  searchGroup: L.FeatureGroup;
+  circleDrawer: L.Draw.Circle;
 
   constructor(public statusProvider: StatusProvider, public dataProvider: DataProvider, public platform: Platform) {
     this.activityMarkers = new L.LayerGroup();
+    this.searchGroup = new L.FeatureGroup();
   }
 
   async ngAfterViewInit() {
     await this.platform.ready()
     await this.loadMap();
-    this.searchCircle = new L.Circle(this.map.getCenter(), { radius: 50000 })
-    this.map.on('move', _ => this.searchCircle.setLatLng(this.map.getCenter()))
+    this.initSearchLayer();
     this.setObservables();
   }
 
@@ -74,34 +78,53 @@ export class MapComponent {
     })
   }
 
+  initSearchLayer() {
+    var drawnItems = new L.FeatureGroup();
+    this.map.addLayer(drawnItems);
+    var drawControl = new L.Control.Draw({
+      edit: {
+        featureGroup: drawnItems,
+        edit: false,
+        remove: false
+      },
+      draw: {
+        polyline: false,
+        circle: false,
+        polygon: false,
+        rectangle: false,
+        circlemarker: false,
+        marker: false
+      }
+    });
+    this.map.addControl(drawControl);
+    this.map.on('draw:created',
+      (event: any) => {
+        this.activityMarkers.clearLayers();
+        this.dataProvider.getSkiStations(event.layer._latlng, event.layer._mRadius / 1000)
+          .subscribe(data => {
+            for (let coord of data)
+              this.activityMarkers.addLayer(new L.Marker((coord), { icon: skiIcon }))
+            this.map.addLayer(this.activityMarkers);
+          })
+      })
+    this.circleDrawer = new L.Draw.Circle(this.map);
+  }
+
   setObservables() {
     this.statusProvider.placeSelected.subscribe((latLng: LatLng) => this.map.flyTo(latLng, maxZoom))
-    
-    this.statusProvider.activityMenuOpened.subscribe((isOpened: boolean) => {
-      if(isOpened) {
+    this.statusProvider.selectedActivity.subscribe((activity: SelectedActivity) => {
+      if (activity != SelectedActivity.sun) {
         this.map.removeLayer(this.markers);
-        this.map.addLayer(this.searchCircle);
+        this.activityMarkers.clearLayers();
+        this.circleDrawer.enable();
       }
       else {
-        this.map.removeLayer(this.searchCircle);
-        this.map.removeLayer(this.activityMarkers);
+        this.circleDrawer.disable();
+        this.activityMarkers.clearLayers();
         this.map.addLayer(this.markers);
       }
     })
-
-    this.statusProvider.rangeChanged.subscribe((range: number) => {
-      this.searchCircle.setRadius(range * 1000);
-    })
-
-    this.statusProvider.activitySearched.subscribe(_ => {
-      this.activityMarkers.clearLayers();
-      this.dataProvider.getSkiStations(this.map.getCenter(), this.searchCircle.getRadius() / 1000)
-      .subscribe(data => {
-        for(let coord of data)
-          this.activityMarkers.addLayer(new L.Marker((coord), {icon: skiIcon}))
-        this.map.addLayer(this.activityMarkers);  
-      })
-    })
   }
-
 }
+
+

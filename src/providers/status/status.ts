@@ -1,19 +1,17 @@
-import { LatLng } from './../../app/interfaces';
+import { LatLng } from './../../models/interfaces';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { SelectedDay, SelectedActivity } from './../../models/enums';
 
-/*
-  Generated class for the StatusProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class StatusProvider {
 
+  selectedDay = new BehaviorSubject<SelectedDay>(SelectedDay.today);
+  selectedActivity = new BehaviorSubject<SelectedActivity>(SelectedActivity.sun);
   placeSelected = new Subject<LatLng>();
-  activityMenuOpened = new Subject<boolean>();
-  rangeChanged = new Subject<number>();
+  activityPressed = new Subject<void>();
   activitySearched = new Subject<void>();
 
 }

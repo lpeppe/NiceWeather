@@ -1,4 +1,4 @@
-import { LatLng } from './../../app/interfaces';
+import { LatLng } from './../../models/interfaces';
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';

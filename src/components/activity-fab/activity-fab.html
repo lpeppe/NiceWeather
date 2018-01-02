@@ -1,26 +1,25 @@
 <ion-fab right bottom #fab>
-  <button ion-fab (click)="onFabClicked($event)">
-    <ion-icon name="arrow-dropup"></ion-icon>
+  <button ion-fab (click)="onMenuClick($event)">
+    <ion-icon name="ios-expand"></ion-icon>
   </button>
   <ion-fab-list side="top">
-    <!-- NEVE -->
     <ion-fab ion-fixed>
+      <!-- <button ion-fab mini>
+      </button>
       <button ion-fab mini>
+      </button> -->
+      <button ion-fab mini (click)="onActivitySelected($event, 0)" [color]="(statusProvider.selectedActivity | async) == 0 ? 'primary': 'light'">
+        <ion-icon name="sunny"></ion-icon>
+      </button>
+      <button ion-fab mini (click)="onActivitySelected($event, 1)" [color]="(statusProvider.selectedActivity | async) == 1 ? 'primary': 'light'">
         <ion-icon name="snow"></ion-icon>
       </button>
-      <ion-fab-list side="left">
-        <ion-item no-lines>
-          <!--<input type="range" min="1" max="100" value="50" name="range">
-            <output for="range"></output>-->
-          <ion-range [(ngModel)]="value" pin="true" min="50" max="200" (ionChange)="onRangeChanged($event)" (ionBlur)="onRangeBlur($event)"></ion-range>
-        </ion-item>
-      </ion-fab-list>
     </ion-fab>
-    <button ion-fab mini>
-    </button>
-    <button ion-fab mini>
-    </button>
-    <button ion-fab mini>
-    </button>
   </ion-fab-list>
+  <!-- <ion-fab-list side="left">
+    <button ion-fab (click)="statusProvider.selectedDay.next(1)" [color]="(statusProvider.selectedDay | async) == 1 ? 'primary': 'light'">48H
+    </button>
+    <button ion-fab (click)="statusProvider.selectedDay.next(0)" [color]="(statusProvider.selectedDay | async) == 0 ? 'primary': 'light'">24H
+    </button>
+  </ion-fab-list> -->
 </ion-fab>

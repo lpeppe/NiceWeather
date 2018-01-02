@@ -37,7 +37,6 @@ import { ActivityFabComponent } from '../components/activity-fab/activity-fab';
     // AngularFirestoreModule
     AngularFireDatabaseModule,
     IonicStorageModule.forRoot()
-    // ComponentsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
