@@ -23,8 +23,6 @@ export class MapComponent {
   map: L.Map;
   markers: L.LayerGroup;
   activityMarkers: L.LayerGroup;
-  searchCircle: L.Circle;
-  searchMarker: L.Marker;
   searchGroup: L.FeatureGroup;
   circleDrawer: L.Draw.Circle;
 
@@ -99,70 +97,32 @@ export class MapComponent {
       }
     });
     this.map.addControl(drawControl);
-    this.map.on('draw:created', _ => console.log('test'))
+    this.map.on('draw:created',
+      (event: any) => {
+        this.activityMarkers.clearLayers();
+        this.dataProvider.getSkiStations(event.layer._latlng, event.layer._mRadius / 1000)
+          .subscribe(data => {
+            for (let coord of data)
+              this.activityMarkers.addLayer(new L.Marker((coord), { icon: skiIcon }))
+            this.map.addLayer(this.activityMarkers);
+          })
+      })
     this.circleDrawer = new L.Draw.Circle(this.map);
   }
 
   setObservables() {
     this.statusProvider.placeSelected.subscribe((latLng: LatLng) => this.map.flyTo(latLng, maxZoom))
-
-    // this.statusProvider.activitySliderOpened.subscribe((isOpened: boolean) => {
-    //   if(isOpened) {
-    //     this.map.removeLayer(this.markers);
-    //     this.map.addLayer(this.searchCircle);
-    //   }
-    //   else {
-    //     this.map.removeLayer(this.searchCircle);
-    //     this.map.removeLayer(this.activityMarkers);
-    //     this.map.addLayer(this.markers);
-    //   }
-    // })
-
-    this.statusProvider.activityPressed.subscribe(_ => {
-      this.statusProvider.selectedActivity.subscribe((activity: SelectedActivity) => {
-        if (activity != SelectedActivity.sun) {
-          this.map.removeLayer(this.markers);
-          this.circleDrawer.enable();
-          // this.map.dragging.disable();
-          // // this.map.addLayer(this.searchCircle);
-          // this.map.once('click', _ => {
-          //   // this.map.off('mousedown')
-          //   console.log('clicked')
-          //   this.map.on('mousemove', _ => {
-          //     console.log('moving')
-          //   })
-          // })
-          // this.map.once('mouseup', _ => {
-          //   console.log('finished')
-          //   this.map.off('mousemove')
-          //   this.map.off('mouseup')
-          //   this.map.dragging.enable()
-          // })
-
-
-        }
-        else {
-          // this.map.removeLayer(this.searchCircle);
-          this.circleDrawer.disable();
-          this.map.addLayer(this.markers);
-        }
-      })
-    })
-
-
-
-    this.statusProvider.rangeChanged.subscribe((range: number) => {
-      this.searchCircle.setRadius(range * 1000);
-    })
-
-    this.statusProvider.activitySearched.subscribe(_ => {
-      this.activityMarkers.clearLayers();
-      this.dataProvider.getSkiStations(this.map.getCenter(), this.searchCircle.getRadius() / 1000)
-        .subscribe(data => {
-          for (let coord of data)
-            this.activityMarkers.addLayer(new L.Marker((coord), { icon: skiIcon }))
-          this.map.addLayer(this.activityMarkers);
-        })
+    this.statusProvider.selectedActivity.subscribe((activity: SelectedActivity) => {
+      if (activity != SelectedActivity.sun) {
+        this.map.removeLayer(this.markers);
+        this.activityMarkers.clearLayers();
+        this.circleDrawer.enable();
+      }
+      else {
+        this.circleDrawer.disable();
+        this.activityMarkers.clearLayers();
+        this.map.addLayer(this.markers);
+      }
     })
   }
 }

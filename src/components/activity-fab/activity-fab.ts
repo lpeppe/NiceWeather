@@ -13,10 +13,6 @@ export class ActivityFabComponent {
 
   constructor(public statusProvider: StatusProvider) {}
 
-  onRangeChanged(event: any) {
-    this.statusProvider.rangeChanged.next(<number>event._value);
-  }
-
   onRangeBlur(event: any) {
     this.statusProvider.activitySearched.next();
   }

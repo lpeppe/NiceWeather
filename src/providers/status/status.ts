@@ -12,7 +12,6 @@ export class StatusProvider {
   selectedActivity = new BehaviorSubject<SelectedActivity>(SelectedActivity.sun);
   placeSelected = new Subject<LatLng>();
   activityPressed = new Subject<void>();
-  rangeChanged = new Subject<number>();
   activitySearched = new Subject<void>();
 
 }
