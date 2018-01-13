@@ -12,6 +12,12 @@ export class DataProvider {
 
   }
 
+  isAppFirstRun(): Promise<boolean> {
+    return new Promise(async (resolve, reject) => {
+      resolve(await this.storage.get('sun-points') == null)
+    })
+  }
+
   getSkiStations(center: LatLng, radius: number): Observable<any> {
     let url = 'https://us-central1-niceweather-182807.cloudfunctions.net/geoQuery';
     return this.http.get(`${url}?type=ski&lat=${center.lat}&lng=${center.lng}&radius=${radius}`)

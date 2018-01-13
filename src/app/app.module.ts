@@ -20,14 +20,16 @@ import { AutocompleteComponent } from './../components/autocomplete/autocomplete
 import { MapComponent } from './../components/map/map';
 import { StatusProvider } from '../providers/status/status';
 import { ActivityFabComponent } from '../components/activity-fab/activity-fab';
+import { SlideWalkthroughPage } from './../pages/slide-walkthrough/slide-walkthrough';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
+    SlideWalkthroughPage,
     AutocompleteComponent,
     MapComponent,
-    ActivityFabComponent
+    ActivityFabComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,8 @@ import { ActivityFabComponent } from '../components/activity-fab/activity-fab';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    SlideWalkthroughPage
   ],
   providers: [
     StatusBar,
