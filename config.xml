@@ -3,7 +3,7 @@
     <name>NiceWeather</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://172.19.34.224:8101" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -80,7 +80,8 @@
     <allow-navigation href="http://192.168.1.107:8100" />
     <allow-navigation href="http://172.19.55.181:8100" />
     <allow-navigation href="http://172.19.34.224:8101" />
-    <engine name="android" spec="^6.4.0" />
+    <allow-navigation href="http://172.19.39.187:8101" />
+    <engine name="android" spec="^6.2.3" />
     <plugin name="cordova-plugin-device" spec="^1.1.4" />
     <plugin name="cordova-plugin-geolocation" spec="^2.4.3">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To locate you" />

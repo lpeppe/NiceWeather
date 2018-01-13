@@ -2,15 +2,15 @@ import { DataProvider } from './../../providers/data/data';
 import { StatusProvider } from './../../providers/status/status';
 
 import { Component } from '@angular/core';
+import { Platform } from 'ionic-angular';
 import { LatLng } from './../../models/interfaces';
 import { SelectedActivity } from './../../models/enums';
-import { clusterOptions, invisibleIcon, visibleIcon, skiIcon } from '../../app/cluster-settings';
+import { getClusterOptions, invisibleIcon, visibleIcon, getActivityIconOptions } from '../../app/cluster-settings';
 
 import * as L from 'leaflet';
-import { LatLngExpression } from 'leaflet';
 import 'leaflet.markercluster';
 import 'leaflet-draw';
-import { Platform } from 'ionic-angular';
+import '../../assets/js/leaflet-beautify-marker-icon';
 
 const maxZoom = 11;
 const minZoom = 6;
@@ -21,8 +21,9 @@ const minZoom = 6;
 export class MapComponent {
 
   map: L.Map;
-  markers: L.LayerGroup;
+  sunClusterer: L.LayerGroup;
   activityMarkers: L.LayerGroup;
+  activityClusterer: L.LayerGroup;
   searchGroup: L.FeatureGroup;
   circleDrawer: L.Draw.Circle;
 
@@ -43,13 +44,14 @@ export class MapComponent {
       this.map = L.map('mapDiv', {
         zoomControl: false, maxZoom, minZoom
       }).setView([41.9102415, 12.3959139], 6);
-      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         // attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(this.map);
-      this.markers = L.markerClusterGroup(clusterOptions);
+      this.sunClusterer = L.markerClusterGroup(getClusterOptions(SelectedActivity.sun));
       try {
-        await this.loadMarkersData();
-        this.map.addLayer(this.markers)
+        await this.loadSunData();
+        this.map.addLayer(this.sunClusterer)
         resolve();
       }
       catch (err) {
@@ -59,13 +61,13 @@ export class MapComponent {
     })
   }
 
-  async loadMarkersData(): Promise<any> {
+  async loadSunData(): Promise<any> {
     return new Promise(async (resolve, reject) => {
       try {
         let [points, forecast] = await this.dataProvider.getSunData();
         for (let id in points) {
           if (points[id].lat)
-            this.markers.addLayer(L.marker([points[id].lat, points[id].lng], {
+            this.sunClusterer.addLayer(L.marker([points[id].lat, points[id].lng], {
               icon: forecast[id].sunny ? visibleIcon : invisibleIcon
             }))
         }
@@ -97,16 +99,7 @@ export class MapComponent {
       }
     });
     this.map.addControl(drawControl);
-    this.map.on('draw:created',
-      (event: any) => {
-        this.activityMarkers.clearLayers();
-        this.dataProvider.getSkiStations(event.layer._latlng, event.layer._mRadius / 1000)
-          .subscribe(data => {
-            for (let coord of data)
-              this.activityMarkers.addLayer(new L.Marker((coord), { icon: skiIcon }))
-            this.map.addLayer(this.activityMarkers);
-          })
-      })
+    this.map.on('draw:created', event => this.onDrawCreated(event))
     this.circleDrawer = new L.Draw.Circle(this.map);
   }
 
@@ -114,16 +107,35 @@ export class MapComponent {
     this.statusProvider.placeSelected.subscribe((latLng: LatLng) => this.map.flyTo(latLng, maxZoom))
     this.statusProvider.selectedActivity.subscribe((activity: SelectedActivity) => {
       if (activity != SelectedActivity.sun) {
-        this.map.removeLayer(this.markers);
+        this.map.removeLayer(this.sunClusterer);
         this.activityMarkers.clearLayers();
         this.circleDrawer.enable();
+        if(this.activityClusterer)
+          this.map.removeLayer(this.activityClusterer)
+        this.activityClusterer = L.markerClusterGroup(getClusterOptions(activity));
+        this.map.addLayer(this.activityClusterer)
       }
       else {
         this.circleDrawer.disable();
         this.activityMarkers.clearLayers();
-        this.map.addLayer(this.markers);
+        if (this.activityClusterer)
+          this.map.removeLayer(this.activityClusterer)
+        this.map.addLayer(this.sunClusterer);
       }
     })
+  }
+
+  onDrawCreated(event: any) {
+    this.activityMarkers.clearLayers();
+    this.dataProvider.getSkiStations(event.layer._latlng, event.layer._mRadius / 1000)
+      .subscribe(data => {
+        for (let coord of data) {
+          this.activityClusterer.addLayer(L.marker(coord, {
+            icon: (<any>L).BeautifyIcon.icon(getActivityIconOptions(this.statusProvider.selectedActivity.getValue()))
+          }))
+        }
+        this.map.addLayer(this.activityMarkers);
+      })
   }
 }
 
