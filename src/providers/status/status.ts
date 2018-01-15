@@ -10,8 +10,11 @@ export class StatusProvider {
 
   selectedDay = new BehaviorSubject<SelectedDay>(SelectedDay.today);
   selectedActivity = new BehaviorSubject<SelectedActivity>(SelectedActivity.sun);
+  isSearchMode = new BehaviorSubject<boolean>(false);
+
+  // used by the autocomplete component when a suggestion is pressed
   placeSelected = new Subject<LatLng>();
-  activityPressed = new Subject<void>();
+
   activitySearched = new Subject<void>();
 
 }

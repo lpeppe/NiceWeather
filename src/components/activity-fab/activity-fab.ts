@@ -28,7 +28,6 @@ export class ActivityFabComponent {
 
   onActivitySelected(event: any, selectedActivity: SelectedActivity) {
     this.statusProvider.selectedActivity.next(selectedActivity);
-    this.statusProvider.activityPressed.next();
   }
 
 }

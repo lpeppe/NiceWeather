@@ -1,11 +1,10 @@
-.ios, .md {
+.ios,
+.md {
     page-home {
-
         ion-content {
             height: 100%;
             width: 100%;
         }
-
         autocomplete {
             position: absolute;
             top: 10px;
@@ -15,9 +14,19 @@
             margin: auto;
             z-index: 10;
         }
-
         map {
             z-index: 5;
+        }
+        activity-list {
+            position: absolute;
+            width: 100%;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            z-index: 20;
+        }
+        activity-fab {
+            z-index: 25;
         }
     }
 }

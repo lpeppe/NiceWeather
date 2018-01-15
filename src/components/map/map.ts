@@ -126,6 +126,7 @@ export class MapComponent {
   }
 
   onDrawCreated(event: any) {
+    this.statusProvider.isSearchMode.next(true);
     this.activityMarkers.clearLayers();
     this.dataProvider.getSkiStations(event.layer._latlng, event.layer._mRadius / 1000)
       .subscribe(data => {

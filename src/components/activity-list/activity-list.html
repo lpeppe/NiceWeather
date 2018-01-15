@@ -1,0 +1,37 @@
+<div>
+  <div id="arrowDiv" (pan)="onPan($event)">
+    <ion-icon name="ios-arrow-up"></ion-icon>
+  </div>
+  <ion-scroll scrollY="true">
+    <ion-list>
+      <ion-item-sliding>
+        <ion-item>
+          <h2>Test</h2>
+          <p>This is a test</p>
+        </ion-item>
+        <ion-item-options side="left">
+          <button ion-button>
+            <ion-icon name="navigate"></ion-icon>Navigate</button>
+          <button ion-button color="secondary">
+            <ion-icon name="call"></ion-icon>Call</button>
+        </ion-item-options>
+      </ion-item-sliding>
+      <ion-item>
+        <h2>Test</h2>
+        <p>This is a test</p>
+      </ion-item>
+      <ion-item>
+        <h2>Test</h2>
+        <p>This is a test</p>
+      </ion-item>
+      <ion-item>
+        <h2>Test</h2>
+        <p>This is a test</p>
+      </ion-item>
+      <ion-item>
+        <h2>Test</h2>
+        <p>This is a test</p>
+      </ion-item>
+    </ion-list>
+  </ion-scroll>
+</div>

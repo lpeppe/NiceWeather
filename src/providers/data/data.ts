@@ -8,8 +8,10 @@ import { LatLng } from './../../models/interfaces';
 @Injectable()
 export class DataProvider {
 
-  constructor(public storage: Storage, public db: AngularFireDatabase, public http: HttpClient) {
+  skiStations$: Observable<any>;
 
+  constructor(public storage: Storage, public db: AngularFireDatabase, public http: HttpClient) {
+    this.skiStations$ = new Observable<any>();
   }
 
   isAppFirstRun(): Promise<boolean> {
@@ -20,7 +22,8 @@ export class DataProvider {
 
   getSkiStations(center: LatLng, radius: number): Observable<any> {
     let url = 'https://us-central1-niceweather-182807.cloudfunctions.net/geoQuery';
-    return this.http.get(`${url}?type=ski&lat=${center.lat}&lng=${center.lng}&radius=${radius}`)
+    this.skiStations$ = this.http.get(`${url}?type=ski&lat=${center.lat}&lng=${center.lng}&radius=${radius}`);
+    return this.skiStations$;
   }
 
   getSunData(): Promise<any> {
