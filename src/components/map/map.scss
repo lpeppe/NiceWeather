@@ -2,7 +2,8 @@
 .md {
     map {
         div#mapDiv {
-            height: 100%;
+            // height: 85%;
+            // height: calc(100% - 150px);
             width: 100%;
             z-index: 5;
         }

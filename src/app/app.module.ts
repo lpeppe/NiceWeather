@@ -25,6 +25,7 @@ import { AutocompleteComponent } from './../components/autocomplete/autocomplete
 import { MapComponent } from './../components/map/map';
 import { ActivityFabComponent } from '../components/activity-fab/activity-fab';
 import { ActivityListComponent } from './../components/activity-list/activity-list';
+import { TopPanelComponent } from './../components/top-panel/top-panel';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ActivityListComponent } from './../components/activity-list/activity-li
     AutocompleteComponent,
     MapComponent,
     ActivityFabComponent,
-    ActivityListComponent
+    ActivityListComponent,
+    TopPanelComponent
   ],
   imports: [
     BrowserModule,

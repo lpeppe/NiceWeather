@@ -35,17 +35,17 @@ export class HomePage {
     //   console.log('Error getting location', error);
     // });
     await this.platform.ready();
-    window['isUpdateAvailable']
-      .then(isAvailable => {
-        if (isAvailable) {
-          const toast = this.toastCtrl.create({
-            message: 'New Update available! Reload the webapp to see the latest juicy changes.',
-            position: 'bottom',
-            showCloseButton: true,
-          });
-          toast.present();
-        }
-      });
+    // window['isUpdateAvailable']
+    //   .then(isAvailable => {
+    //     if (isAvailable) {
+    //       const toast = this.toastCtrl.create({
+    //         message: 'New Update available! Reload the webapp to see the latest juicy changes.',
+    //         position: 'bottom',
+    //         showCloseButton: true,
+    //       });
+    //       toast.present();
+    //     }
+    //   });
   }
 
   // onFabClick(): void {

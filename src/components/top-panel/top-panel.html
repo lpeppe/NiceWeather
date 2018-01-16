@@ -1,0 +1,20 @@
+<ion-slides pager paginationType="progress">
+  <ion-slide>
+    <!-- <hr> -->
+    <button id="time" ion-button round color="light">
+      <ion-icon name="time"></ion-icon>
+      <ion-label>Da</ion-label>
+      <ion-datetime displayFormat="MMM DD HH:mm" pickerFormat="h mm A" color="light" [(ngModel)]="firstDate"></ion-datetime>
+    </button>
+    <button id="time" ion-button round color="light">
+      <ion-icon name="time"></ion-icon>
+      <ion-label>A</ion-label>
+      <ion-datetime displayFormat="MMM DD HH:mm" pickerFormat="h mm A" color="light" [(ngModel)]="secondDate"></ion-datetime>
+    </button>
+  </ion-slide>
+  <ion-slide>
+    <!-- <autocomplete></autocomplete> -->
+  </ion-slide>
+  <ion-slide>
+  </ion-slide>
+</ion-slides>

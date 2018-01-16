@@ -1,0 +1,29 @@
+.ios,
+.md {
+    top-panel {
+        ion-slides {
+            height: 15vh;
+            top: 10px;
+            right: 0;
+            left: 0;
+            width: 100%;
+            margin: auto;
+            z-index: 10;
+            background-color: map-get($colors, primary);
+            .swiper-pagination-progress {
+                background: rgba(255, 255, 255, 1) !important;
+                .swiper-pagination-progressbar {
+                    background: map-get($colors, primary) !important;
+                }
+            }
+            button {
+                ion-label {
+                    margin-left: 10px;
+                }
+            }
+            // .swiper-container-horizontal > .swiper-pagination-progress {
+            //     height: 6px;
+            // }
+        }
+    }
+}
