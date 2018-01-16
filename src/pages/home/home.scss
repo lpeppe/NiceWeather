@@ -26,7 +26,29 @@
             z-index: 20;
         }
         activity-fab {
+            position: absolute;
             z-index: 25;
+            top: 30vh;
+            right: 2vw;
+        }
+
+        div.timeFab {
+            position: absolute;
+            z-index: 25;
+            top: calc(30vh + 100px);
+            right: 2vw;
+            button:focus {
+                outline: none;
+            }
+        }
+        area-fab {
+            position: absolute;
+            z-index: 25;
+            top: calc(30vh + 200px);
+            right: 2vw;
+            button:focus {
+                outline: none;
+            }
         }
     }
 }

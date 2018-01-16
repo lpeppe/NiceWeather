@@ -9,6 +9,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { SlideWalkthroughPage } from './../pages/slide-walkthrough/slide-walkthrough';
+import { PopoverPage } from './../pages/popover/popover';
 
 import { AutocompleteProvider } from '../providers/autocomplete/autocomplete';
 import { ForecastProvider } from '../providers/forecast/forecast';
@@ -25,16 +26,19 @@ import { AutocompleteComponent } from './../components/autocomplete/autocomplete
 import { MapComponent } from './../components/map/map';
 import { ActivityFabComponent } from '../components/activity-fab/activity-fab';
 import { ActivityListComponent } from './../components/activity-list/activity-list';
+import { AreaFabComponent } from '../components/area-fab/area-fab';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     SlideWalkthroughPage,
+    PopoverPage,
     AutocompleteComponent,
     MapComponent,
     ActivityFabComponent,
-    ActivityListComponent
+    ActivityListComponent,
+    AreaFabComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +53,8 @@ import { ActivityListComponent } from './../components/activity-list/activity-li
   entryComponents: [
     MyApp,
     HomePage,
-    SlideWalkthroughPage
+    SlideWalkthroughPage,
+    PopoverPage
   ],
   providers: [
     StatusBar,

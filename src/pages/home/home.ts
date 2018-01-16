@@ -2,11 +2,13 @@ import { StatusProvider } from './../../providers/status/status';
 import { DataProvider } from './../../providers/data/data';
 import { AutocompleteProvider } from './../../providers/autocomplete/autocomplete';
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, PopoverController } from 'ionic-angular';
 import { Platform, ToastController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Geolocation } from '@ionic-native/geolocation';
 import { importType } from '@angular/compiler/src/output/output_ast';
+
+import { PopoverPage } from './../popover/popover';
 // import { AngularFirestore } from 'angularfire2/firestore';
 // declare var google;
 @Component({
@@ -24,7 +26,8 @@ export class HomePage {
     private geolocation: Geolocation,
     public dataProvider: DataProvider,
     public statusProvider: StatusProvider,
-    private toastCtrl: ToastController) {
+    private toastCtrl: ToastController,
+    public popoverCtrl: PopoverController) {
   }
 
   async ngAfterViewInit() {
@@ -73,5 +76,12 @@ export class HomePage {
   //     this.map.addLayer(this.activityMarkers)  
   //   })
   // }
+
+  presentPopOver(event: any) {
+    let popover = this.popoverCtrl.create(PopoverPage);
+    popover.present({
+      ev: event
+    })
+  }
 }
 

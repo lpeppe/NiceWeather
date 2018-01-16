@@ -2,5 +2,13 @@
     <map></map>
     <autocomplete></autocomplete>
     <activity-fab></activity-fab>
-    <activity-list></activity-list>
+    <div class="timeFab">
+        <ion-fab right top>
+            <button ion-fab color="primary" (click)="presentPopOver($event)">
+                <ion-icon name="time"></ion-icon>
+            </button>
+        </ion-fab>
+    </div>
+    <area-fab></area-fab>
+    <!-- <activity-list></activity-list> -->
 </ion-content>
