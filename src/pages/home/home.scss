@@ -28,15 +28,16 @@
         activity-fab {
             position: absolute;
             z-index: 25;
-            top: 30vh;
-            right: 2vw;
+            bottom: 2vh;
+            left: 2vw;
         }
 
         div.timeFab {
             position: absolute;
             z-index: 25;
-            top: calc(30vh + 100px);
-            right: 2vw;
+            bottom: 2vh;
+            left: 100px;
+            right: calc(2vh + 80px);
             button:focus {
                 outline: none;
             }
@@ -44,7 +45,7 @@
         area-fab {
             position: absolute;
             z-index: 25;
-            top: calc(30vh + 200px);
+            bottom: 2vh;
             right: 2vw;
             button:focus {
                 outline: none;

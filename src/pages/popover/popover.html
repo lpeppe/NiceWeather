@@ -1,10 +1,12 @@
 <ion-content>
   <ion-item>
     <ion-label>Da</ion-label>
-    <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+    <!-- <ion-datetime displayFormat="DD HH:mm" min="{{minDate}}" max="{{maxDate}}" [(ngModel)]="from" pickerFormat="DD HH:mm" placeholder="Seleziona giorno e orario"></ion-datetime> -->
+    <ion-datetime displayFormat="MMM/DD HH:mm" min="{{minDate}}" max="{{maxDate}}" [(ngModel)]="from" pickerFormat="MMM/DD HH:mm" [pickerOptions]="customOptions"></ion-datetime>
+    <!-- <ion-datetime [(ngModel)]="from" displayFormat="customOption" [pickerOptions]="customOptions"></ion-datetime> -->
   </ion-item>
-  <ion-item>
+  <!-- <ion-item>
     <ion-label>A</ion-label>
-    <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
-  </ion-item>
+    <ion-datetime displayFormat="DD HH:mm" min="{{minDate}}" max="{{maxDate}}" [(ngModel)]="to"></ion-datetime>
+  </ion-item> -->
 </ion-content>
