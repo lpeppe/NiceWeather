@@ -2,7 +2,7 @@
   <div id="arrowDiv" (pan)="onPan($event)">
     <ion-icon name="ios-arrow-up"></ion-icon>
   </div>
-  <ion-scroll scrollY="true">
+  <ion-scroll [ngStyle]="{ height: height }" scrollY="true">
     <ion-list>
       <ion-item-sliding>
         <ion-item>
