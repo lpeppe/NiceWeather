@@ -28,6 +28,9 @@ import { ActivityFabComponent } from '../components/activity-fab/activity-fab';
 import { ActivityListComponent } from './../components/activity-list/activity-list';
 import { AreaFabComponent } from '../components/area-fab/area-fab';
 
+import { HammerConfig } from './hammer.config'
+import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -59,7 +62,8 @@ import { AreaFabComponent } from '../components/area-fab/area-fab';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    { provide: HAMMER_GESTURE_CONFIG, useClass: HammerConfig },
     AutocompleteProvider,
     ForecastProvider,
     Geolocation,
@@ -67,4 +71,4 @@ import { AreaFabComponent } from '../components/area-fab/area-fab';
     StatusProvider
   ]
 })
-export class AppModule {}
+export class AppModule { }

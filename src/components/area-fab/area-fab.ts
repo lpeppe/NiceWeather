@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StatusProvider } from './../../providers/status/status';
 
 /**
  * Generated class for the AreaFabComponent component.
@@ -14,9 +15,13 @@ export class AreaFabComponent {
 
   text: string;
 
-  constructor() {
+  constructor(public statusProvider: StatusProvider) {
     console.log('Hello AreaFabComponent Component');
     this.text = 'Hello World';
+  }
+
+  onMenuOpened(event: any) {
+    this.statusProvider.areaFabOpened.next(!this.statusProvider.areaFabOpened.getValue());
   }
 
 }

@@ -9,6 +9,6 @@
             </button>
         </ion-fab>
     </div>
-    <area-fab></area-fab>
-    <!-- <activity-list></activity-list> -->
+    <area-fab *ngIf="!(statusProvider.activityFabOpened | async)"></area-fab>
+    <activity-list></activity-list>
 </ion-content>

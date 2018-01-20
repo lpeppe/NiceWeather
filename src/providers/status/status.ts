@@ -17,4 +17,7 @@ export class StatusProvider {
 
   activitySearched = new Subject<void>();
 
+  activityFabOpened = new BehaviorSubject<boolean>(false);
+  
+  areaFabOpened = new BehaviorSubject<boolean>(false);
 }

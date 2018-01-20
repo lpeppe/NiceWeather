@@ -24,6 +24,7 @@ export class ActivityFabComponent {
 
   onMenuClick(event: MouseEvent) {
     this.isMenuOpened = !this.isMenuOpened;
+    this.statusProvider.activityFabOpened.next(!this.statusProvider.activityFabOpened.getValue());
   }
 
   onActivitySelected(event: any, selectedActivity: SelectedActivity) {
