@@ -9,23 +9,8 @@ import { SelectedActivity } from './../../models/enums';
 export class ActivityFabComponent {
 
   isActivitySliderOpened = false;
-  isMenuOpened = false;
 
   constructor(public statusProvider: StatusProvider) {}
-
-  onRangeBlur(event: any) {
-    this.statusProvider.activitySearched.next();
-  }
-
-  onFabClicked(event: MouseEvent) {
-    this.isActivitySliderOpened = !this.isActivitySliderOpened;
-    // this.statusProvider.activitySliderOpened.next(this.isActivitySliderOpened);
-  }
-
-  onMenuClick(event: MouseEvent) {
-    this.isMenuOpened = !this.isMenuOpened;
-    this.statusProvider.activityFabOpened.next(!this.statusProvider.activityFabOpened.getValue());
-  }
 
   onActivitySelected(event: any, selectedActivity: SelectedActivity) {
     this.statusProvider.selectedActivity.next(selectedActivity);

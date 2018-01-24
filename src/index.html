@@ -25,37 +25,37 @@
     //     .then(() => console.log('service worker installed'))
     //     .catch(err => console.error('Error', err));
     // }
-    window.isUpdateAvailable = new Promise(function (resolve, reject) {
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('service-worker.js')
-          .then(reg => {
-            reg.onupdatefound = () => {
-              const installingWorker = reg.installing;
-              installingWorker.onstatechange = () => {
-                switch (installingWorker.state) {
-                  case 'installed':
-                    if (navigator.serviceWorker.controller) {
-                      // new update available
-                      resolve(true);
-                    } else {
-                      // no update available
-                      resolve(false);
-                    }
-                    break;
-                }
-              };
-            };
-          })
-          .catch(err => console.error('[SW ERROR]', err));
-      }
-    });
+
+    // window.isUpdateAvailable = new Promise(function (resolve, reject) {
+    //   if ('serviceWorker' in navigator) {
+    //     navigator.serviceWorker.register('service-worker.js')
+    //       .then(reg => {
+    //         reg.onupdatefound = () => {
+    //           const installingWorker = reg.installing;
+    //           installingWorker.onstatechange = () => {
+    //             switch (installingWorker.state) {
+    //               case 'installed':
+    //                 if (navigator.serviceWorker.controller) {
+    //                   // new update available
+    //                   resolve(true);
+    //                 } else {
+    //                   // no update available
+    //                   resolve(false);
+    //                 }
+    //                 break;
+    //             }
+    //           };
+    //         };
+    //       })
+    //       .catch(err => console.error('[SW ERROR]', err));
+    //   }
+    // });
   </script>
 
   <link href="build/main.css" rel="stylesheet">
   <!-- <link rel="stylesheet" href="./assets/css/leaflet.css"> -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
     crossorigin="" />
-  <link rel="stylesheet" href="./assets/css/leaflet.draw.css">
   <link rel="stylesheet" href="./assets/css/fontawesome-all.css">
   <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="./assets/css/leaflet-beautify-marker-icon.css">

@@ -12,7 +12,6 @@ import { SlideWalkthroughPage } from './../pages/slide-walkthrough/slide-walkthr
 import { PopoverPage } from './../pages/popover/popover';
 
 import { AutocompleteProvider } from '../providers/autocomplete/autocomplete';
-import { ForecastProvider } from '../providers/forecast/forecast';
 import { StatusProvider } from '../providers/status/status';
 import { DataProvider } from '../providers/data/data';
 
@@ -26,7 +25,8 @@ import { AutocompleteComponent } from './../components/autocomplete/autocomplete
 import { MapComponent } from './../components/map/map';
 import { ActivityFabComponent } from '../components/activity-fab/activity-fab';
 import { ActivityListComponent } from './../components/activity-list/activity-list';
-import { AreaFabComponent } from '../components/area-fab/area-fab';
+import { GeoFabComponent } from '../components/geo-fab/geo-fab';
+import { TimeFabComponent } from '../components/time-fab/time-fab';
 
 import { HammerConfig } from './hammer.config'
 import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
@@ -41,7 +41,8 @@ import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
     MapComponent,
     ActivityFabComponent,
     ActivityListComponent,
-    AreaFabComponent
+    GeoFabComponent,
+    TimeFabComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +66,6 @@ import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     { provide: HAMMER_GESTURE_CONFIG, useClass: HammerConfig },
     AutocompleteProvider,
-    ForecastProvider,
     Geolocation,
     DataProvider,
     StatusProvider

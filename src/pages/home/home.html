@@ -2,13 +2,7 @@
     <map></map>
     <autocomplete></autocomplete>
     <activity-fab></activity-fab>
-    <div class="timeFab">
-        <ion-fab right bottom>
-            <button ion-fab color="primary" (click)="presentPopOver($event)">
-                <ion-icon name="time"></ion-icon>
-            </button>
-        </ion-fab>
-    </div>
-    <area-fab *ngIf="!(statusProvider.activityFabOpened | async)"></area-fab>
-    <activity-list></activity-list>
+    <time-fab></time-fab>
+    <geo-fab></geo-fab>
+    <activity-list *ngIf="(statusProvider.selectedActivity | async) != 0"></activity-list>
 </ion-content>

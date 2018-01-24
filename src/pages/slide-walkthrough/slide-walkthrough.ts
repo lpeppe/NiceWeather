@@ -14,22 +14,22 @@ export class SlideWalkthroughPage {
   slides = [
     {
       title: 'Dream\'s Adventure',
-      imageUrl: 'assets/img/lists/wishlist-1.jpg',
+      // imageUrl: 'assets/img/lists/wishlist-1.jpg',
       description: 'Take a look at our amazing options',
     },
     {
       title: 'For the Weekend',
-      imageUrl: 'assets/img/lists/wishlist-2.jpg',
+      // imageUrl: 'assets/img/lists/wishlist-2.jpg',
       description: 'Take a look at our amazing options',
     },
     {
       title: 'Family Time',
-      imageUrl: 'assets/img/lists/wishlist-3.jpg',
+      // imageUrl: 'assets/img/lists/wishlist-3.jpg',
       description: 'Take a look at our amazing options',
     },
     {
       title: 'My Trip',
-      imageUrl: 'assets/img/lists/wishlist-4.jpg',
+      // imageUrl: 'assets/img/lists/wishlist-4.jpg',
       description: 'Take a look at our amazing options',
     }
   ];
