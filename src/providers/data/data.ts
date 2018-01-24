@@ -47,9 +47,10 @@ export class DataProvider {
 
   private getAndSetRemoteData(firebasePath: string, storageKey: string): Promise<any> {
     return new Promise((resolve, reject) => {
+      console.log('in')
       let db$ = this.db.object(firebasePath).valueChanges();
       db$.subscribe(data => {
-        Promise.all([this.storage.set(storageKey, data), this.storage.set(`${storageKey}-date`, moment().unix())])
+        Promise.all([this.storage.set(storageKey, data), this.storage.set(`${storageKey}-date`, moment().valueOf())])
           .then(_ => resolve(data))
           .catch(err => reject(err))
       }, err => reject(err))
@@ -57,6 +58,6 @@ export class DataProvider {
   }
 
   private isDataStale(date: moment.Moment) {
-    return Math.abs(date.diff(moment().unix(), 'days')) > 1;
+    return date.dayOfYear() != moment().dayOfYear()
   }
 }
