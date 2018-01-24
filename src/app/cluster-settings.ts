@@ -13,7 +13,20 @@ export const getActivityIconOptions = (activity: SelectedActivity, size?: number
                 backgroundColor: '#488aff',
                 borderColor: '#488aff',
                 textColor: 'white',
-                innerIconStyle:'font-size:1.5em',
+                innerIconStyle: 'font-size:1.5em',
+                isAlphaNumericIcon: size != undefined,
+                text: size
+            }
+        case SelectedActivity.bike:
+            return {
+                // spin: true,
+                icon: 'bicycle',
+                iconShape: 'marker',
+                iconSize: [33, 33],
+                backgroundColor: '#488aff',
+                borderColor: '#488aff',
+                textColor: 'white',
+                innerIconStyle: 'font-size:1.5em',
                 isAlphaNumericIcon: size != undefined,
                 text: size
             }
@@ -48,7 +61,7 @@ export const getClusterOptions = (activity: SelectedActivity) => {
     switch (activity) {
         case SelectedActivity.sun:
             return sunClustererOptions;
-        case SelectedActivity.ski:
+        case SelectedActivity.ski: case SelectedActivity.bike:
             return {
                 showCoverageOnHover: false,
                 iconCreateFunction: (cluster) =>
@@ -60,7 +73,7 @@ export const getClusterOptions = (activity: SelectedActivity) => {
 
 export const computeGridSize = (zoomLevel) => {
     // (6,55) (7,80) (8,105)(9,130)(10,155)(11,180) couples used to calculate the interpolation
-    
+
     // if(zoomLevel == 9)
     //     return 130
     // if(zoomLevel == 10)
@@ -72,7 +85,7 @@ export const computeGridSize = (zoomLevel) => {
     // return 25 * zoomLevel - 95;
     // if(zoomLevel == 8)
     //     return 50
-    switch(zoomLevel) {
+    switch (zoomLevel) {
         case 8:
             return 60;
         case 9:
@@ -82,8 +95,8 @@ export const computeGridSize = (zoomLevel) => {
         case 11:
             return 130;
         case 12:
-            return 150;  
+            return 150;
         default:
-            return 150;                 
+            return 150;
     }
 }

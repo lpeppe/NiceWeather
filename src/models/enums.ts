@@ -5,5 +5,6 @@ export enum SelectedDay {
   
 export enum SelectedActivity {
     sun,
-    ski
+    ski,
+    bike
   }

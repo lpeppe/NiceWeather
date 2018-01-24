@@ -2,6 +2,7 @@ import { StatusProvider } from './../../providers/status/status';
 import { Component } from '@angular/core';
 import { Platform, ToastController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
+import { GeoqueryProvider } from '../../providers/geoquery/geoquery';
 
 // import { AngularFirestore } from 'angularfire2/firestore';
 // declare var google;
@@ -16,7 +17,8 @@ export class HomePage {
     public platform: Platform,
     private geolocation: Geolocation,
     public statusProvider: StatusProvider,
-    private toastCtrl: ToastController) { }
+    private toastCtrl: ToastController,
+    public geoQueryProvider: GeoqueryProvider) { }
 
   async ngAfterViewInit() {
     // this.geolocation.getCurrentPosition().then((resp) => {

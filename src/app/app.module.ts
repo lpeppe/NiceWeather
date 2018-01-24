@@ -30,6 +30,7 @@ import { TimeFabComponent } from '../components/time-fab/time-fab';
 
 import { HammerConfig } from './hammer.config'
 import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { GeoqueryProvider } from '../providers/geoquery/geoquery';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
     AutocompleteProvider,
     Geolocation,
     DataProvider,
-    StatusProvider
+    StatusProvider,
+    GeoqueryProvider
   ]
 })
 export class AppModule { }

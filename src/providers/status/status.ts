@@ -8,6 +8,7 @@ import * as moment from 'moment';
 
 @Injectable()
 export class StatusProvider {
+  mapRadius: number;
   selectedDay = new BehaviorSubject<number>(moment()
   .set({
     millisecond: 0,

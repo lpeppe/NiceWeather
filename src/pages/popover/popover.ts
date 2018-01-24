@@ -35,5 +35,4 @@ export class PopoverPage {
   isChecked(index: number) {
     return this.statusProvider.selectedDay.getValue() == this.days[index].unix()
   }
-
 }
