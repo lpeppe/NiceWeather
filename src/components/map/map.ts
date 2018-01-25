@@ -45,9 +45,9 @@ export class MapComponent {
     this.map = L.map('mapDiv', {
       zoomControl: false, maxZoom, minZoom
     }).setView([mapPosition.coords.lat, mapPosition.coords.lng], mapPosition.zoom);
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-      // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      // L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+    // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
       // attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(this.map);
     this.sunClusterer = L.markerClusterGroup(getClusterOptions(SelectedActivity.sun));
@@ -127,10 +127,12 @@ export class MapComponent {
     this.geoQueryProvider.keyEntered.subscribe(data => {
       let id = Object.keys(data)[0];
       let activity = this.statusProvider.selectedActivity.getValue();
-      this.activityMarkers[SelectedActivity[activity]][id] = L.marker([data[id].lat, data[id].lng], {
-        icon: (<any>L).BeautifyIcon.icon(getActivityIconOptions(this.statusProvider.selectedActivity.getValue()))
-      })
-      this.activityClusterers[SelectedActivity[activity]].addLayer(this.activityMarkers[SelectedActivity[activity]][id])
+      if (!this.activityMarkers[SelectedActivity[activity]][id]) {
+        this.activityMarkers[SelectedActivity[activity]][id] = L.marker([data[id].lat, data[id].lng], {
+          icon: (<any>L).BeautifyIcon.icon(getActivityIconOptions(this.statusProvider.selectedActivity.getValue()))
+        })
+        this.activityClusterers[SelectedActivity[activity]].addLayer(this.activityMarkers[SelectedActivity[activity]][id])
+      }
     })
 
     this.geoQueryProvider.keyExited.subscribe(data => {
