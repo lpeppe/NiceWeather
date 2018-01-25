@@ -1,5 +1,5 @@
 <ion-fab left bottom #fab id="main">
-  <button ion-fab (click)="onMenuClick($event)">
+  <button ion-fab>
     <ion-icon name="arrow-dropup"></ion-icon>
   </button>
   <ion-fab-list side="top">
@@ -9,7 +9,7 @@
       <button ion-fab mini (click)="onActivitySelected($event, 1)" [color]="(statusProvider.selectedActivity | async) == 1 ? 'primary': 'light'">
         <ion-icon name="snow"></ion-icon>
       </button>
-      <button ion-fab mini>
+      <button ion-fab mini (click)="onActivitySelected($event, 2)" [color]="(statusProvider.selectedActivity | async) == 2 ? 'primary': 'light'">
         <ion-icon name="bicycle"></ion-icon>
       </button>
       <button ion-fab mini>

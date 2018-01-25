@@ -8,6 +8,8 @@ import { SlideWalkthroughPage } from '../pages/slide-walkthrough/slide-walkthrou
 
 import { DataProvider } from './../providers/data/data';
 
+import * as moment from 'moment';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -16,6 +18,7 @@ export class MyApp {
   rootPage: any;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, dataProvider: DataProvider) {
+    moment.locale('it')
     dataProvider.isAppFirstRun()
     .then(value => value ? this.rootPage = SlideWalkthroughPage : this.rootPage = HomePage)
 

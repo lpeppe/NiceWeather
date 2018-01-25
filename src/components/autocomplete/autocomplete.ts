@@ -1,4 +1,3 @@
-import { LatLng } from './../../models/interfaces';
 import { StatusProvider } from './../../providers/status/status';
 import { Component } from '@angular/core';
 import { AutocompleteProvider } from './../../providers/autocomplete/autocomplete';
@@ -30,9 +29,13 @@ export class AutocompleteComponent {
     this.suggestions.splice(0, this.suggestions.length)
     this.autoComplete.getCoord(elem.place_id)
       .subscribe(
-      data => this.statusProvider.placeSelected.next(data),
+      data => this.statusProvider.mapPosition.next({
+        coords: data,
+        zoom: 12,
+        triggerMapMove: true
+      }),
       err => {
-        this.statusProvider.placeSelected.error(err)
+        console.log(err)
       })
   }
 }

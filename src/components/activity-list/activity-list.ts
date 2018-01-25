@@ -1,6 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
-import { ElementRef } from '@angular/core';
-import { Gesture } from 'ionic-angular/gestures/gesture';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'activity-list',
@@ -18,4 +16,9 @@ export class ActivityListComponent {
   onPan(event: any) {
     this.height = 'calc(100vh - ' + event.center.y + 'px';
   }
+
+  onClick(event: any) {
+    this.height = '30vh';
+  }
+
 }

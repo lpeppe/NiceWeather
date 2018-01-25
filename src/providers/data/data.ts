@@ -4,6 +4,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { LatLng } from './../../models/interfaces';
+import * as moment from 'moment';
 
 @Injectable()
 export class DataProvider {
@@ -33,29 +34,30 @@ export class DataProvider {
   private async getSunPoints(): Promise<any> {
     let data = await this.storage.get('sun-points');
     if (data == null)
-      return this.getAndSetRemoteData('sun/points', 'sun-points')
+      return this.getAndSetRemoteData('newdb/sun/randomPoints', 'sun-points')
     return new Promise((resolve, reject) => resolve(data))
   }
 
   private async getSunForecast(): Promise<any> {
     let data = await this.storage.get('sun-forecast');
-    if (data == null || this.calcDateDiffInDays(data.date, new Date()) >= 1)
-      return this.getAndSetRemoteData('sun/forecast', 'sun-forecast')
+    if (data == null || this.isDataStale(moment(await this.storage.get('sun-forecast-date'))))
+      return this.getAndSetRemoteData('newdb/sun/sunnyPoints', 'sun-forecast')
     return new Promise((resolve, reject) => resolve(data))
   }
 
   private getAndSetRemoteData(firebasePath: string, storageKey: string): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.db.object(firebasePath).valueChanges().subscribe(data => {
-        data['date'] = new Date();
-        this.storage.set(storageKey, data)
+      console.log('in')
+      let db$ = this.db.object(firebasePath).valueChanges();
+      db$.subscribe(data => {
+        Promise.all([this.storage.set(storageKey, data), this.storage.set(`${storageKey}-date`, moment().valueOf())])
           .then(_ => resolve(data))
           .catch(err => reject(err))
       }, err => reject(err))
     })
   }
 
-  private calcDateDiffInDays(date1: Date, date2: Date): number {
-    return Math.floor((Date.UTC(date1.getFullYear(), date1.getMonth(), date1.getDate()) - Date.UTC(date2.getFullYear(), date2.getMonth(), date2.getDate())) / (1000 * 60 * 60 * 24));
+  private isDataStale(date: moment.Moment) {
+    return date.dayOfYear() != moment().dayOfYear()
   }
 }
