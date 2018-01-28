@@ -31,6 +31,8 @@ import { TimeFabComponent } from '../components/time-fab/time-fab';
 import { HammerConfig } from './hammer.config'
 import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { GeoqueryProvider } from '../providers/geoquery/geoquery';
+import { BikeDetailsListComponent } from '../components/bike-details-list/bike-details-list';
+import { SkiDetailsListComponent } from './../components/ski-details-list/ski-details-list';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { GeoqueryProvider } from '../providers/geoquery/geoquery';
     ActivityFabComponent,
     ActivityListComponent,
     GeoFabComponent,
-    TimeFabComponent
+    TimeFabComponent,
+    BikeDetailsListComponent,
+    SkiDetailsListComponent
   ],
   imports: [
     BrowserModule,

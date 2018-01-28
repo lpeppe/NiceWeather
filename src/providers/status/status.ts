@@ -9,13 +9,13 @@ import * as moment from 'moment';
 @Injectable()
 export class StatusProvider {
   mapRadius: number;
-  selectedDay = new BehaviorSubject<number>(moment()
+  selectedDays = new BehaviorSubject<number[]>([moment()
   .set({
     millisecond: 0,
     second: 0,
     minute: 0,
     hour: 13
-  }).unix());
+  }).unix()]);
 
   selectedActivity = new BehaviorSubject<SelectedActivity>(SelectedActivity.sun);
 
@@ -27,6 +27,4 @@ export class StatusProvider {
     zoom: 8,
     triggerMapMove: false
   });
-  
-  activitySearched = new Subject<void>();
 }
