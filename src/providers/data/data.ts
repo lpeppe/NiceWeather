@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { LatLng } from './../../models/interfaces';
 import * as moment from 'moment';
+import 'rxjs/add/operator/take';
 
 @Injectable()
 export class DataProvider {
@@ -47,8 +48,7 @@ export class DataProvider {
 
   private getAndSetRemoteData(firebasePath: string, storageKey: string): Promise<any> {
     return new Promise((resolve, reject) => {
-      console.log('in')
-      let db$ = this.db.object(firebasePath).valueChanges();
+      let db$ = this.db.object(firebasePath).valueChanges().take(1);
       db$.subscribe(data => {
         Promise.all([this.storage.set(storageKey, data), this.storage.set(`${storageKey}-date`, moment().valueOf())])
           .then(_ => resolve(data))

@@ -4,5 +4,5 @@
     <activity-fab></activity-fab>
     <time-fab></time-fab>
     <geo-fab></geo-fab>
-    <activity-list *ngIf="(statusProvider.selectedActivity | async) == 1"></activity-list>
+    <activity-list *ngIf="(statusProvider.selectedActivity | async) != 0"></activity-list>
 </ion-content>

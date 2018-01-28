@@ -1,0 +1,6 @@
+<ion-list>
+  <ion-item *ngFor="let id of keys">
+    <h2>{{details[id].name}}</h2>
+    <p [ngStyle]="{color: getColor(details[id].slope)}">Pendenza: {{details[id].slope}}</p>
+  </ion-item>
+</ion-list>

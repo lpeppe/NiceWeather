@@ -1,8 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, Slides } from 'ionic-angular';
+import { NavController, Slides } from 'ionic-angular';
 import { HomePage } from './../home/home';
 
-@IonicPage()
 @Component({
   selector: 'page-slide-walkthrough',
   templateUrl: 'slide-walkthrough.html',

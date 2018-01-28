@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StatusProvider } from './../../providers/status/status';
 
 @Component({
   selector: 'activity-list',
@@ -9,7 +10,7 @@ export class ActivityListComponent {
   // @ViewChild('scrollItem') scrollItem: ElementRef;
   height: string;
 
-  constructor() {
+  constructor(public statusProvider: StatusProvider) {
     this.height = '0px';
   }
 
