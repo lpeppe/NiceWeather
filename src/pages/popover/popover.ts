@@ -10,8 +10,6 @@ import { ViewController } from 'ionic-angular';
 })
 export class PopoverPage {
 
-  // minDate = moment().toISOString();
-  // maxDate = moment().add(4, 'days').toISOString();
   options = {
     millisecond: 0,
     second: 0,
@@ -34,5 +32,13 @@ export class PopoverPage {
 
   isChecked(index: number) {
     return this.statusProvider.selectedDay.getValue() == this.days[index].unix()
+  }
+
+  getDisplayName(day: moment.Moment): string {
+    if(day.dayOfYear() == moment().set(this.options).dayOfYear())
+      return 'oggi';
+    if(day.dayOfYear() == moment().set(this.options).add(1, 'days').dayOfYear())
+      return 'domani';
+    return day.format('dddd DD');  
   }
 }

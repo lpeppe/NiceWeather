@@ -27,6 +27,4 @@ export class StatusProvider {
     zoom: 8,
     triggerMapMove: false
   });
-  
-  activitySearched = new Subject<void>();
 }

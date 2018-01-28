@@ -1,6 +1,6 @@
 <ion-list radio-group>
   <ion-item *ngFor="let day of days; let i = index">
-    <ion-label>{{day.format('MMM D')}}</ion-label>
-    <ion-radio [value]="day" (ionSelect)="onSelect(i)" [checked]="isChecked(i)"></ion-radio>
+    <ion-label>{{getDisplayName(day)}}</ion-label>
+    <ion-radio (ionSelect)="onSelect(i)" [checked]="isChecked(i)"></ion-radio>
   </ion-item>
 </ion-list>
