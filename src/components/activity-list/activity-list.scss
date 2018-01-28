@@ -2,7 +2,6 @@
 .md {
     activity-list {
         div#arrowDiv {
-            // position: absolute;
             height: 20px;
             width: 100%;
             text-align: center;
@@ -13,9 +12,7 @@
             z-index: 20;
         }
         ion-scroll {
-            // height: 100px;
-            // height: 100%;
-            max-height: 50vh !important;
+            max-height: 30vh !important;
             width: 100%;
             margin: auto;
             background-color: white;

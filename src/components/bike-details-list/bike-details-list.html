@@ -1,6 +1,9 @@
-<ion-list>
-  <ion-item *ngFor="let id of keys">
-    <h2>{{details[id].name}}</h2>
-    <p [ngStyle]="{color: getColor(details[id].slope)}">Pendenza: {{details[id].slope}}</p>
-  </ion-item>
-</ion-list>
+<div [ngSwitch]="detailsMode">
+  <ion-list *ngSwitchCase = "false">
+    <ion-item *ngFor="let id of keys" (click)="onItemClicked(id)">
+      <h2>{{details[id].name}}</h2>
+      <p [ngStyle]="{color: getColor(details[id].slope)}">Pendenza: {{details[id].slope}}</p>
+    </ion-item>
+  </ion-list>
+  <p *ngSwitchCase="true">lmfao</p>
+</div>

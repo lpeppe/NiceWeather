@@ -2,8 +2,8 @@
   <div id="arrowDiv" (pan)="onPan($event)" (click)="onClick($event)">
     <ion-icon name="ios-arrow-up"></ion-icon>
   </div>
-  <ion-scroll [ngStyle]="{ height: height }" scrollY="true">
-    <bike-details-list *ngIf="(statusProvider.selectedActivity | async) == 2"></bike-details-list>
-    <ski-details-list *ngIf="(statusProvider.selectedActivity | async) == 1"></ski-details-list>
+  <ion-scroll [ngStyle]="{ height: height }" scrollY="true" [ngSwitch]="(statusProvider.selectedActivity | async)">
+    <bike-details-list *ngSwitchCase="2"></bike-details-list>
+    <ski-details-list *ngSwitchCase="1"></ski-details-list>
   </ion-scroll>
 </div>

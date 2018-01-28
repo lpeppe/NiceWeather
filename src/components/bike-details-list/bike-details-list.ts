@@ -22,15 +22,16 @@ interface BikeDetails {
 
 export class BikeDetailsListComponent {
 
-  keyEnteredSub: Subscription;
-  keyExitedSub: Subscription;
+  subscriptions: Subscription[];
   details: { [key: string]: BikeDetails };
   keys: string[];
+  detailsMode = false;
 
   constructor(public geoQueryProvider: GeoqueryProvider, public db: AngularFireDatabase) {
     this.details = {};
     this.keys = [];
-    this.keyEnteredSub = this.geoQueryProvider.keyEntered.subscribe(data => {
+    this.subscriptions = [];
+    this.subscriptions.push(this.geoQueryProvider.keyEntered.subscribe(data => {
       let id = Object.keys(data)[0];
       this.db.object(`newdb/bike/details/${id}`).valueChanges().take(1)
         .subscribe((details: BikeDetails) => {
@@ -39,20 +40,20 @@ export class BikeDetailsListComponent {
             this.keys.push(id);
           }
         })
-    })
-    this.keyExitedSub = this.geoQueryProvider.keyExited.subscribe(data => {
+    }))
+    this.subscriptions.push(this.geoQueryProvider.keyExited.subscribe(data => {
       let id = Object.keys(data)[0];
       let idPos = this.keys.indexOf(id);
       if (this.details[id] && idPos != -1) {
         this.keys.splice(idPos, 1);
         this.details[id] = null;
       }
-    })
+    }))
   }
 
   ngOnDestroy() {
-    this.keyEnteredSub.unsubscribe();
-    this.keyExitedSub.unsubscribe();
+    for(let sub of this.subscriptions)
+      sub.unsubscribe();
   }
 
   getColor(slope: string): string {
@@ -63,5 +64,9 @@ export class BikeDetailsListComponent {
     if(slopeNum < 10)
       return "orange";
     return "red";    
+  }
+
+  onItemClicked(id: string) {
+    this.detailsMode = true;
   }
 }

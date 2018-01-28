@@ -35,10 +35,17 @@ export class PopoverPage {
   }
 
   getDisplayName(day: moment.Moment): string {
-    if(day.dayOfYear() == moment().set(this.options).dayOfYear())
+    if (day.dayOfYear() == moment().set(this.options).dayOfYear())
       return 'oggi';
-    if(day.dayOfYear() == moment().set(this.options).add(1, 'days').dayOfYear())
+    if (day.dayOfYear() == moment().set(this.options).add(1, 'days').dayOfYear())
       return 'domani';
-    return day.format('dddd DD');  
+    return day.format('dddd DD');
+  }
+
+  getDayColor(day: moment.Moment): string {
+    if (day.day() == 0)
+      return "red";
+    if (day.day() == 6)
+      return "orange";
   }
 }
