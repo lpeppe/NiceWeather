@@ -1,9 +1,20 @@
-<div [ngSwitch]="detailsMode">
-  <ion-list *ngSwitchCase = "false">
-    <ion-item *ngFor="let id of keys" (click)="onItemClicked(id)">
+<div [ngSwitch]="selectedPath == undefined">
+  <ion-list *ngSwitchCase="true">
+    <ion-item *ngFor="let id of keys" (click)="selectedPath = details[id]">
       <h2>{{details[id].name}}</h2>
       <p [ngStyle]="{color: getColor(details[id].slope)}">Pendenza: {{details[id].slope}}</p>
     </ion-item>
   </ion-list>
-  <p *ngSwitchCase="true">lmfao</p>
+  <div *ngSwitchCase="false" id="detailsDiv">
+    <ion-item no-lines>
+      <button ion-button (click)="selectedPath = undefined" item-start>
+        <ion-icon name="arrow-round-back" color="primary"></ion-icon>
+      </button>
+      <h2 text-wrap>{{selectedPath.name}}</h2>
+      <p>Superficie: {{selectedPath.surface}}</p>
+      <p>Lunghezza: {{selectedPath.length}}</p>
+      <p>Tipologia: {{selectedPath.type}}</p>
+      <p>Dislivello: {{selectedPath.drop}}</p>
+    </ion-item>
+  </div>
 </div>

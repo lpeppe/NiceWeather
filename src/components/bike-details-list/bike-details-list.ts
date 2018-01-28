@@ -25,7 +25,7 @@ export class BikeDetailsListComponent {
   subscriptions: Subscription[];
   details: { [key: string]: BikeDetails };
   keys: string[];
-  detailsMode = false;
+  selectedPath: BikeDetails;
 
   constructor(public geoQueryProvider: GeoqueryProvider, public db: AngularFireDatabase) {
     this.details = {};
@@ -64,9 +64,5 @@ export class BikeDetailsListComponent {
     if(slopeNum < 10)
       return "orange";
     return "red";    
-  }
-
-  onItemClicked(id: string) {
-    this.detailsMode = true;
   }
 }
