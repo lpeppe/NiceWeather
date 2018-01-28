@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { SelectedActivity } from './../../models/enums';
 import { getClusterOptions, invisibleIcon, visibleIcon, getActivityIconOptions } from '../../app/cluster-settings';
+import { getDaysString } from './../../app/utils';
 
 import { AngularFireDatabase } from 'angularfire2/database';
 
@@ -54,9 +55,9 @@ export class MapComponent {
     this.map = L.map('mapDiv', {
       zoomControl: false, minZoom
     }).setView([mapPosition.coords.lat, mapPosition.coords.lng], mapPosition.zoom);
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      // L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+      L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
       // attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(this.map);
     this.sunClusterer = L.markerClusterGroup(getClusterOptions(SelectedActivity.sun));
@@ -96,7 +97,7 @@ export class MapComponent {
         for (let id in points) {
           for (let point of points[id]) {
             layers.push(L.marker([point.lat, point.lng], {
-              icon: forecast[this.statusProvider.selectedDay.getValue()][id].sunny ? visibleIcon : invisibleIcon
+              icon: forecast[getDaysString(this.statusProvider.selectedDays.getValue())][id].sunny ? visibleIcon : invisibleIcon
             }))
           }
         }
@@ -129,7 +130,7 @@ export class MapComponent {
           .toFixed(2));
       }, err => console.log(err))
 
-    this.statusProvider.selectedDay
+    this.statusProvider.selectedDays
       .subscribe(_ => this.loadMapData())
 
     this.statusProvider.selectedActivity

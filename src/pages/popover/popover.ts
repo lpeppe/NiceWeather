@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import * as moment from 'moment';
 import { StatusProvider } from './../../providers/status/status';
 import { ViewController } from 'ionic-angular';
+import { radiansToDegrees } from '@turf/helpers';
 
 //@IonicPage()
 @Component({
@@ -23,15 +24,23 @@ export class PopoverPage {
     moment().set(this.options).add(3, 'days'),
     moment().set(this.options).add(4, 'days')
   ]
-  constructor(public statusProvider: StatusProvider, public viewController: ViewController) { }
+  selectedDays: number[];
+  constructor(public statusProvider: StatusProvider, public viewController: ViewController) {
+    this.selectedDays = this.statusProvider.selectedDays.getValue();
+  }
 
-  onSelect(index: number) {
-    this.statusProvider.selectedDay.next(this.days[index].unix())
-    this.viewController.dismiss();
+  onChange(index: number) {
+    let i = this.selectedDays.indexOf(this.days[index].unix());
+    if (i != -1 && this.selectedDays.length > 1)
+      this.selectedDays.splice(i, 1);
+    else if (i == -1)
+      this.selectedDays.push(this.days[index].unix());
+    this.selectedDays.sort();
+    this.statusProvider.selectedDays.next(this.selectedDays);
   }
 
   isChecked(index: number) {
-    return this.statusProvider.selectedDay.getValue() == this.days[index].unix()
+    return this.statusProvider.selectedDays.getValue().includes(this.days[index].unix());
   }
 
   getDisplayName(day: moment.Moment): string {
@@ -47,5 +56,9 @@ export class PopoverPage {
       return "red";
     if (day.day() == 6)
       return "orange";
+  }
+
+  isDisabled(index: number): boolean {
+    return this.selectedDays.length == 1 && this.selectedDays[0] == this.days[index].unix()
   }
 }
