@@ -32,7 +32,7 @@ export class SkiDetailsListComponent implements OnDestroy {
   setObservables() {
     this.subscriptions.push(this.geoQueryProvider.keyEntered.subscribe(data => {
       let id = Object.keys(data)[0];
-      this.db.object(`newdb/ski/details/${id}`).valueChanges().take(1)
+      this.db.object(`ski/details/${id}`).valueChanges().take(1)
         .subscribe((details: SkiDetails) => {
           if (!this.details[id] && !this.keys.includes(id)) {
             this.details[id] = details;

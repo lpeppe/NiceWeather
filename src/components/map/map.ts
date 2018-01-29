@@ -59,9 +59,9 @@ export class MapComponent implements OnDestroy, AfterViewInit {
     this.map = L.map('mapDiv', {
       zoomControl: false, minZoom
     }).setView([mapPosition.coords.lat, mapPosition.coords.lng], mapPosition.zoom);
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      // L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+      L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
       // attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(this.map);
     this.sunClusterer = L.markerClusterGroup(getClusterOptions(SelectedActivity.sun));
@@ -120,56 +120,75 @@ export class MapComponent implements OnDestroy, AfterViewInit {
         observer.next()
       })
     })
-    this.subscriptions.push(moveEnd$.debounceTime(20).subscribe(_ => {
-      this.statusProvider.mapPosition.next({
-        coords: {
-          lat: this.map.getCenter().lat,
-          lng: this.map.getCenter().lng
-        },
-        triggerMapMove: false
-      })
-    }))
 
-    this.subscriptions.push(this.statusProvider.mapPosition
-      .subscribe((position) => {
-        if (position.triggerMapMove)
-          this.map.flyTo(position.coords, position.zoom);
-        this.statusProvider.mapRadius = Number((this.map
-          .distance(this.map.getBounds().getNorthEast(), this.map.getCenter()) / 1000)
-          .toFixed(2));
-      }, err => console.log(err)))
-
-    this.subscriptions.push(this.statusProvider.selectedDays
-      .subscribe(_ => this.loadMapData()))
-
-    this.subscriptions.push(this.statusProvider.selectedActivity
-      .subscribe(_ => this.loadMapData()))
-
-    this.subscriptions.push(this.geoQueryProvider.keyEntered.subscribe(data => {
-      let id = Object.keys(data)[0];
-      let activity = this.statusProvider.selectedActivity.getValue();
-      if (!this.activityMarkers[SelectedActivity[activity]][id]) {
-        let marker = (<any>L).marker([data[id].lat, data[id].lng], {
-          icon: (<any>L).BeautifyIcon.icon(getActivityIconOptions(this.statusProvider.selectedActivity.getValue())),
-          customId: id
-        });
-        let classInstance = this;
-        marker.on('click', function (ev) {
-          classInstance.statusProvider.placeSelected.next(this.options.customId);
+    this.subscriptions.push(
+      moveEnd$.debounceTime(20)
+        .subscribe(_ => {
+          this.statusProvider.mapPosition.next({
+            coords: {
+              lat: this.map.getCenter().lat,
+              lng: this.map.getCenter().lng
+            },
+            triggerMapMove: false
+          })
         })
-        this.activityMarkers[SelectedActivity[activity]][id] = marker;
-        this.activityClusterers[SelectedActivity[activity]].addLayer(this.activityMarkers[SelectedActivity[activity]][id])
-      }
-      this.subscriptions.push(this.statusProvider.placeSelected.subscribe(id => this.onPlaceSelected(id)));
-    }))
+    );
 
-    this.subscriptions.push(this.geoQueryProvider.keyExited.subscribe(data => {
-      let activity = this.statusProvider.selectedActivity.getValue();
-      let id = Object.keys(data)[0];
-      let markerToRemove = this.activityMarkers[SelectedActivity[activity]][id];
-      this.activityClusterers[SelectedActivity[activity]].removeLayer(markerToRemove);
-      this.activityMarkers[SelectedActivity[activity]][id] = null;
-    }))
+    this.subscriptions.push(
+      this.statusProvider.mapPosition
+        .subscribe((position) => {
+          if (position.triggerMapMove)
+            this.map.flyTo(position.coords, position.zoom);
+          this.statusProvider.mapRadius = Number((this.map
+            .distance(this.map.getBounds().getNorthEast(), this.map.getCenter()) / 1000)
+            .toFixed(2));
+        }, err => console.log(err))
+    );
+
+    this.subscriptions.push(
+      this.statusProvider.selectedDays
+        .subscribe(_ => this.loadMapData())
+    );
+
+    this.subscriptions.push(
+      this.statusProvider.selectedActivity
+        .subscribe(_ => this.loadMapData())
+    );
+
+    this.subscriptions.push(
+      this.geoQueryProvider.keyEntered
+        .subscribe(data => {
+          let id = Object.keys(data)[0];
+          let activity = this.statusProvider.selectedActivity.getValue();
+          if (!this.activityMarkers[SelectedActivity[activity]][id]) {
+            let marker = (<any>L).marker([data[id].lat, data[id].lng], {
+              icon: (<any>L).BeautifyIcon.icon(getActivityIconOptions(this.statusProvider.selectedActivity.getValue())),
+              customId: id
+            });
+            let classInstance = this;
+            marker.on('click', function (ev) {
+              classInstance.statusProvider.placeSelected.next(this.options.customId);
+            })
+            this.activityMarkers[SelectedActivity[activity]][id] = marker;
+            this.activityClusterers[SelectedActivity[activity]].addLayer(this.activityMarkers[SelectedActivity[activity]][id])
+          }
+          this.subscriptions.push(
+            this.statusProvider.placeSelected
+              .subscribe(id => this.onPlaceSelected(id))
+          );
+        })
+    );
+
+    this.subscriptions.push(
+      this.geoQueryProvider.keyExited
+        .subscribe(data => {
+          let activity = this.statusProvider.selectedActivity.getValue();
+          let id = Object.keys(data)[0];
+          let markerToRemove = this.activityMarkers[SelectedActivity[activity]][id];
+          this.activityClusterers[SelectedActivity[activity]].removeLayer(markerToRemove);
+          this.activityMarkers[SelectedActivity[activity]][id] = null;
+        })
+    );
   }
 
   initActivityClusters() {
@@ -199,7 +218,7 @@ export class MapComponent implements OnDestroy, AfterViewInit {
     if (id) {
       switch (this.statusProvider.selectedActivity.getValue()) {
         case SelectedActivity.bike:
-          this.db.object(`newdb/bike/paths/${id}`).valueChanges().take(1)
+          this.db.object(`bike/paths/${id}`).valueChanges().take(1)
             .subscribe((data: LatLng[]) => {
               if (this.geoJson)
                 this.map.removeLayer(this.geoJson);

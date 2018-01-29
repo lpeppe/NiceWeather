@@ -47,7 +47,7 @@ export class GeoqueryProvider implements OnDestroy {
 
   setQuery(activity: SelectedActivity) {
     let geoFireRef = new GeoFire(this.db
-      .list(`newdb/${SelectedActivity[activity]}/suitablePoints/${getDaysString(this.statusProvider.selectedDays.getValue())}`).query.ref)
+      .list(`${SelectedActivity[activity]}/suitablePoints/${getDaysString(this.statusProvider.selectedDays.getValue())}`).query.ref)
     let mapPosition = this.statusProvider.mapPosition.getValue().coords;
     if (this.geoQuery)
       this.geoQuery.cancel();
