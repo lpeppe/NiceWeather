@@ -35,8 +35,7 @@ export class PopoverPage {
       this.selectedDays.splice(i, 1);
     else if (i == -1)
       this.selectedDays.push(this.days[index].unix());
-    this.selectedDays.sort();
-    this.statusProvider.selectedDays.next(this.selectedDays);
+    this.statusProvider.selectedDays.next(this.selectedDays.sort());
   }
 
   isChecked(index: number) {

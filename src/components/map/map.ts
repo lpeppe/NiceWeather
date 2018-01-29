@@ -54,10 +54,6 @@ export class MapComponent implements OnDestroy {
   async ngAfterViewInit() {
     await this.platform.ready()
     this.loadMap();
-    this.oldPosition = {
-      center: this.map.getCenter(),
-      zoom: this.map.getZoom()
-    }
     this.setObservables();
   }
 
@@ -74,6 +70,10 @@ export class MapComponent implements OnDestroy {
     this.sunClusterer = L.markerClusterGroup(getClusterOptions(SelectedActivity.sun));
     this.map.addLayer(this.sunClusterer);
     this.initActivityClusters();
+    this.oldPosition = {
+      center: this.map.getCenter(),
+      zoom: this.map.getZoom()
+    }
   }
 
   loadMapData(): Promise<any> {
@@ -227,7 +227,7 @@ export class MapComponent implements OnDestroy {
     for (let subscription of this.subscriptions)
       subscription.unsubscribe();
   }
-  
+
 }
 
 
