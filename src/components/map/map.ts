@@ -4,7 +4,7 @@ import { DataProvider } from './../../providers/data/data';
 import { StatusProvider } from './../../providers/status/status';
 import { GeoqueryProvider } from '../../providers/geoquery/geoquery';
 
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { SelectedActivity } from './../../models/enums';
 import { getClusterOptions, invisibleIcon, visibleIcon, getActivityIconOptions } from '../../app/cluster-settings';
@@ -13,6 +13,7 @@ import { getDaysString } from './../../app/utils';
 import { AngularFireDatabase } from 'angularfire2/database';
 
 import * as turfHelpers from '@turf/helpers';
+import { Subscription } from 'rxjs/Subscription';
 
 import 'rxjs/add/operator/take';
 import * as L from 'leaflet';
@@ -25,13 +26,18 @@ const minZoom = 8;
   selector: 'map',
   templateUrl: 'map.html'
 })
-export class MapComponent {
+export class MapComponent implements OnDestroy {
 
   map: L.Map;
   sunClusterer: L.LayerGroup;
   activityMarkers: { [activity: string]: { [markerId: string]: L.Marker } };
   activityClusterers: { [key: string]: L.LayerGroup };
   geoJson: L.GeoJSON;
+  subscriptions: Subscription[];
+  oldPosition: {
+    center: L.LatLng,
+    zoom: number
+  }
 
   constructor(public statusProvider: StatusProvider,
     public dataProvider: DataProvider,
@@ -42,11 +48,16 @@ export class MapComponent {
     this.activityClusterers = {};
     this.activityMarkers = {};
     this.clearActivityMarkers();
+    this.subscriptions = [];
   }
 
   async ngAfterViewInit() {
     await this.platform.ready()
     this.loadMap();
+    this.oldPosition = {
+      center: this.map.getCenter(),
+      zoom: this.map.getZoom()
+    }
     this.setObservables();
   }
 
@@ -56,8 +67,8 @@ export class MapComponent {
       zoomControl: false, minZoom
     }).setView([mapPosition.coords.lat, mapPosition.coords.lng], mapPosition.zoom);
     // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-      // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+    // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
       // attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(this.map);
     this.sunClusterer = L.markerClusterGroup(getClusterOptions(SelectedActivity.sun));
@@ -121,22 +132,22 @@ export class MapComponent {
       })
     })
 
-    this.statusProvider.mapPosition
+    this.subscriptions.push(this.statusProvider.mapPosition
       .subscribe((position) => {
         if (position.triggerMapMove)
           this.map.flyTo(position.coords, position.zoom);
         this.statusProvider.mapRadius = Number((this.map
           .distance(this.map.getBounds().getNorthEast(), this.map.getCenter()) / 1000)
           .toFixed(2));
-      }, err => console.log(err))
+      }, err => console.log(err)))
 
-    this.statusProvider.selectedDays
-      .subscribe(_ => this.loadMapData())
+    this.subscriptions.push(this.statusProvider.selectedDays
+      .subscribe(_ => this.loadMapData()))
 
-    this.statusProvider.selectedActivity
-      .subscribe(_ => this.loadMapData())
+    this.subscriptions.push(this.statusProvider.selectedActivity
+      .subscribe(_ => this.loadMapData()))
 
-    this.geoQueryProvider.keyEntered.subscribe(data => {
+    this.subscriptions.push(this.geoQueryProvider.keyEntered.subscribe(data => {
       let id = Object.keys(data)[0];
       let activity = this.statusProvider.selectedActivity.getValue();
       if (!this.activityMarkers[SelectedActivity[activity]][id]) {
@@ -146,20 +157,21 @@ export class MapComponent {
         });
         let classInstance = this;
         marker.on('click', function (ev) {
-          classInstance.onMarkerClicked(this);
+          classInstance.statusProvider.placeSelected.next(this.options.customId);
         })
         this.activityMarkers[SelectedActivity[activity]][id] = marker;
         this.activityClusterers[SelectedActivity[activity]].addLayer(this.activityMarkers[SelectedActivity[activity]][id])
       }
-    })
+      this.subscriptions.push(this.statusProvider.placeSelected.subscribe(id => this.onPlaceSelected(id)));
+    }))
 
-    this.geoQueryProvider.keyExited.subscribe(data => {
+    this.subscriptions.push(this.geoQueryProvider.keyExited.subscribe(data => {
       let activity = this.statusProvider.selectedActivity.getValue();
       let id = Object.keys(data)[0];
       let markerToRemove = this.activityMarkers[SelectedActivity[activity]][id];
       this.activityClusterers[SelectedActivity[activity]].removeLayer(markerToRemove);
       this.activityMarkers[SelectedActivity[activity]][id] = null;
-    })
+    }))
   }
 
   initActivityClusters() {
@@ -185,21 +197,37 @@ export class MapComponent {
         this.activityMarkers[activity] = {};
   }
 
-  onMarkerClicked(marker: any) {
-    switch (this.statusProvider.selectedActivity.getValue()) {
-      case SelectedActivity.bike:
-        this.db.object(`newdb/bike/paths/${marker.options.customId}`).valueChanges().take(1)
-          .subscribe((data: LatLng[]) => {
-            if (this.geoJson)
-              this.map.removeLayer(this.geoJson);
-            this.geoJson = L.geoJSON(turfHelpers.lineString(data.map(x => {
-              return [x.lng, x.lat]
-            })));
-            this.map.fitBounds(this.geoJson.getBounds());
-            this.geoJson.addTo(this.map)
-          })
+  onPlaceSelected(id: string) {
+    if (id) {
+      this.oldPosition = {
+        center: this.map.getCenter(),
+        zoom: this.map.getZoom()
+      }
+      switch (this.statusProvider.selectedActivity.getValue()) {
+        case SelectedActivity.bike:
+          this.db.object(`newdb/bike/paths/${id}`).valueChanges().take(1)
+            .subscribe((data: LatLng[]) => {
+              if (this.geoJson)
+                this.map.removeLayer(this.geoJson);
+              this.geoJson = L.geoJSON(turfHelpers.lineString(data.map(x => {
+                return [x.lng, x.lat]
+              })));
+              this.map.fitBounds(this.geoJson.getBounds());
+              this.geoJson.addTo(this.map)
+            })
+      }
+    }
+    else {
+      this.map.setView(this.oldPosition.center, this.oldPosition.zoom)
+      this.map.removeLayer(this.geoJson);
     }
   }
+
+  ngOnDestroy() {
+    for (let subscription of this.subscriptions)
+      subscription.unsubscribe();
+  }
+  
 }
 
 

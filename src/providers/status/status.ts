@@ -27,4 +27,7 @@ export class StatusProvider {
     zoom: 8,
     triggerMapMove: false
   });
+
+  placeSelected = new Subject<string>();
+  
 }

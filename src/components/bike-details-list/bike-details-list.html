@@ -1,13 +1,13 @@
 <div [ngSwitch]="selectedPath == undefined">
   <ion-list *ngSwitchCase="true">
-    <ion-item *ngFor="let id of keys" (click)="selectedPath = details[id]">
+    <ion-item *ngFor="let id of keys" (click)="statusProvider.placeSelected.next(id)">
       <h2>{{details[id].name}}</h2>
       <p [ngStyle]="{color: getColor(details[id].slope)}">Pendenza: {{details[id].slope}}</p>
     </ion-item>
   </ion-list>
   <div *ngSwitchCase="false" id="detailsDiv">
     <ion-item no-lines>
-      <button ion-button (click)="selectedPath = undefined" item-start>
+      <button ion-button (click)="statusProvider.placeSelected.next(undefined)" item-start>
         <ion-icon name="arrow-round-back" color="primary"></ion-icon>
       </button>
       <h2 text-wrap>{{selectedPath.name}}</h2>
