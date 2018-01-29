@@ -115,12 +115,12 @@ export class MapComponent implements OnDestroy, AfterViewInit {
   }
 
   setObservables() {
-    let test = new Observable(observer => {
+    let moveEnd$ = new Observable(observer => {
       this.map.on('moveend', _ => {
         observer.next()
       })
     })
-    this.subscriptions.push(test.debounceTime(20).subscribe(_ => {
+    this.subscriptions.push(moveEnd$.debounceTime(20).subscribe(_ => {
       this.statusProvider.mapPosition.next({
         coords: {
           lat: this.map.getCenter().lat,
