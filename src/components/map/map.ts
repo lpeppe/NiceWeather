@@ -35,10 +35,6 @@ export class MapComponent implements OnDestroy, AfterViewInit {
   activityClusterers: { [key: string]: L.LayerGroup };
   geoJson: L.GeoJSON;
   subscriptions: Subscription[];
-  oldPosition: {
-    center: L.LatLng,
-    zoom: number
-  }
 
   constructor(public statusProvider: StatusProvider,
     public dataProvider: DataProvider,
@@ -71,10 +67,6 @@ export class MapComponent implements OnDestroy, AfterViewInit {
     this.sunClusterer = L.markerClusterGroup(getClusterOptions(SelectedActivity.sun));
     this.map.addLayer(this.sunClusterer);
     this.initActivityClusters();
-    this.oldPosition = {
-      center: this.map.getCenter(),
-      zoom: this.map.getZoom()
-    }
   }
 
   loadMapData(): Promise<any> {
@@ -205,10 +197,6 @@ export class MapComponent implements OnDestroy, AfterViewInit {
 
   onPlaceSelected(id: string) {
     if (id) {
-      this.oldPosition = {
-        center: this.map.getCenter(),
-        zoom: this.map.getZoom()
-      }
       switch (this.statusProvider.selectedActivity.getValue()) {
         case SelectedActivity.bike:
           this.db.object(`newdb/bike/paths/${id}`).valueChanges().take(1)
@@ -223,10 +211,8 @@ export class MapComponent implements OnDestroy, AfterViewInit {
             })
       }
     }
-    else {
-      this.map.setView(this.oldPosition.center, this.oldPosition.zoom)
+    else
       this.map.removeLayer(this.geoJson);
-    }
   }
 
   ngOnDestroy() {
