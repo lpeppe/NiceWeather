@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import * as moment from 'moment';
 import { StatusProvider } from './../../providers/status/status';
 import { ViewController } from 'ionic-angular';
-import { radiansToDegrees } from '@turf/helpers';
 
 //@IonicPage()
 @Component({

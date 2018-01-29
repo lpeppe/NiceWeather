@@ -60,8 +60,8 @@ export class MapComponent implements OnDestroy, AfterViewInit {
       zoomControl: false, minZoom
     }).setView([mapPosition.coords.lat, mapPosition.coords.lng], mapPosition.zoom);
     // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-      // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+    // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
       // attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(this.map);
     this.sunClusterer = L.markerClusterGroup(getClusterOptions(SelectedActivity.sun));
@@ -100,9 +100,11 @@ export class MapComponent implements OnDestroy, AfterViewInit {
         let layers = [];
         for (let id in points) {
           for (let point of points[id]) {
-            layers.push(L.marker([point.lat, point.lng], {
-              icon: forecast[getDaysString(this.statusProvider.selectedDays.getValue())][id].sunny ? visibleIcon : invisibleIcon
-            }))
+            let selectedForecast = forecast[getDaysString(this.statusProvider.selectedDays.getValue())];
+            if (selectedForecast)
+              layers.push(L.marker([point.lat, point.lng], {
+                icon: selectedForecast[id].sunny ? visibleIcon : invisibleIcon
+              }))
           }
         }
         (<any>this.sunClusterer).addLayers(layers)
