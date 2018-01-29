@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 
 import { StatusProvider } from './../status/status';
@@ -11,7 +11,7 @@ import { Subject } from 'rxjs/Subject';
 import { Subscription } from 'rxjs/Subscription';
 
 @Injectable()
-export class GeoqueryProvider {
+export class GeoqueryProvider implements OnDestroy {
 
   keyEntered = new Subject<{ [key: string]: LatLng }>();
   keyExited = new Subject<{ [key: string]: LatLng }>();
