@@ -4,7 +4,7 @@ import { DataProvider } from './../../providers/data/data';
 import { StatusProvider } from './../../providers/status/status';
 import { GeoqueryProvider } from '../../providers/geoquery/geoquery';
 
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, AfterViewInit } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { SelectedActivity } from './../../models/enums';
 import { getClusterOptions, invisibleIcon, visibleIcon, getActivityIconOptions } from '../../app/cluster-settings';
@@ -16,6 +16,7 @@ import * as turfHelpers from '@turf/helpers';
 import { Subscription } from 'rxjs/Subscription';
 
 import 'rxjs/add/operator/take';
+import 'rxjs/add/operator/debounceTime';
 import * as L from 'leaflet';
 import 'leaflet.markercluster';
 import '../../assets/js/leaflet-beautify-marker-icon';
@@ -26,7 +27,7 @@ const minZoom = 8;
   selector: 'map',
   templateUrl: 'map.html'
 })
-export class MapComponent implements OnDestroy {
+export class MapComponent implements OnDestroy, AfterViewInit {
 
   map: L.Map;
   sunClusterer: L.LayerGroup;
@@ -62,9 +63,9 @@ export class MapComponent implements OnDestroy {
     this.map = L.map('mapDiv', {
       zoomControl: false, minZoom
     }).setView([mapPosition.coords.lat, mapPosition.coords.lng], mapPosition.zoom);
-    // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      // L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
       // attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(this.map);
     this.sunClusterer = L.markerClusterGroup(getClusterOptions(SelectedActivity.sun));
@@ -122,7 +123,12 @@ export class MapComponent implements OnDestroy {
   }
 
   setObservables() {
-    this.map.on('moveend', _ => {
+    let test = new Observable(observer => {
+      this.map.on('moveend', _ => {
+        observer.next()
+      })
+    })
+    this.subscriptions.push(test.debounceTime(20).subscribe(_ => {
       this.statusProvider.mapPosition.next({
         coords: {
           lat: this.map.getCenter().lat,
@@ -130,7 +136,7 @@ export class MapComponent implements OnDestroy {
         },
         triggerMapMove: false
       })
-    })
+    }))
 
     this.subscriptions.push(this.statusProvider.mapPosition
       .subscribe((position) => {
