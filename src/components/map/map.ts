@@ -230,6 +230,11 @@ export class MapComponent implements OnDestroy, AfterViewInit {
               this.map.fitBounds(this.geoJson.getBounds());
               this.geoJson.addTo(this.map)
             })
+          break;
+        case SelectedActivity.ski:
+          this.db.object(`ski/points/${id}`).valueChanges().take(1)
+            .subscribe((data: LatLng) => this.map.flyTo(data, 18))
+          break;
       }
     }
     else

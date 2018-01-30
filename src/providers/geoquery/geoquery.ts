@@ -20,29 +20,38 @@ export class GeoqueryProvider implements OnDestroy {
 
   constructor(public statusProvider: StatusProvider, public db: AngularFireDatabase) {
     this.subscriptions = [];
-    this.subscriptions.push(this.statusProvider.selectedActivity.subscribe(activity => {
-      if (activity != SelectedActivity.sun) {
-        this.setQuery(activity);
-        this.setListeners();
-      }
-    }))
-
-    this.subscriptions.push(this.statusProvider.selectedDays.subscribe(_ => {
-      let activity = this.statusProvider.selectedActivity.getValue();
-      if (activity != SelectedActivity.sun) {
-        this.setQuery(activity);
-        this.setListeners();
-      }
-    }))
-
-    this.subscriptions.push(this.statusProvider.mapPosition.subscribe(mapData => {
-      if (this.statusProvider.selectedActivity.getValue() != SelectedActivity.sun && this.geoQuery) {
-        this.geoQuery.updateCriteria({
-          center: [mapData.coords.lat, mapData.coords.lng],
-          radius: this.statusProvider.mapRadius
+    this.subscriptions.push(
+      this.statusProvider.selectedActivity
+        .subscribe(activity => {
+          if (activity != SelectedActivity.sun) {
+            this.setQuery(activity);
+            this.setListeners();
+          }
         })
-      }
-    }))
+    )
+
+    this.subscriptions.push(
+      this.statusProvider.selectedDays
+        .subscribe(_ => {
+          let activity = this.statusProvider.selectedActivity.getValue();
+          if (activity != SelectedActivity.sun) {
+            this.setQuery(activity);
+            this.setListeners();
+          }
+        })
+    )
+
+    this.subscriptions.push(
+      this.statusProvider.mapPosition.delay(10)
+        .subscribe(mapData => {
+          if (this.statusProvider.selectedActivity.getValue() != SelectedActivity.sun && this.geoQuery) {
+            this.geoQuery.updateCriteria({
+              center: [mapData.coords.lat, mapData.coords.lng],
+              radius: this.statusProvider.mapRadius
+            })
+          }
+        })
+    )
   }
 
   setQuery(activity: SelectedActivity) {
