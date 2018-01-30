@@ -21,7 +21,7 @@ import * as L from 'leaflet';
 import 'leaflet.markercluster';
 import '../../assets/js/leaflet-beautify-marker-icon';
 
-const maxZoom = 11;
+const maxZoom = 12;
 const minZoom = 8;
 @Component({
   selector: 'map',
@@ -57,7 +57,7 @@ export class MapComponent implements OnDestroy, AfterViewInit {
   loadMap(): void {
     let mapPosition = this.statusProvider.mapPosition.getValue();
     this.map = L.map('mapDiv', {
-      zoomControl: false, minZoom
+      zoomControl: false, minZoom, maxZoom
     }).setView([mapPosition.coords.lat, mapPosition.coords.lng], mapPosition.zoom);
     // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -74,14 +74,14 @@ export class MapComponent implements OnDestroy, AfterViewInit {
       try {
         let activity = this.statusProvider.selectedActivity.getValue();
         if (activity == SelectedActivity.sun) {
-          this.map.setMaxZoom(maxZoom);
+          // this.map.setMaxZoom(maxZoom);
           this.clearActivityLayers();
           this.sunClusterer.clearLayers();
           await this.loadSunData();
           resolve();
         }
         else {
-          this.map.setMaxZoom(18);
+          // this.map.setMaxZoom(18);
           this.sunClusterer.clearLayers();
           this.clearActivityLayers();
           this.clearActivityMarkers();
@@ -233,7 +233,7 @@ export class MapComponent implements OnDestroy, AfterViewInit {
           break;
         case SelectedActivity.ski:
           this.db.object(`ski/points/${id}`).valueChanges().take(1)
-            .subscribe((data: LatLng) => this.map.flyTo(data, 18))
+            .subscribe((data: LatLng) => this.map.setView(data, maxZoom))
           break;
       }
     }

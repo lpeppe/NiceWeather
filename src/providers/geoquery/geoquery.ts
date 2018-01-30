@@ -42,6 +42,7 @@ export class GeoqueryProvider implements OnDestroy {
     )
 
     this.subscriptions.push(
+      // subscription is delayed so that the mapRadius value is refreshed correctly by the map component
       this.statusProvider.mapPosition.delay(10)
         .subscribe(mapData => {
           if (this.statusProvider.selectedActivity.getValue() != SelectedActivity.sun && this.geoQuery) {
