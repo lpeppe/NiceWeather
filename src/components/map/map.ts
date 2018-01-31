@@ -62,7 +62,7 @@ export class MapComponent implements OnDestroy, AfterViewInit {
     // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     // L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
-    L.tileLayer('https://api.mapbox.com/styles/v1/marylen/cjd2tx7si1zfl2rqer9srsu7f/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFyeWxlbiIsImEiOiJjamQydGlkYjAzbWdoMndvNXU2ZDdodmVpIn0.gepdAbZLig1iW6Xi-5TRiA', {
+    L.tileLayer('https://api.mapbox.com/styles/v1/marylen/cjd2vb5481zk32spdyzyjhir3/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFyeWxlbiIsImEiOiJjamQydGlkYjAzbWdoMndvNXU2ZDdodmVpIn0.gepdAbZLig1iW6Xi-5TRiA', {
       // attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(this.map);
     this.sunClusterer = L.markerClusterGroup(getClusterOptions(SelectedActivity.sun));
