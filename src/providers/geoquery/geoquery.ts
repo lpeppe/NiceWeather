@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 
 import { StatusProvider } from './../status/status';
@@ -11,7 +11,7 @@ import { Subject } from 'rxjs/Subject';
 import { Subscription } from 'rxjs/Subscription';
 
 @Injectable()
-export class GeoqueryProvider {
+export class GeoqueryProvider implements OnDestroy {
 
   keyEntered = new Subject<{ [key: string]: LatLng }>();
   keyExited = new Subject<{ [key: string]: LatLng }>();
@@ -20,34 +20,44 @@ export class GeoqueryProvider {
 
   constructor(public statusProvider: StatusProvider, public db: AngularFireDatabase) {
     this.subscriptions = [];
-    this.subscriptions.push(this.statusProvider.selectedActivity.subscribe(activity => {
-      if (activity != SelectedActivity.sun) {
-        this.setQuery(activity);
-        this.setListeners();
-      }
-    }))
-
-    this.subscriptions.push(this.statusProvider.selectedDays.subscribe(_ => {
-      let activity = this.statusProvider.selectedActivity.getValue();
-      if (activity != SelectedActivity.sun) {
-        this.setQuery(activity);
-        this.setListeners();
-      }
-    }))
-
-    this.subscriptions.push(this.statusProvider.mapPosition.subscribe(mapData => {
-      if (this.statusProvider.selectedActivity.getValue() != SelectedActivity.sun && this.geoQuery) {
-        this.geoQuery.updateCriteria({
-          center: [mapData.coords.lat, mapData.coords.lng],
-          radius: this.statusProvider.mapRadius
+    this.subscriptions.push(
+      this.statusProvider.selectedActivity
+        .subscribe(activity => {
+          if (activity != SelectedActivity.sun) {
+            this.setQuery(activity);
+            this.setListeners();
+          }
         })
-      }
-    }))
+    )
+
+    this.subscriptions.push(
+      this.statusProvider.selectedDays
+        .subscribe(_ => {
+          let activity = this.statusProvider.selectedActivity.getValue();
+          if (activity != SelectedActivity.sun) {
+            this.setQuery(activity);
+            this.setListeners();
+          }
+        })
+    )
+
+    this.subscriptions.push(
+      // subscription is delayed so that the mapRadius value is refreshed correctly by the map component
+      this.statusProvider.mapPosition.delay(10)
+        .subscribe(mapData => {
+          if (this.statusProvider.selectedActivity.getValue() != SelectedActivity.sun && this.geoQuery) {
+            this.geoQuery.updateCriteria({
+              center: [mapData.coords.lat, mapData.coords.lng],
+              radius: this.statusProvider.mapRadius
+            })
+          }
+        })
+    )
   }
 
   setQuery(activity: SelectedActivity) {
     let geoFireRef = new GeoFire(this.db
-      .list(`newdb/${SelectedActivity[activity]}/suitablePoints/${getDaysString(this.statusProvider.selectedDays.getValue())}`).query.ref)
+      .list(`${SelectedActivity[activity]}/suitablePoints/${getDaysString(this.statusProvider.selectedDays.getValue())}`).query.ref)
     let mapPosition = this.statusProvider.mapPosition.getValue().coords;
     if (this.geoQuery)
       this.geoQuery.cancel();

@@ -1,0 +1,8 @@
+<ion-list>
+    <ion-item *ngFor="let id of keys" (click)="statusProvider.placeSelected.next(id)">
+        <ion-thumbnail item-start>
+            <img [src]="details[id].img">
+        </ion-thumbnail>
+        <h2>{{details[id].name}}</h2>
+    </ion-item>
+</ion-list>

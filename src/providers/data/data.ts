@@ -35,14 +35,14 @@ export class DataProvider {
   private async getSunPoints(): Promise<any> {
     let data = await this.storage.get('sun-points');
     if (data == null)
-      return this.getAndSetRemoteData('newdb/sun/randomPoints', 'sun-points')
+      return this.getAndSetRemoteData('sun/randomPoints', 'sun-points')
     return new Promise((resolve, reject) => resolve(data))
   }
 
   private async getSunForecast(): Promise<any> {
     let data = await this.storage.get('sun-forecast');
     if (data == null || this.isDataStale(moment(await this.storage.get('sun-forecast-date'))))
-      return this.getAndSetRemoteData('newdb/sun/sunnyPoints', 'sun-forecast')
+      return this.getAndSetRemoteData('sun/sunnyPoints', 'sun-forecast')
     return new Promise((resolve, reject) => resolve(data))
   }
 

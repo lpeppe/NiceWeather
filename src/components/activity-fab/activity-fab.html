@@ -12,8 +12,8 @@
       <button ion-fab mini (click)="onActivitySelected($event, 2, fab)" [color]="(statusProvider.selectedActivity | async) == 2 ? 'primary': 'light'">
         <ion-icon name="bicycle"></ion-icon>
       </button>
-      <button ion-fab mini>
-        <ion-icon name="speedometer"></ion-icon>
+      <button ion-fab mini (click)="onActivitySelected($event, 3, fab)" [color]="(statusProvider.selectedActivity | async) == 3 ? 'primary': 'light'">
+        <ion-icon name="help-buoy"></ion-icon>
       </button>
   </ion-fab-list>
 </ion-fab>

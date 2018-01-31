@@ -3,33 +3,29 @@ import * as L from 'leaflet';
 import '../assets/js/leaflet-beautify-marker-icon';
 
 export const getActivityIconOptions = (activity: SelectedActivity, size?: number) => {
+    let icon;
     switch (activity) {
         case SelectedActivity.ski:
-            return {
-                // spin: true,
-                icon: 'snowflake',
-                iconShape: 'marker',
-                iconSize: [33, 33],
-                backgroundColor: '#488aff',
-                borderColor: '#488aff',
-                textColor: 'white',
-                innerIconStyle: 'font-size:1.5em',
-                isAlphaNumericIcon: size != undefined,
-                text: size
-            }
+            icon = 'snowflake';
+            break;
         case SelectedActivity.bike:
-            return {
-                // spin: true,
-                icon: 'bicycle',
-                iconShape: 'marker',
-                iconSize: [33, 33],
-                backgroundColor: '#488aff',
-                borderColor: '#488aff',
-                textColor: 'white',
-                innerIconStyle: 'font-size:1.5em',
-                isAlphaNumericIcon: size != undefined,
-                text: size
-            }
+            icon = "bicycle"
+            break;
+        case SelectedActivity.sea:
+            icon = 'life-ring'
+            break;
+    }
+    return {
+        // spin: true,
+        icon,
+        iconShape: 'marker',
+        iconSize: [33, 33],
+        backgroundColor: '#488aff',
+        borderColor: '#488aff',
+        textColor: 'white',
+        innerIconStyle: 'font-size:1.5em',
+        isAlphaNumericIcon: size != undefined,
+        text: size
     }
 }
 
@@ -61,7 +57,7 @@ export const getClusterOptions = (activity: SelectedActivity) => {
     switch (activity) {
         case SelectedActivity.sun:
             return sunClustererOptions;
-        case SelectedActivity.ski: case SelectedActivity.bike:
+        case SelectedActivity.ski: case SelectedActivity.bike: case SelectedActivity.sea:
             return {
                 showCoverageOnHover: false,
                 iconCreateFunction: (cluster) =>
