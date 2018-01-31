@@ -10,6 +10,10 @@
             margin: auto;
             background-color: white;
             z-index: 20;
+            ion-icon {
+                color: map-get($colors, primary);
+                font-size: 1.5em;
+            }
         }
         ion-scroll {
             max-height: 30vh !important;

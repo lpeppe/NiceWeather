@@ -74,14 +74,14 @@ export class MapComponent implements OnDestroy, AfterViewInit {
       try {
         let activity = this.statusProvider.selectedActivity.getValue();
         if (activity == SelectedActivity.sun) {
-          // this.map.setMaxZoom(maxZoom);
+          this.map.setMaxZoom(maxZoom);
           this.clearActivityLayers();
           this.sunClusterer.clearLayers();
           await this.loadSunData();
           resolve();
         }
         else {
-          // this.map.setMaxZoom(18);
+          this.map.setMaxZoom(16);
           this.sunClusterer.clearLayers();
           this.clearActivityLayers();
           this.clearActivityMarkers();
