@@ -1,3 +1,4 @@
+import { SkiDetailsComponent } from './../components/ski-details/ski-details';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -33,6 +34,10 @@ import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { GeoqueryProvider } from '../providers/geoquery/geoquery';
 import { BikeDetailsListComponent } from '../components/bike-details-list/bike-details-list';
 import { SkiDetailsListComponent } from './../components/ski-details-list/ski-details-list';
+import { BikeDetailsComponent } from '../components/bike-details/bike-details';
+
+import { SkiDetailsPipe } from './../pipes/ski-details/ski-details';
+import { BikeDetailsPipe } from './../pipes/bike-details/bike-details';
 
 @NgModule({
   declarations: [
@@ -47,7 +52,11 @@ import { SkiDetailsListComponent } from './../components/ski-details-list/ski-de
     GeoFabComponent,
     TimeFabComponent,
     BikeDetailsListComponent,
-    SkiDetailsListComponent
+    SkiDetailsListComponent,
+    BikeDetailsComponent,
+    SkiDetailsComponent,
+    BikeDetailsPipe,
+    SkiDetailsPipe
   ],
   imports: [
     BrowserModule,
