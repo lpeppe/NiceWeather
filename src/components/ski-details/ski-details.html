@@ -1,17 +1,17 @@
-<ion-item no-lines>
+<ion-item>
     <div id="titleDiv">
         <button ion-button (click)="statusProvider.placeSelected.next(undefined)">
             <ion-icon name="arrow-round-back" color="primary"></ion-icon>
         </button>
         <h1 text-wrap>{{selectedPiste.name}}</h1>
     </div>
+</ion-item>
+<ion-item>
     <ion-grid>
         <ion-row>
             <ion-col *ngFor="let detail of pisteDetails">
-                <ion-item>
-                    {{(detail.name | skiDetails)}}
-                    <ion-badge>{{detail.value}}</ion-badge>
-                </ion-item>
+                <p>{{(detail.name | skiDetails)}}</p>
+                <span>{{detail.value}}</span>
             </ion-col>
         </ion-row>
     </ion-grid>
