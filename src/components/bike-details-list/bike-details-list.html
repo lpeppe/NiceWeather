@@ -5,16 +5,5 @@
       <p [ngStyle]="{color: getColor(details[id].slope)}">Pendenza: {{details[id].slope}}</p>
     </ion-item>
   </ion-list>
-  <div *ngSwitchCase="false" id="detailsDiv">
-    <ion-item no-lines>
-      <button ion-button (click)="statusProvider.placeSelected.next(undefined)" item-start>
-        <ion-icon name="arrow-round-back" color="primary"></ion-icon>
-      </button>
-      <h2 text-wrap>{{selectedPath.name}}</h2>
-      <p>Superficie: {{selectedPath.surface}}</p>
-      <p>Lunghezza: {{selectedPath.length}}</p>
-      <p>Tipologia: {{selectedPath.type}}</p>
-      <p>Dislivello: {{selectedPath.drop}}</p>
-    </ion-item>
-  </div>
+  <bike-details *ngSwitchCase="false" [selectedPath]="selectedPath"></bike-details>
 </div>

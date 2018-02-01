@@ -1,0 +1,24 @@
+.ios,
+.md {
+    bike-details {
+        #titleDiv {
+            display: flex;
+        }
+        ion-item {
+            ion-icon {
+                font-size: 2em;
+            }
+            button:focus {
+                outline: none;
+            }
+            div.input-wrapper {
+                margin-left: 10px;
+            }
+            button.item-button {
+                background: white !important;
+                -webkit-box-shadow: none !important;
+                box-shadow: none !important;
+            }
+        }
+    }
+}

@@ -236,7 +236,7 @@ export class MapComponent implements OnDestroy, AfterViewInit {
           break;
       }
     }
-    else
+    else if(this.geoJson)
       this.map.removeLayer(this.geoJson);
   }
 

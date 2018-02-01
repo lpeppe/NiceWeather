@@ -35,17 +35,24 @@ export class DataProvider {
   private async getSunForecast(): Promise<any> {
     let daysString = getDaysString(this.statusProvider.selectedDays.getValue());
     let data = await this.storage.get(`sun-forecast|${daysString}`);
-    if (data == null || this.isDataStale(moment(await this.storage.get('sun-forecast-date'))))
+    let isDataStale = this.isDataStale(moment(await this.storage.get('sun-forecast-date')));
+    if (data == null || isDataStale) {
+      if (isDataStale) {
+        await this.storage.forEach((value, key, iterationNumber) => {
+          if (key != 'sun-points')
+            this.storage.remove(key)
+        })
+      }
       return this.getAndSetRemoteData(`sun/sunnyPoints/${daysString}`, `sun-forecast|${daysString}`)
+    }
     return new Promise((resolve, reject) => resolve(data))
   }
 
   private getAndSetRemoteData(firebasePath: string, storageKey: string): Promise<any> {
     return new Promise(async (resolve, reject) => {
-      await this.storage.clear();
       let db$ = this.db.object(firebasePath).valueChanges().take(1);
       db$.subscribe(data => {
-        Promise.all([this.storage.set(storageKey, data), this.storage.set(`${storageKey}-date`, moment().valueOf())])
+        Promise.all([this.storage.set(storageKey, data), this.storage.set('sun-forecast-date', moment().valueOf())])
           .then(_ => resolve(data))
           .catch(err => reject(err))
       }, err => reject(err))
