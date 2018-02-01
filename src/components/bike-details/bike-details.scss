@@ -2,22 +2,48 @@
 .md {
     bike-details {
         #titleDiv {
-            display: flex;
-        }
-        ion-item {
-            ion-icon {
-                font-size: 2em;
+            h1 {
+                text-align: center;
+                margin-left: 12px;
+                margin-right: 12px;
             }
             button:focus {
                 outline: none;
             }
-            div.input-wrapper {
-                margin-left: 10px;
-            }
-            button.item-button {
+            button {
+                padding-left: 0 !important;
+                margin-left: 0;
+                position: absolute;
+                top: 20%;
+                left: 15px;
                 background: white !important;
                 -webkit-box-shadow: none !important;
                 box-shadow: none !important;
+            }
+        }
+        ion-item {
+            ion-grid {
+                text-align: center;
+                ion-row {
+                    ion-col {
+                        p {
+                            color: #444;
+                            font-size: medium;
+                            margin-bottom: 3px;
+                        }
+                        span {
+                            font-weight: bold;
+                            font-size: 2rem;
+                            color: map-get($colors, primary);
+                        }
+                    }
+                }
+            }
+            ion-icon {
+                font-size: 2em;
+            }
+            div.input-wrapper {
+                margin-left: 10px;
             }
         }
     }

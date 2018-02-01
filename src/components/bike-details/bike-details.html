@@ -1,17 +1,21 @@
-<ion-item no-lines>
+<ion-item>
   <div id="titleDiv">
     <button ion-button (click)="statusProvider.placeSelected.next(undefined)">
       <ion-icon name="arrow-round-back" color="primary"></ion-icon>
     </button>
     <h1 text-wrap>{{selectedPath.name}}</h1>
   </div>
+</ion-item>
+<ion-item>
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let detail of pathDetails">
-        <ion-item>
-          {{(detail.name | bikeDetails)}}
-          <ion-badge>{{detail.value}}</ion-badge>
-        </ion-item>
+        <!-- <ion-item>
+            {{(detail.name | bikeDetails)}}
+            <ion-badge>{{detail.value}}</ion-badge>
+          </ion-item> -->
+        <p>{{(detail.name | bikeDetails)}}</p>
+        <span>{{detail.value}}</span>
       </ion-col>
     </ion-row>
   </ion-grid>

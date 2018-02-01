@@ -6,7 +6,7 @@ import { StatusProvider } from './../../providers/status/status';
   selector: 'bike-details',
   templateUrl: 'bike-details.html'
 })
-export class BikeDetailsComponent implements OnInit{
+export class BikeDetailsComponent implements OnInit {
 
   @Input() selectedPath: BikeDetails;
 
