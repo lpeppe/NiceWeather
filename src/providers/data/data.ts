@@ -3,7 +3,8 @@ import { Storage } from '@ionic/storage';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { LatLng } from './../../models/interfaces';
+import { LatLng, Review } from './../../models/interfaces';
+import { SelectedActivity } from './../../models/enums';
 import { StatusProvider } from './../status/status';
 import { getDaysString } from './../../app/utils';
 import * as moment from 'moment';
@@ -23,6 +24,16 @@ export class DataProvider {
 
   getSunData(): Promise<any> {
     return Promise.all([this.getSunPoints(), this.getSunForecast()])
+  }
+
+  getReviews(): Promise<Review[]> {
+    return new Promise((resolve, reject) => {
+      let activity = this.statusProvider.selectedActivity.getValue();
+      // let id = this.statusProvider.placeSelected.getValue()
+      // this.db.object(`${activity}/reviews/${id}`).valueChanges().take(1)
+      this.db.object(`${activity}/reviews/lul`).valueChanges().take(1)
+        .subscribe((data: Review[]) => resolve(data), err => reject(err))
+    })
   }
 
   private async getSunPoints(): Promise<any> {

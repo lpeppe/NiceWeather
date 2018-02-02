@@ -9,6 +9,7 @@ import { StatusProvider } from './../../providers/status/status';
 export class BikeDetailsComponent implements OnInit {
 
   @Input() selectedPath: BikeDetails;
+  @Input() placeID: string;
 
   pathDetails: any[];
 
@@ -18,7 +19,7 @@ export class BikeDetailsComponent implements OnInit {
 
   ngOnInit() {
     for (let key of Object.keys(this.selectedPath))
-      if (key != 'slope' && key != 'name')
+      if (key != 'slope' && key != 'name' && key != 'avgRating')
         this.pathDetails.push({
           name: key,
           value: this.selectedPath[key]
