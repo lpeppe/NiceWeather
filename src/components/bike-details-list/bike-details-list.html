@@ -1,9 +1,9 @@
-<div [ngSwitch]="selectedPath == undefined">
+<div [ngSwitch]="(statusProvider.placeSelected | async) == undefined">
   <ion-list *ngSwitchCase="true">
     <ion-item *ngFor="let id of keys" (click)="statusProvider.placeSelected.next(id)">
       <h2>{{details[id].name}}</h2>
       <p [ngStyle]="{color: getColor(details[id].slope)}">Pendenza: {{details[id].slope}}</p>
     </ion-item>
   </ion-list>
-  <bike-details *ngSwitchCase="false" [selectedPath]="selectedPath"></bike-details>
+  <bike-details *ngSwitchCase="false"></bike-details>
 </div>

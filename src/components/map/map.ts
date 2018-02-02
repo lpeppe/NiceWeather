@@ -215,25 +215,21 @@ export class MapComponent implements OnDestroy, AfterViewInit {
         this.activityMarkers[activity] = {};
   }
 
-  onPlaceSelected(id: string) {
-    console.log(id)
+  async onPlaceSelected(id: string) {
     if (id) {
       switch (this.statusProvider.selectedActivity.getValue()) {
         case SelectedActivity.bike:
-          this.db.object(`bike/paths/${id}`).valueChanges().take(1)
-            .subscribe((data: LatLng[]) => {
-              if (this.geoJson)
-                this.map.removeLayer(this.geoJson);
-              this.geoJson = L.geoJSON(turfHelpers.lineString(data.map(x => {
-                return [x.lng, x.lat]
-              })));
-              this.map.fitBounds(this.geoJson.getBounds());
-              this.geoJson.addTo(this.map)
-            })
+          let data = await this.dataProvider.getBikePath();
+          if (this.geoJson)
+            this.map.removeLayer(this.geoJson);
+          this.geoJson = L.geoJSON(turfHelpers.lineString(data.map(x => {
+            return [x.lng, x.lat]
+          })));
+          this.map.fitBounds(this.geoJson.getBounds());
+          this.geoJson.addTo(this.map)
           break;
         case SelectedActivity.ski:
-          this.db.object(`ski/points/${id}`).valueChanges().take(1)
-            .subscribe((data: LatLng) => this.map.setView(data, maxZoom))
+          this.map.setView(await this.dataProvider.getPlaceLatLng(), maxZoom);
           break;
       }
     }

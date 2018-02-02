@@ -29,10 +29,41 @@ export class DataProvider {
   getReviews(): Promise<Review[]> {
     return new Promise((resolve, reject) => {
       let activity = this.statusProvider.selectedActivity.getValue();
-      // let id = this.statusProvider.placeSelected.getValue()
-      // this.db.object(`${activity}/reviews/${id}`).valueChanges().take(1)
-      this.db.object(`${activity}/reviews/lul`).valueChanges().take(1)
+      let id = this.statusProvider.placeSelected.getValue();
+      this.db.object(`${SelectedActivity[activity]}/reviews/${id}`).valueChanges().take(1)
         .subscribe((data: Review[]) => resolve(data), err => reject(err))
+    })
+  }
+
+  getActivityDetails(activity: SelectedActivity, id: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.db.object(`${activity}/details/${id}`).valueChanges().take(1)
+        .subscribe(details => resolve(details), err => reject(err))
+    })
+  }
+
+  getPlaceDetails(): Promise<any> {
+    return new Promise(async (resolve, reject) => {
+      let placeID = this.statusProvider.placeSelected.getValue();
+      let activity = this.statusProvider.selectedActivity.getValue();
+      let data = await this.storage.get(`${activity}-`)
+    })
+  }
+
+  getPlaceLatLng(): Promise<LatLng> {
+    return new Promise((resolve, reject) => {
+      let activity = this.statusProvider.selectedActivity.getValue();
+      let id = this.statusProvider.placeSelected.getValue();
+      this.db.object(`${SelectedActivity[activity]}/points/${id}`).valueChanges().take(1)
+        .subscribe((data: LatLng) => resolve(data), err => reject(err))
+    })
+  }
+
+  getBikePath(): Promise<LatLng[]> {
+    return new Promise((resolve, reject) => {
+      let id = this.statusProvider.placeSelected.getValue();
+      this.db.object(`bike/paths/${id}`).valueChanges().take(1)
+        .subscribe((data: LatLng[]) => resolve(data), err => reject(err))
     })
   }
 

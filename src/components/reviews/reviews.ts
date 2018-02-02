@@ -10,8 +10,6 @@ import { SelectedActivity } from './../../models/enums';
 
 export class ReviewsComponent implements OnInit {
 
-  @Input() activity: SelectedActivity;
-
   reviews: Review[];
   
   constructor(public dataProvider: DataProvider) { 

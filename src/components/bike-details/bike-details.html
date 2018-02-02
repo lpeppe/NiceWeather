@@ -3,7 +3,7 @@
     <button ion-button (click)="statusProvider.placeSelected.next(undefined)">
       <ion-icon name="arrow-round-back" color="primary"></ion-icon>
     </button>
-    <h1 text-wrap>{{selectedPath.name}}</h1>
+    <h1 text-wrap>{{pathName}}</h1>
   </div>
 </ion-item>
 <ion-item>
@@ -20,4 +20,4 @@
     </ion-row>
   </ion-grid>
 </ion-item>
-<reviews [activity]="bike"></reviews>
+<reviews></reviews>
