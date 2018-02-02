@@ -28,6 +28,6 @@ export class StatusProvider {
     triggerMapMove: false
   });
 
-  placeSelected = new Subject<string>();
+  placeSelected = new BehaviorSubject<string>(undefined);
   
 }

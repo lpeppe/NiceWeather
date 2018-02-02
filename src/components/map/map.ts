@@ -173,11 +173,11 @@ export class MapComponent implements OnDestroy, AfterViewInit {
             this.activityMarkers[SelectedActivity[activity]][id] = marker;
             this.activityClusterers[SelectedActivity[activity]].addLayer(this.activityMarkers[SelectedActivity[activity]][id])
           }
-          this.subscriptions.push(
-            this.statusProvider.placeSelected
-              .subscribe(id => this.onPlaceSelected(id))
-          );
         })
+    );
+    this.subscriptions.push(
+      this.statusProvider.placeSelected
+        .subscribe(id => this.onPlaceSelected(id))
     );
 
     this.subscriptions.push(
@@ -216,6 +216,7 @@ export class MapComponent implements OnDestroy, AfterViewInit {
   }
 
   onPlaceSelected(id: string) {
+    console.log(id)
     if (id) {
       switch (this.statusProvider.selectedActivity.getValue()) {
         case SelectedActivity.bike:
@@ -236,7 +237,7 @@ export class MapComponent implements OnDestroy, AfterViewInit {
           break;
       }
     }
-    else if(this.geoJson)
+    else if (this.geoJson)
       this.map.removeLayer(this.geoJson);
   }
 
