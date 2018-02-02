@@ -37,16 +37,13 @@ export class SlideWalkthroughPage {
 
   onSlideChanged() {
     this.slideIndex = this.slider.getActiveIndex();
-    console.log('Slide changed! Current index is', this.slideIndex);
   }
 
   goToApp() {
-    console.log('Go to App clicked');
     this.navCtrl.push(HomePage);
   }
   
   skip() {
-    console.log('Skip clicked');
     this.navCtrl.push(HomePage);
   }
 }

@@ -3,7 +3,8 @@ import { Storage } from '@ionic/storage';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { LatLng } from './../../models/interfaces';
+import { LatLng, Review } from './../../models/interfaces';
+import { SelectedActivity } from './../../models/enums';
 import { StatusProvider } from './../status/status';
 import { getDaysString } from './../../app/utils';
 import * as moment from 'moment';
@@ -23,6 +24,47 @@ export class DataProvider {
 
   getSunData(): Promise<any> {
     return Promise.all([this.getSunPoints(), this.getSunForecast()])
+  }
+
+  getReviews(): Promise<Review[]> {
+    return new Promise((resolve, reject) => {
+      let activity = this.statusProvider.selectedActivity.getValue();
+      let id = this.statusProvider.placeSelected.getValue();
+      this.db.object(`${SelectedActivity[activity]}/reviews/${id}`).valueChanges().take(1)
+        .subscribe((data: Review[]) => resolve(data), err => reject(err))
+    })
+  }
+
+  getActivityDetails(activity: SelectedActivity, id: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.db.object(`${activity}/details/${id}`).valueChanges().take(1)
+        .subscribe(details => resolve(details), err => reject(err))
+    })
+  }
+
+  getPlaceDetails(): Promise<any> {
+    return new Promise(async (resolve, reject) => {
+      let placeID = this.statusProvider.placeSelected.getValue();
+      let activity = this.statusProvider.selectedActivity.getValue();
+      let data = await this.storage.get(`${activity}-`)
+    })
+  }
+
+  getPlaceLatLng(): Promise<LatLng> {
+    return new Promise((resolve, reject) => {
+      let activity = this.statusProvider.selectedActivity.getValue();
+      let id = this.statusProvider.placeSelected.getValue();
+      this.db.object(`${SelectedActivity[activity]}/points/${id}`).valueChanges().take(1)
+        .subscribe((data: LatLng) => resolve(data), err => reject(err))
+    })
+  }
+
+  getBikePath(): Promise<LatLng[]> {
+    return new Promise((resolve, reject) => {
+      let id = this.statusProvider.placeSelected.getValue();
+      this.db.object(`bike/paths/${id}`).valueChanges().take(1)
+        .subscribe((data: LatLng[]) => resolve(data), err => reject(err))
+    })
   }
 
   private async getSunPoints(): Promise<any> {

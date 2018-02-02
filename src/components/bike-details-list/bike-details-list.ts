@@ -1,11 +1,12 @@
 import { Component, OnDestroy } from '@angular/core';
 import { GeoqueryProvider } from '../../providers/geoquery/geoquery';
-import { AngularFireDatabase } from 'angularfire2/database';
 import { StatusProvider } from './../../providers/status/status';
+import { DataProvider } from '../../providers/data/data';
 import { BikeDetails } from './../../models/interfaces';
 
 import 'rxjs/add/operator/take';
 import { Subscription } from 'rxjs/Subscription';
+import { SelectedActivity } from '../../models/enums';
 
 @Component({
   selector: 'bike-details-list',
@@ -19,8 +20,8 @@ export class BikeDetailsListComponent implements OnDestroy {
   keys: string[];
   selectedPath: BikeDetails;
 
-  constructor(public geoQueryProvider: GeoqueryProvider, public db: AngularFireDatabase,
-    public statusProvider: StatusProvider) {
+  constructor(public geoQueryProvider: GeoqueryProvider, public statusProvider: StatusProvider, 
+    public dataProvider: DataProvider) {
     this.details = {};
     this.keys = [];
     this.subscriptions = [];
@@ -40,15 +41,13 @@ export class BikeDetailsListComponent implements OnDestroy {
   setObservables() {
     this.subscriptions.push(
       this.geoQueryProvider.keyEntered
-        .subscribe(data => {
+        .subscribe(async data => {
           let id = Object.keys(data)[0];
-          this.db.object(`bike/details/${id}`).valueChanges().take(1)
-            .subscribe((details: BikeDetails) => {
-              if (!this.details[id] && !this.keys.includes(id)) {
-                this.details[id] = details;
-                this.keys.push(id);
-              }
-            })
+          let details = await this.dataProvider.getActivityDetails(<any>SelectedActivity[SelectedActivity.bike], id);
+          if (!this.details[id] && !this.keys.includes(id)) {
+            this.details[id] = details;
+            this.keys.push(id);
+          }
         })
     )
 
@@ -64,15 +63,15 @@ export class BikeDetailsListComponent implements OnDestroy {
         })
     )
 
-    this.subscriptions.push(
-      this.statusProvider.placeSelected
-        .subscribe(id => {
-          if (id)
-            this.selectedPath = this.details[id];
-          else
-            this.selectedPath = undefined;
-        })
-    )
+    // this.subscriptions.push(
+    //   this.statusProvider.placeSelected
+    //     .subscribe(id => {
+    //       if (id)
+    //         this.selectedPath = this.details[id];
+    //       else
+    //         this.selectedPath = undefined;
+    //     })
+    // )
   }
 
   ngOnDestroy() {

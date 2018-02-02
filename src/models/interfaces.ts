@@ -9,7 +9,8 @@ export interface BikeDetails {
     name: string,
     slope: string,
     surface: string,
-    type: string
+    type: string,
+    avgRating: number
 }
 
 export interface SkiDetails {
@@ -22,5 +23,13 @@ export interface SkiDetails {
     blackPiste: string,
     bluePiste: string,
     redPiste: string,
-    greenPiste: string
+    greenPiste: string,
+    avgRating: number
+  }
+
+  export interface Review {
+      name: string,
+      surname: string,
+      pic: string,
+      rating: number
   }

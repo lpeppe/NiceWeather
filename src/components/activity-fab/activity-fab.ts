@@ -15,6 +15,7 @@ export class ActivityFabComponent {
 
   onActivitySelected(event: any, selectedActivity: SelectedActivity, fab: FabContainer) {
     this.statusProvider.selectedActivity.next(selectedActivity);
+    this.statusProvider.placeSelected.next(undefined);
     fab.close();
   }
 

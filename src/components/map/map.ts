@@ -10,8 +10,6 @@ import { SelectedActivity } from './../../models/enums';
 import { getClusterOptions, invisibleIcon, visibleIcon, getActivityIconOptions } from '../../app/cluster-settings';
 import { getDaysString } from './../../app/utils';
 
-import { AngularFireDatabase } from 'angularfire2/database';
-
 import * as turfHelpers from '@turf/helpers';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -39,8 +37,7 @@ export class MapComponent implements OnDestroy, AfterViewInit {
   constructor(public statusProvider: StatusProvider,
     public dataProvider: DataProvider,
     public platform: Platform,
-    public geoQueryProvider: GeoqueryProvider,
-    public db: AngularFireDatabase) {
+    public geoQueryProvider: GeoqueryProvider) {
 
     this.activityClusterers = {};
     this.activityMarkers = {};
@@ -173,11 +170,11 @@ export class MapComponent implements OnDestroy, AfterViewInit {
             this.activityMarkers[SelectedActivity[activity]][id] = marker;
             this.activityClusterers[SelectedActivity[activity]].addLayer(this.activityMarkers[SelectedActivity[activity]][id])
           }
-          this.subscriptions.push(
-            this.statusProvider.placeSelected
-              .subscribe(id => this.onPlaceSelected(id))
-          );
         })
+    );
+    this.subscriptions.push(
+      this.statusProvider.placeSelected
+        .subscribe(id => this.onPlaceSelected(id))
     );
 
     this.subscriptions.push(
@@ -215,28 +212,25 @@ export class MapComponent implements OnDestroy, AfterViewInit {
         this.activityMarkers[activity] = {};
   }
 
-  onPlaceSelected(id: string) {
+  async onPlaceSelected(id: string) {
     if (id) {
       switch (this.statusProvider.selectedActivity.getValue()) {
         case SelectedActivity.bike:
-          this.db.object(`bike/paths/${id}`).valueChanges().take(1)
-            .subscribe((data: LatLng[]) => {
-              if (this.geoJson)
-                this.map.removeLayer(this.geoJson);
-              this.geoJson = L.geoJSON(turfHelpers.lineString(data.map(x => {
-                return [x.lng, x.lat]
-              })));
-              this.map.fitBounds(this.geoJson.getBounds());
-              this.geoJson.addTo(this.map)
-            })
+          let data = await this.dataProvider.getBikePath();
+          if (this.geoJson)
+            this.map.removeLayer(this.geoJson);
+          this.geoJson = L.geoJSON(turfHelpers.lineString(data.map(x => {
+            return [x.lng, x.lat]
+          })));
+          this.map.fitBounds(this.geoJson.getBounds());
+          this.geoJson.addTo(this.map)
           break;
         case SelectedActivity.ski:
-          this.db.object(`ski/points/${id}`).valueChanges().take(1)
-            .subscribe((data: LatLng) => this.map.setView(data, maxZoom))
+          this.map.setView(await this.dataProvider.getPlaceLatLng(), maxZoom);
           break;
       }
     }
-    else if(this.geoJson)
+    else if (this.geoJson)
       this.map.removeLayer(this.geoJson);
   }
 
