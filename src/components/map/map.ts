@@ -10,8 +10,6 @@ import { SelectedActivity } from './../../models/enums';
 import { getClusterOptions, invisibleIcon, visibleIcon, getActivityIconOptions } from '../../app/cluster-settings';
 import { getDaysString } from './../../app/utils';
 
-import { AngularFireDatabase } from 'angularfire2/database';
-
 import * as turfHelpers from '@turf/helpers';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -39,8 +37,7 @@ export class MapComponent implements OnDestroy, AfterViewInit {
   constructor(public statusProvider: StatusProvider,
     public dataProvider: DataProvider,
     public platform: Platform,
-    public geoQueryProvider: GeoqueryProvider,
-    public db: AngularFireDatabase) {
+    public geoQueryProvider: GeoqueryProvider) {
 
     this.activityClusterers = {};
     this.activityMarkers = {};
