@@ -34,6 +34,7 @@ import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { GeoqueryProvider } from '../providers/geoquery/geoquery';
 import { BikeDetailsListComponent } from '../components/bike-details-list/bike-details-list';
 import { SkiDetailsListComponent } from './../components/ski-details-list/ski-details-list';
+import { SeaDetailsListComponent } from './../components/sea-details-list/sea-details-list';
 import { BikeDetailsComponent } from '../components/bike-details/bike-details';
 import { ReviewsComponent } from '../components/reviews/reviews';
 
@@ -54,6 +55,7 @@ import { BikeDetailsPipe } from './../pipes/bike-details/bike-details';
     TimeFabComponent,
     BikeDetailsListComponent,
     SkiDetailsListComponent,
+    SeaDetailsListComponent,
     BikeDetailsComponent,
     SkiDetailsComponent,
     ReviewsComponent,
