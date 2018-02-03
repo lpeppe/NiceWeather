@@ -3,8 +3,10 @@
         <button ion-button (click)="statusProvider.placeSelected.next(undefined)">
             <ion-icon name="arrow-round-back" color="primary"></ion-icon>
         </button>
-        <h1 text-wrap>{{selectedPiste.name}}</h1>
-        <p>Piste: <span>{{selectedPiste.numPiste}}</span></p>
+        <h1 text-wrap>{{pisteName}}</h1>
+        <p>Piste:
+            <span>{{numPiste}}</span>
+        </p>
     </div>
 </ion-item>
 <ion-item>
@@ -16,4 +18,7 @@
             </ion-col>
         </ion-row>
     </ion-grid>
+</ion-item>
+<ion-item>
+    <reviews></reviews>
 </ion-item>

@@ -5,8 +5,8 @@
                 <img [src]="details[id].img">
             </ion-thumbnail>
             <h2>{{details[id].name}}</h2>
-            <p>Altitudine: {{details[id].height}}</p>
+            <p class="altitude">Altitudine: {{details[id].height}}</p>
         </ion-item>
     </ion-list>
-    <ski-details *ngSwitchCase="false" [selectedPiste]="selectedPiste"></ski-details>
+    <ski-details *ngSwitchCase="false"></ski-details>
 </div>

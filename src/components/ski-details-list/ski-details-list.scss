@@ -1,7 +1,7 @@
 .ios,
 .md {
     ski-details-list {
-        p {
+        p.altitude {
             color: map-get($colors, primary);
         }
     }
