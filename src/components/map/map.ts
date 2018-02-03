@@ -225,8 +225,8 @@ export class MapComponent implements OnDestroy, AfterViewInit {
           this.map.fitBounds(this.geoJson.getBounds());
           this.geoJson.addTo(this.map)
           break;
-        case SelectedActivity.ski:
-          this.map.setView(await this.dataProvider.getPlaceLatLng(), maxZoom);
+        case SelectedActivity.ski: case SelectedActivity.sea:
+          this.map.setView(await this.dataProvider.getPlaceLatLng(), 16);
           break;
       }
     }

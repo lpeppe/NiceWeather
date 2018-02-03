@@ -1,3 +1,4 @@
+import { SeaDetailsComponent } from './../components/sea-details/sea-details';
 import { SkiDetailsComponent } from './../components/ski-details/ski-details';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -58,6 +59,7 @@ import { BikeDetailsPipe } from './../pipes/bike-details/bike-details';
     SeaDetailsListComponent,
     BikeDetailsComponent,
     SkiDetailsComponent,
+    SeaDetailsComponent,
     ReviewsComponent,
     BikeDetailsPipe,
     SkiDetailsPipe

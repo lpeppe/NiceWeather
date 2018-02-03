@@ -2,8 +2,9 @@ import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { StatusProvider } from './../../providers/status/status';
 import { GeoqueryProvider } from '../../providers/geoquery/geoquery';
-import { AngularFireDatabase } from 'angularfire2/database';
 import { SkiDetails } from './../../models/interfaces';
+import { DataProvider } from '../../providers/data/data';
+import { SelectedActivity } from './../../models/enums';
 
 @Component({
   selector: 'ski-details-list',
@@ -18,7 +19,7 @@ export class SkiDetailsListComponent implements OnDestroy {
   selectedPiste: SkiDetails;
 
   constructor(public statusProvider: StatusProvider, public geoQueryProvider: GeoqueryProvider,
-    public db: AngularFireDatabase) {
+    public dataProvider: DataProvider) {
     this.details = {};
     this.keys = [];
     this.subscriptions = [];
@@ -28,15 +29,13 @@ export class SkiDetailsListComponent implements OnDestroy {
   setObservables() {
     this.subscriptions.push(
       this.geoQueryProvider.keyEntered
-        .subscribe(data => {
+        .subscribe(async data => {
           let id = Object.keys(data)[0];
-          this.db.object(`ski/details/${id}`).valueChanges().take(1)
-            .subscribe((details: SkiDetails) => {
-              if (!this.details[id] && !this.keys.includes(id)) {
-                this.details[id] = details;
-                this.keys.push(id);
-              }
-            })
+          let details: SkiDetails = await this.dataProvider.getActivityDetails(<any>SelectedActivity[SelectedActivity.ski], id);
+          if (!this.details[id] && !this.keys.includes(id)) {
+            this.details[id] = details;
+            this.keys.push(id);
+          }
         })
     )
     this.subscriptions.push(
@@ -52,12 +51,12 @@ export class SkiDetailsListComponent implements OnDestroy {
     )
     this.subscriptions.push(
       this.statusProvider.placeSelected
-      .subscribe(id => {
-        if (id)
+        .subscribe(id => {
+          if (id)
             this.selectedPiste = this.details[id];
           else
             this.selectedPiste = undefined;
-      })
+        })
     )
   }
 

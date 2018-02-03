@@ -1,0 +1,36 @@
+.ios,
+.md {
+    sea-details {
+        #titleDiv {
+            h1 {
+                text-align: center;
+                margin-left: 12px;
+                margin-right: 12px;
+            }
+            p {
+                text-align: center;
+                color: map-get($colors, primary);
+                font-size: medium;
+            }
+            button:focus {
+                outline: none;
+            }
+            button {
+                padding-left: 0 !important;
+                margin-left: 0;
+                position: absolute;
+                top: 20%;
+                left: 15px;
+                background: white !important;
+                -webkit-box-shadow: none !important;
+                box-shadow: none !important;
+            }
+            ion-icon {
+                font-size: 2em;
+            }
+            div.input-wrapper {
+                margin-left: 10px;
+            }
+        }
+    }
+}

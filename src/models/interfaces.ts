@@ -27,6 +27,11 @@ export interface SkiDetails {
     avgRating: number
   }
 
+  export interface SeaDetails {
+      name: string,
+      avgRating: number
+  }
+
   export interface Review {
       name: string,
       surname: string,
