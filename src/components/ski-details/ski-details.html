@@ -4,6 +4,7 @@
             <ion-icon name="arrow-round-back" color="primary"></ion-icon>
         </button>
         <h1 text-wrap>{{selectedPiste.name}}</h1>
+        <p>Piste: <span>{{selectedPiste.numPiste}}</span></p>
     </div>
 </ion-item>
 <ion-item>
@@ -11,7 +12,7 @@
         <ion-row>
             <ion-col *ngFor="let detail of pisteDetails">
                 <p>{{(detail.name | skiDetails)}}</p>
-                <span>{{detail.value}}</span>
+                <span [ngStyle]="{color: detail.color}">{{detail.value}}</span>
             </ion-col>
         </ion-row>
     </ion-grid>
