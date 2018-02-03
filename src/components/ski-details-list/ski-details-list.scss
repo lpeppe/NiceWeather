@@ -1,4 +1,8 @@
 .ios,
 .md {
-    ski-details-list {}
+    ski-details-list {
+        p {
+            color: map-get($colors, primary);
+        }
+    }
 }

@@ -7,6 +7,11 @@
                 margin-left: 12px;
                 margin-right: 12px;
             }
+            p {
+                text-align: center;
+                color: map-get($colors, primary);
+                font-size: medium;
+            }
             button:focus {
                 outline: none;
             }
