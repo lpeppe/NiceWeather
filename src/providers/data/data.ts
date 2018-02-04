@@ -74,27 +74,48 @@ export class DataProvider {
     })
   }
 
-  private async getSunPoints(): Promise<any> {
-    let data = await this.storage.get('sun-points');
-    if (data == null)
-      return this.getAndSetRemoteData('sun/randomPoints', 'sun-points', false)
-    return new Promise((resolve, reject) => resolve(data))
+  private getSunPoints(): Promise<any> {
+    return new Promise(async (resolve, reject) => {
+      try {
+        let data = await this.storage.get('sun-points');
+        if (data == null) {
+          this.getAndSetRemoteData('sun/randomPoints', 'sun-points', false)
+            .then(data => resolve(data))
+            .catch(err => reject(err))
+        }
+        else
+          resolve(data)
+      }
+      catch (err) {
+        reject(err)
+      }
+    })
   }
 
-  private async getSunForecast(): Promise<any> {
-    let daysString = getDaysString(this.statusProvider.selectedDays.getValue());
-    let data = await this.storage.get(`sun-forecast|${daysString}`);
-    let isDataStale = this.isDataStale(moment(await this.storage.get('sun-forecast-date')));
-    if (data == null || isDataStale || data == undefined) {
-      if (isDataStale) {
-        await this.storage.forEach((value, key, iterationNumber) => {
-          if (key.includes('sun-forecast'))
-            this.storage.remove(key)
-        })
+  private getSunForecast(): Promise<any> {
+    return new Promise(async (resolve, reject) => {
+      try {
+        let daysString = getDaysString(this.statusProvider.selectedDays.getValue());
+        let data = await this.storage.get(`sun-forecast|${daysString}`);
+        let isDataStale = this.isDataStale(moment(await this.storage.get('sun-forecast-date')));
+        if (data == null || isDataStale || data == undefined) {
+          if (isDataStale) {
+            await this.storage.forEach((value, key, iterationNumber) => {
+              if (key.includes('sun-forecast'))
+                this.storage.remove(key)
+            })
+          }
+          this.getAndSetRemoteData(`sun/sunnyPoints/${daysString}`, `sun-forecast|${daysString}`, true)
+            .then(data => resolve(data))
+            .catch(err => reject(err))
+        }
+        else
+          resolve(data);
       }
-      return this.getAndSetRemoteData(`sun/sunnyPoints/${daysString}`, `sun-forecast|${daysString}`, true)
-    }
-    return new Promise((resolve, reject) => resolve(data))
+      catch (err) {
+        reject(err);
+      }
+    })
   }
 
   private getAndSetRemoteData(firebasePath: string, storageKey: string, forecast: boolean): Promise<any> {
@@ -102,6 +123,7 @@ export class DataProvider {
       console.log('entered')
       let db$ = this.db.object(firebasePath).valueChanges().take(1);
       db$.subscribe(data => {
+        console.log(data)
         if (forecast) {
           Promise.all([this.storage.set(storageKey, data), this.storage.set('sun-forecast-date', moment().valueOf())])
             .then(_ => resolve(data))
