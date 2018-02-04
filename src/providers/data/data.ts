@@ -36,19 +36,26 @@ export class DataProvider {
   }
 
   getActivityDetails(activity: SelectedActivity, id: string): Promise<any> {
-    return new Promise((resolve, reject) => {
-      this.db.object(`${activity}/details/${id}`).valueChanges().take(1)
-        .subscribe(details => resolve(details), err => reject(err))
+    return new Promise(async (resolve, reject) => {
+      let data = await this.storage.get(`${activity}-${id}`);
+      if (data == null || data == undefined) {
+        this.getAndSetRemoteData(`${activity}/details/${id}`, `${activity}-${id}`, false)
+          .then(data => resolve(data))
+          .catch(err => reject(err))
+      }
+      else {
+        resolve(data);
+      }
     })
   }
 
-  getPlaceDetails(): Promise<any> {
-    return new Promise(async (resolve, reject) => {
-      let placeID = this.statusProvider.placeSelected.getValue();
-      let activity = this.statusProvider.selectedActivity.getValue();
-      let data = await this.storage.get(`${activity}-`)
-    })
-  }
+  // getPlaceDetails(): Promise<any> {
+  //   return new Promise(async (resolve, reject) => {
+  //     let placeID = this.statusProvider.placeSelected.getValue();
+  //     let activity = this.statusProvider.selectedActivity.getValue();
+  //     let data = await this.storage.get(`${activity}-`)
+  //   })
+  // }
 
   getPlaceLatLng(): Promise<LatLng> {
     return new Promise((resolve, reject) => {
@@ -70,7 +77,7 @@ export class DataProvider {
   private async getSunPoints(): Promise<any> {
     let data = await this.storage.get('sun-points');
     if (data == null)
-      return this.getAndSetRemoteData('sun/randomPoints', 'sun-points')
+      return this.getAndSetRemoteData('sun/randomPoints', 'sun-points', false)
     return new Promise((resolve, reject) => resolve(data))
   }
 
@@ -81,23 +88,30 @@ export class DataProvider {
     if (data == null || isDataStale || data == undefined) {
       if (isDataStale) {
         await this.storage.forEach((value, key, iterationNumber) => {
-          if (key != 'sun-points')
+          if (key.includes('sun-forecast'))
             this.storage.remove(key)
         })
       }
-      return this.getAndSetRemoteData(`sun/sunnyPoints/${daysString}`, `sun-forecast|${daysString}`)
+      return this.getAndSetRemoteData(`sun/sunnyPoints/${daysString}`, `sun-forecast|${daysString}`, true)
     }
     return new Promise((resolve, reject) => resolve(data))
   }
 
-  private getAndSetRemoteData(firebasePath: string, storageKey: string): Promise<any> {
+  private getAndSetRemoteData(firebasePath: string, storageKey: string, forecast: boolean): Promise<any> {
     return new Promise(async (resolve, reject) => {
       console.log('entered')
       let db$ = this.db.object(firebasePath).valueChanges().take(1);
       db$.subscribe(data => {
-        Promise.all([this.storage.set(storageKey, data), this.storage.set('sun-forecast-date', moment().valueOf())])
-          .then(_ => resolve(data))
-          .catch(err => reject(err))
+        if (forecast) {
+          Promise.all([this.storage.set(storageKey, data), this.storage.set('sun-forecast-date', moment().valueOf())])
+            .then(_ => resolve(data))
+            .catch(err => reject(err))
+        }
+        else {
+          this.storage.set(storageKey, data)
+            .then(_ => resolve(data))
+            .catch(err => reject(err))
+        }
       }, err => reject(err))
     })
   }
