@@ -78,7 +78,7 @@ export class DataProvider {
     let daysString = getDaysString(this.statusProvider.selectedDays.getValue());
     let data = await this.storage.get(`sun-forecast|${daysString}`);
     let isDataStale = this.isDataStale(moment(await this.storage.get('sun-forecast-date')));
-    if (data == null || isDataStale) {
+    if (data == null || isDataStale || data == undefined) {
       if (isDataStale) {
         await this.storage.forEach((value, key, iterationNumber) => {
           if (key != 'sun-points')
@@ -92,6 +92,7 @@ export class DataProvider {
 
   private getAndSetRemoteData(firebasePath: string, storageKey: string): Promise<any> {
     return new Promise(async (resolve, reject) => {
+      console.log('entered')
       let db$ = this.db.object(firebasePath).valueChanges().take(1);
       db$.subscribe(data => {
         Promise.all([this.storage.set(storageKey, data), this.storage.set('sun-forecast-date', moment().valueOf())])
