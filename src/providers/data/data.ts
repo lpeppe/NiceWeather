@@ -78,7 +78,7 @@ export class DataProvider {
     return new Promise(async (resolve, reject) => {
       try {
         let data = await this.storage.get('sun-points');
-        if (data == null) {
+        if (data == null || data[Object.keys(data)[0]][0] == null) {
           this.getAndSetRemoteData('sun/randomPoints', 'sun-points', false)
             .then(data => resolve(data))
             .catch(err => reject(err))

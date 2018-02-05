@@ -97,7 +97,6 @@ export class MapComponent implements OnDestroy, AfterViewInit {
       try {
         let [points, forecast] = await this.dataProvider.getSunData();
         let layers = [];
-        console.log(forecast)
         for (let id in points) {
           for (let point of points[id]) {
             layers.push(L.marker([point.lat, point.lng], {
@@ -105,7 +104,7 @@ export class MapComponent implements OnDestroy, AfterViewInit {
             }))
           }
         }
-        (<any>this.sunClusterer).addLayers(layers)
+        (<any>this.sunClusterer).addLayers(layers);
         resolve()
       }
       catch (err) {
