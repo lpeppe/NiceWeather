@@ -15,6 +15,7 @@ import { Subscription } from 'rxjs/Subscription';
 
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/merge';
 import * as L from 'leaflet';
 import 'leaflet.markercluster';
 import '../../assets/js/leaflet-beautify-marker-icon';
@@ -96,6 +97,7 @@ export class MapComponent implements OnDestroy, AfterViewInit {
       try {
         let [points, forecast] = await this.dataProvider.getSunData();
         let layers = [];
+        console.log(forecast)
         for (let id in points) {
           for (let point of points[id]) {
             layers.push(L.marker([point.lat, point.lng], {
@@ -144,14 +146,11 @@ export class MapComponent implements OnDestroy, AfterViewInit {
     );
 
     this.subscriptions.push(
-      this.statusProvider.selectedDays
-        .subscribe(_ => this.loadMapData())
-    );
-
-    this.subscriptions.push(
       this.statusProvider.selectedActivity
+        .merge(this.statusProvider.selectedDays)
+        .debounceTime(20)
         .subscribe(_ => this.loadMapData())
-    );
+    )
 
     this.subscriptions.push(
       this.geoQueryProvider.keyEntered
