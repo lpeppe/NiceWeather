@@ -1,6 +1,6 @@
 <ion-fab left bottom #fab id="main">
   <button ion-fab>
-    <ion-icon name="arrow-dropup"></ion-icon>
+    <ion-icon class="fas fa-list-ul"></ion-icon>
   </button>
   <ion-fab-list side="top">
       <button ion-fab mini (click)="onActivitySelected($event, 0, fab)" [color]="(statusProvider.selectedActivity | async) == 0 ? 'primary': 'light'">
