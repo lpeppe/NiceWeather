@@ -16,7 +16,6 @@ export class SkiDetailsListComponent implements OnDestroy {
   subscriptions: Subscription[];
   details: { [key: string]: SkiDetails };
   keys: string[];
-  selectedPiste: SkiDetails;
 
   constructor(public statusProvider: StatusProvider, public geoQueryProvider: GeoqueryProvider,
     public dataProvider: DataProvider) {
@@ -56,15 +55,6 @@ export class SkiDetailsListComponent implements OnDestroy {
             this.keys.splice(idPos, 1);
             this.details[id] = null;
           }
-        })
-    )
-    this.subscriptions.push(
-      this.statusProvider.placeSelected
-        .subscribe(id => {
-          if (id)
-            this.selectedPiste = this.details[id];
-          else
-            this.selectedPiste = undefined;
         })
     )
   }

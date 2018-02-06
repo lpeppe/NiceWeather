@@ -15,7 +15,6 @@ export class SeaDetailsListComponent implements OnDestroy {
   subscriptions: Subscription[];
   details: { [key: string]: SeaDetails };
   keys: string[];
-  selectedBeach: SeaDetails;
 
   constructor(public geoQueryProvider: GeoqueryProvider, public dataProvider: DataProvider,
     public statusProvider: StatusProvider) {
@@ -34,7 +33,7 @@ export class SeaDetailsListComponent implements OnDestroy {
           this.details = {};
         })
     )
-    
+
     this.subscriptions.push(
       this.geoQueryProvider.keyEntered
         .subscribe(async data => {
@@ -55,15 +54,6 @@ export class SeaDetailsListComponent implements OnDestroy {
             this.keys.splice(idPos, 1);
             this.details[id] = null;
           }
-        })
-    )
-    this.subscriptions.push(
-      this.statusProvider.placeSelected
-        .subscribe(id => {
-          if (id)
-            this.selectedBeach = this.details[id];
-          else
-            this.selectedBeach = undefined;
         })
     )
   }
