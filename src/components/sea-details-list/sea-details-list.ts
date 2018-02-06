@@ -26,6 +26,15 @@ export class SeaDetailsListComponent implements OnDestroy {
   }
 
   setObservables() {
+
+    this.subscriptions.push(
+      this.statusProvider.selectedDays
+        .subscribe(_ => {
+          this.keys.splice(0, this.keys.length);
+          this.details = {};
+        })
+    )
+    
     this.subscriptions.push(
       this.geoQueryProvider.keyEntered
         .subscribe(async data => {

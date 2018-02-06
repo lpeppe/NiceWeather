@@ -20,7 +20,7 @@ export class BikeDetailsListComponent implements OnDestroy {
   keys: string[];
   selectedPath: BikeDetails;
 
-  constructor(public geoQueryProvider: GeoqueryProvider, public statusProvider: StatusProvider, 
+  constructor(public geoQueryProvider: GeoqueryProvider, public statusProvider: StatusProvider,
     public dataProvider: DataProvider) {
     this.details = {};
     this.keys = [];
@@ -39,6 +39,15 @@ export class BikeDetailsListComponent implements OnDestroy {
   }
 
   setObservables() {
+
+    this.subscriptions.push(
+      this.statusProvider.selectedDays
+        .subscribe(_ => {
+          this.keys.splice(0, this.keys.length);
+          this.details = {};
+        })
+    )
+
     this.subscriptions.push(
       this.geoQueryProvider.keyEntered
         .subscribe(async data => {
