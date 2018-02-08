@@ -39,6 +39,21 @@
                     }
                 }
             }
+            button {
+                p {
+                    color: white;
+                    font-size: 1em;
+                    margin-left: 5px;
+                }
+                ion-icon {
+                    font-size: 1.8em;
+                }
+            }
+            #recensioni {
+                //color: map-get($colors, primary);
+                font-size: 1.3em;
+                text-align: center;
+            }
             ion-icon {
                 font-size: 2em;
             }
