@@ -18,17 +18,32 @@
             </ion-col>
         </ion-row>
     </ion-grid>
-
-    <button ion-button color="primary">
+</ion-item>
+<ion-item>
+    <ion-grid>
+        <ion-row id="buttons">
+            <ion-col text-center>
+                <ion-icon name='navigate' color="primary"></ion-icon>
+                <span class="item-block">Indicazioni</span>
+            </ion-col>
+            <ion-col text-center>
+                <ion-icon name='call' color="secondary"></ion-icon>
+                <span class="item-block" id="call">Chiama</span>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-item>
+<!-- <button ion-button color="primary">
         <ion-icon name='navigate'></ion-icon>
         <p>Navigazione</p>
     </button>
+
     <button ion-button color="secondary">
         <ion-icon name='call'></ion-icon>
         <p>Chiama</p>
-    </button>
-</ion-item>
+    </button> -->
 <ion-item>
+    <!-- FIXME: remove line under the p in iOS -->
     <p id="recensioni">Recensioni</p>
     <reviews></reviews>
 </ion-item>
