@@ -42,6 +42,9 @@ import { ReviewsComponent } from '../components/reviews/reviews';
 import { SkiDetailsPipe } from './../pipes/ski-details/ski-details';
 import { BikeDetailsPipe } from './../pipes/bike-details/bike-details';
 
+import { LaunchNavigator } from '@ionic-native/launch-navigator';
+import { CallNumber } from '@ionic-native/call-number';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -89,7 +92,9 @@ import { BikeDetailsPipe } from './../pipes/bike-details/bike-details';
     Geolocation,
     DataProvider,
     StatusProvider,
-    GeoqueryProvider
+    GeoqueryProvider,
+    LaunchNavigator,
+    CallNumber
   ]
 })
 export class AppModule { }

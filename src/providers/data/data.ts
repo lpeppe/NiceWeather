@@ -17,8 +17,12 @@ export class DataProvider {
     public statusProvider: StatusProvider) { }
 
   isAppFirstRun(): Promise<boolean> {
-    return new Promise(async (resolve, reject) => {
-      resolve(await this.storage.get('sun-points') == null)
+    return new Promise((resolve, reject) => {
+      this.storage.get('sun-points')
+        .then(value => {
+          resolve(value == null)
+        })
+        .catch(err => reject(err))
     })
   }
 

@@ -4,6 +4,8 @@ import { StatusProvider } from './../../providers/status/status';
 import { DataProvider } from '../../providers/data/data';
 import { Subscription } from 'rxjs/Subscription';
 import { SelectedActivity } from './../../models/enums';
+import { LaunchNavigator } from '@ionic-native/launch-navigator';
+import { CallNumber } from '@ionic-native/call-number';
 
 @Component({
   selector: 'ski-details',
@@ -16,7 +18,8 @@ export class SkiDetailsComponent implements OnInit, OnDestroy {
   pisteName: string;
   numPiste: number;
 
-  constructor(public statusProvider: StatusProvider, public dataProvider: DataProvider) {
+  constructor(public statusProvider: StatusProvider, public dataProvider: DataProvider,
+    public launchNavigator: LaunchNavigator, public callNumber: CallNumber) {
     this.pisteDetails = [];
     this.subscriptions = [];
   }
@@ -65,4 +68,21 @@ export class SkiDetailsComponent implements OnInit, OnDestroy {
     });
   }
 
+  async startNavigator() {
+    try {
+      let destination = await this.dataProvider.getPlaceLatLng();
+      await this.launchNavigator.navigate([destination.lat, destination.lng]);
+      console.log('launched')
+    }
+    catch (err) {
+      console.log(err);
+    }
+  }
+
+  async startCall() {
+    let phoneNumber = (<SkiDetails>(await this.dataProvider
+      .getActivityDetails(<any>SelectedActivity[SelectedActivity.ski],
+        this.statusProvider.placeSelected.getValue()))).phone;
+    this.callNumber.callNumber(phoneNumber, true);
+  }
 }
