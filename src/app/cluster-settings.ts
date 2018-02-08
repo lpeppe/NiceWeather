@@ -3,30 +3,46 @@ import * as L from 'leaflet';
 import '../assets/js/leaflet-beautify-marker-icon';
 
 export const getActivityIconOptions = (activity: SelectedActivity, size?: number) => {
+    let html;
     let icon;
     switch (activity) {
         case SelectedActivity.ski:
-            icon = 'snowflake';
+            html = "<img style='height: 20px; width: 20px; margin-right:-1px; margin-top:10px;'src='assets/icon/ski_white.png'>";
             break;
         case SelectedActivity.bike:
             icon = "bicycle"
             break;
         case SelectedActivity.sea:
-            icon = 'life-ring'
+            html = "<img style='height: 20px; width: 20px; margin-right:0px; margin-top:8px;'src='assets/icon/beach_white.png'>";
             break;
     }
+    if(size != undefined)
+        return {
+            // spin: true,
+            //html,
+            iconShape: 'marker',
+            iconSize: [33, 33],
+            backgroundColor: '#488aff',
+            borderColor: '#488aff',
+            textColor: 'white',
+            innerIconStyle: 'font-size:1.5em',
+            isAlphaNumericIcon: true,
+            text: size
+        }
     return {
         // spin: true,
+        html,
         icon,
         iconShape: 'marker',
-        iconSize: [33, 33],
+        iconSize: [35, 35],
         backgroundColor: '#488aff',
         borderColor: '#488aff',
         textColor: 'white',
         innerIconStyle: 'font-size:1.5em',
-        isAlphaNumericIcon: size != undefined,
+        isAlphaNumericIcon: false,
         text: size
     }
+    
 }
 
 const sunClustererOptions = {
