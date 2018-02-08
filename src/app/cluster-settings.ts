@@ -16,7 +16,7 @@ export const getActivityIconOptions = (activity: SelectedActivity, size?: number
             html = "<img style='height: 20px; width: 20px; margin-right:0px; margin-top:8px;'src='assets/icon/beach_white.png'>";
             break;
     }
-    if(size != undefined)
+    if (size != undefined)
         return {
             // spin: true,
             //html,
@@ -42,7 +42,7 @@ export const getActivityIconOptions = (activity: SelectedActivity, size?: number
         isAlphaNumericIcon: false,
         text: size
     }
-    
+
 }
 
 const sunClustererOptions = {
