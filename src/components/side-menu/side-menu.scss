@@ -3,12 +3,14 @@
     side-menu {
         #menu-material {
             .menu-header {
-                padding: 5px 15px;
+                //padding: 5px 15px;
+                padding: 20px 40px;
                 background-color: map-get($colors, primary);
                 background-size: cover;
                 color: white;
                 .name {
-                    font-weight: 500;
+                    //font-weight: 500;
+                    font-weight: 600;
                     margin-bottom: 3px;
                 }
                 .e-mail {
@@ -24,11 +26,19 @@
             h3,
             .label,
             {
-                color: #999;
+                //color: #999;
                 font-weight: 400;
             }
-            ion-icon {
-                color: #777;
+            #sun {
+                color: rgb(255, 166, 0);
+            }
+            #activity {
+                color: rgb(2, 133, 57);
+                font-size: 1.3em; 
+            }
+            #logout {
+                color: map-get($colors, primary);
+                font-size: 1.6em;
             }
         }
     }

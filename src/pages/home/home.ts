@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Platform, ToastController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { GeoqueryProvider } from '../../providers/geoquery/geoquery';
+import { SelectedActivity } from '../../models/enums';
 
 // import { AngularFirestore } from 'angularfire2/firestore';
 // declare var google;
@@ -19,6 +20,12 @@ export class HomePage {
     public statusProvider: StatusProvider,
     private toastCtrl: ToastController,
     public geoQueryProvider: GeoqueryProvider) { }
+
+  getTimeFabStyle(): string {
+    if (this.statusProvider.selectedActivity.getValue() == SelectedActivity.sun)
+      return '2vw';
+    return 'calc(2vw + 70px)';
+  }
 
   async ngAfterViewInit() {
     // this.geolocation.getCurrentPosition().then((resp) => {

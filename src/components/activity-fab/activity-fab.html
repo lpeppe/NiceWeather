@@ -3,9 +3,9 @@
     <ion-icon class="fas fa-list-ul"></ion-icon>
   </button>
   <ion-fab-list side="top">
-    <button ion-fab mini (click)="onActivitySelected($event, 0, fab)" [color]="(statusProvider.selectedActivity | async) == 0 ? 'primary': 'light'">
+    <!-- <button ion-fab mini (click)="onActivitySelected($event, 0, fab)" [color]="(statusProvider.selectedActivity | async) == 0 ? 'primary': 'light'">
       <ion-icon name="sunny"></ion-icon>
-    </button>
+    </button> -->
     <button ion-fab mini (click)="onActivitySelected($event, 1, fab)" [color]="(statusProvider.selectedActivity | async) == 1 ? 'primary': 'light'">
       <img [src]='(statusProvider.selectedActivity | async) == 1 ? "assets/icon/ski_white.png" : "assets/icon/ski_black.png"'>
     </button>
