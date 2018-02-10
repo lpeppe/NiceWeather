@@ -61,5 +61,12 @@
                 margin-left: 10px;
             }
         }
+        .item-block {
+            text-align: center;
+            display: block;
+        }
+        span#call {
+            color: map-get($colors, secondary);
+        }
     }
 }
