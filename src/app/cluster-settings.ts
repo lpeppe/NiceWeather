@@ -25,7 +25,7 @@ export const getActivityIconOptions = (activity: SelectedActivity, size?: number
             backgroundColor: '#488aff',
             borderColor: '#488aff',
             textColor: 'white',
-            innerIconStyle: 'font-size:1.5em',
+            innerIconStyle: size.toString().length < 3 ? 'font-size:1.5em' : 'font-size:1.2em',
             isAlphaNumericIcon: true,
             text: size
         }
