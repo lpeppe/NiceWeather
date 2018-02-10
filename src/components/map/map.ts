@@ -153,22 +153,7 @@ export class MapComponent implements OnDestroy, AfterViewInit {
 
     this.subscriptions.push(
       this.geoQueryProvider.keyEntered
-        .subscribe(data => {
-          let id = Object.keys(data)[0];
-          let activity = this.statusProvider.selectedActivity.getValue();
-          if (!this.activityMarkers[SelectedActivity[activity]][id]) {
-            let marker = (<any>L).marker([data[id].lat, data[id].lng], {
-              icon: (<any>L).BeautifyIcon.icon(getActivityIconOptions(this.statusProvider.selectedActivity.getValue())),
-              customId: id
-            });
-            let classInstance = this;
-            marker.on('click', function (ev) {
-              classInstance.statusProvider.placeSelected.next(this.options.customId);
-            })
-            this.activityMarkers[SelectedActivity[activity]][id] = marker;
-            this.activityClusterers[SelectedActivity[activity]].addLayer(this.activityMarkers[SelectedActivity[activity]][id])
-          }
-        })
+        .subscribe(data => this.addActivityMarker(data))
     );
     this.subscriptions.push(
       this.statusProvider.placeSelected
@@ -177,13 +162,7 @@ export class MapComponent implements OnDestroy, AfterViewInit {
 
     this.subscriptions.push(
       this.geoQueryProvider.keyExited
-        .subscribe(data => {
-          let activity = this.statusProvider.selectedActivity.getValue();
-          let id = Object.keys(data)[0];
-          let markerToRemove = this.activityMarkers[SelectedActivity[activity]][id];
-          this.activityClusterers[SelectedActivity[activity]].removeLayer(markerToRemove);
-          this.activityMarkers[SelectedActivity[activity]][id] = null;
-        })
+        .subscribe(data => this.removeActivityMarker(data))
     );
   }
 
@@ -230,6 +209,31 @@ export class MapComponent implements OnDestroy, AfterViewInit {
     }
     else if (this.geoJson)
       this.map.removeLayer(this.geoJson);
+  }
+
+  addActivityMarker(data: { [key: string]: LatLng }) {
+    let id = Object.keys(data)[0];
+    let activity = this.statusProvider.selectedActivity.getValue();
+    if (!this.activityMarkers[SelectedActivity[activity]][id]) {
+      let marker = (<any>L).marker([data[id].lat, data[id].lng], {
+        icon: (<any>L).BeautifyIcon.icon(getActivityIconOptions(this.statusProvider.selectedActivity.getValue())),
+        customId: id
+      });
+      let classInstance = this;
+      marker.on('click', function (ev) {
+        classInstance.statusProvider.placeSelected.next(this.options.customId);
+      })
+      this.activityMarkers[SelectedActivity[activity]][id] = marker;
+      this.activityClusterers[SelectedActivity[activity]].addLayer(this.activityMarkers[SelectedActivity[activity]][id])
+    }
+  }
+
+  removeActivityMarker(data: { [key: string]: LatLng }) {
+    let activity = this.statusProvider.selectedActivity.getValue();
+    let id = Object.keys(data)[0];
+    let markerToRemove = this.activityMarkers[SelectedActivity[activity]][id];
+    this.activityClusterers[SelectedActivity[activity]].removeLayer(markerToRemove);
+    this.activityMarkers[SelectedActivity[activity]][id] = null;
   }
 
   ngOnDestroy() {
