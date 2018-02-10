@@ -124,10 +124,8 @@ export class DataProvider {
 
   private getAndSetRemoteData(firebasePath: string, storageKey: string, forecast: boolean): Promise<any> {
     return new Promise(async (resolve, reject) => {
-      console.log('entered')
       let db$ = this.db.object(firebasePath).valueChanges().take(1);
       db$.subscribe(data => {
-        console.log(data)
         if (forecast) {
           Promise.all([this.storage.set(storageKey, data), this.storage.set('sun-forecast-date', moment().valueOf())])
             .then(_ => resolve(data))
