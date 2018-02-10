@@ -36,5 +36,6 @@ export interface SkiDetails {
       name: string,
       surname: string,
       pic: string,
-      rating: number
+      rating: number,
+      review?: string
   }

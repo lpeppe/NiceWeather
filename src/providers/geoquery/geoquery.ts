@@ -15,6 +15,7 @@ export class GeoqueryProvider implements OnDestroy {
 
   keyEntered = new Subject<{ [key: string]: LatLng }>();
   keyExited = new Subject<{ [key: string]: LatLng }>();
+  ready = new Subject<void>();
   geoQuery: any;
   subscriptions: Subscription[];
 
@@ -84,6 +85,8 @@ export class GeoqueryProvider implements OnDestroy {
       };
       this.keyExited.next(toEmit);
     })
+
+    this.geoQuery.on("ready", _ => this.ready.next())
   }
 
   ngOnDestroy() {

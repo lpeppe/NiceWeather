@@ -11,8 +11,9 @@
         <span [style.width]="(100*review.rating/5) + '%'" class="star-ratings-sprite-rating"></span>
       </div>
     </div>
-    <span class="review" text-wrap>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin velit lacus, facilisis eu justo in, vulputate varius urna.
+    <span *ngIf="!review.review" class="review" text-wrap>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin velit lacus, facilisis eu justo in, vulputate varius urna.
       Morbi vitae ultricies erat, eu tristique nulla</span>
+    <span *ngIf="review.review" text-wrap>{{review.review}}</span>
     <div class="date">
       <p>{{review.date}}</p>
     </div>
