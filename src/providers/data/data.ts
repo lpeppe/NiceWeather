@@ -43,14 +43,6 @@ export class DataProvider {
     })
   }
 
-  // getPlaceDetails(): Promise<any> {
-  //   return new Promise(async (resolve, reject) => {
-  //     let placeID = this.statusProvider.placeSelected.getValue();
-  //     let activity = this.statusProvider.selectedActivity.getValue();
-  //     let data = await this.storage.get(`${activity}-`)
-  //   })
-  // }
-
   getPlaceLatLng(): Promise<LatLng> {
     return new Promise((resolve, reject) => {
       let activity = this.statusProvider.selectedActivity.getValue();
@@ -65,6 +57,28 @@ export class DataProvider {
       let id = this.statusProvider.placeSelected.getValue();
       this.db.object(`bike/paths/${id}`).valueChanges().take(1)
         .subscribe((data: LatLng[]) => resolve(data), err => reject(err))
+    })
+  }
+
+  getNavigatorData(): Promise<LatLng> {
+    return new Promise((resolve, reject) => {
+      let activity = this.statusProvider.selectedActivity.getValue();
+      let id = this.statusProvider.placeSelected.getValue();
+      if (activity == SelectedActivity.bike)
+        this.db.object(`bike/paths/${id}/0`).valueChanges().take(1)
+          .subscribe((data: LatLng) => resolve(data), err => reject(err))
+      else
+        this.db.object(`${SelectedActivity[activity]}/points/${id}`).valueChanges().take(1)
+          .subscribe((data: LatLng) => resolve(data), err => reject(err))
+    })
+  }
+
+  getPhoneNumber(): Promise<string> {
+    return new Promise((resolve, reject) => {
+      let activity = this.statusProvider.selectedActivity.getValue();
+      let id = this.statusProvider.placeSelected.getValue();
+      this.db.object(`${SelectedActivity[activity]}/details/${id}/phone`).valueChanges().take(1)
+        .subscribe((phone: string) => resolve(phone), err => reject(err))
     })
   }
 

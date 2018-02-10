@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { CallNumber } from '@ionic-native/call-number';
+import { DataProvider } from './../../providers/data/data';
 
 @Component({
   selector: 'activity-button-panel',
@@ -11,24 +12,25 @@ export class ActivityButtonPanelComponent {
   @Input() navigator: boolean;
   @Input() call: boolean;
 
-  constructor(public launchNavigator: LaunchNavigator, public callNumber: CallNumber) { }
+  constructor(public launchNavigator: LaunchNavigator, public callNumber: CallNumber,
+    public dataProvider: DataProvider) { }
 
   startNavigator() {
-    // try {
-    //   let destination = await this.dataProvider.getPlaceLatLng();
-    //   await this.launchNavigator.navigate([destination.lat, destination.lng]);
-    //   console.log('launched')
-    // }
-    // catch (err) {
-    //   console.log(err);
-    // }
+    this.dataProvider.getNavigatorData()
+      .then(destination => {
+        return this.launchNavigator.navigate([destination.lat, destination.lng])
+      })
+      .then(_ => console.log("Navigator launched"))
+      .catch(err => console.log(err))
   }
 
-  startCall() {
-    // let phoneNumber = (<SkiDetails>(await this.dataProvider
-    //   .getActivityDetails(<any>SelectedActivity[SelectedActivity.ski],
-    //     this.statusProvider.placeSelected.getValue()))).phone;
-    // this.callNumber.callNumber(phoneNumber, true);
+  async startCall() {
+    try {
+      this.callNumber.callNumber(await this.dataProvider.getPhoneNumber(), true);
+    }
+    catch(err) {
+      console.log(err)
+    }
   }
 
 }
