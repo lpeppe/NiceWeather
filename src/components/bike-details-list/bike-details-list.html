@@ -4,6 +4,9 @@
       <h2>{{details[id].name}}</h2>
       <p [ngStyle]="{color: getColor(details[id].slope)}">Pendenza: {{details[id].slope}}</p>
     </ion-item>
+    <ion-item *ngIf="keys.length == 0">
+      <span>Nessun percorso ciclabile trovato!</span>
+    </ion-item>
   </ion-list>
   <bike-details *ngSwitchCase="false"></bike-details>
 </div>
