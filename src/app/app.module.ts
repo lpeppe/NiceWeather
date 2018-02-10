@@ -38,6 +38,7 @@ import { SkiDetailsListComponent } from './../components/ski-details-list/ski-de
 import { SeaDetailsListComponent } from './../components/sea-details-list/sea-details-list';
 import { BikeDetailsComponent } from '../components/bike-details/bike-details';
 import { ReviewsComponent } from '../components/reviews/reviews';
+import { SideMenuComponent } from '../components/side-menu/side-menu';
 
 import { SkiDetailsPipe } from './../pipes/ski-details/ski-details';
 import { BikeDetailsPipe } from './../pipes/bike-details/bike-details';
@@ -64,6 +65,7 @@ import { CallNumber } from '@ionic-native/call-number';
     SkiDetailsComponent,
     SeaDetailsComponent,
     ReviewsComponent,
+    SideMenuComponent,
     BikeDetailsPipe,
     SkiDetailsPipe
   ],
