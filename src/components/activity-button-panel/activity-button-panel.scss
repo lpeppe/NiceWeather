@@ -1,0 +1,12 @@
+.ios,
+.md {
+    activity-button-panel {
+        .item-block {
+            text-align: center;
+            display: block;
+        }
+        span#call {
+            color: map-get($colors, secondary);
+        }
+    }
+}

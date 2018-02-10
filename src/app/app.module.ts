@@ -28,6 +28,7 @@ import { ActivityFabComponent } from '../components/activity-fab/activity-fab';
 import { ActivityListComponent } from './../components/activity-list/activity-list';
 import { GeoFabComponent } from '../components/geo-fab/geo-fab';
 import { TimeFabComponent } from '../components/time-fab/time-fab';
+import { ActivityButtonPanelComponent } from './../components/activity-button-panel/activity-button-panel';
 
 import { HammerConfig } from './hammer.config'
 import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
@@ -64,6 +65,7 @@ import { CallNumber } from '@ionic-native/call-number';
     SeaDetailsComponent,
     ReviewsComponent,
     SideMenuComponent,
+    ActivityButtonPanelComponent,
     BikeDetailsPipe,
     SkiDetailsPipe
   ],

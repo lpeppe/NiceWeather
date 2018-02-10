@@ -10,34 +10,23 @@
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let detail of pathDetails">
-        <!-- <ion-item>
-            {{(detail.name | bikeDetails)}}
-            <ion-badge>{{detail.value}}</ion-badge>
-          </ion-item> -->
         <p>{{(detail.name | bikeDetails)}}</p>
         <span>{{detail.value}}</span>
       </ion-col>
     </ion-row>
   </ion-grid>
-  <!-- <button ion-button block color="primary">
-    <ion-icon name='navigate'></ion-icon>
-    <p>Navigazione</p>
-  </button> -->
 </ion-item>
-<ion-item>
+<!-- <ion-item>
   <ion-grid>
       <ion-row id="buttons">
           <ion-col text-center (click)="startNavigator()">
               <ion-icon name='navigate' color="primary"></ion-icon>
               <span class="item-block">Indicazioni</span>
           </ion-col>
-          <!-- <ion-col text-center (click)="startCall()">
-              <ion-icon name='call' color="secondary"></ion-icon>
-              <span class="item-block" id="call">Chiama</span>
-          </ion-col> -->
       </ion-row>
   </ion-grid>
-</ion-item>
+</ion-item> -->
+<activity-button-panel navigator="true"></activity-button-panel>
 <ion-item>
   <p id="recensioni">Recensioni</p>
   <reviews></reviews>
