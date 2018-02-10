@@ -9,8 +9,8 @@
 <ion-content>
     <map></map>
     <autocomplete></autocomplete>
-    <activity-fab></activity-fab>
-    <time-fab></time-fab>
+    <activity-fab *ngIf="(statusProvider.selectedActivity | async) != 0"></activity-fab>
+    <time-fab [ngStyle]="{left: getTimeFabStyle()}"></time-fab>
     <geo-fab></geo-fab>
     <activity-list *ngIf="(statusProvider.selectedActivity | async) != 0"></activity-list>
 </ion-content>
