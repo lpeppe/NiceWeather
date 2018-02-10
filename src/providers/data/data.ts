@@ -16,16 +16,6 @@ export class DataProvider {
   constructor(public storage: Storage, public db: AngularFireDatabase, public http: HttpClient,
     public statusProvider: StatusProvider) { }
 
-  isAppFirstRun(): Promise<boolean> {
-    return new Promise((resolve, reject) => {
-      this.storage.get('sun-points')
-        .then(value => {
-          resolve(value == null)
-        })
-        .catch(err => reject(err))
-    })
-  }
-
   getSunData(): Promise<any> {
     return Promise.all([this.getSunPoints(), this.getSunForecast()])
   }

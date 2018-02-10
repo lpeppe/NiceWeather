@@ -10,7 +10,6 @@ import { Geolocation } from '@ionic-native/geolocation';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { SlideWalkthroughPage } from './../pages/slide-walkthrough/slide-walkthrough';
 import { PopoverPage } from './../pages/popover/popover';
 
 import { AutocompleteProvider } from '../providers/autocomplete/autocomplete';
@@ -50,7 +49,6 @@ import { CallNumber } from '@ionic-native/call-number';
   declarations: [
     MyApp,
     HomePage,
-    SlideWalkthroughPage,
     PopoverPage,
     AutocompleteComponent,
     MapComponent,
@@ -82,7 +80,6 @@ import { CallNumber } from '@ionic-native/call-number';
   entryComponents: [
     MyApp,
     HomePage,
-    SlideWalkthroughPage,
     PopoverPage
   ],
   providers: [
