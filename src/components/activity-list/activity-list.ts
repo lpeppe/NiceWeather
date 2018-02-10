@@ -12,20 +12,16 @@ export class ActivityListComponent implements OnDestroy {
   // @ViewChild('scrollItem') scrollItem: ElementRef;
   height: string;
   subscriptions: Subscription[];
-  firstTimeOpened = true;
+  // firstTimeOpened = true;
 
   constructor(public statusProvider: StatusProvider, public geoQueryProvider: GeoqueryProvider) {
     this.subscriptions = [];
     this.height = '0px';
     this.subscriptions.push(
-      this.geoQueryProvider.ready.subscribe(_ => {
-        if (this.firstTimeOpened)
+      this.statusProvider.placeSelected.subscribe(id => {
+        if (id)
           this.height = "30vh";
-        this.firstTimeOpened = false;
       })
-    )
-    this.subscriptions.push(
-      this.statusProvider.selectedActivity.subscribe(_ => this.firstTimeOpened = true)
     )
   }
 
