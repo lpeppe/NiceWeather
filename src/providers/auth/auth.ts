@@ -1,3 +1,4 @@
+import { Platform } from 'ionic-angular';
 import { Subscription } from 'rxjs/Subscription';
 import { Injectable, OnDestroy } from '@angular/core';
 import { Component } from '@angular/core';
@@ -16,7 +17,7 @@ export class AuthProvider implements OnDestroy {
   userId: string;
   loggedIn: boolean = false;
 
-  constructor(public afAuth: AngularFireAuth, public googlePlus: GooglePlus) {
+  constructor(public afAuth: AngularFireAuth, public googlePlus: GooglePlus, public platform: Platform) {
     this.sub = this.afAuth.authState.subscribe(data => {
       if (data) {
         this.name = data.displayName;
@@ -36,15 +37,22 @@ export class AuthProvider implements OnDestroy {
   }
 
   login() {
-    this.googlePlus.login({
-      webClientId: '189002884216-di1h47iafmdknqvk9hrkh82ec8dfel8v.apps.googleusercontent.com',
-      // offline: true
-    })
-      .then(res => {
-        return firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(res.idToken))
+    if (this.platform.is('core')) {
+      firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider())
+        .then(data => console.log(data))
+        .catch(err => console.log(err))
+    }
+    else {
+      this.googlePlus.login({
+        webClientId: '189002884216-di1h47iafmdknqvk9hrkh82ec8dfel8v.apps.googleusercontent.com',
+        // offline: true
       })
-      .then(_ => console.log('login successful'))
-      .catch(err => console.log(err))
+        .then(res => {
+          return firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(res.idToken))
+        })
+        .then(_ => console.log('login successful'))
+        .catch(err => console.log(err))
+    }
   }
 
   logout() {
