@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { LatLng, Review } from './../../models/interfaces';
 import { SelectedActivity } from './../../models/enums';
 import { StatusProvider } from './../status/status';
+import { AuthProvider } from './../auth/auth';
 import { getDaysString } from './../../app/utils';
 import * as moment from 'moment';
 import 'rxjs/add/operator/take';
@@ -14,7 +15,7 @@ import 'rxjs/add/operator/take';
 export class DataProvider {
 
   constructor(public storage: Storage, public db: AngularFireDatabase, public http: HttpClient,
-    public statusProvider: StatusProvider) { }
+    public statusProvider: StatusProvider, public authProvider: AuthProvider) { }
 
   getSunData(): Promise<any> {
     return Promise.all([this.getSunPoints(), this.getSunForecast()])
@@ -82,6 +83,46 @@ export class DataProvider {
     })
   }
 
+  increaseActivitySearchNumber(): Promise<any> {
+    return new Promise(async (resolve, reject) => {
+      const activity = SelectedActivity[this.statusProvider.selectedActivity.getValue()];
+      if (this.authProvider.loggedIn) {
+        const firebasePath = `users/${this.authProvider.userId}/${activity}/searchCounter`;
+        try {
+          let counter = await this.getSnapShot(firebasePath);
+          if (counter == null)
+            await this.db.object(firebasePath).set(1);
+          else
+            await this.db.object(firebasePath).set(++counter)
+          resolve();
+        }
+        catch (err) {
+          reject(err)
+        }
+      }
+    })
+  }
+
+  getFavouriteActivity(): Promise<SelectedActivity> {
+    return new Promise(async (resolve, reject) => {
+      if (!this.authProvider.loggedIn)
+        resolve(SelectedActivity.ski)
+      else {
+        let promises = [];
+        for (let activity in SelectedActivity)
+          if (isNaN(<any>activity))
+            promises.push(this.getSnapShot(`users/${this.authProvider.userId}/${activity}/searchCounter`))
+        try {
+          let values = await Promise.all(promises);
+          resolve(values.indexOf(Math.max(...values)));
+        }
+        catch (err) {
+          reject(err)
+        }
+      }
+    })
+  }
+
   private getSunPoints(): Promise<any> {
     return new Promise(async (resolve, reject) => {
       try {
@@ -146,5 +187,12 @@ export class DataProvider {
 
   private isDataStale(date: moment.Moment) {
     return date.dayOfYear() != moment().dayOfYear()
+  }
+
+  private getSnapShot(firebasePath: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.db.object(firebasePath).valueChanges().take(1)
+        .subscribe(data => resolve(data), err => reject(err))
+    })
   }
 }
