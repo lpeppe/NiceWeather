@@ -20,8 +20,14 @@
                 -webkit-box-shadow: none !important;
                 box-shadow: none !important;
             }
+            ion-icon {
+                font-size: 2em;
+            }
+            div.input-wrapper {
+                margin-left: 10px;
+            }
         }
-        ion-item {
+        ion-item#details {
             ion-grid {
                 text-align: center;
                 ion-row {
@@ -49,17 +55,11 @@
                     font-size: 1.8em;
                 }
             }
-            #recensioni {
-                //color: map-get($colors, primary);
-                font-size: 1.3em;
-                text-align: center;
-            }
-            ion-icon {
-                font-size: 2em;
-            }
-            div.input-wrapper {
-                margin-left: 10px;
-            }
+        }
+        #recensioni {
+            //color: map-get($colors, primary);
+            font-size: 1.3em;
+            text-align: center;
         }
     }
 }
