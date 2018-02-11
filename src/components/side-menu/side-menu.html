@@ -5,15 +5,17 @@
       <p class="name">Paula Bolliger</p>
       <p class="e-mail">pbolliger@email.com</p>
     </div>
-    <ion-list>
-      <button menuClose="left" ion-item detail-none (click)="seeSun()">
+    <ion-list radio-group>
+      <ion-item>
         <ion-icon name="sunny" id="sun" item-left></ion-icon>
-        Sole
-      </button>
-      <button menuClose="left" ion-item detail-none (click)="seeActivities()">
+        <ion-label>Sole</ion-label>
+        <ion-radio value="sun" menuClose="left" checked (ionSelect)="seeSun()"></ion-radio>
+      </ion-item>
+      <ion-item>
         <ion-icon class="fas fa-list-ul" id="activity" item-left></ion-icon>
-        Attività
-      </button>
+        <ion-label>Attività</ion-label>
+        <ion-radio value="activity" menuClose="left" (ionSelect)="seeActivities()"></ion-radio>
+      </ion-item>
       <ion-footer>
         <button menuClose="left" ion-item detail-none>
           <ion-icon name="power" id="logout" item-left></ion-icon>

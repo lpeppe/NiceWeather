@@ -1,6 +1,14 @@
 .ios,
 .md {
     bike-details-list {
-        
+        ion-item {
+            ion-icon {
+                color: map-get($colors, primary);
+                font-size: 1.4em;
+                span {
+                    font-size: 1em;
+                }
+            }
+        }
     }
 }
