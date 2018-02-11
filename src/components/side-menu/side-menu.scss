@@ -34,11 +34,18 @@
             }
             #activity {
                 color: rgb(2, 133, 57);
-                font-size: 1.3em; 
+                font-size: 1.3em;
             }
             #logout {
                 color: map-get($colors, primary);
                 font-size: 1.6em;
+            }
+            ion-list {
+                ion-radio {
+                    button:focus {
+                        outline: none;
+                    }
+                }
             }
         }
     }

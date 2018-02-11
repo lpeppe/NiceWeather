@@ -1,7 +1,13 @@
 <div [ngSwitch]="(statusProvider.placeSelected | async) == undefined">
     <ion-list *ngSwitchCase="true">
         <ion-item *ngFor="let id of keys" (click)="statusProvider.placeSelected.next(id)">
-            <h2>{{details[id].name}}</h2>
+            <!-- <p>Media: {{details[id].avgRating}} </p> -->
+            <div class="rating">
+                <h2>{{details[id].name}}</h2>
+                <div class="star-ratings-sprite">
+                    <span [style.width]="(100*details[id].avgRating/5) + '%'" class="star-ratings-sprite-rating"></span>
+                </div>
+            </div>
         </ion-item>
     </ion-list>
     <sea-details *ngSwitchCase="false"></sea-details>

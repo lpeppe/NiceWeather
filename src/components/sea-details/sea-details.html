@@ -1,12 +1,13 @@
 <ion-item>
   <div id="titleDiv">
-      <button ion-button (click)="statusProvider.placeSelected.next(undefined)">
-          <ion-icon name="arrow-round-back" color="primary"></ion-icon>
-      </button>
-      <h1 text-wrap>{{beachName}}</h1>
+    <button ion-button (click)="statusProvider.placeSelected.next(undefined)">
+      <ion-icon name="arrow-round-back" color="primary"></ion-icon>
+    </button>
+    <h1 text-wrap>{{beachName}}</h1>
   </div>
 </ion-item>
 <activity-button-panel navigator="true"></activity-button-panel>
 <ion-item>
+  <p id="reviewTitle">Recensioni</p>
   <reviews></reviews>
 </ion-item>

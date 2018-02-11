@@ -1,5 +1,30 @@
 .ios,
 .md {
     sea-details-list {
+        ion-item {
+            .star-ratings-sprite {
+                background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
+                font-size: 0;
+                height: 21px;
+                line-height: 0;
+                overflow: hidden;
+                text-indent: -999em;
+                width: 110px;
+                margin: 10 auto;
+                &-rating {
+                    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
+                    background-position: 0 100%;
+                    float: left;
+                    height: 21px;
+                    display: block;
+                }
+            }
+            div.rating {
+                margin-bottom: 10px;
+            }
+            h2 {
+                //text-align: center;
+            }
+        }
     }
 }
