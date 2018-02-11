@@ -148,7 +148,8 @@ export class MapComponent implements OnDestroy, AfterViewInit {
       this.statusProvider.selectedActivity
         .merge(this.statusProvider.selectedDays)
         .debounceTime(20)
-        .subscribe(_ => this.loadMapData())
+        .subscribe(_ => this.loadMapData()
+          .catch(err => console.log(err)))
     )
 
     this.subscriptions.push(
