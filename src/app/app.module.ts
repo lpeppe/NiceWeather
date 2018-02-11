@@ -1,5 +1,3 @@
-import { SeaDetailsComponent } from './../components/sea-details/sea-details';
-import { SkiDetailsComponent } from './../components/ski-details/ski-details';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -15,8 +13,11 @@ import { PopoverPage } from './../pages/popover/popover';
 import { AutocompleteProvider } from '../providers/autocomplete/autocomplete';
 import { StatusProvider } from '../providers/status/status';
 import { DataProvider } from '../providers/data/data';
+import { AuthProvider } from '../providers/auth/auth';
+import { GeoqueryProvider } from '../providers/geoquery/geoquery';
 
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import { firebaseConfig } from '../environment';
 // import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -32,19 +33,22 @@ import { ActivityButtonPanelComponent } from './../components/activity-button-pa
 
 import { HammerConfig } from './hammer.config'
 import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
-import { GeoqueryProvider } from '../providers/geoquery/geoquery';
+
 import { BikeDetailsListComponent } from '../components/bike-details-list/bike-details-list';
 import { SkiDetailsListComponent } from './../components/ski-details-list/ski-details-list';
 import { SeaDetailsListComponent } from './../components/sea-details-list/sea-details-list';
 import { BikeDetailsComponent } from '../components/bike-details/bike-details';
 import { ReviewsComponent } from '../components/reviews/reviews';
 import { SideMenuComponent } from '../components/side-menu/side-menu';
+import { SeaDetailsComponent } from './../components/sea-details/sea-details';
+import { SkiDetailsComponent } from './../components/ski-details/ski-details';
 
 import { SkiDetailsPipe } from './../pipes/ski-details/ski-details';
 import { BikeDetailsPipe } from './../pipes/bike-details/bike-details';
 
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { CallNumber } from '@ionic-native/call-number';
+import { GooglePlus } from '@ionic-native/google-plus';
 
 @NgModule({
   declarations: [
@@ -76,6 +80,7 @@ import { CallNumber } from '@ionic-native/call-number';
     AngularFireModule.initializeApp(firebaseConfig),
     // AngularFirestoreModule
     AngularFireDatabaseModule,
+    AngularFireAuthModule,
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
@@ -95,7 +100,9 @@ import { CallNumber } from '@ionic-native/call-number';
     StatusProvider,
     GeoqueryProvider,
     LaunchNavigator,
-    CallNumber
+    CallNumber,
+    AuthProvider,
+    GooglePlus
   ]
 })
 export class AppModule { }
