@@ -5,6 +5,15 @@
       <p class="name">{{authProvider.name}}</p>
       <p class="e-mail">{{authProvider.email}}</p>
     </div>
+    <div *ngIf="!authProvider.loggedIn" id="login">
+      <ion-item>
+        <button ion-item detail-none (click)="authProvider.login()" id="loginButton">
+          <!-- <ion-icon name="logo-google" id="login" item-left></ion-icon> -->
+          <img id="loginImage" src="assets/icon/google.png" />
+          <p>Login</p>
+        </button>
+      </ion-item>
+    </div>
     <ion-list radio-group>
       <ion-item>
         <ion-icon name="sunny" id="sun" item-left></ion-icon>
@@ -21,12 +30,6 @@
           <ion-icon name="power" id="logout" item-left></ion-icon>
           Logout
         </button>
-        <ng-template #login>
-          <button ion-item detail-none (click)="authProvider.login()">
-            <ion-icon name="logo-google" id="login" item-left></ion-icon>
-            Login
-          </button>
-        </ng-template>
       </ion-footer>
     </ion-list>
   </ion-content>

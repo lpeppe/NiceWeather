@@ -40,6 +40,23 @@
                 color: map-get($colors, primary);
                 font-size: 1.6em;
             }
+            #login {
+                display: flex;
+                #loginButton {
+                    text-align: center;
+                    button:focus {
+                        outline: none;
+                    }
+                    #loginImage {
+                        height: 28px;
+                        width: 28px;
+                    }
+                    p {
+                        font-size: 1.1em;
+                        color: map-get($colors, primary);
+                    }
+                }
+            }
             ion-list {
                 ion-radio {
                     button:focus {
