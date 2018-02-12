@@ -13,15 +13,15 @@
   <ion-list>
     <ion-item>
       <ion-label>Province</ion-label>
-      <ion-toggle [(ngModel)]="values[0]" (ionChange)="noStateLabel()"></ion-toggle>
+      <ion-toggle [(ngModel)]="values[0]" (ionChange)="onToggle()"></ion-toggle>
     </ion-item>
     <ion-item>
       <ion-label>Comuni</ion-label>
-      <ion-toggle [(ngModel)]="values[1]" (ionChange)="noStateLabel()"></ion-toggle>
+      <ion-toggle [(ngModel)]="values[1]" (ionChange)="onToggle()"></ion-toggle>
     </ion-item>
     <ion-item>
       <ion-label>Strade</ion-label>
-      <ion-toggle [(ngModel)]="values[2]" (ionChange)="noStateLabel()"></ion-toggle>
+      <ion-toggle [(ngModel)]="values[2]" (ionChange)="onToggle()"></ion-toggle>
     </ion-item>
   </ion-list>
 </ion-content>
