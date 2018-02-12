@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button icon-only (click)="viewCtrl.dismiss()">
+        <ion-icon name="arrow-round-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{placeName}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-icon class="star" [name]="getStarType(1)" (click)="rate = 1"></ion-icon>
+    <ion-icon class="star" [name]="getStarType(2)" (click)="rate = 2"></ion-icon>
+    <ion-icon class="star" [name]="getStarType(3)" (click)="rate = 3"></ion-icon>
+    <ion-icon class="star" [name]="getStarType(4)" (click)="rate = 4"></ion-icon>
+    <ion-icon class="star" [name]="getStarType(5)" (click)="rate = 5"></ion-icon>
+    <p *ngIf="rateError" item-right>Inserisci una valutazione!</p>
+  </ion-item>
+  <ion-item>
+    <ion-textarea [(ngModel)]="text"></ion-textarea>
+  </ion-item>
+  <button ion-button (click)="sendReview()">Invia</button>
+</ion-content>

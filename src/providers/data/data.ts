@@ -21,13 +21,15 @@ export class DataProvider {
     return Promise.all([this.getSunPoints(), this.getSunForecast()])
   }
 
-  getReviews(): Promise<Review[]> {
-    return new Promise((resolve, reject) => {
-      let activity = this.statusProvider.selectedActivity.getValue();
-      let id = this.statusProvider.placeSelected.getValue();
-      this.db.object(`${SelectedActivity[activity]}/reviews/${id}`).valueChanges().take(1)
-        .subscribe((data: Review[]) => resolve(data), err => reject(err))
-    })
+  getReviews(): Observable<Review[]> {
+    // return new Promise((resolve, reject) => {
+    //   let activity = this.statusProvider.selectedActivity.getValue();
+    //   let id = this.statusProvider.placeSelected.getValue();
+    //   this.db.object(`${SelectedActivity[activity]}/reviews/${id}`).valueChanges().take(1)
+    //     .subscribe((data: Review[]) => resolve(data), err => reject(err))
+    // })
+    let [activity, id] = this.getActivityAndId();
+    return this.db.object(`${SelectedActivity[activity]}/reviews/${id}`).valueChanges();
   }
 
   getActivityDetails(activity: SelectedActivity, id: string): Promise<any> {
@@ -123,6 +125,54 @@ export class DataProvider {
     })
   }
 
+  addReview(rating: number, text: string): Promise<any> {
+    return new Promise(async (resolve, reject) => {
+      let [activity, id] = this.getActivityAndId();
+      let nameData = this.authProvider.name.split(" ");
+      let review = {
+        surname: nameData.pop(),
+        name: nameData.toString().replace(/,/g, " "),
+        rating,
+        review: text,
+        pic: this.authProvider.imgUrl,
+        date: moment().format('D MMM YYYY')
+      }
+      await this.db.object(`${SelectedActivity[activity]}/reviews/${id}/${this.authProvider.userId}`).set(review);
+      review['activity'] = SelectedActivity[activity];
+      await this.db.object(`users/${this.authProvider.userId}/reviews/${id}`).set(review);
+      resolve();
+    })
+  }
+
+  getUserReviews(): Observable<{
+    [key: string]:
+    {
+      activity: string,
+      date: string,
+      name: string,
+      pic: string,
+      rating: number,
+      review: string,
+      surname: string
+    }
+  }> {
+    return this.db.object(`users/${this.authProvider.userId}/reviews`).valueChanges();
+  }
+
+  deleteReview(review: {
+    id: string,
+    activity: string,
+    date: string,
+    rating: number,
+    review: string,
+    placeName: string
+  }): Promise<any> {
+    return Promise.all([
+      this.db.object(`users/${this.authProvider.userId}/reviews/${review.id}`).set({}),
+      this.db.object(`${review.activity}/reviews/${review.id}/${this.authProvider.userId}`).set({})
+    ])
+  }
+
   private getSunPoints(): Promise<any> {
     return new Promise(async (resolve, reject) => {
       try {
@@ -194,5 +244,9 @@ export class DataProvider {
       this.db.object(firebasePath).valueChanges().take(1)
         .subscribe(data => resolve(data), err => reject(err))
     })
+  }
+
+  private getActivityAndId(): [SelectedActivity, string] {
+    return [this.statusProvider.selectedActivity.getValue(), this.statusProvider.placeSelected.getValue()];
   }
 }
