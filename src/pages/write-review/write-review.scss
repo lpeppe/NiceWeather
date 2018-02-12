@@ -1,0 +1,14 @@
+.ios,
+.md {
+    page-write-review {
+        ion-icon {
+            color: #ffd000;
+        }
+        button {
+            margin-top: 20px;
+        }
+        p {
+            color: map-get($colors, danger);
+        }
+    }
+}

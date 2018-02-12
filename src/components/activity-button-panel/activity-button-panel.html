@@ -9,6 +9,10 @@
               <ion-icon name='call' color="secondary"></ion-icon>
               <span class="item-block" id="call">Chiama</span>
           </ion-col>
+          <ion-col *ngIf="review && authProvider.loggedIn" text-center (click)="writeReview()">
+              <ion-icon name='book' color="primary"></ion-icon>
+              <span class="item-block" id="review">Scrivi recensione</span>
+          </ion-col>
       </ion-row>
   </ion-grid>
 </ion-item>

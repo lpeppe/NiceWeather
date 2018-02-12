@@ -3,6 +3,8 @@ import { SelectedActivity } from './../../models/enums';
 import { StatusProvider } from '../../providers/status/status';
 import { AuthProvider } from './../../providers/auth/auth';
 import { DataProvider } from './../../providers/data/data';
+import { ModalController } from 'ionic-angular';
+import { UserReviewsPage } from '../../pages/user-reviews/user-reviews';
 
 @Component({
   selector: 'side-menu',
@@ -13,7 +15,7 @@ export class SideMenuComponent {
   @Input() content: any;
 
   constructor(public statusProvider: StatusProvider, public authProvider: AuthProvider, 
-  public dataProvider: DataProvider) { }
+  public dataProvider: DataProvider, public modalCtrl: ModalController) { }
 
   seeSun() {
     this.statusProvider.selectedActivity.next(SelectedActivity.sun);
@@ -26,6 +28,10 @@ export class SideMenuComponent {
     catch(err) {
       console.log(err)
     }
+  }
+
+  showReviews() {
+    this.modalCtrl.create(UserReviewsPage, null).present();
   }
 
 }

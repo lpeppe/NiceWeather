@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Le mie recensioni</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-item *ngFor="let review of reviews">
+    <ion-icon *ngIf="isBikeIcon(review); else imgIcon" name="bicycle" item-start></ion-icon>
+    <ng-template #imgIcon>
+      <img [src]="getImageSrc(review)" item-start>
+    </ng-template>
+    <h2 text-wrap>{{review.placeName}}</h2>
+    <ion-icon class="rating" [name]="getStarName(1, review)"></ion-icon>
+    <ion-icon class="rating" [name]="getStarName(2, review)"></ion-icon>
+    <ion-icon class="rating" [name]="getStarName(3, review)"></ion-icon>
+    <ion-icon class="rating" [name]="getStarName(4, review)"></ion-icon>
+    <ion-icon class="rating" [name]="getStarName(5, review)"></ion-icon>
+    <p text-wrap>{{review.review}}</p>
+    <ion-icon name="trash" item-end (click)="dataProvider.deleteReview(review)"></ion-icon>
+  </ion-item>
+</ion-content>

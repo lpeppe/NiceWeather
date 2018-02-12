@@ -9,6 +9,8 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { PopoverPage } from './../pages/popover/popover';
+import { WriteReviewPage } from './../pages/write-review/write-review';
+import { UserReviewsPage } from './../pages/user-reviews/user-reviews';
 
 import { AutocompleteProvider } from '../providers/autocomplete/autocomplete';
 import { StatusProvider } from '../providers/status/status';
@@ -55,6 +57,8 @@ import { GooglePlus } from '@ionic-native/google-plus';
     MyApp,
     HomePage,
     PopoverPage,
+    WriteReviewPage,
+    UserReviewsPage,
     AutocompleteComponent,
     MapComponent,
     ActivityFabComponent,
@@ -87,7 +91,9 @@ import { GooglePlus } from '@ionic-native/google-plus';
   entryComponents: [
     MyApp,
     HomePage,
-    PopoverPage
+    PopoverPage,
+    WriteReviewPage,
+    UserReviewsPage
   ],
   providers: [
     StatusBar,

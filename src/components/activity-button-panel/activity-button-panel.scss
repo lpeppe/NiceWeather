@@ -5,15 +5,16 @@
             text-align: center;
             display: block;
         }
-        span#call {
-            color: map-get($colors, secondary);
+        span#call, span#nav, span#review {
             font-weight: bold;
             font-size: 2rem;
         }
+        span#call {
+            color: map-get($colors, secondary);
+        }
+        span#review,
         span#nav {
             color: map-get($colors, primary);
-            font-weight: bold;
-            font-size: 2rem;
         }
         ion-icon {
             font-size: 1.8em !important;
