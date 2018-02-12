@@ -30,6 +30,7 @@ export class MapComponent implements OnDestroy, AfterViewInit {
 
   map: L.Map;
   sunClusterer: L.LayerGroup;
+  tileLayer: L.TileLayer;
   activityMarkers: { [activity: string]: { [markerId: string]: L.Marker } };
   activityClusterers: { [key: string]: L.LayerGroup };
   geoJson: L.GeoJSON;
@@ -57,12 +58,21 @@ export class MapComponent implements OnDestroy, AfterViewInit {
     this.map = L.map('mapDiv', {
       zoomControl: false, minZoom, maxZoom
     }).setView([mapPosition.coords.lat, mapPosition.coords.lng], mapPosition.zoom);
+    this.subscriptions.push(
+      this.statusProvider.tileLayer.subscribe(tile => {
+        if (this.tileLayer)
+          this.map.removeLayer(this.tileLayer);
+        this.tileLayer = L.tileLayer(tile);
+        this.tileLayer.addTo(this.map);
+      })
+    );
+
     // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     // L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
-    L.tileLayer('https://api.mapbox.com/styles/v1/marylen/cjd2vb5481zk32spdyzyjhir3/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFyeWxlbiIsImEiOiJjamQydGlkYjAzbWdoMndvNXU2ZDdodmVpIn0.gepdAbZLig1iW6Xi-5TRiA', {
-      // attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(this.map);
+    // L.tileLayer('https://api.mapbox.com/styles/v1/marylen/cjd2vb5481zk32spdyzyjhir3/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFyeWxlbiIsImEiOiJjamQydGlkYjAzbWdoMndvNXU2ZDdodmVpIn0.gepdAbZLig1iW6Xi-5TRiA', {
+    // attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    // }).addTo(this.map);
     this.sunClusterer = L.markerClusterGroup(getClusterOptions(SelectedActivity.sun));
     this.map.addLayer(this.sunClusterer);
     this.initActivityClusters();

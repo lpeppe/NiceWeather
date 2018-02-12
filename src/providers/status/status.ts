@@ -9,13 +9,15 @@ import * as moment from 'moment';
 @Injectable()
 export class StatusProvider {
   mapRadius: number;
+  tileLayer = new BehaviorSubject<string>('https://api.mapbox.com/styles/v1/marylen/cjd2vb5481zk32spdyzyjhir3/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFyeWxlbiIsImEiOiJjamQydGlkYjAzbWdoMndvNXU2ZDdodmVpIn0.gepdAbZLig1iW6Xi-5TRiA');
+  toggleValues = new BehaviorSubject<boolean[]>([true, true, true]);
   selectedDays = new BehaviorSubject<number[]>([moment()
-  .set({
-    millisecond: 0,
-    second: 0,
-    minute: 0,
-    hour: 13
-  }).unix()]);
+    .set({
+      millisecond: 0,
+      second: 0,
+      minute: 0,
+      hour: 13
+    }).unix()]);
 
   selectedActivity = new BehaviorSubject<SelectedActivity>(SelectedActivity.sun);
 
@@ -29,5 +31,5 @@ export class StatusProvider {
   });
 
   placeSelected = new BehaviorSubject<string>(undefined);
-  
+
 }

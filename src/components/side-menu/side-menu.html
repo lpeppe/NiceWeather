@@ -25,6 +25,10 @@
         <ion-label>Attività</ion-label>
         <ion-radio value="activity" menuClose="left" (ionSelect)="seeActivities()"></ion-radio>
       </ion-item>
+        <button ion-item detail-none menuClose="left" (click)="openMapCustomization()">
+          <ion-icon name="map" id="mapStyle" item-left></ion-icon>
+          <ion-label>Personalizza mappa</ion-label>
+        </button>
       <ion-footer>
         <button *ngIf="authProvider.loggedIn; else login" menuClose="left" ion-item detail-none (click)="authProvider.logout()">
           <ion-icon name="power" id="logout" item-left></ion-icon>

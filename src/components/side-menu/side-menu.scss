@@ -33,8 +33,11 @@
                 color: rgb(255, 166, 0);
             }
             #activity {
-                color: rgb(2, 133, 57);
+                color: rgb(0, 10, 146);
                 font-size: 1.3em;
+            }
+            #mapStyle {
+                color: rgb(2, 133, 57);
             }
             #logout {
                 color: map-get($colors, primary);
