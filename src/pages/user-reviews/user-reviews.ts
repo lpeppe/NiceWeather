@@ -1,3 +1,4 @@
+import { ViewController } from 'ionic-angular';
 import { Subscription } from 'rxjs/Subscription';
 import { DataProvider } from './../../providers/data/data';
 import { Component, OnDestroy } from '@angular/core';
@@ -20,7 +21,7 @@ export class UserReviewsPage implements OnDestroy {
   subscriptions: Subscription[];
 
 
-  constructor(public dataProvider: DataProvider) {
+  constructor(public dataProvider: DataProvider, public viewCtrl: ViewController) {
     this.reviews = [];
     this.subscriptions = [];
     this.subscriptions.push(
