@@ -1,18 +1,18 @@
 <ion-item>
-  <ion-grid>
-      <ion-row id="buttons">
-          <ion-col *ngIf="navigator" text-center (click)="startNavigator()">
-              <ion-icon name='navigate' color="primary"></ion-icon>
-              <span class="item-block" id="nav">Indicazioni</span>
-          </ion-col>
-          <ion-col *ngIf="call" text-center (click)="startCall()">
-              <ion-icon name='call' color="secondary"></ion-icon>
-              <span class="item-block" id="call">Chiama</span>
-          </ion-col>
-          <ion-col *ngIf="review && authProvider.loggedIn" text-center (click)="writeReview()">
-              <ion-icon name='book' color="primary"></ion-icon>
-              <span class="item-block" id="review">Scrivi recensione</span>
-          </ion-col>
-      </ion-row>
-  </ion-grid>
+    <ion-grid>
+        <ion-row id="buttons">
+            <ion-col *ngIf="navigator" text-center (click)="startNavigator()">
+                <ion-icon name='navigate' color="primary"></ion-icon>
+                <span class="item-block" id="nav">Indicazioni</span>
+            </ion-col>
+            <ion-col *ngIf="call" text-center (click)="startCall()">
+                <ion-icon name='call' color="secondary"></ion-icon>
+                <span class="item-block" id="call">Chiama</span>
+            </ion-col>
+            <ion-col *ngIf="review && authProvider.loggedIn" text-center (click)="writeReview()">
+                <ion-icon name='clipboard' id="clipboard"></ion-icon>
+                <span class="item-block" id="review">Scrivi recensione</span>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-item>

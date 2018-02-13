@@ -1,11 +1,32 @@
 .ios,
 .md {
     page-write-review {
-        ion-icon.star {
-            color: #ffd000;
+        #back {
+            margin-top: 20%;
+            //color: map-get($colors, primary);
         }
-        button {
-            margin-top: 20px;
+        ion-content {
+            text-align: center;
+            ion-item {
+                text-align: center;
+            }
+            ion-icon.star {
+                color: #ffd000;
+                font-size: 2.3em;
+            }
+            #send {
+                height: 35px;
+                width: 60px;
+                margin-top: 50px;
+            }
+            ion-label {
+                font-size: 1.1em;
+            }
+            ion-textarea {
+                box-shadow: none !important;
+                border-bottom-color: transparent !important;
+                border-bottom:1px solid #eee;
+            }
         }
         p {
             color: map-get($colors, danger);

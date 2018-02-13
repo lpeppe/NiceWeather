@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-buttons left>
-      <button ion-button icon-only (click)="viewCtrl.dismiss()">
+      <button ion-button id="back" icon-only (click)="viewCtrl.dismiss()">
         <ion-icon name="arrow-round-back"></ion-icon>
       </button>
     </ion-buttons>
@@ -11,6 +11,7 @@
 
 
 <ion-content padding>
+    <ion-label>Inserisci valutazione:</ion-label>
   <ion-item>
     <ion-icon class="star" [name]="getStarType(1)" (click)="rate = 1"></ion-icon>
     <ion-icon class="star" [name]="getStarType(2)" (click)="rate = 2"></ion-icon>
@@ -19,8 +20,9 @@
     <ion-icon class="star" [name]="getStarType(5)" (click)="rate = 5"></ion-icon>
     <p *ngIf="rateError" item-right>Inserisci una valutazione!</p>
   </ion-item>
+  <ion-label>Inserisci recensione:</ion-label>
   <ion-item>
     <ion-textarea [(ngModel)]="text"></ion-textarea>
   </ion-item>
-  <button ion-button (click)="sendReview()">Invia</button>
+  <button ion-button id="send" (click)="sendReview()">Invia</button>
 </ion-content>

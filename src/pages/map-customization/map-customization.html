@@ -1,27 +1,19 @@
-<!--
-  Generated template for the MapCustomizationPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-  <ion-navbar>
-    <ion-title>Personalizza mappa</ion-title>
-  </ion-navbar>
+  <ion-title>Personalizza</ion-title>
 </ion-header>
-<ion-content padding>
-  <ion-list>
-    <ion-item>
-      <ion-label>Province</ion-label>
-      <ion-toggle [(ngModel)]="values[0]" (ionChange)="onToggle()"></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-label>Comuni</ion-label>
-      <ion-toggle [(ngModel)]="values[1]" (ionChange)="onToggle()"></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-label>Strade</ion-label>
-      <ion-toggle [(ngModel)]="values[2]" (ionChange)="onToggle()"></ion-toggle>
-    </ion-item>
-  </ion-list>
+<ion-content>
+<ion-list>
+  <ion-item>
+    <ion-label>Province</ion-label>
+    <ion-toggle [(ngModel)]="values[0]" (ionChange)="onToggle()"></ion-toggle>
+  </ion-item>
+  <ion-item>
+    <ion-label>Comuni</ion-label>
+    <ion-toggle [(ngModel)]="values[1]" (ionChange)="onToggle()"></ion-toggle>
+  </ion-item>
+  <ion-item>
+    <ion-label>Strade</ion-label>
+    <ion-toggle [(ngModel)]="values[2]" (ionChange)="onToggle()"></ion-toggle>
+  </ion-item>
+</ion-list>
 </ion-content>

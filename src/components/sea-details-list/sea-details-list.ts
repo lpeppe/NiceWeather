@@ -61,4 +61,14 @@ export class SeaDetailsListComponent implements OnDestroy {
     for (let subscription of this.subscriptions)
       subscription.unsubscribe();
   }
+
+  getStarName(index: number, rate: number) {
+    if (index <= rate) {
+      if (rate > index && rate < index + 1)
+        return "star-half";
+      return "star";
+    } 
+    
+    return "star-outline";
+  }
 }

@@ -4,9 +4,14 @@
             <!-- <p>Media: {{details[id].avgRating}} </p> -->
             <div class="rating">
                 <h2>{{details[id].name}}</h2>
-                <div class="star-ratings-sprite">
+                <ion-icon class="rating" [name]="getStarName(1, details[id].avgRating)"></ion-icon>
+                <ion-icon class="rating" [name]="getStarName(2, details[id].avgRating)"></ion-icon>
+                <ion-icon class="rating" [name]="getStarName(3, details[id].avgRating)"></ion-icon>
+                <ion-icon class="rating" [name]="getStarName(4, details[id].avgRating)"></ion-icon>
+                <ion-icon class="rating" [name]="getStarName(5, details[id].avgRating)"></ion-icon>
+                <!-- <div class="star-ratings-sprite">
                     <span [style.width]="(100*details[id].avgRating/5) + '%'" class="star-ratings-sprite-rating"></span>
-                </div>
+                </div> -->
             </div>
         </ion-item>
     </ion-list>

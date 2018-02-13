@@ -1,6 +1,9 @@
 .ios,
 .md {
     page-popover {
+        .popover {
+            height: 30px;
+        }
         ion-list {
             margin-bottom: 0px;
             button:focus {

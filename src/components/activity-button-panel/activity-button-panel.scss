@@ -12,12 +12,17 @@
         span#call {
             color: map-get($colors, secondary);
         }
-        span#review,
+        span#review{
+            color: rgb(119, 39, 5);
+        }
         span#nav {
             color: map-get($colors, primary);
         }
         ion-icon {
             font-size: 1.8em !important;
+        }
+        #clipboard {
+            color: rgb(119, 39, 5);
         }
     }
 }

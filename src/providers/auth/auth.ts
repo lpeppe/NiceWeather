@@ -45,7 +45,7 @@ export class AuthProvider implements OnDestroy {
     else {
       this.googlePlus.login({
         webClientId: '189002884216-di1h47iafmdknqvk9hrkh82ec8dfel8v.apps.googleusercontent.com',
-        // offline: true
+        offline: true
       })
         .then(res => {
           return firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(res.idToken))

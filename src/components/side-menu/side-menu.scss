@@ -33,11 +33,17 @@
                 color: rgb(255, 166, 0);
             }
             #activity {
-                color: rgb(0, 10, 146);
+                color: rgb(59, 168, 1);
+                //color: map-get($colors, primary);
                 font-size: 1.3em;
             }
             #mapStyle {
-                color: rgb(2, 133, 57);
+                color: rgba(202, 202, 15, 0.966);
+                //color: map-get($colors, primary);
+            }
+            #reviews {
+                color: rgb(119, 39, 5);
+                //color: map-get($colors, primary);
             }
             #logout {
                 color: map-get($colors, primary);

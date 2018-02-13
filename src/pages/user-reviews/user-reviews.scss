@@ -11,5 +11,12 @@
         div.item-inner {
             margin-left: 24px;
         }
+        ion-title {
+            //text-align: right;
+            //color: map-get($colors, primary);
+        }
+        #arrowBack {
+            //color: map-get($colors, primary);
+        }
     }
 }

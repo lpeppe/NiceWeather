@@ -35,9 +35,7 @@ export class SideMenuComponent {
   openMapCustomization() {
     // this.modalCtrl.create(MapCustomizationPage, null).present();
     let popover = this.popoverCtrl.create(MapCustomizationPage);
-    popover.present({
-      ev: event
-    })
+    popover.present();
   }
   showReviews() {
     this.modalCtrl.create(UserReviewsPage, null).present();

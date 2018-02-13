@@ -26,11 +26,12 @@
         <ion-radio value="activity" menuClose="left" (ionSelect)="seeActivities()"></ion-radio>
       </ion-item>
       <button ion-item detail-none menuClose="left" (click)="openMapCustomization()">
-        <ion-icon name="map" id="mapStyle" item-left></ion-icon>
+        <ion-icon name="color-wand" id="mapStyle" item-left></ion-icon>
         <ion-label>Personalizza mappa</ion-label>
       </button>
       <button *ngIf="authProvider.loggedIn" menuClose="left" ion-item detail-none (click)="showReviews()">
-        <ion-icon name="book" item-left></ion-icon>
+        <ion-icon name="clipboard" id ="reviews" item-left></ion-icon>
+        <!-- <i class="fas fa-pencil-alt" id="reviews"></i> -->
         Le mie recensioni
       </button>
       <ion-footer>
