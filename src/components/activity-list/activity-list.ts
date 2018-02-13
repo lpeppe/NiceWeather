@@ -9,10 +9,8 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class ActivityListComponent implements OnDestroy {
 
-  // @ViewChild('scrollItem') scrollItem: ElementRef;
   height: string;
   subscriptions: Subscription[];
-  // firstTimeOpened = true;
 
   constructor(public statusProvider: StatusProvider, public geoQueryProvider: GeoqueryProvider) {
     this.subscriptions = [];
@@ -37,5 +35,4 @@ export class ActivityListComponent implements OnDestroy {
     for (let subscription of this.subscriptions)
       subscription.unsubscribe();
   }
-
 }

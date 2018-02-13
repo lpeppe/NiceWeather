@@ -163,6 +163,14 @@ export class MapComponent implements OnDestroy, AfterViewInit {
     )
 
     this.subscriptions.push(
+      this.statusProvider.favouritesMode
+        .subscribe(_ => {
+          this.clearActivityLayers()
+          this.clearActivityMarkers()
+        })
+    )
+
+    this.subscriptions.push(
       this.geoQueryProvider.keyEntered
         .subscribe(data => this.addActivityMarker(data))
     );

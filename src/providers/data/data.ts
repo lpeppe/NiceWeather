@@ -10,6 +10,7 @@ import { AuthProvider } from './../auth/auth';
 import { getDaysString } from './../../app/utils';
 import * as moment from 'moment';
 import 'rxjs/add/operator/take';
+import 'rxjs/add/operator/mergeMap';
 
 @Injectable()
 export class DataProvider {
@@ -171,6 +172,55 @@ export class DataProvider {
       this.db.object(`users/${this.authProvider.userId}/reviews/${review.id}`).set({}),
       this.db.object(`${review.activity}/reviews/${review.id}/${this.authProvider.userId}`).set({})
     ])
+  }
+
+  isFavourite(id: string): Observable<boolean> {
+    return this.db.object(`users/${this.authProvider.userId}/favourites/${id}`)
+      .valueChanges()
+      .map(x => { return x != null })
+  }
+
+  changeFavourite(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.isFavourite(this.statusProvider.placeSelected.getValue())
+        .take(1)
+        .subscribe(async data => {
+          let toSet = {};
+          if (!data) {
+            toSet['activity'] = SelectedActivity[this.statusProvider.selectedActivity.getValue()]
+            let [activity, id] = this.getActivityAndId();
+            toSet['name'] = (await this.getActivityDetails((<any>SelectedActivity[activity]), id)).name
+          }
+          await this.db.object(`users/${this.authProvider.userId}/favourites/${this.statusProvider.placeSelected.getValue()}`).set(toSet);
+          resolve()
+        }, err => reject(err));
+    })
+  }
+
+  getFavourites(): Observable<{ [key: string]: { activity: string, name: string } }> {
+    return this.db.object(`users/${this.authProvider.userId}/favourites`)
+      .valueChanges()
+    // .switchMap(async(favs: { [key: string]: { activity: string } }) => {
+    //   let promises = [];
+    //   let ids = [];
+    //   let toReturn = {};
+    //   for (let id in favs) {
+    //     promises.push(this.getActivityDetails(<any>favs[id].activity, id))
+    //     ids.push(id);
+    //   }
+    //   let values = await Promise.all(promises);
+    //   for (let i in values) {
+    //     toReturn[ids[i]] = {
+    //       name: values[i].name,
+    //       activity: favs[ids[i]].activity
+    //     }
+    //     return toReturn;
+    //   }
+    // })
+  }
+
+  deleteFavourite(id: string): Promise<any> {
+    return this.db.object(`users/${this.authProvider.userId}/favourites/${id}`).set({});
   }
 
   private getSunPoints(): Promise<any> {

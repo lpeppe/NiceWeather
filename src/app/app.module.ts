@@ -12,6 +12,7 @@ import { PopoverPage } from './../pages/popover/popover';
 import { MapCustomizationPage } from './../pages/map-customization/map-customization';
 import { WriteReviewPage } from './../pages/write-review/write-review';
 import { UserReviewsPage } from './../pages/user-reviews/user-reviews';
+import { UserFavouritesPage } from '../pages/user-favourites/user-favourites';
 
 import { AutocompleteProvider } from '../providers/autocomplete/autocomplete';
 import { StatusProvider } from '../providers/status/status';
@@ -61,6 +62,7 @@ import { GooglePlus } from '@ionic-native/google-plus';
     MapCustomizationPage,
     WriteReviewPage,
     UserReviewsPage,
+    UserFavouritesPage,
     AutocompleteComponent,
     MapComponent,
     ActivityFabComponent,
@@ -96,7 +98,8 @@ import { GooglePlus } from '@ionic-native/google-plus';
     PopoverPage,
     MapCustomizationPage,
     WriteReviewPage,
-    UserReviewsPage
+    UserReviewsPage,
+    UserFavouritesPage
   ],
   providers: [
     StatusBar,

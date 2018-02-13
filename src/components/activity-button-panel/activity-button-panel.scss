@@ -5,7 +5,10 @@
             text-align: center;
             display: block;
         }
-        span#call, span#nav, span#review {
+        span#call,
+        span#nav,
+        span#review,
+        span#favourite {
             font-weight: bold;
             font-size: 2rem;
         }
@@ -13,7 +16,8 @@
             color: map-get($colors, secondary);
         }
         span#review,
-        span#nav {
+        span#nav,
+        span#favourite {
             color: map-get($colors, primary);
         }
         ion-icon {
