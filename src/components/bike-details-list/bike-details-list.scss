@@ -2,12 +2,9 @@
 .md {
     bike-details-list {
         ion-item {
-            ion-icon {
+            ion-icon.info {
                 color: map-get($colors, primary);
                 font-size: 1.4em;
-                span {
-                    font-size: 1em;
-                }
             }
         }
     }

@@ -1,8 +1,11 @@
 .ios,
 .md {
     ski-details-list {
-        p.altitude {
-            //color: map-get($colors, primary);
+        ion-item {
+            ion-icon.info {
+                color: map-get($colors, primary);
+                font-size: 1.4em;
+            }
         }
     }
 }

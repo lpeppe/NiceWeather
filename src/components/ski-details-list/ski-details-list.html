@@ -7,6 +7,10 @@
             <h2>{{details[id].name}}</h2>
             <p class="altitude">Altitudine: {{details[id].height}}</p>
         </ion-item>
+        <ion-item *ngIf="keys.length == 0">
+            <ion-icon class="info" name="information-circle"></ion-icon>
+            Nessuna località trovata!
+        </ion-item>
     </ion-list>
     <ski-details *ngSwitchCase="false"></ski-details>
 </div>
