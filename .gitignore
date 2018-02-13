@@ -5,3 +5,4 @@ www/
 config.xml
 .sourcemaps/
 .vscode/
+meteoWhereKey.keystore
