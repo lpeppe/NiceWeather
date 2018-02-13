@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button icon-only (click)="viewCtrl.dismiss()">
+        <ion-icon name="arrow-round-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>I miei preferiti</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-item *ngIf="favourites.length == 0">
+    <h2>Non hai ancora aggiunto nessun preferito!</h2>
+  </ion-item>
+  <ion-item *ngFor="let favourite of favourites">
+    <ion-icon *ngIf="favourite.activity == 'bike'; else imgIcon" name="bicycle" item-start></ion-icon>
+    <ng-template #imgIcon>
+      <img [src]="getImageSrc(favourite)" item-start>
+    </ng-template>
+    <h2 text-wrap>{{favourite.name}}</h2>
+    <ion-icon name="trash" item-end (click)="dataProvider.deleteFavourite(favourite.id)"></ion-icon>
+  </ion-item>
+</ion-content>

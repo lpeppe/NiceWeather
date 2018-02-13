@@ -1,8 +1,10 @@
+import { Subscription } from 'rxjs/Subscription';
 import { AuthProvider } from './../../providers/auth/auth';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnDestroy } from '@angular/core';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { CallNumber } from '@ionic-native/call-number';
 import { DataProvider } from './../../providers/data/data';
+import { StatusProvider } from './../../providers/status/status';
 import { ModalController } from 'ionic-angular';
 import { WriteReviewPage } from './../../pages/write-review/write-review';
 
@@ -10,15 +12,31 @@ import { WriteReviewPage } from './../../pages/write-review/write-review';
   selector: 'activity-button-panel',
   templateUrl: 'activity-button-panel.html'
 })
-export class ActivityButtonPanelComponent {
+export class ActivityButtonPanelComponent implements OnDestroy {
 
   @Input() navigator: boolean;
   @Input() call: boolean;
   @Input() review: boolean;
 
+  favIcon: string = "heart-outline";
+  isFavourite: boolean = false;
+  subscriptions: Subscription[];
+
   constructor(public launchNavigator: LaunchNavigator, public callNumber: CallNumber,
     public dataProvider: DataProvider, public modalCrtl: ModalController,
-    public authProvider: AuthProvider) { }
+    public authProvider: AuthProvider, public statusProvider: StatusProvider) {
+    this.subscriptions = [];
+    this.subscriptions.push(
+      this.statusProvider.placeSelected.subscribe(id => {
+        this.dataProvider.isFavourite(id)
+          .takeWhile(_ => this.statusProvider.placeSelected.getValue() == id)
+          .subscribe(data => {
+            data ? this.favIcon = "heart" : this.favIcon = "heart-outline"
+            this.isFavourite = data;
+          })
+      })
+    )
+  }
 
   startNavigator() {
     this.dataProvider.getNavigatorData()
@@ -42,4 +60,8 @@ export class ActivityButtonPanelComponent {
     this.modalCrtl.create(WriteReviewPage, null).present();
   }
 
+  ngOnDestroy() {
+    for (let subscription of this.subscriptions)
+      subscription.unsubscribe();
+  }
 }

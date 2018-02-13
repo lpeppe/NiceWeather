@@ -10,6 +10,7 @@ import * as moment from 'moment';
 export class StatusProvider {
   mapRadius: number;
   toggleValues = new BehaviorSubject<boolean[]>([true, true, true]);
+  favouritesMode = new BehaviorSubject<boolean>(false);
   selectedDays = new BehaviorSubject<number[]>([moment()
     .set({
       millisecond: 0,

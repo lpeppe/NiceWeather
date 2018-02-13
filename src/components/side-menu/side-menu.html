@@ -34,6 +34,15 @@
         <!-- <i class="fas fa-pencil-alt" id="reviews"></i> -->
         Le mie recensioni
       </button>
+      <button *ngIf="authProvider.loggedIn" menuClose="left" ion-item detail-none (click)="showFavourites()">
+        <ion-icon name="heart" item-left color="danger"></ion-icon>
+        I miei preferiti
+      </button>
+      <ion-item *ngIf="authProvider.loggedIn && statusProvider.selectedActivity.getValue() != 0">
+        <ion-icon name="funnel" item-left></ion-icon>
+        <ion-label>Filtra preferiti</ion-label>
+        <ion-toggle (ionChange)="toggleChanged()" [(ngModel)]="toggleValue" menuClose="left"></ion-toggle>
+      </ion-item>
       <ion-footer>
         <button *ngIf="authProvider.loggedIn; else login" menuClose="left" ion-item detail-none (click)="authProvider.logout()">
           <ion-icon name="power" id="logout" item-left></ion-icon>

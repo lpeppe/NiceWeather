@@ -49,6 +49,14 @@ export class BikeDetailsListComponent implements OnDestroy {
     )
 
     this.subscriptions.push(
+      this.statusProvider.favouritesMode
+        .subscribe(_ => {
+          this.keys.splice(0, this.keys.length);
+          this.details = {};
+        })
+    )
+
+    this.subscriptions.push(
       this.geoQueryProvider.keyEntered
         .subscribe(async data => {
           let id = Object.keys(data)[0];

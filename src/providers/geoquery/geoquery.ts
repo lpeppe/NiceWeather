@@ -1,3 +1,4 @@
+import { DataProvider } from './../data/data';
 import { Injectable, OnDestroy } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 
@@ -19,11 +20,24 @@ export class GeoqueryProvider implements OnDestroy {
   geoQuery: any;
   subscriptions: Subscription[];
 
-  constructor(public statusProvider: StatusProvider, public db: AngularFireDatabase) {
+  constructor(public statusProvider: StatusProvider, public db: AngularFireDatabase,
+    public dataProvider: DataProvider) {
     this.subscriptions = [];
     this.subscriptions.push(
       this.statusProvider.selectedActivity
         .subscribe(activity => {
+          if (activity != SelectedActivity.sun) {
+            this.setQuery(activity);
+            this.setListeners();
+          }
+        })
+    )
+
+    this.subscriptions.push(
+      this.statusProvider.favouritesMode
+        .delay(100)
+        .subscribe(_ => {
+          let activity = this.statusProvider.selectedActivity.getValue();
           if (activity != SelectedActivity.sun) {
             this.setQuery(activity);
             this.setListeners();
@@ -75,7 +89,15 @@ export class GeoqueryProvider implements OnDestroy {
         lat: location[0],
         lng: location[1]
       };
-      this.keyEntered.next(toEmit);
+      if (this.statusProvider.favouritesMode.getValue()) {
+        this.dataProvider.isFavourite(key).take(1)
+          .subscribe(val => {
+            if (val)
+              this.keyEntered.next(toEmit);
+          })
+      }
+      else
+        this.keyEntered.next(toEmit);
     })
     this.geoQuery.on("key_exited", (key, location, distance) => {
       let toEmit = {};
@@ -83,7 +105,16 @@ export class GeoqueryProvider implements OnDestroy {
         lat: location[0],
         lng: location[1]
       };
-      this.keyExited.next(toEmit);
+      // this.keyExited.next(toEmit);
+      if (this.statusProvider.favouritesMode.getValue()) {
+        this.dataProvider.isFavourite(key).take(1)
+          .subscribe(val => {
+            if (val)
+              this.keyExited.next(toEmit);
+          })
+      }
+      else
+        this.keyExited.next(toEmit);
     })
 
     this.geoQuery.on("ready", _ => this.ready.next())
