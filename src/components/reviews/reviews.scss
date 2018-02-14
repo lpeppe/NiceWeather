@@ -3,41 +3,21 @@
     reviews {
         ion-list {
             ion-item {
-                .star-ratings-sprite {
-                    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
-                    font-size: 0;
-                    height: 21px;
-                    line-height: 0;
-                    overflow: hidden;
-                    text-indent: -999em;
-                    width: 110px;
-                    margin: 0 auto;
-                    &-rating {
-                        background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2605/star-rating-sprite.png") repeat-x;
-                        background-position: 0 100%;
-                        float: left;
-                        height: 21px;
-                        display: block;
-                    }
-                }
-                div.rating {
-                    margin-bottom: 15px;
-                }
                 div.center {
                     display: flex;
                     justify-content: center;
                     align-items: center;
                 }
                 p.name {
-                    text-align: center;
-                    padding-bottom: 10px;
+                    text-align: center; //padding-bottom: 10px;
                     padding-top: 5px;
+                    font-weight: bold;
                 }
                 div.date {
                     display: flex;
                     justify-content: flex-end;
                     p {
-                        padding-top: 15px;
+                        padding-top: 18px;
                     }
                 }
                 div.title {
@@ -46,6 +26,14 @@
                         font-size: 1.2em;
                         font-weight: bold;
                     }
+                }
+                div.rating {
+                    text-align: center;
+                    ion-icon {
+                        color: #ffd000;
+                    }
+                    padding-bottom: 20px;
+                    font-size: 1.1em;
                 }
             }
         }

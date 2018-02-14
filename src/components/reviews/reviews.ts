@@ -38,7 +38,7 @@ export class ReviewsComponent implements OnInit, OnDestroy {
                 .subscribe(data => {
                   this.reviews.splice(0, this.reviews.length);
                   for (let id in data) {
-                    if(!data[id]['date'])
+                    if (!data[id]['date'])
                       data[id]['date'] = moment.unix(Math.floor(Math.random() * (maxDate - minDate + 1)) + minDate).format('D MMM YYYY');
                     this.reviews.push(data[id]);
                   }
@@ -48,6 +48,15 @@ export class ReviewsComponent implements OnInit, OnDestroy {
           }
         })
     )
+  }
+  getStarName(index: number, review: number) {
+    if (index <= review) {
+      if (review > index && review < index + 1)
+        return "star-half";
+      return "star";
+    } 
+    
+    return "star-outline";
   }
 
   ngOnDestroy() {

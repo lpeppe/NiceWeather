@@ -7,9 +7,11 @@
     </div>
     <p class="name">{{review.name}} {{review.surname}}</p>
     <div class="rating">
-      <div class="star-ratings-sprite">
-        <span [style.width]="(100*review.rating/5) + '%'" class="star-ratings-sprite-rating"></span>
-      </div>
+      <ion-icon class="rate" [name]="getStarName(1, review.rating)"></ion-icon>
+      <ion-icon class="rate" [name]="getStarName(2, review.rating)"></ion-icon>
+      <ion-icon class="rate" [name]="getStarName(3, review.rating)"></ion-icon>
+      <ion-icon class="rate" [name]="getStarName(4, review.rating)"></ion-icon>
+      <ion-icon class="rate" [name]="getStarName(5, review.rating)"></ion-icon>
     </div>
     <span *ngIf="!review.review" class="review" text-wrap>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin velit lacus, facilisis eu justo in, vulputate varius urna.
       Morbi vitae ultricies erat, eu tristique nulla</span>

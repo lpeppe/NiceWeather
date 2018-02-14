@@ -4,7 +4,7 @@
       <h2>{{details[id].name}}</h2>
       <p [ngStyle]="{color: getColor(details[id].slope)}">Pendenza: {{details[id].slope}}</p>
     </ion-item>
-    <ion-item *ngIf="keys.length == 0">
+    <ion-item id="noPlaces" *ngIf="keys.length == 0">
       <ion-icon class="info" name="information-circle"></ion-icon>
       Nessuna località trovata!
     </ion-item>

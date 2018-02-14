@@ -10,7 +10,7 @@
                 <ion-icon class="rating" [name]="getStarName(5, details[id].avgRating)"></ion-icon>
             </div>
         </ion-item>
-        <ion-item *ngIf="keys.length == 0">
+        <ion-item id="noPlaces" *ngIf="keys.length == 0">
             <ion-icon class="info" name="information-circle"></ion-icon>
             Nessuna località trovata!
         </ion-item>

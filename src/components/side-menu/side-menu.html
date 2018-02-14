@@ -30,16 +30,16 @@
         <ion-label>Personalizza mappa</ion-label>
       </button>
       <button *ngIf="authProvider.loggedIn" menuClose="left" ion-item detail-none (click)="showReviews()">
-        <ion-icon name="clipboard" id ="reviews" item-left></ion-icon>
+        <ion-icon name="clipboard" id="reviews" item-left></ion-icon>
         <!-- <i class="fas fa-pencil-alt" id="reviews"></i> -->
         Le mie recensioni
       </button>
       <button *ngIf="authProvider.loggedIn" menuClose="left" ion-item detail-none (click)="showFavourites()">
-        <ion-icon name="heart" item-left color="danger"></ion-icon>
+        <ion-icon name="heart" id="heart" item-left color="danger"></ion-icon>
         I miei preferiti
       </button>
       <ion-item *ngIf="authProvider.loggedIn && statusProvider.selectedActivity.getValue() != 0">
-        <ion-icon name="funnel" item-left></ion-icon>
+        <ion-icon name="funnel" item-left id="funnel"></ion-icon>
         <ion-label>Filtra preferiti</ion-label>
         <ion-toggle (ionChange)="toggleChanged()" [(ngModel)]="toggleValue" menuClose="left"></ion-toggle>
       </ion-item>

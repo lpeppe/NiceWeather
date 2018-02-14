@@ -4,29 +4,36 @@
         .item-block {
             text-align: center;
             display: block;
+            align-items: center;
         }
         span#call,
         span#nav,
         span#review,
         span#favourite {
             font-weight: bold;
-            font-size: 2rem;
+            font-size: 1.4rem;
+            text-align: center;
         }
         span#call {
             color: map-get($colors, secondary);
         }
-        span#nav,
-        span#favourite {
+        span#nav{
             color: map-get($colors, primary);
+        }
+        span#favourite {
+            color: red;
         }
         span#review {
             color: rgb(119, 39, 5);
         }
         ion-icon {
-            font-size: 1.8em !important;
+            font-size: 1.6em !important;
         }
         #clipboard {
             color: rgb(119, 39, 5);
+        }
+        #favourIcon {
+            color: red;
         }
     }
 }

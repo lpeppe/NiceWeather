@@ -1,10 +1,12 @@
 .ios,
 .md {
     ski-details-list {
-        ion-item {
+        #noPlaces {
+            text-align: center;
             ion-icon.info {
                 color: map-get($colors, primary);
                 font-size: 1.4em;
+                
             }
         }
     }

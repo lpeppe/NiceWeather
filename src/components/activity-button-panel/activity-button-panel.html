@@ -11,13 +11,13 @@
             </ion-col>
             <ion-col *ngIf="review && authProvider.loggedIn" text-center (click)="writeReview()">
                 <ion-icon name='clipboard' color="primary" id="clipboard"></ion-icon>
-                <span class="item-block" id="review">Scrivi recensione</span>
+                <span class="item-block" id="review">Scrivi <br>recensione</span>
             </ion-col>
             <ion-col *ngIf="authProvider.loggedIn" text-center (click)="dataProvider.changeFavourite()">
-                <ion-icon [name]="favIcon" color="primary"></ion-icon>
-                <span class="item-block" id="favourite" *ngIf="!isFavourite; else remove">Aggiungi ai preferiti</span>
+                <ion-icon [name]="favIcon" color="primary" id="favourIcon"></ion-icon>
+                <span class="item-block" id="favourite" *ngIf="!isFavourite; else remove">Aggiungi <br>ai preferiti</span>
                 <ng-template #remove>
-                    <span class="item-block" id="favourite">Rimuovi dai preferiti</span>
+                    <span class="item-block" id="favourite">Rimuovi <br>dai preferiti</span>
                 </ng-template>
             </ion-col>
         </ion-row>
