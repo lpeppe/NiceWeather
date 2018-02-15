@@ -4,6 +4,7 @@ import { Platform, ToastController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { GeoqueryProvider } from '../../providers/geoquery/geoquery';
 import { SelectedActivity } from '../../models/enums';
+import { SplashScreen } from '@ionic-native/splash-screen';
 
 // import { AngularFirestore } from 'angularfire2/firestore';
 // declare var google;
@@ -19,12 +20,17 @@ export class HomePage {
     private geolocation: Geolocation,
     public statusProvider: StatusProvider,
     private toastCtrl: ToastController,
-    public geoQueryProvider: GeoqueryProvider) { }
+    public geoQueryProvider: GeoqueryProvider,
+    public splashScreen: SplashScreen) { }
 
   getTimeFabStyle(): string {
     if (this.statusProvider.selectedActivity.getValue() == SelectedActivity.sun)
       return '2vw';
     return 'calc(2vw + 70px)';
+  }
+
+  ionViewDidLoad() {
+    this.splashScreen.hide();
   }
 
   async ngAfterViewInit() {
