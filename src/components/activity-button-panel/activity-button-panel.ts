@@ -7,7 +7,7 @@ import { DataProvider } from './../../providers/data/data';
 import { StatusProvider } from './../../providers/status/status';
 import { ModalController } from 'ionic-angular';
 import { WriteReviewPage } from './../../pages/write-review/write-review';
-
+import "rxjs/add/operator/skip"
 @Component({
   selector: 'activity-button-panel',
   templateUrl: 'activity-button-panel.html'
@@ -29,7 +29,7 @@ export class ActivityButtonPanelComponent implements OnDestroy {
     this.subscriptions.push(
       this.statusProvider.placeSelected.subscribe(id => {
         this.dataProvider.isFavourite(id)
-          .takeWhile(_ => this.statusProvider.placeSelected.getValue() == id)
+          .takeUntil(this.statusProvider.placeSelected.skip(1))
           .subscribe(data => {
             data ? this.favIcon = "heart" : this.favIcon = "heart-outline"
             this.isFavourite = data;

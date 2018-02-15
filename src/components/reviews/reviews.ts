@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs/Subscription';
 import * as moment from 'moment';
 
 import 'rxjs/add/operator/takeWhile';
-
+import "rxjs/add/operator/skip"
 @Component({
   selector: 'reviews',
   templateUrl: 'reviews.html'
@@ -34,7 +34,7 @@ export class ReviewsComponent implements OnInit, OnDestroy {
             // let data = await this.dataProvider.getReviews();
             this.subscriptions.push(
               this.dataProvider.getReviews()
-                .takeWhile(_ => this.statusProvider.placeSelected.getValue() == id)
+                .takeUntil(this.statusProvider.placeSelected.skip(1))
                 .subscribe(data => {
                   this.reviews.splice(0, this.reviews.length);
                   for (let id in data) {
@@ -54,8 +54,8 @@ export class ReviewsComponent implements OnInit, OnDestroy {
       if (review > index && review < index + 1)
         return "star-half";
       return "star";
-    } 
-    
+    }
+
     return "star-outline";
   }
 
