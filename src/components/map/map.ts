@@ -217,7 +217,13 @@ export class MapComponent implements OnDestroy, AfterViewInit {
             this.map.removeLayer(this.geoJson);
           this.geoJson = L.geoJSON(turfHelpers.lineString(data.map(x => {
             return [x.lng, x.lat]
-          })));
+          })), {
+              style: _ => {
+                return {
+                  color: "#029DC0"
+                }
+              }
+            });
           this.map.fitBounds(this.geoJson.getBounds());
           this.geoJson.addTo(this.map)
           break;
