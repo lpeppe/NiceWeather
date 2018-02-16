@@ -1,7 +1,6 @@
 import { Platform } from 'ionic-angular';
 import { Subscription } from 'rxjs/Subscription';
 import { Injectable, OnDestroy } from '@angular/core';
-import { Component } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 
@@ -37,7 +36,7 @@ export class AuthProvider implements OnDestroy {
   }
 
   login() {
-    if (this.platform.is('core') || !this.platform.is('cordova')) {
+    if (this.platform.is('core')) {
       firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider())
         .then(data => console.log(data))
         .catch(err => console.log(err))

@@ -1,6 +1,5 @@
 import { LatLng } from './../../models/interfaces';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { SelectedActivity } from './../../models/enums';
 import * as moment from 'moment';

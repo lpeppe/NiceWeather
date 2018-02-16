@@ -1,8 +1,7 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Review } from './../../models/interfaces';
 import { DataProvider } from './../../providers/data/data';
 import { StatusProvider } from './../../providers/status/status';
-import { SelectedActivity } from './../../models/enums';
 import { Subscription } from 'rxjs/Subscription';
 import * as moment from 'moment';
 

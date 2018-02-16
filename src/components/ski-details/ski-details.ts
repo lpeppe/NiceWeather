@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SkiDetails } from './../../models/interfaces';
 import { StatusProvider } from './../../providers/status/status';
 import { DataProvider } from '../../providers/data/data';

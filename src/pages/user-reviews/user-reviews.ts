@@ -2,7 +2,6 @@ import { ViewController } from 'ionic-angular';
 import { Subscription } from 'rxjs/Subscription';
 import { DataProvider } from './../../providers/data/data';
 import { Component, OnDestroy } from '@angular/core';
-import { SelectedActivity } from '../../models/enums';
 
 @Component({
   selector: 'page-user-reviews',

@@ -8,7 +8,6 @@ import { Component, OnDestroy, AfterViewInit } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { SelectedActivity } from './../../models/enums';
 import { getClusterOptions, invisibleIcon, visibleIcon, getActivityIconOptions } from '../../app/cluster-settings';
-import { getDaysString } from './../../app/utils';
 
 import * as turfHelpers from '@turf/helpers';
 import { Subscription } from 'rxjs/Subscription';
