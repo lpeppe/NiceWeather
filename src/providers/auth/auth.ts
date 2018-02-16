@@ -37,7 +37,7 @@ export class AuthProvider implements OnDestroy {
   }
 
   login() {
-    if (this.platform.is('core')) {
+    if (this.platform.is('core') || !this.platform.is('cordova')) {
       firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider())
         .then(data => console.log(data))
         .catch(err => console.log(err))
