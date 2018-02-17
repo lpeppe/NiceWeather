@@ -22,7 +22,7 @@
         "@angular/platform-browser-dynamic": "5.0.0",
         "@ionic-native/call-number": "^4.5.3",
         "@ionic-native/core": "^4.3.0",
-        "@ionic-native/geolocation": "^4.4.0",
+        "@ionic-native/geolocation": "^4.5.3",
         "@ionic-native/google-plus": "^4.5.3",
         "@ionic-native/launch-navigator": "^4.5.3",
         "@ionic-native/splash-screen": "4.3.0",
@@ -76,15 +76,15 @@
             "cordova-plugin-statusbar": {},
             "cordova-plugin-whitelist": {},
             "ionic-plugin-keyboard": {},
-            "cordova-plugin-geolocation": {
-                "GEOLOCATION_USAGE_DESCRIPTION": "To locate you"
-            },
             "uk.co.workingedge.phonegap.plugin.launchnavigator": {
                 "LOCATION_USAGE_DESCRIPTION": "This app requires access to your location for navigation purposes"
             },
             "mx.ferreyra.callnumber": {},
             "cordova-plugin-googleplus": {
                 "REVERSED_CLIENT_ID": "com.googleusercontent.apps.189002884216-di1h47iafmdknqvk9hrkh82ec8dfel8v"
+            },
+            "cordova-plugin-geolocation": {
+                "GEOLOCATION_USAGE_DESCRIPTION": "To locate you"
             }
         },
         "platforms": [
