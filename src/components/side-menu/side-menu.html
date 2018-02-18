@@ -1,11 +1,11 @@
 <ion-menu [content]="content" id="menu-material" swipeEnabled="false">
   <ion-content>
-    <div *ngIf="authProvider.loggedIn" class="menu-header">
+    <div *ngIf="authProvider.loggedIn.getValue()" class="menu-header">
       <img class="user-avatar round" [src]="authProvider.imgUrl" />
       <p class="name">{{authProvider.name}}</p>
       <p class="e-mail">{{authProvider.email}}</p>
     </div>
-    <div *ngIf="!authProvider.loggedIn" id="login">
+    <div *ngIf="!authProvider.loggedIn.getValue()" id="login">
       <ion-item>
         <button ion-item detail-none (click)="authProvider.login()" id="loginButton">
           <!-- <ion-icon name="logo-google" id="login" item-left></ion-icon> -->
@@ -29,22 +29,22 @@
         <ion-icon name="color-wand" id="mapStyle" item-left></ion-icon>
         <ion-label>Personalizza mappa</ion-label>
       </button>
-      <button *ngIf="authProvider.loggedIn" menuClose="left" ion-item detail-none (click)="showReviews()">
+      <button *ngIf="authProvider.loggedIn.getValue()" menuClose="left" ion-item detail-none (click)="showReviews()">
         <ion-icon name="clipboard" id="reviews" item-left></ion-icon>
         <!-- <i class="fas fa-pencil-alt" id="reviews"></i> -->
         Le mie recensioni
       </button>
-      <button *ngIf="authProvider.loggedIn" menuClose="left" ion-item detail-none (click)="showFavourites()">
+      <button *ngIf="authProvider.loggedIn.getValue()" menuClose="left" ion-item detail-none (click)="showFavourites()">
         <ion-icon name="heart" id="heart" item-left color="danger"></ion-icon>
         I miei preferiti
       </button>
-      <ion-item *ngIf="authProvider.loggedIn && statusProvider.selectedActivity.getValue() != 0">
+      <ion-item *ngIf="authProvider.loggedIn.getValue() && statusProvider.selectedActivity.getValue() != 0">
         <ion-icon name="funnel" item-left id="funnel"></ion-icon>
         <ion-label>Filtra preferiti</ion-label>
         <ion-toggle (ionChange)="toggleChanged()" [(ngModel)]="toggleValue" menuClose="left"></ion-toggle>
       </ion-item>
       <ion-footer>
-        <button *ngIf="authProvider.loggedIn; else login" menuClose="left" ion-item detail-none (click)="authProvider.logout()">
+        <button *ngIf="authProvider.loggedIn.getValue(); else login" menuClose="left" ion-item detail-none (click)="authProvider.logout()">
           <ion-icon name="power" id="logout" item-left></ion-icon>
           Logout
         </button>

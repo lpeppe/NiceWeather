@@ -1,3 +1,4 @@
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Platform } from 'ionic-angular';
 import { Subscription } from 'rxjs/Subscription';
 import { Injectable, OnDestroy } from '@angular/core';
@@ -14,7 +15,7 @@ export class AuthProvider implements OnDestroy {
   email: string;
   imgUrl: string;
   userId: string;
-  loggedIn: boolean = false;
+  loggedIn = new BehaviorSubject<boolean>(false);
 
   constructor(public afAuth: AngularFireAuth, public googlePlus: GooglePlus, public platform: Platform) {
     this.sub = this.afAuth.authState.subscribe(data => {
@@ -23,10 +24,10 @@ export class AuthProvider implements OnDestroy {
         this.email = data.email;
         this.imgUrl = data.photoURL;
         this.userId = data.uid;
-        this.loggedIn = true;
+        this.loggedIn.next(true);
       }
       else {
-        this.loggedIn = false;
+        this.loggedIn.next(false);
         this.name = null;
         this.email = null;
         this.imgUrl = null;

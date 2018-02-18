@@ -89,7 +89,7 @@ export class DataProvider {
   increaseActivitySearchNumber(): Promise<any> {
     return new Promise(async (resolve, reject) => {
       const activity = SelectedActivity[this.statusProvider.selectedActivity.getValue()];
-      if (this.authProvider.loggedIn) {
+      if (this.authProvider.loggedIn.getValue()) {
         const firebasePath = `users/${this.authProvider.userId}/${activity}/searchCounter`;
         try {
           let counter = await this.getSnapShot(firebasePath);
@@ -108,7 +108,7 @@ export class DataProvider {
 
   getFavouriteActivity(): Promise<SelectedActivity> {
     return new Promise(async (resolve, reject) => {
-      if (!this.authProvider.loggedIn)
+      if (!this.authProvider.loggedIn.getValue())
         resolve(SelectedActivity.ski)
       else {
         let promises = [];

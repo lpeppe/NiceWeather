@@ -27,14 +27,21 @@ export class ActivityButtonPanelComponent implements OnDestroy {
     public authProvider: AuthProvider, public statusProvider: StatusProvider) {
     this.subscriptions = [];
     this.subscriptions.push(
-      this.statusProvider.placeSelected.subscribe(id => {
-        this.dataProvider.isFavourite(id)
-          .takeUntil(this.statusProvider.placeSelected.skip(1))
-          .subscribe(data => {
-            data ? this.favIcon = "heart" : this.favIcon = "heart-outline"
-            this.isFavourite = data;
-          })
-      })
+      this.statusProvider.placeSelected
+        .merge(this.authProvider.loggedIn)
+        .debounceTime(10)
+        .subscribe(_ => {
+          let placeSelected = this.statusProvider.placeSelected.getValue();
+          if (placeSelected) {
+            this.dataProvider.isFavourite(placeSelected)
+              .takeUntil(this.statusProvider.placeSelected.skip(1))
+              .takeUntil(this.authProvider.loggedIn.skip(1))
+              .subscribe(isFav => {
+                isFav ? this.favIcon = "heart" : this.favIcon = "heart-outline"
+                this.isFavourite = isFav;
+              })
+          }
+        })
     )
   }
 

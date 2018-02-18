@@ -9,11 +9,11 @@
                 <ion-icon name='call' color="secondary"></ion-icon>
                 <span class="item-block" id="call">Chiama</span>
             </ion-col>
-            <ion-col *ngIf="review && authProvider.loggedIn" text-center (click)="writeReview()">
+            <ion-col *ngIf="review && authProvider.loggedIn.getValue()" text-center (click)="writeReview()">
                 <ion-icon name='clipboard' color="primary" id="clipboard"></ion-icon>
                 <span class="item-block" id="review">Scrivi <br>recensione</span>
             </ion-col>
-            <ion-col *ngIf="authProvider.loggedIn" text-center (click)="dataProvider.changeFavourite()">
+            <ion-col *ngIf="authProvider.loggedIn.getValue()" text-center (click)="dataProvider.changeFavourite()">
                 <ion-icon [name]="favIcon" color="primary" id="favourIcon"></ion-icon>
                 <span class="item-block" id="favourite" *ngIf="!isFavourite; else remove">Aggiungi <br>ai preferiti</span>
                 <ng-template #remove>
