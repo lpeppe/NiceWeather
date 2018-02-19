@@ -10,7 +10,7 @@
 </ion-header>
 <ion-content padding>
   <ion-item *ngIf="favourites.length == 0">
-    <h2>Non hai ancora aggiunto nessun preferito!</h2>
+    <h2 text-wrap>Non hai ancora aggiunto nessun preferito!</h2>
   </ion-item>
   <ion-item *ngFor="let favourite of favourites">
     <ion-icon *ngIf="favourite.activity == 'bike'; else imgIcon" name="bicycle" item-start></ion-icon>

@@ -10,7 +10,7 @@
 </ion-header>
 <ion-content padding>
   <ion-item *ngIf="reviews.length == 0">
-    <h2>Non hai ancora scritto nessuna recensione!</h2>
+    <h2 text-wrap>Non hai ancora scritto nessuna recensione!</h2>
   </ion-item>
   <ion-item *ngFor="let review of reviews">
     <ion-icon *ngIf="isBikeIcon(review); else imgIcon" name="bicycle" item-start></ion-icon>
