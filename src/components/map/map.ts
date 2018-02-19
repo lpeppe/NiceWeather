@@ -20,7 +20,7 @@ import 'leaflet.markercluster';
 import '../../assets/js/leaflet-beautify-marker-icon';
 
 const maxZoom = 12;
-const minZoom = 8;
+const minZoom = 6;
 @Component({
   selector: 'map',
   templateUrl: 'map.html'

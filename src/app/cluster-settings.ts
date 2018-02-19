@@ -98,6 +98,10 @@ export const computeGridSize = (zoomLevel) => {
     // if(zoomLevel == 8)
     //     return 50
     switch (zoomLevel) {
+        case 6:
+            return 40;
+        case 7:
+            return 40;
         case 8:
             return 60;
         case 9:
