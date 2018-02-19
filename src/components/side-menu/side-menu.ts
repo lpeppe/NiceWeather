@@ -30,9 +30,11 @@ export class SideMenuComponent {
 
   async seeActivities() {
     try {
+      this.statusProvider.placeSelected.next(undefined);
       this.statusProvider.selectedActivity.next(await this.dataProvider.getFavouriteActivity());
     }
     catch (err) {
+      this.statusProvider.selectedActivity.next(SelectedActivity.ski);
       console.log(err)
     }
   }
