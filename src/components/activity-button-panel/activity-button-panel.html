@@ -1,24 +1,35 @@
 <ion-item>
     <ion-grid>
         <ion-row id="buttons">
-            <ion-col *ngIf="navigator" text-center (click)="startNavigator()">
-                <ion-icon name='navigate' color="primary"></ion-icon>
+            <ion-col *ngIf="navigator" text-center>
+                <button ion-button color="primary" round icon-only (click)="startNavigator()">
+                    <ion-icon name='navigate'></ion-icon>
+                </button>
                 <span class="item-block" id="nav">Indicazioni</span>
             </ion-col>
-            <ion-col *ngIf="call" text-center (click)="startCall()">
-                <ion-icon name='call' color="secondary"></ion-icon>
+            <ion-col *ngIf="call" text-center>
+                <button ion-button color="primary" round icon-only (click)="startCall()">
+                    <ion-icon name='call'></ion-icon>
+                </button>
                 <span class="item-block" id="call">Chiama</span>
             </ion-col>
-            <ion-col *ngIf="review && authProvider.loggedIn.getValue()" text-center (click)="writeReview()">
-                <ion-icon name='clipboard' color="primary" id="clipboard"></ion-icon>
-                <span class="item-block" id="review">Scrivi <br>recensione</span>
-            </ion-col>
-            <ion-col *ngIf="authProvider.loggedIn.getValue()" text-center (click)="dataProvider.changeFavourite()">
-                <ion-icon [name]="favIcon" color="primary" id="favourIcon"></ion-icon>
-                <span class="item-block" id="favourite" *ngIf="!isFavourite; else remove">Aggiungi <br>ai preferiti</span>
+            <ion-col *ngIf="authProvider.loggedIn.getValue()" text-center>
+                <button ion-button color="primary" round icon-only (click)="dataProvider.changeFavourite()">
+                    <ion-icon [name]="favIcon" id="favourIcon"></ion-icon>
+                </button>
+                <span class="item-block" id="favourite" *ngIf="!isFavourite; else remove">Aggiungi
+                    <br>ai preferiti</span>
                 <ng-template #remove>
-                    <span class="item-block" id="favourite">Rimuovi <br>dai preferiti</span>
+                    <span class="item-block" id="favourite">Rimuovi
+                        <br>dai preferiti</span>
                 </ng-template>
+            </ion-col>
+            <ion-col *ngIf="review && authProvider.loggedIn.getValue()" text-center>
+                <button ion-button color="primary" round icon-only (click)="writeReview()">
+                    <ion-icon name='clipboard' id="clipboard"></ion-icon>
+                </button>
+                <span class="item-block" id="review">Scrivi
+                    <br>recensione</span>
             </ion-col>
         </ion-row>
     </ion-grid>

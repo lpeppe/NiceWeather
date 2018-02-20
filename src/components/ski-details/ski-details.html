@@ -13,7 +13,7 @@
     <ion-grid>
         <ion-row>
             <ion-col *ngFor="let detail of pisteDetails">
-                <p>{{(detail.name | skiDetails)}}</p>
+                <p [ngStyle]="{color: detail.color == 'primary' ? '#029DC0' : detail.color}">{{(detail.name | skiDetails)}}</p>
                 <span [ngStyle]="{color: detail.color}">{{detail.value}}</span>
             </ion-col>
         </ion-row>

@@ -42,7 +42,7 @@
                 ion-row {
                     ion-col {
                         p {
-                            color: rgb(90, 90, 90);
+                            color: #8a8a8a;
                             font-size: 0.8em;
                             margin-bottom: 3px;
                             font-weight: bold;
@@ -50,7 +50,7 @@
                         span {
                             font-weight: bold;
                             font-size: 2rem;
-                            color: #727272; //color: map-get($colors, primary);
+                            color: #8a8a8a;
                         }
                     }
                 }
@@ -67,7 +67,7 @@
             }
         }
         #recensioni {
-            //color: map-get($colors, primary);
+            color: map-get($colors, primary);
             font-size: 1.3em;
             text-align: center;
             font-weight: bold;

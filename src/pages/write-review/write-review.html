@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-buttons left>
       <button ion-button id="back" icon-only (click)="viewCtrl.dismiss()">
         <ion-icon name="arrow-round-back"></ion-icon>
@@ -11,7 +11,7 @@
 
 
 <ion-content padding>
-    <ion-label>Inserisci valutazione:</ion-label>
+  <ion-label>Inserisci valutazione:</ion-label>
   <ion-item>
     <ion-icon class="star" [name]="getStarType(1)" (click)="rate = 1"></ion-icon>
     <ion-icon class="star" [name]="getStarType(2)" (click)="rate = 2"></ion-icon>

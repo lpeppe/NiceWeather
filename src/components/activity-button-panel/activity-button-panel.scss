@@ -10,12 +10,13 @@
         span#nav,
         span#review,
         span#favourite {
+            margin-top: 8px;
             font-weight: bold;
             font-size: 1.4rem;
             text-align: center;
         }
         span#call {
-            color: map-get($colors, secondary);
+            color: map-get($colors, primary);
         }
         span#nav {
             color: map-get($colors, primary);
@@ -27,13 +28,8 @@
             color: map-get($colors, primary);
         }
         ion-icon {
+            margin: 5px;
             font-size: 1.6em !important;
-        }
-        #clipboard {
-            color: map-get($colors, primary);
-        }
-        #favourIcon {
-            color: map-get($colors, primary);
         }
     }
 }
