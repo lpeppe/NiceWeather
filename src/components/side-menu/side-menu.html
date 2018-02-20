@@ -27,8 +27,7 @@
         <ion-radio value="activity" menuClose="left" (ionSelect)="seeActivities()"></ion-radio>
       </ion-item>
       <hr>
-      <button ion-item detail-none menuClose="left" (click)="openMapCustomization()" no-lines [disabled]="!authProvider.loggedIn.getValue()"
-        [ngClass]="{'enabled-item': authProvider.loggedIn.getValue()}">
+      <button ion-item detail-none menuClose="left" (click)="openMapCustomization()" no-lines>
         <i class="fas fa-map" id="mapStyle" item-left></i>
         <ion-label>Personalizza mappa</ion-label>
       </button>
