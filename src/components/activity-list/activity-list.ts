@@ -27,10 +27,6 @@ export class ActivityListComponent implements OnDestroy {
     this.height = 'calc(100vh - ' + event.center.y + 'px';
   }
 
-  onClick(event: any) {
-    this.height = '30vh';
-  }
-
   ngOnDestroy() {
     for (let subscription of this.subscriptions)
       subscription.unsubscribe();

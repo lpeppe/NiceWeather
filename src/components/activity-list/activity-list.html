@@ -1,5 +1,5 @@
 <div>
-  <div id="arrowDiv" (pan)="onPan($event)" (click)="onClick($event)">
+  <div id="arrowDiv" (pan)="onPan($event)">
     <ion-icon name="ios-arrow-up"></ion-icon>
   </div>
   <ion-scroll [ngStyle]="{ height: height }" scrollY="true" [ngSwitch]="(statusProvider.selectedActivity | async)">
