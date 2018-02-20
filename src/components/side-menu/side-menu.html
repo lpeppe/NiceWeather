@@ -8,45 +8,52 @@
     <div *ngIf="!authProvider.loggedIn.getValue()" id="login">
       <ion-item>
         <button ion-item detail-none (click)="authProvider.login()" id="loginButton">
-          <!-- <ion-icon name="logo-google" id="login" item-left></ion-icon> -->
           <img id="loginImage" src="assets/icon/google.png" />
           <p>Login</p>
         </button>
       </ion-item>
     </div>
     <ion-list radio-group>
-      <ion-item>
-        <ion-icon name="sunny" id="sun" item-left></ion-icon>
-        <ion-label>Sole</ion-label>
+      <ion-item no-lines>
+        <ion-icon name="sunny" id="sun" item-left [ngClass]="{'selected-item': statusProvider.selectedActivity.getValue() == 0, 
+        'enabled-item': statusProvider.selectedActivity.getValue() != 0}"></ion-icon>
+        <ion-label [ngClass]="{'enabled-item': statusProvider.selectedActivity.getValue() != 0}">Sole</ion-label>
         <ion-radio value="sun" menuClose="left" checked (ionSelect)="seeSun()"></ion-radio>
       </ion-item>
-      <ion-item>
-        <ion-icon class="fas fa-list-ul" id="activity" item-left></ion-icon>
-        <ion-label>Attività</ion-label>
+      <ion-item no-lines>
+        <ion-icon class="fas fa-list-ul" id="activity" item-left [ngClass]="{'selected-item': statusProvider.selectedActivity.getValue() != 0, 
+        'enabled-item': statusProvider.selectedActivity.getValue() == 0}"></ion-icon>
+        <ion-label [ngClass]="{'enabled-item': statusProvider.selectedActivity.getValue() == 0}">Attività</ion-label>
         <ion-radio value="activity" menuClose="left" (ionSelect)="seeActivities()"></ion-radio>
       </ion-item>
-      <button ion-item detail-none menuClose="left" (click)="openMapCustomization()">
-        <ion-icon name="color-wand" id="mapStyle" item-left></ion-icon>
+      <hr>
+      <button ion-item detail-none menuClose="left" (click)="openMapCustomization()" no-lines [disabled]="!authProvider.loggedIn.getValue()"
+        [ngClass]="{'enabled-item': authProvider.loggedIn.getValue()}">
+        <i class="fas fa-map" id="mapStyle" item-left></i>
         <ion-label>Personalizza mappa</ion-label>
       </button>
-      <button *ngIf="authProvider.loggedIn.getValue()" menuClose="left" ion-item detail-none (click)="showReviews()">
+      <button menuClose="left" ion-item detail-none (click)="showReviews()" no-lines [disabled]="!authProvider.loggedIn.getValue()"
+        [ngClass]="{'enabled-item': authProvider.loggedIn.getValue()}">
         <ion-icon name="clipboard" id="reviews" item-left></ion-icon>
-        <!-- <i class="fas fa-pencil-alt" id="reviews"></i> -->
         Le mie recensioni
       </button>
-      <button *ngIf="authProvider.loggedIn.getValue()" menuClose="left" ion-item detail-none (click)="showFavourites()">
-        <ion-icon name="heart" id="heart" item-left color="danger"></ion-icon>
+      <button menuClose="left" ion-item detail-none (click)="showFavourites()" no-lines [disabled]="!authProvider.loggedIn.getValue()"
+        [ngClass]="{'enabled-item': authProvider.loggedIn.getValue()}">
+        <ion-icon name="heart" id="heart" item-left></ion-icon>
         I miei preferiti
       </button>
-      <ion-item *ngIf="authProvider.loggedIn.getValue() && statusProvider.selectedActivity.getValue() != 0">
-        <ion-icon name="funnel" item-left id="funnel"></ion-icon>
+      <ion-item no-lines [ngClass]="{'enabled-item': authProvider.loggedIn.getValue()}">
+        <ion-icon name="funnel" item-left id="funnel" [ngClass]="{'disabled-item': !authProvider.loggedIn.getValue() 
+        || statusProvider.selectedActivity.getValue() == 0}">
+        </ion-icon>
         <ion-label>Filtra preferiti</ion-label>
-        <ion-toggle (ionChange)="toggleChanged()" [(ngModel)]="toggleValue" menuClose="left"></ion-toggle>
+        <ion-toggle (ionChange)="toggleChanged()" [(ngModel)]="toggleValue" menuClose="left" [disabled]="!authProvider.loggedIn.getValue() 
+        || statusProvider.selectedActivity.getValue() == 0"></ion-toggle>
       </ion-item>
       <ion-footer>
         <button *ngIf="authProvider.loggedIn.getValue(); else login" menuClose="left" ion-item detail-none (click)="authProvider.logout()">
           <ion-icon name="power" id="logout" item-left></ion-icon>
-          Logout
+          <ion-label class="enabled-item">Logout</ion-label>
         </button>
       </ion-footer>
     </ion-list>

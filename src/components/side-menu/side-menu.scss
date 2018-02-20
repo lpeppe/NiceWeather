@@ -29,19 +29,16 @@
                 font-weight: 400;
             }
             #sun {
-                color: #FFCD18;
                 font-size: 1.5em;
             }
             #activity {
-                color: #006666;
-                font-size: 1.1em;
+                font-size: 1.2em;
             }
             #mapStyle {
-                color: rgba(255, 209, 110, 0.966);
-                font-size: 1.5em;
+                margin-right: 36px !important;
+                font-size: 1.2em;
             }
             #reviews {
-                color: rgb(116, 50, 24);
                 font-size: 1.4em;
             }
             #logout {
@@ -53,7 +50,6 @@
             }
             #funnel {
                 font-size: 1.3em;
-                color: grey;
             }
             #login {
                 display: flex;
@@ -73,7 +69,20 @@
                 }
             }
             ion-list {
+                .disabled-item {
+                    opacity: .3;
+                    color: black;
+                }
+                .enabled-item {
+                    color: map-get($colors, enabled);
+                }
+                .selected-item {
+                    color: map-get($colors, primary);
+                }
                 ion-radio {
+                    div.radio-icon {
+                        display: none;
+                    }
                     button:focus {
                         outline: none;
                     }

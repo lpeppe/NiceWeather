@@ -50,7 +50,7 @@
                         span {
                             font-weight: bold;
                             font-size: 2rem;
-                            color: map-get($colors, primary);
+                            color: #727272; //color: map-get($colors, primary);
                         }
                     }
                 }
@@ -67,7 +67,7 @@
             }
         }
         #recensioni {
-            color: map-get($colors, primary);
+            //color: map-get($colors, primary);
             font-size: 1.3em;
             text-align: center;
             font-weight: bold;
