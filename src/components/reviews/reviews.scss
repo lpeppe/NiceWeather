@@ -37,5 +37,15 @@
                 }
             }
         }
+        #recensioni {
+            color: map-get($colors, primary);
+            font-size: 1.3em;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 5px !important;
+            margin-left: 25px !important;
+            margin-right: 25px !important;
+            margin-bottom: 18px !important;
+        }
     }
 }
