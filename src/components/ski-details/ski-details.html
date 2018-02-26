@@ -1,0 +1,23 @@
+<ion-item id="titleItem">
+    <div id="titleDiv">
+        <button ion-button (click)="statusProvider.placeSelected.next(undefined)">
+            <ion-icon name="arrow-round-back"></ion-icon>
+        </button>
+        <h1 text-wrap>{{pisteName}}</h1>
+        <p>Piste:
+            <span>{{numPiste}}</span>
+        </p>
+    </div>
+</ion-item>
+<ion-item id="details">
+    <ion-grid>
+        <ion-row>
+            <ion-col *ngFor="let detail of pisteDetails">
+                <p [ngStyle]="{color: detail.color == 'primary' ? '#029DC0' : detail.color}">{{(detail.name | skiDetails)}}</p>
+                <span [ngStyle]="{color: detail.color}">{{detail.value}}</span>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-item>
+<activity-button-panel navigator="true" call="true" review="true"></activity-button-panel>
+<reviews></reviews>

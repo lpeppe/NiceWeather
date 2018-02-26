@@ -1,0 +1,104 @@
+.ios,
+.md {
+    side-menu {
+        #menu-material {
+            .menu-header {
+                //padding: 5px 15px;
+                padding: 20px 40px;
+                background-color: map-get($colors, primary);
+                background-size: cover;
+                color: white;
+                .name {
+                    //font-weight: 500;
+                    font-weight: 600;
+                    margin-bottom: 3px;
+                }
+                .e-mail {
+                    margin-top: 0;
+                    margin-bottom: 5px;
+                }
+            }
+            .user-avatar {
+                padding: .5em;
+                height: 12vh;
+                border-radius: 100px;
+            }
+            h3,
+            .label,
+            {
+                font-weight: 400;
+            }
+            #sun {
+                font-size: 1.5em;
+            }
+            #activity {
+                font-size: 1.4em;
+            }
+            #mapStyle {
+                font-size: 1.2em;
+            }
+            #reviews {
+                font-size: 1.4em;
+            }
+            #logout {
+                color: map-get($colors, primary);
+                font-size: 1.6em;
+            }
+            #heart {
+                font-size: 1.4em;
+            }
+            #funnel {
+                font-size: 1.3em;
+            }
+            #login {
+                display: flex;
+                #loginButton {
+                    text-align: center;
+                    button:focus {
+                        outline: none;
+                    }
+                    #loginImage {
+                        height: 28px;
+                        width: 28px;
+                    }
+                    p {
+                        font-size: 1.1em;
+                        color: map-get($colors, primary);
+                    }
+                }
+            }
+            ion-list {
+                .disabled-item {
+                    opacity: .3;
+                    color: black;
+                }
+                .enabled-item {
+                    color: map-get($colors, enabled);
+                }
+                .selected-item {
+                    color: map-get($colors, primary);
+                }
+                ion-radio {
+                    div.radio-icon {
+                        display: none;
+                    }
+                    button:focus {
+                        outline: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.ios {
+    #mapStyle {
+        margin-right: 16px !important;
+    }
+}
+
+.md {
+    #mapStyle {
+        margin-right: 36px !important;
+    }
+}

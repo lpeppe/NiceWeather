@@ -1,0 +1,21 @@
+.ios,
+.md {
+    sea-details-list {
+        ion-icon.rating {
+            color: #FFCD18;
+        }
+        ion-item {
+           
+            div.rating {
+                margin-bottom: 10px;
+            }
+        }
+        #noPlaces {
+            text-align: center;
+            ion-icon.info {
+                color: map-get($colors, primary);
+                font-size: 1.4em;
+            }
+        }
+    }
+}

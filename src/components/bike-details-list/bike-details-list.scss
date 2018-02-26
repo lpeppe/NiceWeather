@@ -1,0 +1,12 @@
+.ios,
+.md {
+    bike-details-list {
+        #noPlaces {
+            text-align: center;
+            ion-icon.info {
+                color: map-get($colors, primary);
+                font-size: 1.4em;
+            }
+        }
+    }
+}

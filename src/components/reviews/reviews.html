@@ -1,0 +1,26 @@
+<ion-item no-lines>
+  <p id="recensioni">Recensioni</p>
+</ion-item>
+<ion-list>
+  <ion-item *ngFor="let review of reviews">
+    <div class="center">
+      <ion-avatar>
+        <img [src]="review.pic">
+      </ion-avatar>
+    </div>
+    <p class="name">{{review.name}} {{review.surname}}</p>
+    <div class="rating">
+      <ion-icon class="rate" [name]="getStarName(1, review.rating)"></ion-icon>
+      <ion-icon class="rate" [name]="getStarName(2, review.rating)"></ion-icon>
+      <ion-icon class="rate" [name]="getStarName(3, review.rating)"></ion-icon>
+      <ion-icon class="rate" [name]="getStarName(4, review.rating)"></ion-icon>
+      <ion-icon class="rate" [name]="getStarName(5, review.rating)"></ion-icon>
+    </div>
+    <span *ngIf="!review.review" class="review" text-wrap>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin velit lacus, facilisis eu justo in, vulputate varius urna.
+      Morbi vitae ultricies erat, eu tristique nulla</span>
+    <span *ngIf="review.review" text-wrap>{{review.review}}</span>
+    <div class="date">
+      <p>{{review.date}}</p>
+    </div>
+  </ion-item>
+</ion-list>

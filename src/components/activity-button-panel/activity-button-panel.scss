@@ -1,0 +1,35 @@
+.ios,
+.md {
+    activity-button-panel {
+        .item-block {
+            text-align: center;
+            display: block;
+            align-items: center;
+        }
+        span#call,
+        span#nav,
+        span#review,
+        span#favourite {
+            margin-top: 8px;
+            font-weight: bold;
+            font-size: 1.4rem;
+            text-align: center;
+        }
+        span#call {
+            color: map-get($colors, primary);
+        }
+        span#nav {
+            color: map-get($colors, primary);
+        }
+        span#favourite {
+            color: map-get($colors, primary);
+        }
+        span#review {
+            color: map-get($colors, primary);
+        }
+        ion-icon {
+            margin: 5px;
+            font-size: 1.6em !important;
+        }
+    }
+}

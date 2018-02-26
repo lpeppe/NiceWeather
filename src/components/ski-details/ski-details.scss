@@ -1,0 +1,75 @@
+.ios,
+.md {
+    ski-details {
+        #titleItem {
+            height: 100px;
+            background-color: map-get($colors, primary);
+            border-top: 1px solid white;
+            border-bottom: 1px solid white;
+        }
+        #titleDiv {
+            h1 {
+                text-align: center;
+                font-weight: bold;
+                color: white;
+                font-size: 1.3em;
+                margin-left: 25px !important;
+                margin-right: 25px !important;
+                background-color: map-get($colors, primary);
+            }
+            p {
+                text-align: center;
+                font-weight: bold;
+                color: white;
+                font-size: medium;
+            }
+            button:focus {
+                outline: none;
+            }
+            button {
+                padding-left: 0 !important;
+                margin-left: 0;
+                position: absolute;
+                top: 30%;
+                left: 15px;
+                -webkit-box-shadow: none !important;
+                box-shadow: none !important;
+            }
+            ion-icon {
+                font-size: 2em;
+            }
+            div.input-wrapper {
+                margin-left: 10px;
+            }
+        }
+        ion-item#details {
+            ion-grid {
+                text-align: center;
+                ion-row {
+                    ion-col {
+                        p {
+                            font-size: 0.8em;
+                            font-weight: bold;
+                            margin-bottom: 3px;
+                        }
+                        span {
+                            font-weight: bold;
+                            font-size: 2rem;
+                            color: map-get($colors, primary);
+                        }
+                    }
+                }
+            }
+        }
+        #recensioni {
+            color: map-get($colors, primary);
+            font-size: 1.3em;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 5px !important;
+            margin-left: 25px !important;
+            margin-right: 25px !important;
+            margin-bottom: 18px !important;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+.ios,
+.md {
+    time-fab {
+        div.timeFab {
+            button:focus {
+                outline: none;
+            }
+            ion-icon {
+                font-size: 1.5em;
+            }
+            
+        }
+    }
+}

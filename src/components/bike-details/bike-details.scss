@@ -1,0 +1,70 @@
+.ios,
+.md {
+    bike-details {
+        #titleItem {
+            height: 90px;
+            background-color: map-get($colors, primary);
+            border-top: 1px solid white;
+            border-bottom: 1px solid white;
+        }
+        #titleDiv {
+            h1 {
+                text-align: center;
+                font-weight: bold;
+                color: white;
+                font-size: 1.3em;
+                margin-left: 25px !important;
+                margin-right: 25px !important;
+                background-color: map-get($colors, primary);
+            }
+            button:focus {
+                outline: none;
+            }
+            button {
+                padding-left: 0 !important;
+                margin-left: 0;
+                position: absolute;
+                top: 30%;
+                left: 15px;
+                -webkit-box-shadow: none !important;
+                box-shadow: none !important;
+            }
+            ion-icon {
+                font-size: 2em;
+            }
+            div.input-wrapper {
+                margin-left: 10px;
+            }
+        }
+        ion-item#details {
+            ion-grid {
+                text-align: center;
+                ion-row {
+                    ion-col {
+                        p {
+                            color: #8a8a8a;
+                            font-size: 0.8em;
+                            margin-bottom: 3px;
+                            font-weight: bold;
+                        }
+                        span {
+                            font-weight: bold;
+                            font-size: 2rem;
+                            color: #8a8a8a;
+                        }
+                    }
+                }
+            }
+            button {
+                p {
+                    color: white;
+                    font-size: 1em;
+                    margin-left: 5px;
+                }
+                ion-icon {
+                    font-size: 1.8em;
+                }
+            }
+        }
+    }
+}

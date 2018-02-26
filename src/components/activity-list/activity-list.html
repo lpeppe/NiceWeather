@@ -1,0 +1,10 @@
+<div>
+  <div id="arrowDiv" (pan)="onPan($event)">
+    <ion-icon name="ios-arrow-up"></ion-icon>
+  </div>
+  <ion-scroll [ngStyle]="{ height: height }" scrollY="true" [ngSwitch]="(statusProvider.selectedActivity | async)">
+    <ski-details-list *ngSwitchCase="1"></ski-details-list>
+    <bike-details-list *ngSwitchCase="2"></bike-details-list>
+    <sea-details-list *ngSwitchCase="3"></sea-details-list>
+  </ion-scroll>
+</div>

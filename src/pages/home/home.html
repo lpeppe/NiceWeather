@@ -1,4 +1,16 @@
-<ion-content padding>
-  <ion-auto-complete></ion-auto-complete>
-  <div #map id="map"></div>
+<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>MeteoWhere</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <map></map>
+    <autocomplete></autocomplete>
+    <activity-fab *ngIf="(statusProvider.selectedActivity | async) != 0"></activity-fab>
+    <time-fab [ngStyle]="{left: getTimeFabStyle()}"></time-fab>
+    <geo-fab></geo-fab>
+    <activity-list *ngIf="(statusProvider.selectedActivity | async) != 0"></activity-list>
 </ion-content>

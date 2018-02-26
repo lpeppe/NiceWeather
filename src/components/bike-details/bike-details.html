@@ -1,0 +1,20 @@
+<ion-item id="titleItem">
+  <div id="titleDiv">
+    <button ion-button (click)="statusProvider.placeSelected.next(undefined)">
+      <ion-icon name="arrow-round-back"></ion-icon>
+    </button>
+    <h1 text-wrap>{{pathName}}</h1>
+  </div>
+</ion-item>
+<ion-item id="details">
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let detail of pathDetails">
+        <p>{{(detail.name | bikeDetails)}}</p>
+        <span>{{detail.value}}</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-item>
+<activity-button-panel navigator="true" review="true"></activity-button-panel>
+<reviews></reviews>
