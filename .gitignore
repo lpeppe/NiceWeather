@@ -6,3 +6,4 @@ config.xml
 .sourcemaps/
 .vscode/
 meteoWhereKey.keystore
+src/environment.ts

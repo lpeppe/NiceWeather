@@ -20,11 +20,11 @@
   <script src="cordova.js"></script>
   <!-- un-comment this code to enable service worker -->
   <script>
-    // if ('serviceWorker' in navigator) {
-    //   navigator.serviceWorker.register('service-worker.js')
-    //     .then(() => console.log('service worker installed'))
-    //     .catch(err => console.error('Error', err));
-    // }
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('service worker installed'))
+        .catch(err => console.error('Error', err));
+    }
 
     // window.isUpdateAvailable = new Promise(function (resolve, reject) {
     //   if ('serviceWorker' in navigator) {

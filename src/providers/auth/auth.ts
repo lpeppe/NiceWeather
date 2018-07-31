@@ -37,8 +37,8 @@ export class AuthProvider implements OnDestroy {
   }
 
   login() {
-    if (this.platform.is('core')) {
-      firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider())
+    if (!this.platform.is('cordova') || this.platform.is('mobileweb')) {
+      firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider())
         .then(data => console.log(data))
         .catch(err => console.log(err))
     }

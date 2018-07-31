@@ -16,12 +16,19 @@ export class PopoverPage {
     minute: 0,
     hour: 13
   };
+  // days = [
+  //   moment().set(this.options),
+  //   moment().set(this.options).add(1, 'days'),
+  //   moment().set(this.options).add(2, 'days'),
+  //   moment().set(this.options).add(3, 'days'),
+  //   moment().set(this.options).add(4, 'days')
+  // ]
   days = [
-    moment().set(this.options),
-    moment().set(this.options).add(1, 'days'),
-    moment().set(this.options).add(2, 'days'),
-    moment().set(this.options).add(3, 'days'),
-    moment().set(this.options).add(4, 'days')
+    moment.unix(1526990400),
+    moment.unix(1526990400).add(1, 'days'),
+    moment.unix(1526990400).add(2, 'days'),
+    moment.unix(1526990400).add(3, 'days'),
+    moment.unix(1526990400).add(4, 'days')
   ]
   selectedDays: number[];
   constructor(public statusProvider: StatusProvider, public viewController: ViewController) {

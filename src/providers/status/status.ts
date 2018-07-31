@@ -10,13 +10,14 @@ export class StatusProvider {
   mapRadius: number;
   toggleValues = new BehaviorSubject<boolean[]>([true, true, true]);
   favouritesMode = new BehaviorSubject<boolean>(false);
-  selectedDays = new BehaviorSubject<number[]>([moment()
-    .set({
-      millisecond: 0,
-      second: 0,
-      minute: 0,
-      hour: 13
-    }).unix()]);
+  // selectedDays = new BehaviorSubject<number[]>([moment()
+  //   .set({
+  //     millisecond: 0,
+  //     second: 0,
+  //     minute: 0,
+  //     hour: 13
+  //   }).unix()]);
+  selectedDays = new BehaviorSubject<number[]>([1526990400]);
 
   selectedActivity = new BehaviorSubject<SelectedActivity>(SelectedActivity.sun);
 
